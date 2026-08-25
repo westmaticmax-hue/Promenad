@@ -1,1 +1,1533 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Dagens promenad</title>
+
+<meta name="theme-color" content="#10120e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<style>
+
+:root {
+    --bg: #0d0f0c;
+    --card: #181b16;
+    --card-light: #22251f;
+    --text: #f5f7f1;
+    --muted: #969c90;
+    --green: #caff00;
+    --green-dark: #a9d900;
+    --border: rgba(255,255,255,.08);
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    background: var(--bg);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(202,255,0,.12),
+            transparent 35%
+        ),
+        var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    display: flex;
+    justify-content: center;
+}
+
+.app {
+    width: 100%;
+    max-width: 520px;
+    padding: 16px;
+}
+
+/* -------------------------
+   TOPP
+------------------------- */
+
+.header {
+    padding: 8px 6px 20px;
+}
+
+.name-day {
+    color: var(--green);
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.date {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1;
+}
+
+.weekday {
+    margin-top: 7px;
+    color: #d1d5ca;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* -------------------------
+   HERO
+------------------------- */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 250px;
+
+    padding: 28px 25px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dcff1a 0%,
+            #caff00 45%,
+            #a8df00 100%
+        );
+
+    color: #11140c;
+
+    box-shadow:
+        0 20px 55px rgba(202,255,0,.15);
+
+    margin-bottom: 17px;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    right: -75px;
+    bottom: -125px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0,0,0,.12);
+
+    box-shadow:
+        0 0 0 30px rgba(0,0,0,.025),
+        0 0 0 60px rgba(0,0,0,.018),
+        0 0 0 90px rgba(0,0,0,.012);
+}
+
+.hero-title {
+    font-size: 37px;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -1.5px;
+}
+
+.hero-subtitle {
+    margin-top: 9px;
+
+    font-size: 17px;
+    font-weight: 650;
+
+    opacity: .7;
+}
+
+/* -------------------------
+   AVGÅNG
+------------------------- */
+
+.departure {
+    position: absolute;
+
+    right: 18px;
+    top: 18px;
+
+    min-width: 95px;
+
+    padding: 11px 13px;
+
+    text-align: center;
+
+    border-radius: 19px;
+
+    background: rgba(0,0,0,.13);
+
+    backdrop-filter: blur(8px);
+}
+
+.departure-label {
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    opacity: .6;
+}
+
+.departure-time {
+    margin-top: 3px;
+
+    font-size: 26px;
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+/* -------------------------
+   INFO
+------------------------- */
+
+.duration {
+    position: absolute;
+
+    left: 25px;
+    bottom: 25px;
+
+    padding: 9px 13px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.27);
+
+    font-size: 13px;
+    font-weight: 850;
+}
+
+/* -------------------------
+   ANMÄLAN
+------------------------- */
+
+.signup-card {
+    background:
+        linear-gradient(
+            180deg,
+            #1a1c18,
+            #151713
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 25px;
+
+    padding: 14px;
+
+    box-shadow:
+        0 18px 50px rgba(0,0,0,.35);
+
+    margin-bottom: 16px;
+}
+
+.signup {
+    display: flex;
+    gap: 10px;
+}
+
+.name-input {
+    flex: 1;
+
+    min-width: 0;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    outline: none;
+
+    background: #252820;
+
+    color: white;
+
+    border-radius: 17px;
+
+    padding: 16px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+.name-input::placeholder {
+    color: #777d72;
+}
+
+.name-input:focus {
+    border-color: rgba(202,255,0,.55);
+
+    box-shadow:
+        0 0 0 3px rgba(202,255,0,.08);
+}
+
+.join-button {
+    border: none;
+
+    cursor: pointer;
+
+    min-width: 108px;
+
+    border-radius: 17px;
+
+    padding: 0 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1ff88,
+            #caff00
+        );
+
+    color: #10130c;
+
+    font-size: 16px;
+    font-weight: 900;
+
+    box-shadow:
+        0 8px 22px rgba(202,255,0,.14);
+
+    transition: transform .15s ease;
+}
+
+.join-button:active {
+    transform: scale(.96);
+}
+
+/* -------------------------
+   LISTA
+------------------------- */
+
+.list-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 20px 18px 12px;
+}
+
+.list-title {
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.count {
+    background: #252820;
+
+    color: #bfc4b9;
+
+    border-radius: 999px;
+
+    padding: 7px 11px;
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+.people {
+    padding: 0 14px 14px;
+}
+
+.person {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 13px 7px;
+
+    border-top: 1px solid var(--border);
+
+    animation: appear .25s ease;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.avatar {
+    width: 47px;
+    height: 47px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: #2a2d26;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.person-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.person-name {
+    font-size: 16px;
+    font-weight: 850;
+}
+
+.person-time {
+    margin-top: 3px;
+
+    color: #858b80;
+
+    font-size: 12px;
+}
+
+.remove {
+    border: none;
+
+    background: transparent;
+
+    color: #777d73;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 12px;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+.remove:active {
+    background: #292c25;
+}
+
+.empty {
+    padding: 28px 15px 30px;
+
+    text-align: center;
+
+    color: #777c72;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+/* -------------------------
+   INFORMATIONSKORT
+------------------------- */
+
+.info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 16px;
+}
+
+.info-card {
+    background: #171914;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 15px;
+}
+
+.info-label {
+    color: #777d73;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.info-value {
+    margin-top: 5px;
+
+    font-size: 17px;
+
+    font-weight: 900;
+}
+
+/* -------------------------
+   STATUS
+------------------------- */
+
+.status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 16px;
+
+    padding: 12px 14px;
+
+    border-radius: 16px;
+
+    background: #151713;
+
+    border: 1px solid var(--border);
+
+    color: #8e9489;
+
+    font-size: 12px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 12px rgba(202,255,0,.7);
+}
+
+/* -------------------------
+   FOOTER
+------------------------- */
+
+.footer {
+    padding: 22px 0 10px;
+
+    text-align: center;
+
+    color: #555b51;
+
+    font-size: 11px;
+}
+
+/* -------------------------
+   MOBIL
+------------------------- */
+
+@media(max-width:390px) {
+
+    .app {
+        padding: 12px;
+    }
+
+    .date {
+        font-size: 35px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .signup {
+        flex-direction: column;
+    }
+
+    .join-button {
+        height: 52px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <!-- =====================
+         DAGENS DATUM
+    ====================== -->
+
+    <header class="header">
+
+        <div
+            class="name-day"
+            id="nameDay">
+        </div>
+
+        <div
+            class="date"
+            id="date">
+        </div>
+
+        <div
+            class="weekday"
+            id="weekday">
+        </div>
+
+    </header>
+
+
+    <!-- =====================
+         HUVUDPANEL
+    ====================== -->
+
+    <section class="hero">
+
+        <div class="hero-title">
+            Lunchturen
+        </div>
+
+        <div class="hero-subtitle">
+            Ca. 30 minuter frisk luft
+        </div>
+
+
+        <div class="departure">
+
+            <div class="departure-label">
+                AVGÅNG
+            </div>
+
+            <div class="departure-time">
+                11:15
+            </div>
+
+        </div>
+
+
+        <div class="duration">
+            ☀️ Tillbaka ca. 11:45
+        </div>
+
+    </section>
+
+
+    <!-- =====================
+         ANMÄLAN + LISTA
+    ====================== -->
+
+    <section class="signup-card">
+
+        <div class="signup">
+
+            <input
+                id="nameInput"
+                class="name-input"
+                type="text"
+                maxlength="30"
+                placeholder="Skriv ditt namn…"
+                autocomplete="name"
+            >
+
+            <button
+                id="joinButton"
+                class="join-button">
+
+                Häng med
+
+            </button>
+
+        </div>
+
+
+        <div class="list-header">
+
+            <div class="list-title">
+                Anmälda
+            </div>
+
+            <div
+                class="count"
+                id="count">
+                0 PERSONER
+            </div>
+
+        </div>
+
+
+        <div
+            class="people"
+            id="people">
+        </div>
+
+    </section>
+
+
+    <!-- =====================
+         INFO
+    ====================== -->
+
+    <section class="info">
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Avgång
+            </div>
+
+            <div class="info-value">
+                11:15
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Åter
+            </div>
+
+            <div class="info-value">
+                ≈ 11:45
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================
+         STATUS
+    ====================== -->
+
+    <div class="status">
+
+        <span class="status-dot"></span>
+
+        <span id="statusText">
+            Dagens promenad är öppen
+        </span>
+
+    </div>
+
+
+    <footer class="footer">
+
+        Ny lista skapas automatiskt varje dag.
+
+    </footer>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   NAMNSDAGAR
+========================================================= */
+
+const nameDays = {
+
+    "01-01": "Emil",
+    "01-02": "Svea",
+    "01-03": "Alfred",
+    "01-04": "Rut",
+    "01-05": "Hanna, Hanne",
+    "01-06": "Kasper, Melker, Baltsar",
+    "01-07": "August, Augusta",
+    "01-08": "Erland",
+    "01-09": "Gunnar, Gunder",
+    "01-10": "Sigurd, Sigbritt",
+    "01-11": "Jan, Jannike",
+    "01-12": "Frideborg, Fridolf",
+    "01-13": "Knut",
+    "01-14": "Felix",
+    "01-15": "Laura, Lorentz",
+    "01-16": "Hjalmar, Helmer",
+    "01-17": "Anton, Tony",
+    "01-18": "Hilda, Hildur",
+    "01-19": "Henrik",
+    "01-20": "Fabian, Sebastian",
+    "01-21": "Agnes, Agneta",
+    "01-22": "Vincent, Viktor",
+    "01-23": "Frej, Freja",
+    "01-24": "Erika",
+    "01-25": "Paul, Pål",
+    "01-26": "Bodil, Boel",
+    "01-27": "Göte, Göta",
+    "01-28": "Karl, Karla",
+    "01-29": "Diana",
+    "01-30": "Gunilla, Gunborg",
+    "01-31": "Ivar, Joar",
+
+    "02-01": "Max, Maximilian",
+    "02-02": "Katarina, Katri",
+    "02-03": "Disa, Hjördis",
+    "02-04": "Ansgar, Anselm",
+    "02-05": "Agata, Agda",
+    "02-06": "Dorotea, Doris",
+    "02-07": "Rikard, Dick",
+    "02-08": "Fanny, Franciska",
+    "02-09": "Iris",
+    "02-10": "Ivar, Joar",
+    "02-11": "Yngve, Inge",
+    "02-12": "Evelina, Evy",
+    "02-13": "Agne, Ove",
+    "02-14": "Valentin",
+    "02-15": "Sigfrid",
+    "02-16": "Julia, Julius",
+    "02-17": "Alexandra, Sandra",
+    "02-18": "Frida, Fritiof",
+    "02-19": "Gabriella, Ella",
+    "02-20": "Vivianne",
+    "02-21": "Hilding",
+    "02-22": "Pia",
+    "02-23": "Torsten, Tor",
+    "02-24": "Mattias, Mats",
+    "02-25": "Sigvard, Sivert",
+    "02-26": "Torgny, Torkel",
+    "02-27": "Lage",
+    "02-28": "Maria",
+    "02-29": "Maja",
+
+    "03-01": "Albin, Elvira",
+    "03-02": "Ernst",
+    "03-03": "Gunborg, Gunvor",
+    "03-04": "Adrian, Adrianus",
+    "03-05": "Tora, Tove",
+    "03-06": "Ebba, Ebbe",
+    "03-07": "Camilla",
+    "03-08": "Siv",
+    "03-09": "Torbjörn, Torleif",
+    "03-10": "Edla, Ada",
+    "03-11": "Edvin, Egon",
+    "03-12": "Viktoria",
+    "03-13": "Greger",
+    "03-14": "Matilda, Maud",
+    "03-15": "Kristoffer, Christel",
+    "03-16": "Herbert, Gilbert",
+    "03-17": "Gertrud",
+    "03-18": "Edvard, Edmund",
+    "03-19": "Josef, Josefina",
+    "03-20": "Joakim, Kim",
+    "03-21": "Bengt",
+    "03-22": "Kennet, Kent",
+    "03-23": "Gerda, Gerd",
+    "03-24": "Gabriel, Rafael",
+    "03-25": "Marie, Mariana",
+    "03-26": "Emanuel",
+    "03-27": "Rudolf, Ralf",
+    "03-28": "Malkolm, Morgan",
+    "03-29": "Jonas, Jens",
+    "03-30": "Holger",
+    "03-31": "Ester",
+
+    "04-01": "Harald, Hervor",
+    "04-02": "Gudmund, Ingemund",
+    "04-03": "Ferdinand, Nanna",
+    "04-04": "Marianne, Marlene",
+    "04-05": "Irene, Irja",
+    "04-06": "Vilhelm, William",
+    "04-07": "Irma, Irmelin",
+    "04-08": "Nadja, Tanja",
+    "04-09": "Otto, Ottilia",
+    "04-10": "Ingvar, Ingvor",
+    "04-11": "Ulf, Ylva",
+    "04-12": "Liv",
+    "04-13": "Artur, Douglas",
+    "04-14": "Tiburtius",
+    "04-15": "Olivia, Oliver",
+    "04-16": "Patrik, Patricia",
+    "04-17": "Elias, Elis",
+    "04-18": "Valdemar, Volmar",
+    "04-19": "Olaus, Ola",
+    "04-20": "Amalia, Amelie",
+    "04-21": "Anneli, Annika",
+    "04-22": "Allan, Glenn",
+    "04-23": "Georg, Göran",
+    "04-24": "Vega",
+    "04-25": "Markus",
+    "04-26": "Teresia, Terese",
+    "04-27": "Engelbrekt",
+    "04-28": "Ture, Tyra",
+    "04-29": "Tyko",
+    "04-30": "Mariana",
+
+    "05-01": "Valborg",
+    "05-02": "Filip, Filippa",
+    "05-03": "John, Jane",
+    "05-04": "Monika, Mona",
+    "05-05": "Gotthard, Erhard",
+    "05-06": "Marit, Rita",
+    "05-07": "Carina, Carita",
+    "05-08": "Åke",
+    "05-09": "Rebecka, Ruben",
+    "05-10": "Esbjörn, Styrbjörn",
+    "05-11": "Märta",
+    "05-12": "Charlotta, Lotta",
+    "05-13": "Linnea, Linn",
+    "05-14": "Halvard, Halvar",
+    "05-15": "Sofia, Sonja",
+    "05-16": "Ronald, Ronny",
+    "05-17": "Rebecka, Ruben",
+    "05-18": "Erik",
+    "05-19": "Maj, Majken",
+    "05-20": "Karolina, Carola",
+    "05-21": "Konstantin, Conny",
+    "05-22": "Hemming, Henning",
+    "05-23": "Desideria, Desirée",
+    "05-24": "Esbjörn, Styrbjörn",
+    "05-25": "Urban",
+    "05-26": "Vilhelmina, Vilma",
+    "05-27": "Beda, Blenda",
+    "05-28": "Ingeborg, Borghild",
+    "05-29": "Yvonne, Jeanette",
+    "05-30": "Vera, Veronica",
+    "05-31": "Petronella, Pernilla",
+
+    "06-01": "Gun, Gunnel",
+    "06-02": "Rutger, Roger",
+    "06-03": "Ingemar, Gudmar",
+    "06-04": "Solbritt, Solveig",
+    "06-05": "Bo",
+    "06-06": "Gustav, Gösta",
+    "06-07": "Robert, Robin",
+    "06-08": "Eivor, Majvor",
+    "06-09": "Börje, Birger",
+    "06-10": "Svante, Boris",
+    "06-11": "Bertil, Berthold",
+    "06-12": "Eskil",
+    "06-13": "Aina, Aino",
+    "06-14": "Håkan",
+    "06-15": "Margareta, Greta",
+    "06-16": "Axel, Axelina",
+    "06-17": "Torborg, Torvald",
+    "06-18": "Björn, Bjarne",
+    "06-19": "Germund, Görel",
+    "06-20": "Linda",
+    "06-21": "Alf, Alfred",
+    "06-22": "Paulina, Paula",
+    "06-23": "Adolf, Alice",
+    "06-24": "Johannes, John",
+    "06-25": "David, Salomon",
+    "06-26": "Jesper",
+    "06-27": "Selma, Fingal",
+    "06-28": "Leo",
+    "06-29": "Peter, Petra",
+    "06-30": "Elof, Leif",
+
+    "07-01": "Aron, Mirjam",
+    "07-02": "Rosa",
+    "07-03": "Aurora",
+    "07-04": "Ulrika, Ulla",
+    "07-05": "Laila, Ritva",
+    "07-06": "Klas",
+    "07-07": "Kjell",
+    "07-08": "Kjell",
+    "07-09": "Jörgen, Örjan",
+    "07-10": "André, Andrea",
+    "07-11": "Eleonora, Ellinor",
+    "07-12": "Herman, Hermine",
+    "07-13": "Joel",
+    "07-14": "Folke",
+    "07-15": "Ragnhild, Ragnvald",
+    "07-16": "Reinhold, Reine",
+    "07-17": "Bruno",
+    "07-18": "Fredrik, Fritz",
+    "07-19": "Sara",
+    "07-20": "Margareta, Greta",
+    "07-21": "Johanna",
+    "07-22": "Magdalena, Madeleine",
+    "07-23": "Emma",
+    "07-24": "Kristina, Kerstin",
+    "07-25": "Jakob",
+    "07-26": "Jesper",
+    "07-27": "Marta, Martha",
+    "07-28": "Botvid, Seved",
+    "07-29": "Olof",
+    "07-30": "Alina, Elin",
+    "07-31": "Helena, Elin",
+
+    "08-01": "Per",
+    "08-02": "Karin, Kajsa",
+    "08-03": "Tage",
+    "08-04": "Arne, Arnold",
+    "08-05": "Alrik, Algot",
+    "08-06": "Alfons, Inez",
+    "08-07": "Dennis, Denise",
+    "08-08": "Silvia, Sylvia",
+    "08-09": "Roland",
+    "08-10": "Lars",
+    "08-11": "Susanna",
+    "08-12": "Klara",
+    "08-13": "Herman, Hermine",
+    "08-14": "Uno",
+    "08-15": "Stella, Estelle",
+    "08-16": "Brynolf",
+    "08-17": "Verner, Valter",
+    "08-18": "Ellen, Lena",
+    "08-19": "Magnus, Måns",
+    "08-20": "Bernhard, Bernt",
+    "08-21": "Jon, Jonna",
+    "08-22": "Henrietta, Henriette",
+    "08-23": "Signe, Signhild",
+    "08-24": "Bartolomeus",
+    "08-25": "Lovisa, Louise",
+    "08-26": "Östen",
+    "08-27": "Rolf",
+    "08-28": "Fatima",
+    "08-29": "Hans",
+    "08-30": "Albert, Albertina",
+    "08-31": "Arvid, Vidar",
+
+    "09-01": "Samuel, Sam",
+    "09-02": "Justus, Justina",
+    "09-03": "Alfhild, Alva",
+    "09-04": "Gisela",
+    "09-05": "Adela, Heidi",
+    "09-06": "Lilian, Lilly",
+    "09-07": "Kevin, Roy",
+    "09-08": "Alma, Hulda",
+    "09-09": "Anita, Annette",
+    "09-10": "Tord, Turid",
+    "09-11": "Dag, Daga",
+    "09-12": "Åsa, Åslög",
+    "09-13": "Sture",
+    "09-14": "Ida, Ronja",
+    "09-15": "Sigrid, Siri",
+    "09-16": "Eugenia, Eugen",
+    "09-17": "Hildegard, Magnhild",
+    "09-18": "Orvar, Jörgen",
+    "09-19": "Fredrika",
+    "09-20": "Elise, Lisa",
+    "09-21": "Matteus",
+    "09-22": "Maurits, Moritz",
+    "09-23": "Tekla, Tea",
+    "09-24": "Gerhard, Gert",
+    "09-25": "Tryggve",
+    "09-26": "Enar, Einar",
+    "09-27": "Dagmar, Rigmor",
+    "09-28": "Lennart, Leonard",
+    "09-29": "Mikael, Mikaela",
+    "09-30": "Helge, Helga",
+
+    "10-01": "Ragnar, Ragna",
+    "10-02": "Ludvig, Love",
+    "10-03": "Evald, Eilert",
+    "10-04": "Frans, Frank",
+    "10-05": "Bror",
+    "10-06": "Jenny, Jennifer",
+    "10-07": "Birgitta, Britta",
+    "10-08": "Nils",
+    "10-09": "Ingrid, Inger",
+    "10-10": "Harry, Harriet",
+    "10-11": "Erling, Jarl",
+    "10-12": "Valfrid, Manfred",
+    "10-13": "Berit, Birgit",
+    "10-14": "Stellan",
+    "10-15": "Hedvig, Hedda",
+    "10-16": "Finn",
+    "10-17": "Antonia, Toini",
+    "10-18": "Lukas",
+    "10-19": "Tore, Tor",
+    "10-20": "Sibylla",
+    "10-21": "Ursula, Yrsa",
+    "10-22": "Marika, Marita",
+    "10-23": "Severin, Sören",
+    "10-24": "Evert, Eilert",
+    "10-25": "Inga, Ingalill",
+    "10-26": "Amanda, Rasmus",
+    "10-27": "Sabina",
+    "10-28": "Simon, Simone",
+    "10-29": "Viola",
+    "10-30": "Edit, Edgar",
+    "10-31": "Örjan",
+
+    "11-01": "Mårten",
+    "11-02": "Tobias",
+    "11-03": "Hubert, Hugo",
+    "11-04": "Sverker",
+    "11-05": "Eugen, Eugenia",
+    "11-06": "Gustav Adolf",
+    "11-07": "Ingegerd, Ingela",
+    "11-08": "Vendela",
+    "11-09": "Teodor, Tea",
+    "11-10": "Martin, Martina",
+    "11-11": "Mårten",
+    "11-12": "Konrad, Kurt",
+    "11-13": "Kristian, Krister",
+    "11-14": "Emil, Emilia",
+    "11-15": "Leopold",
+    "11-16": "Vibeke, Viveka",
+    "11-17": "Naemi, Naima",
+    "11-18": "Max, Maximilian",
+    "11-19": "Elisabet, Lisbet",
+    "11-20": "Pontus",
+    "11-21": "Mauro, Maurits",
+    "11-22": "Cecilia, Sissela",
+    "11-23": "Clemens",
+    "11-24": "Flora",
+    "11-25": "Katarina, Katja",
+    "11-26": "Linus",
+    "11-27": "Astrid, Asta",
+    "11-28": "Malte",
+    "11-29": "Sune",
+    "11-30": "Andreas, Anders",
+
+    "12-01": "Oskar, Ossian",
+    "12-02": "Beata, Beatrice",
+    "12-03": "Lydia",
+    "12-04": "Barbara, Barbro",
+    "12-05": "Sven",
+    "12-06": "Nikolaus, Niklas",
+    "12-07": "Angela, Angelika",
+    "12-08": "Virginia",
+    "12-09": "Anna",
+    "12-10": "Malin, Malena",
+    "12-11": "Daniel, Daniela",
+    "12-12": "Alexander, Alexandra",
+    "12-13": "Lucia",
+    "12-14": "Sten, Sixten",
+    "12-15": "Gottfrid",
+    "12-16": "Assar",
+    "12-17": "Stig",
+    "12-18": "Abraham",
+    "12-19": "Isak",
+    "12-20": "Israel, Moses",
+    "12-21": "Tomas",
+    "12-22": "Natanael, Jonatan",
+    "12-23": "Adam",
+    "12-24": "Eva",
+    "12-25": "Natalia, Natalie",
+    "12-26": "Stefan, Staffan",
+    "12-27": "Johannes, Johan",
+    "12-28": "Benjamin",
+    "12-29": "Natalia, Natalie",
+    "12-30": "Abel, Set",
+    "12-31": "Sylvester"
+};
+
+
+/* =========================================================
+   DATUM
+========================================================= */
+
+const today = new Date();
+
+const months = [
+    "januari",
+    "februari",
+    "mars",
+    "april",
+    "maj",
+    "juni",
+    "juli",
+    "augusti",
+    "september",
+    "oktober",
+    "november",
+    "december"
+];
+
+const weekdays = [
+    "söndag",
+    "måndag",
+    "tisdag",
+    "onsdag",
+    "torsdag",
+    "fredag",
+    "lördag"
+];
+
+const month =
+    String(today.getMonth() + 1).padStart(2,"0");
+
+const day =
+    String(today.getDate()).padStart(2,"0");
+
+const year =
+    today.getFullYear();
+
+const dateKey =
+    `${year}-${month}-${day}`;
+
+
+/* Visa datum */
+
+document.getElementById("date").textContent =
+    `${day} ${months[today.getMonth()]}`;
+
+document.getElementById("weekday").textContent =
+    weekdays[today.getDay()];
+
+document.getElementById("nameDay").textContent =
+    "DAGENS NAMN: " +
+    (nameDays[`${month}-${day}`] || "–");
+
+
+/* =========================================================
+   DAGENS LISTA
+========================================================= */
+
+const storageKey =
+    "lunchturen-" + dateKey;
+
+
+function getPeople() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(storageKey) || "[]"
+        );
+
+    } catch {
+
+        return [];
+
+    }
+
+}
+
+
+function savePeople(people) {
+
+    localStorage.setItem(
+        storageKey,
+        JSON.stringify(people)
+    );
+
+}
+
+
+/* =========================================================
+   SÄKER TEXT
+========================================================= */
+
+function safeText(text) {
+
+    return text
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================================
+   INITIALER
+========================================================= */
+
+function getInitials(name) {
+
+    return name
+        .trim()
+        .split(/\s+/)
+        .slice(0,2)
+        .map(word =>
+            word.charAt(0).toUpperCase()
+        )
+        .join("");
+
+}
+
+
+/* =========================================================
+   VISA LISTAN
+========================================================= */
+
+function renderPeople() {
+
+    const people = getPeople();
+
+    const container =
+        document.getElementById("people");
+
+    const count =
+        document.getElementById("count");
+
+
+    count.textContent =
+        people.length +
+        (people.length === 1
+            ? " PERSON"
+            : " PERSONER");
+
+
+    if (people.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty">
+
+                Ingen har anmält sig ännu.<br>
+
+                Bli först att hänga med! 👟
+
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        people.map((person,index) => `
+
+            <div class="person">
+
+                <div class="avatar">
+                    ${safeText(
+                        getInitials(person.name)
+                    )}
+                </div>
+
+                <div class="person-info">
+
+                    <div class="person-name">
+                        ${safeText(person.name)}
+                    </div>
+
+                    <div class="person-time">
+                        Anmäld ${safeText(person.time)}
+                    </div>
+
+                </div>
+
+                <button
+                    class="remove"
+                    onclick="removePerson(${index})"
+                    aria-label="Ta bort"
+                    title="Ta bort">
+
+                    ×
+
+                </button>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   ANMÄL PERSON
+========================================================= */
+
+function joinWalk() {
+
+    const input =
+        document.getElementById("nameInput");
+
+    const name =
+        input.value.trim();
+
+
+    if (!name) {
+
+        input.focus();
+
+        return;
+
+    }
+
+
+    const people =
+        getPeople();
+
+
+    /* Kontrollera dubbla namn */
+
+    const exists =
+        people.some(person =>
+            person.name.toLowerCase()
+            === name.toLowerCase()
+        );
+
+
+    if (exists) {
+
+        input.value = "";
+
+        input.placeholder =
+            "Du är redan anmäld";
+
+        setTimeout(() => {
+
+            input.placeholder =
+                "Skriv ditt namn…";
+
+        },1800);
+
+        return;
+
+    }
+
+
+    const now =
+        new Date();
+
+
+    const time =
+        now.toLocaleTimeString(
+            "sv-SE",
+            {
+                hour: "2-digit",
+                minute: "2-digit"
+            }
+        );
+
+
+    people.push({
+
+        name: name,
+
+        time: time,
+
+        createdAt: Date.now()
+
+    });
+
+
+    savePeople(people);
+
+
+    input.value = "";
+
+
+    renderPeople();
+
+}
+
+
+/* =========================================================
+   TA BORT PERSON
+========================================================= */
+
+function removePerson(index) {
+
+    const people =
+        getPeople();
+
+
+    people.splice(index,1);
+
+
+    savePeople(people);
+
+
+    renderPeople();
+
+}
+
+
+/* =========================================================
+   KNAPP
+========================================================= */
+
+document
+    .getElementById("joinButton")
+    .addEventListener(
+        "click",
+        joinWalk
+    );
+
+
+/* Enter fungerar också */
+
+document
+    .getElementById("nameInput")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                joinWalk();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   STARTA
+========================================================= */
+
+renderPeople();
+
+
+/* =========================================================
+   MIDNATTSKONTROLL
+
+   Om sidan ligger öppen när dagen ändras laddas den om
+   så att gårdagens deltagare inte visas.
+========================================================= */
+
+setInterval(() => {
+
+    const current =
+        new Date();
+
+    const currentKey =
+        current.getFullYear() +
+        "-" +
+        String(
+            current.getMonth()+1
+        ).padStart(2,"0") +
+        "-" +
+        String(
+            current.getDate()
+        ).padStart(2,"0");
+
+
+    if (currentKey !== dateKey) {
+
+        location.reload();
+
+    }
+
+},60000);
+
+</script>
+
+</body>
+</html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -12,36 +14,56 @@
 <title>Dagens promenad</title>
 
 <meta name="theme-color" content="#090b0a">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<!-- Supabase -->
+<meta name="apple-mobile-web-app-capable"
+      content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent">
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 <style>
 
 :root {
+
     --bg: #090b0a;
     --card: #171a18;
     --card2: #202420;
+
     --text: #f5f7f1;
     --muted: #969d98;
+
     --green: #caff00;
     --green-dark: #a9d900;
-    --border: rgba(255,255,255,.09);
+
+    --border:
+        rgba(255,255,255,.09);
 }
 
+
 * {
+
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+
+    -webkit-tap-highlight-color:
+        transparent;
 }
+
 
 html,
 body {
+
     margin: 0;
     padding: 0;
-    background: var(--bg);
-    color: var(--text);
+
+    background:
+        var(--bg);
+
+    color:
+        var(--text);
+
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -51,17 +73,24 @@ body {
         sans-serif;
 }
 
+
 body {
+
     min-height: 100vh;
+
     padding:
         max(18px, env(safe-area-inset-top))
         14px
         max(28px, env(safe-area-inset-bottom));
 }
 
+
 .app {
+
     width: 100%;
+
     max-width: 520px;
+
     margin: 0 auto;
 }
 
@@ -71,41 +100,81 @@ body {
 ========================= */
 
 .header {
+
     text-align: center;
-    padding: 3px 4px 18px;
+
+    padding:
+        3px
+        4px
+        18px;
 }
+
 
 .name-day {
-    color: var(--green);
-    font-size: 13px;
-    font-weight: 850;
-    letter-spacing: 1.7px;
-    text-transform: uppercase;
-    margin-bottom: 7px;
+
+    color:
+        var(--green);
+
+    font-size:
+        13px;
+
+    font-weight:
+        850;
+
+    letter-spacing:
+        1.7px;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom:
+        7px;
 }
+
 
 .date {
-    font-size: 38px;
-    line-height: 1;
-    font-weight: 850;
-    letter-spacing: -1.5px;
+
+    font-size:
+        38px;
+
+    line-height:
+        1;
+
+    font-weight:
+        850;
+
+    letter-spacing:
+        -1.5px;
 }
 
+
 .weekday {
-    color: var(--muted);
-    font-size: 18px;
-    font-weight: 650;
-    margin-top: 8px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        18px;
+
+    font-weight:
+        650;
+
+    margin-top:
+        8px;
 }
 
 
 /* =========================
-   MAIN GREEN CARD
+   GREEN HERO
 ========================= */
 
 .hero {
-    position: relative;
-    overflow: hidden;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
 
     background:
         linear-gradient(
@@ -115,95 +184,168 @@ body {
             #a9df00 100%
         );
 
-    color: #10120e;
+    color:
+        #10120e;
 
-    border-radius: 30px;
+    border-radius:
+        30px;
 
-    padding: 23px 23px 21px;
+    padding:
+        23px
+        23px
+        21px;
 
     box-shadow:
-        0 18px 45px rgba(180,240,0,.13);
+        0 18px 45px
+        rgba(180,240,0,.13);
 }
+
 
 .hero::after {
-    content: "";
-    position: absolute;
 
-    width: 210px;
-    height: 210px;
+    content:
+        "";
 
-    right: -85px;
-    bottom: -110px;
+    position:
+        absolute;
 
-    border-radius: 50%;
+    width:
+        210px;
 
-    background: rgba(255,255,255,.11);
+    height:
+        210px;
+
+    right:
+        -85px;
+
+    bottom:
+        -110px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,.11);
 }
+
 
 .hero-title {
-    position: relative;
-    z-index: 1;
 
-    font-size: 34px;
-    font-weight: 950;
-    font-style: italic;
+    position:
+        relative;
 
-    letter-spacing: -1px;
+    z-index:
+        1;
+
+    font-size:
+        34px;
+
+    font-weight:
+        950;
+
+    font-style:
+        italic;
+
+    letter-spacing:
+        -1px;
 }
+
 
 .hero-sub {
-    position: relative;
-    z-index: 1;
 
-    font-size: 16px;
-    font-weight: 650;
+    position:
+        relative;
 
-    opacity: .72;
+    z-index:
+        1;
 
-    margin-top: 3px;
+    font-size:
+        16px;
+
+    font-weight:
+        650;
+
+    opacity:
+        .72;
+
+    margin-top:
+        3px;
 }
+
 
 .hero-row {
-    position: relative;
-    z-index: 1;
 
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+    position:
+        relative;
 
-    margin-top: 20px;
+    z-index:
+        1;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        space-between;
+
+    margin-top:
+        20px;
 }
+
 
 .time {
-    font-size: 61px;
-    line-height: .88;
 
-    font-weight: 950;
+    font-size:
+        61px;
 
-    letter-spacing: -3px;
+    line-height:
+        .88;
+
+    font-weight:
+        950;
+
+    letter-spacing:
+        -3px;
 }
+
 
 .departure {
-    text-align: right;
 
-    font-size: 14px;
-    line-height: 1.3;
+    text-align:
+        right;
 
-    font-weight: 800;
+    font-size:
+        14px;
 
-    max-width: 190px;
+    line-height:
+        1.3;
+
+    font-weight:
+        800;
+
+    max-width:
+        190px;
 }
 
+
 .departure-label {
-    display: block;
 
-    font-size: 11px;
+    display:
+        block;
 
-    letter-spacing: 1.2px;
+    font-size:
+        11px;
 
-    opacity: .55;
+    letter-spacing:
+        1.2px;
 
-    margin-bottom: 4px;
+    opacity:
+        .55;
+
+    margin-bottom:
+        4px;
 }
 
 
@@ -212,26 +354,40 @@ body {
 ========================= */
 
 .status {
-    text-align: center;
 
-    color: var(--muted);
+    text-align:
+        center;
 
-    font-size: 13px;
+    color:
+        var(--muted);
 
-    margin: 14px 0;
+    font-size:
+        13px;
+
+    margin:
+        14px 0;
 }
 
+
 .status-dot {
-    display: inline-block;
 
-    width: 7px;
-    height: 7px;
+    display:
+        inline-block;
 
-    border-radius: 50%;
+    width:
+        7px;
 
-    background: var(--green);
+    height:
+        7px;
 
-    margin-right: 6px;
+    border-radius:
+        50%;
+
+    background:
+        var(--green);
+
+    margin-right:
+        6px;
 }
 
 
@@ -240,98 +396,149 @@ body {
 ========================= */
 
 .signup {
-    display: flex;
-    gap: 8px;
 
-    background: var(--card);
+    display:
+        flex;
 
-    border: 1px solid var(--border);
+    gap:
+        8px;
 
-    border-radius: 22px;
+    background:
+        var(--card);
 
-    padding: 10px;
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        22px;
+
+    padding:
+        10px;
 }
+
 
 .signup input {
-    flex: 1;
 
-    min-width: 0;
+    flex:
+        1;
 
-    border: 0;
-    outline: 0;
+    min-width:
+        0;
 
-    background: transparent;
+    border:
+        0;
 
-    color: white;
+    outline:
+        0;
 
-    font-size: 16px;
+    background:
+        transparent;
 
-    padding: 10px;
+    color:
+        white;
+
+    font-size:
+        16px;
+
+    padding:
+        10px;
 }
+
 
 .signup input::placeholder {
-    color: #777e79;
+
+    color:
+        #777e79;
 }
+
 
 .signup button {
-    border: 0;
 
-    background: var(--green);
+    border:
+        0;
 
-    color: #111;
+    background:
+        var(--green);
 
-    border-radius: 16px;
+    color:
+        #111;
 
-    font-weight: 900;
+    border-radius:
+        16px;
 
-    font-size: 16px;
+    font-weight:
+        900;
 
-    padding: 0 18px;
+    font-size:
+        16px;
 
-    cursor: pointer;
+    padding:
+        0 18px;
 
-    min-height: 46px;
+    cursor:
+        pointer;
+
+    min-height:
+        46px;
 }
 
+
 .signup button:active {
-    transform: scale(.97);
+
+    transform:
+        scale(.97);
 }
 
 
 /* =========================
-   SECTION TITLE
+   SECTION
 ========================= */
 
 .section-head {
-    display: flex;
 
-    justify-content: space-between;
-    align-items: center;
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
 
     margin:
-        23px
-        3px
-        10px;
+        23px 3px 10px;
 }
+
 
 .section-title {
-    font-size: 23px;
 
-    font-weight: 900;
+    font-size:
+        23px;
+
+    font-weight:
+        900;
 }
 
+
 .count {
-    background: var(--card2);
 
-    color: var(--green);
+    background:
+        var(--card2);
 
-    border-radius: 20px;
+    color:
+        var(--green);
 
-    padding: 7px 12px;
+    border-radius:
+        20px;
 
-    font-size: 12px;
+    padding:
+        7px 12px;
 
-    font-weight: 850;
+    font-size:
+        12px;
+
+    font-weight:
+        850;
 }
 
 
@@ -340,114 +547,181 @@ body {
 ========================= */
 
 .people {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        7px;
 }
+
 
 .person {
-    display: flex;
 
-    align-items: center;
+    display:
+        flex;
 
-    gap: 12px;
+    align-items:
+        center;
 
-    background: var(--card);
+    gap:
+        12px;
 
-    border: 1px solid var(--border);
+    background:
+        var(--card);
 
-    border-radius: 19px;
+    border:
+        1px solid var(--border);
 
-    padding: 11px 13px;
+    border-radius:
+        19px;
+
+    padding:
+        11px 13px;
 }
+
 
 .avatar {
-    width: 43px;
-    height: 43px;
 
-    flex: 0 0 43px;
+    width:
+        43px;
 
-    border-radius: 50%;
+    height:
+        43px;
 
-    display: grid;
-    place-items: center;
+    flex:
+        0 0 43px;
 
-    background: #292d29;
+    border-radius:
+        50%;
 
-    color: var(--green);
+    display:
+        grid;
 
-    font-weight: 900;
+    place-items:
+        center;
 
-    font-size: 18px;
+    background:
+        #292d29;
+
+    color:
+        var(--green);
+
+    font-weight:
+        900;
+
+    font-size:
+        18px;
 }
+
 
 .person-name {
-    font-size: 18px;
 
-    font-weight: 850;
+    font-size:
+        18px;
+
+    font-weight:
+        850;
 }
+
 
 .person-time {
-    font-size: 13px;
 
-    color: var(--muted);
+    font-size:
+        13px;
 
-    margin-top: 2px;
+    color:
+        var(--muted);
+
+    margin-top:
+        2px;
 }
 
+
 .empty {
-    text-align: center;
 
-    background: var(--card);
+    text-align:
+        center;
 
-    border: 1px solid var(--border);
+    background:
+        var(--card);
 
-    border-radius: 19px;
+    border:
+        1px solid var(--border);
 
-    padding: 24px;
+    border-radius:
+        19px;
 
-    color: var(--muted);
+    padding:
+        24px;
 
-    font-size: 14px;
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
 }
 
 
 /* =========================
-   BUTTONS
+   ACTION BUTTONS
 ========================= */
 
 .action {
-    width: 100%;
 
-    min-height: 53px;
+    width:
+        100%;
 
-    margin-top: 15px;
+    min-height:
+        53px;
 
-    border: 0;
+    margin-top:
+        15px;
 
-    border-radius: 17px;
+    border:
+        0;
 
-    background: var(--green);
+    border-radius:
+        17px;
 
-    color: #111;
+    background:
+        var(--green);
 
-    font-size: 17px;
+    color:
+        #111;
 
-    font-weight: 900;
+    font-size:
+        17px;
 
-    cursor: pointer;
+    font-weight:
+        900;
+
+    cursor:
+        pointer;
 }
+
 
 .action:active {
-    transform: scale(.98);
+
+    transform:
+        scale(.98);
 }
 
+
 .action.secondary {
-    background: var(--card2);
 
-    color: var(--green);
+    background:
+        var(--card2);
 
-    border: 1px solid rgba(202,255,0,.25);
+    color:
+        var(--green);
+
+    border:
+        1px solid
+        rgba(202,255,0,.25);
 }
 
 
@@ -456,149 +730,455 @@ body {
 ========================= */
 
 .map-card {
-    margin-top: 13px;
 
-    background: var(--card);
+    margin-top:
+        13px;
 
-    border: 1px solid var(--border);
+    background:
+        var(--card);
 
-    border-radius: 20px;
+    border:
+        1px solid var(--border);
 
-    padding: 14px;
+    border-radius:
+        20px;
+
+    padding:
+        14px;
 }
+
 
 .map-title {
-    font-size: 18px;
 
-    font-weight: 850;
+    font-size:
+        18px;
 
-    margin-bottom: 10px;
+    font-weight:
+        850;
+
+    margin-bottom:
+        10px;
 }
+
 
 .map-placeholder {
-    height: 150px;
 
-    border-radius: 13px;
+    height:
+        150px;
 
-    background: #101311;
+    border-radius:
+        13px;
 
-    display: flex;
+    background:
+        #101311;
 
-    align-items: center;
+    display:
+        flex;
 
-    justify-content: center;
+    align-items:
+        center;
 
-    text-align: center;
+    justify-content:
+        center;
 
-    color: var(--muted);
+    text-align:
+        center;
 
-    font-size: 13px;
+    color:
+        var(--muted);
 
-    border: 1px solid rgba(255,255,255,.05);
+    font-size:
+        13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.05);
 }
+
 
 .stats {
-    display: flex;
 
-    justify-content: space-around;
+    display:
+        flex;
 
-    text-align: center;
+    justify-content:
+        space-around;
 
-    margin-top: 12px;
+    text-align:
+        center;
+
+    margin-top:
+        12px;
 }
+
 
 .stat strong {
-    display: block;
 
-    font-size: 18px;
+    display:
+        block;
+
+    font-size:
+        18px;
 }
 
-.stat span {
-    color: var(--muted);
 
-    font-size: 12px;
+.stat span {
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
 }
 
 
 /* =========================
-   MESSAGES
+   MESSAGE
 ========================= */
 
 .message {
-    text-align: center;
 
-    padding: 12px;
+    text-align:
+        center;
 
-    font-size: 13px;
+    padding:
+        12px;
 
-    color: var(--muted);
+    font-size:
+        13px;
+
+    color:
+        var(--muted);
 }
+
 
 .message.error {
-    color: #ff7b7b;
+
+    color:
+        #ff7777;
 }
 
+
 .hidden {
-    display: none !important;
+
+    display:
+        none !important;
 }
 
 
 /* =========================
-   MOBILE
+   ADMIN MODAL
+========================= */
+
+.modal-overlay {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    background:
+        rgba(0,0,0,.72);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+    z-index:
+        9999;
+}
+
+
+.modal {
+
+    width:
+        100%;
+
+    max-width:
+        350px;
+
+    background:
+        #171a18;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius:
+        25px;
+
+    padding:
+        24px;
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.5);
+
+    text-align:
+        center;
+}
+
+
+.modal-icon {
+
+    font-size:
+        34px;
+
+    margin-bottom:
+        8px;
+}
+
+
+.modal h2 {
+
+    margin:
+        0;
+
+    font-size:
+        23px;
+
+    font-weight:
+        900;
+}
+
+
+.modal p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.4;
+
+    margin:
+        8px 0 18px;
+}
+
+
+.pin-input {
+
+    width:
+        100%;
+
+    background:
+        #0d0f0e;
+
+    color:
+        white;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:
+        15px;
+
+    padding:
+        15px;
+
+    font-size:
+        22px;
+
+    text-align:
+        center;
+
+    letter-spacing:
+        7px;
+
+    outline:
+        none;
+
+    margin-bottom:
+        10px;
+}
+
+
+.pin-input:focus {
+
+    border-color:
+        var(--green);
+}
+
+
+.admin-button {
+
+    width:
+        100%;
+
+    min-height:
+        48px;
+
+    border:
+        0;
+
+    border-radius:
+        15px;
+
+    background:
+        var(--green);
+
+    color:
+        #111;
+
+    font-size:
+        15px;
+
+    font-weight:
+        900;
+
+    margin-top:
+        8px;
+
+    cursor:
+        pointer;
+}
+
+
+.admin-button.danger {
+
+    background:
+        #ff5757;
+
+    color:
+        white;
+}
+
+
+.cancel-button {
+
+    width:
+        100%;
+
+    min-height:
+        44px;
+
+    border:
+        0;
+
+    border-radius:
+        14px;
+
+    background:
+        #272b28;
+
+    color:
+        #aaa;
+
+    font-size:
+        14px;
+
+    font-weight:
+        750;
+
+    margin-top:
+        8px;
+
+    cursor:
+        pointer;
+}
+
+
+/* =========================
+   SMALL PHONES
 ========================= */
 
 @media (max-width: 380px) {
 
     .date {
-        font-size: 34px;
+
+        font-size:
+            34px;
     }
 
     .hero-title {
-        font-size: 31px;
+
+        font-size:
+            31px;
     }
 
     .time {
-        font-size: 55px;
+
+        font-size:
+            55px;
     }
 
     .departure {
-        font-size: 13px;
-        max-width: 165px;
+
+        font-size:
+            13px;
+
+        max-width:
+            165px;
     }
 
     .signup button {
-        padding: 0 14px;
+
+        padding:
+            0 14px;
     }
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
 <div class="app">
 
-    <!-- HEADER -->
+
+    <!-- =====================
+         HEADER
+    ====================== -->
 
     <div class="header">
 
-        <div class="name-day" id="nameDay">
+        <div
+            class="name-day"
+            id="nameDay">
             DAGENS NAMN
         </div>
 
-        <div class="date" id="date">
+
+        <div
+            class="date"
+            id="date">
             --
         </div>
 
-        <div class="weekday" id="weekday">
+
+        <div
+            class="weekday"
+            id="weekday">
             --
         </div>
 
     </div>
 
 
-    <!-- HERO -->
+    <!-- =====================
+         HERO
+    ====================== -->
 
     <div class="hero">
 
@@ -606,15 +1186,18 @@ body {
             Lunchturen
         </div>
 
+
         <div class="hero-sub">
             Ca. 30 minuter frisk luft
         </div>
+
 
         <div class="hero-row">
 
             <div class="time">
                 11:15
             </div>
+
 
             <div class="departure">
 
@@ -631,7 +1214,9 @@ body {
     </div>
 
 
-    <!-- STATUS -->
+    <!-- =====================
+         STATUS
+    ====================== -->
 
     <div class="status">
 
@@ -644,12 +1229,13 @@ body {
     </div>
 
 
-    <!-- SIGNUP -->
+    <!-- =====================
+         SIGNUP
+    ====================== -->
 
     <form
         class="signup"
-        id="signupForm"
-    >
+        id="signupForm">
 
         <input
             id="nameInput"
@@ -658,11 +1244,14 @@ body {
             autocomplete="name"
             placeholder="Skriv ditt namn…"
             aria-label="Skriv ditt namn"
-            required
-        >
+            required>
 
-        <button type="submit">
+
+        <button
+            type="submit">
+
             Häng med
+
         </button>
 
     </form>
@@ -670,23 +1259,29 @@ body {
 
     <div
         id="message"
-        class="message hidden"
-    ></div>
+        class="message hidden">
+    </div>
 
 
-    <!-- PEOPLE -->
+    <!-- =====================
+         PEOPLE
+    ====================== -->
 
-    <div class="section-head">
+    <div
+        class="section-head"
+        id="adminTrigger">
 
         <div class="section-title">
             Anmälda
         </div>
 
+
         <div
             class="count"
-            id="count"
-        >
+            id="count">
+
             0 PERSONER
+
         </div>
 
     </div>
@@ -694,52 +1289,64 @@ body {
 
     <div
         class="people"
-        id="people"
-    >
+        id="people">
 
         <div class="empty">
+
             🚶<br>
-            Ingen har anmält sig ännu.<br>
+
+            Ingen har anmält sig ännu.
+
+            <br>
+
             Bli först!
+
         </div>
 
     </div>
 
 
-    <!-- START -->
+    <!-- =====================
+         START PROMENAD
+    ====================== -->
 
     <button
         class="action"
         id="startButton"
-        type="button"
-    >
+        type="button">
+
         🚶 STARTA PROMENAD
+
     </button>
 
 
-    <!-- AFTER START -->
+    <!-- =====================
+         AFTER START
+    ====================== -->
 
     <div
         id="afterStart"
-        class="hidden"
-    >
+        class="hidden">
+
 
         <button
             class="action secondary"
             id="finishButton"
-            type="button"
-        >
+            type="button">
+
             🏁 AVSLUTA PROMENAD
+
         </button>
 
-
-        <!-- MAP -->
 
         <div class="map-card">
 
             <div class="map-title">
+
                 🗺️ Dagens promenad
+
             </div>
+
 
             <div class="map-placeholder">
 
@@ -747,6 +1354,7 @@ body {
                 efter avslutad promenad
 
             </div>
+
 
             <div class="stats">
 
@@ -797,485 +1405,518 @@ body {
 </div>
 
 
+
+<!-- =====================================================
+     ADMIN MODAL
+===================================================== -->
+
+<div
+    id="adminModal"
+    class="modal-overlay hidden">
+
+    <div class="modal">
+
+        <div class="modal-icon">
+            🔐
+        </div>
+
+
+        <h2>
+            Administratör
+        </h2>
+
+
+        <p>
+            Ange PIN-koden för att
+            hantera dagens deltagarlista.
+        </p>
+
+
+        <input
+            id="pinInput"
+            class="pin-input"
+            type="password"
+            inputmode="numeric"
+            maxlength="4"
+            placeholder="••••"
+            autocomplete="off">
+
+
+        <button
+            id="loginButton"
+            class="admin-button"
+            type="button">
+
+            Fortsätt
+
+        </button>
+
+
+        <button
+            id="cancelButton"
+            class="cancel-button"
+            type="button">
+
+            Avbryt
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     RESET MODAL
+===================================================== -->
+
+<div
+    id="resetModal"
+    class="modal-overlay hidden">
+
+    <div class="modal">
+
+        <div class="modal-icon">
+            ⚠️
+        </div>
+
+
+        <h2>
+            Nollställ listan?
+        </h2>
+
+
+        <p>
+            Alla deltagare för dagens
+            promenad kommer att tas bort.
+        </p>
+
+
+        <button
+            id="resetButton"
+            class="admin-button danger"
+            type="button">
+
+            🗑 Nollställ dagens lista
+
+        </button>
+
+
+        <button
+            id="resetCancelButton"
+            class="cancel-button"
+            type="button">
+
+            Avbryt
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
 <script>
 
-/* =========================================================
-   SUPABASE
-========================================================= */
 
-/*
-   DIN SUPABASE-ADRESS
-*/
+/* =====================================================
+   SUPABASE
+===================================================== */
+
 
 const SUPABASE_URL =
     "https://hhbhilkcljzmzmjypqgm.supabase.co";
 
 
-/*
-   DIN PUBLISHABLE KEY
-
-   Detta är okej att ha i HTML eftersom det är
-   en public/publishable key.
-
-   LÄGG ALDRIG IN sb_secret_... HÄR.
-*/
-
-const SUPABASE_PUBLISHABLE_KEY =
+const SUPABASE_KEY =
     "sb_publishable_UzO8tyWP0jt-3HGnLftNLg_U3tLVH9F";
 
 
 const supabaseClient =
     window.supabase.createClient(
         SUPABASE_URL,
-        SUPABASE_PUBLISHABLE_KEY
+        SUPABASE_KEY
     );
 
 
-/* =========================================================
+/* =====================================================
    ELEMENT
-========================================================= */
+===================================================== */
+
 
 const nameDayElement =
-    document.getElementById("nameDay");
+    document.getElementById(
+        "nameDay"
+    );
+
 
 const dateElement =
-    document.getElementById("date");
+    document.getElementById(
+        "date"
+    );
+
 
 const weekdayElement =
-    document.getElementById("weekday");
+    document.getElementById(
+        "weekday"
+    );
+
 
 const peopleElement =
-    document.getElementById("people");
+    document.getElementById(
+        "people"
+    );
+
 
 const countElement =
-    document.getElementById("count");
+    document.getElementById(
+        "count"
+    );
+
 
 const form =
-    document.getElementById("signupForm");
+    document.getElementById(
+        "signupForm"
+    );
+
 
 const nameInput =
-    document.getElementById("nameInput");
+    document.getElementById(
+        "nameInput"
+    );
+
 
 const messageElement =
-    document.getElementById("message");
+    document.getElementById(
+        "message"
+    );
+
 
 const statusElement =
-    document.getElementById("status");
+    document.getElementById(
+        "status"
+    );
+
 
 const startButton =
-    document.getElementById("startButton");
+    document.getElementById(
+        "startButton"
+    );
+
 
 const finishButton =
-    document.getElementById("finishButton");
+    document.getElementById(
+        "finishButton"
+    );
+
 
 const afterStart =
-    document.getElementById("afterStart");
+    document.getElementById(
+        "afterStart"
+    );
 
 
-/* =========================================================
-   SVENSKA NAMNSDAGAR
-========================================================= */
+/* ADMIN */
 
-const nameDays = {
-
-    "01-01": "EMILIA",
-    "01-02": "GUNNEL",
-    "01-03": "ALFRED",
-    "01-04": "RUT",
-    "01-05": "HANNA",
-    "01-06": "KASPER",
-    "01-07": "AUGUST",
-    "01-08": "ERLAND",
-    "01-09": "GUN",
-    "01-10": "SIGRID",
-    "01-11": "JAN",
-    "01-12": "FELIX",
-    "01-13": "HILDA",
-    "01-14": "FELIX",
-    "01-15": "LAURA",
-    "01-16": "HENRIK",
-    "01-17": "ANTON",
-    "01-18": "HILDA",
-    "01-19": "HENRIK",
-    "01-20": "SEBASTIAN",
-    "01-21": "AGNES",
-    "01-22": "VINCENT",
-    "01-23": "FREJ",
-    "01-24": "ERIKA",
-    "01-25": "PAUL",
-    "01-26": "BODIL",
-    "01-27": "GÖTE",
-    "01-28": "KARL",
-    "01-29": "DIANA",
-    "01-30": "GUNNAR",
-    "01-31": "FRIDA",
-
-    "02-01": "MAX",
-    "02-02": "KATARINA",
-    "02-03": "DORIS",
-    "02-04": "VERONIKA",
-    "02-05": "AGATA",
-    "02-06": "DORIS",
-    "02-07": "Rikard",
-    "02-08": "BERTA",
-    "02-09": "FANNY",
-    "02-10": "IRIS",
-    "02-11": "YNGVE",
-    "02-12": "EVELINA",
-    "02-13": "AGNE",
-    "02-14": "VALENTIN",
-    "02-15": "SIGFRID",
-    "02-16": "JULIANA",
-    "02-17": "ALEXANDER",
-    "02-18": "FRIDA",
-    "02-19": "GABRIEL",
-    "02-20": "VIVIAN",
-    "02-21": "SIV",
-    "02-22": "PETTER",
-    "02-23": "TORSTEN",
-    "02-24": "MATTias",
-    "02-25": "SIGNE",
-    "02-26": "TÖRE",
-    "02-27": "LAGE",
-    "02-28": "MARIA",
-
-    "03-01": "ALBIN",
-    "03-02": "ERNST",
-    "03-03": "GUNNAR",
-    "03-04": "ADRIAN",
-    "03-05": "TORD",
-    "03-06": "EBBA",
-    "03-07": "KAMILLA",
-    "03-08": "SIV",
-    "03-09": "TOR",
-    "03-10": "EDLA",
-    "03-11": "EDVIN",
-    "03-12": "VICTOR",
-    "03-13": "GREGER",
-    "03-14": "MATILDA",
-    "03-15": "KRISTOFFER",
-    "03-16": "HERBERT",
-    "03-17": "GERTRUD",
-    "03-18": "EDWARD",
-    "03-19": "JOSEF",
-    "03-20": "JOAKIM",
-    "03-21": "BENGT",
-    "03-22": "KALLA",
-    "03-23": "GERD",
-    "03-24": "GABRIEL",
-    "03-25": "MARIA",
-    "03-26": "EBBA",
-    "03-27": "RUDOLF",
-    "03-28": "MALTE",
-    "03-29": "JONAS",
-    "03-30": "HOLGER",
-    "03-31": "ESTER",
-
-    "04-01": "HUGO",
-    "04-02": "NADJA",
-    "04-03": "MARIANNE",
-    "04-04": "MARION",
-    "04-05": "IRIS",
-    "04-06": "VILHELM",
-    "04-07": "IRMA",
-    "04-08": "NADJA",
-    "04-09": "OTTO",
-    "04-10": "INGRID",
-    "04-11": "ULLA",
-    "04-12": "LIV",
-    "04-13": "ARTUR",
-    "04-14": "TIBURTIUS",
-    "04-15": "OLIVER",
-    "04-16": "PATRICIA",
-    "04-17": "Elias",
-    "04-18": "VALDEMAR",
-    "04-19": "OLOF",
-    "04-20": "AMALIA",
-    "04-21": "ANNELI",
-    "04-22": "ALLAN",
-    "04-23": "GEORG",
-    "04-24": "VEGA",
-    "04-25": "MARKUS",
-    "04-26": "TERTULLUS",
-    "04-27": "ENGELBREKT",
-    "04-28": "TAGE",
-    "04-29": "TYKO",
-    "04-30": "MARIBEL",
-
-    "05-01": "VALBORG",
-    "05-02": "BORIS",
-    "05-03": "JOHN",
-    "05-04": "MONIKA",
-    "05-05": "GOTTHARD",
-    "05-06": "MARIT",
-    "05-07": "MÅRTEN",
-    "05-08": "ÅKE",
-    "05-09": "REBECKA",
-    "05-10": "ESKIL",
-    "05-11": "MÄRTA",
-    "05-12": "CHARLOTTA",
-    "05-13": "LINNEA",
-    "05-14": "HALVARD",
-    "05-15": "SOFIA",
-    "05-16": "RONALD",
-    "05-17": "REBECKA",
-    "05-18": "ERIK",
-    "05-19": "MAJKEN",
-    "05-20": "KAROLINA",
-    "05-21": "CONSTANTIA",
-    "05-22": "HEMMING",
-    "05-23": "DESIDERIA",
-    "05-24": "VANJA",
-    "05-25": "URBAN",
-    "05-26": "VILHELM",
-    "05-27": "BOSTON",
-    "05-28": "INGE",
-    "05-29": "YVONNE",
-    "05-30": "VIVIAN",
-    "05-31": "PETRONELLA",
-
-    "06-01": "GUN",
-    "06-02": "RUT",
-    "06-03": "INGE",
-    "06-04": "SOLVEIG",
-    "06-05": "BO",
-    "06-06": "GUSTAV",
-    "06-07": "ROBERT",
-    "06-08": "EIVOR",
-    "06-09": "BÖRJE",
-    "06-10": "SVANTE",
-    "06-11": "BERTIL",
-    "06-12": "ESKIL",
-    "06-13": "HERMAN",
-    "06-14": "HÅKAN",
-    "06-15": "MARGARETA",
-    "06-16": "AXEL",
-    "06-17": "TORBJÖRN",
-    "06-18": "BJÖRN",
-    "06-19": "GERD",
-    "06-20": "LINUS",
-    "06-21": "ALF",
-    "06-22": "PAULINA",
-    "06-23": "ADOLF",
-    "06-24": "JOHANNES",
-    "06-25": "DAVID",
-    "06-26": "JOHAN",
-    "06-27": "SELMA",
-    "06-28": "LEO",
-    "06-29": "PETER",
-    "06-30": "ELOF",
-
-    "07-01": "ARON",
-    "07-02": "ROSA",
-    "07-03": "AURORA",
-    "07-04": "ULRIKA",
-    "07-05": "LOTTA",
-    "07-06": "ESKIL",
-    "07-07": "KJELL",
-    "07-08": "KJELL",
-    "07-09": "VERA",
-    "07-10": "ANDRÉ",
-    "07-11": "ELEONORA",
-    "07-12": "HERMAN",
-    "07-13": "JOEL",
-    "07-14": "FREDRIK",
-    "07-15": "SVEN",
-    "07-16": "REINHOLD",
-    "07-17": "ALEXIS",
-    "07-18": "FRIDA",
-    "07-19": "SARA",
-    "07-20": "MARGARETA",
-    "07-21": "JOHANNA",
-    "07-22": "MAGDALENA",
-    "07-23": "EMIL",
-    "07-24": "FRIDOLF",
-    "07-25": "JAKOB",
-    "07-26": "JESPER",
-    "07-27": "MARTINA",
-    "07-28": "BOTVID",
-    "07-29": "OLIVIA",
-    "07-30": "ALBIN",
-    "07-31": "ELIN",
-
-    "08-01": "PER",
-    "08-02": "KARIN",
-    "08-03": "TAGE",
-    "08-04": "ARNE",
-    "08-05": "ULRIK",
-    "08-06": "ALFONS",
-    "08-07": "DENNIS",
-    "08-08": "SILVIA",
-    "08-09": "ROLAND",
-    "08-10": "LOVISA",
-    "08-11": "CLARA",
-    "08-12": "KLARA",
-    "08-13": "HILMER",
-    "08-14": "EUSEBIUS",
-    "08-15": "STELLA",
-    "08-16": "BRYNDIS",
-    "08-17": "VERNER",
-    "08-18": "ELLEN",
-    "08-19": "MAGNUS",
-    "08-20": "BERNARD",
-    "08-21": "JON",
-    "08-22": "HENRIK",
-    "08-23": "SIGRID",
-    "08-24": "BARTOLOMEUS",
-    "08-25": "LOVISA, LOUISE",
-    "08-26": "ÖSTEN",
-    "08-27": "RAIMOND",
-    "08-28": "MARIANNE",
-    "08-29": "HANS",
-    "08-30": "ALBERT",
-    "08-31": "ARVID",
-
-    "09-01": "SAMUEL",
-    "09-02": "JUSTUS",
-    "09-03": "ALVA",
-    "09-04": "GÖRAN",
-    "09-05": "ADAM",
-    "09-06": "LILLY",
-    "09-07": "REGINA",
-    "09-08": "ALMA",
-    "09-09": "GUNILLA",
-    "09-10": "TORD",
-    "09-11": "DAN",
-    "09-12": "ÅSA",
-    "09-13": "STURE",
-    "09-14": "IDA",
-    "09-15": "SIRI",
-    "09-16": "DAG",
-    "09-17": "HILDEGARD",
-    "09-18": "ORVAR",
-    "09-19": "FREDRIK",
-    "09-20": "ELISE",
-    "09-21": "MATTEUS",
-    "09-22": "MAURITS",
-    "09-23": "TEKLA",
-    "09-24": "GERD",
-    "09-25": "TRYGGVE",
-    "09-26": "ENAR",
-    "09-27": "DAG",
-    "09-28": "LEA",
-    "09-29": "MICHAEL",
-    "09-30": "JERKER",
-
-    "10-01": "RAGNAR",
-    "10-02": "LUDVIG",
-    "10-03": "JERKER",
-    "10-04": "FRANS",
-    "10-05": "BRITT",
-    "10-06": "JENNY",
-    "10-07": "BIRGIT",
-    "10-08": "NILS",
-    "10-09": "INGRID",
-    "10-10": "HARRY",
-    "10-11": "ERLING",
-    "10-12": "VALFRID",
-    "10-13": "BERIT",
-    "10-14": "STELLAN",
-    "10-15": "HEDVIG",
-    "10-16": "FINN",
-    "10-17": "ANTONIA",
-    "10-18": "LUKAS",
-    "10-19": "TORE",
-    "10-20": "SIBYLLA",
-    "10-21": "URSULA",
-    "10-22": "MARIA",
-    "10-23": "SEVERIN",
-    "10-24": "EVERT",
-    "10-25": "INGE",
-    "10-26": "AMANDA",
-    "10-27": "SABINA",
-    "10-28": "SIMON",
-    "10-29": "VICTOR",
-    "10-30": "ALLAN",
-    "10-31": "EDIT",
-
-    "11-01": "TOBIAS",
-    "11-02": "TOVA",
-    "11-03": "HUBERT",
-    "11-04": "SVEN",
-    "11-05": "EUGEN",
-    "11-06": "GUSTAV",
-    "11-07": "INGE",
-    "11-08": "GUDRUN",
-    "11-09": "TEODOR",
-    "11-10": "MARTIN",
-    "11-11": "MÅRTEN",
-    "11-12": "KONRAD",
-    "11-13": "KRISTIAN",
-    "11-14": "EMIL",
-    "11-15": "LEOPOLD",
-    "11-16": "VIVIAN",
-    "11-17": "NAOMI",
-    "11-18": "EUGEN",
-    "11-19": "ELISABETH",
-    "11-20": "PONTUS",
-    "11-21": "MARIA",
-    "11-22": "CECILIA",
-    "11-23": "CLEMENS",
-    "11-24": "EMIL",
-    "11-25": "KATARINA",
-    "11-26": "LINNÉA",
-    "11-27": "ASTRID",
-    "11-28": "MALTE",
-    "11-29": "SUNE",
-    "11-30": "ANDREAS",
-
-    "12-01": "OSKAR",
-    "12-02": "BEATA",
-    "12-03": "LYDIA",
-    "12-04": "BARBRO",
-    "12-05": "SABINA",
-    "12-06": "NIKLAS",
-    "12-07": "ANGELA",
-    "12-08": "VIRGINIA",
-    "12-09": "ANNA",
-    "12-10": "MALIN",
-    "12-11": "DANIEL",
-    "12-12": "ALEXANDER",
-    "12-13": "LUCIA",
-    "12-14": "STEN",
-    "12-15": "GOTTFRID",
-    "12-16": "ASSAR",
-    "12-17": "STIG",
-    "12-18": "ABRAHAM",
-    "12-19": "ISAK",
-    "12-20": "ISRAEL",
-    "12-21": "THOMAS",
-    "12-22": "NATALIE",
-    "12-23": "ADAM",
-    "12-24": "EVA",
-    "12-25": "JUL",
-    "12-26": "STAFFAN",
-    "12-27": "JOHN",
-    "12-28": "BENJAMIN",
-    "12-29": "NIKOLAUS",
-    "12-30": "ABEL",
-    "12-31": "SYLVESTER"
-};
+const adminTrigger =
+    document.getElementById(
+        "adminTrigger"
+    );
 
 
-/* =========================================================
+const adminModal =
+    document.getElementById(
+        "adminModal"
+    );
+
+
+const resetModal =
+    document.getElementById(
+        "resetModal"
+    );
+
+
+const pinInput =
+    document.getElementById(
+        "pinInput"
+    );
+
+
+const loginButton =
+    document.getElementById(
+        "loginButton"
+    );
+
+
+const cancelButton =
+    document.getElementById(
+        "cancelButton"
+    );
+
+
+const resetButton =
+    document.getElementById(
+        "resetButton"
+    );
+
+
+const resetCancelButton =
+    document.getElementById(
+        "resetCancelButton"
+    );
+
+
+/* =====================================================
+   ADMIN PIN
+===================================================== */
+
+
+/*
+   TEST-PIN
+
+   Byt senare om du vill.
+*/
+
+const ADMIN_PIN =
+    "1977";
+
+
+let adminClicks = 0;
+
+let adminClickTimer = null;
+
+
+/* =====================================================
+   DOLDA ADMINFUNKTIONEN
+===================================================== */
+
+
+/*
+   Fem snabba tryck på "Anmälda".
+*/
+
+adminTrigger.addEventListener(
+    "click",
+    function() {
+
+        adminClicks++;
+
+
+        clearTimeout(
+            adminClickTimer
+        );
+
+
+        adminClickTimer =
+            setTimeout(
+                function() {
+
+                    adminClicks = 0;
+
+                },
+                1000
+            );
+
+
+        if (adminClicks >= 5) {
+
+            adminClicks = 0;
+
+            openAdminModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ÖPPNA ADMIN
+===================================================== */
+
+function openAdminModal() {
+
+    adminModal.classList.remove(
+        "hidden"
+    );
+
+
+    pinInput.value = "";
+
+
+    setTimeout(
+        function() {
+
+            pinInput.focus();
+
+        },
+        150
+    );
+}
+
+
+/* =====================================================
+   STÄNG ADMIN
+===================================================== */
+
+function closeAdminModal() {
+
+    adminModal.classList.add(
+        "hidden"
+    );
+}
+
+
+/* =====================================================
+   PIN
+===================================================== */
+
+loginButton.addEventListener(
+    "click",
+    function() {
+
+        if (
+            pinInput.value ===
+            ADMIN_PIN
+        ) {
+
+            closeAdminModal();
+
+
+            openResetModal();
+
+        }
+
+        else {
+
+            pinInput.value = "";
+
+            pinInput.placeholder =
+                "Fel PIN";
+
+            pinInput.style.borderColor =
+                "#ff5757";
+
+            setTimeout(
+                function() {
+
+                    pinInput.style.borderColor =
+                        "";
+
+                    pinInput.placeholder =
+                        "••••";
+
+                },
+                1500
+            );
+
+        }
+
+    }
+);
+
+
+/* Enter i PIN */
+
+pinInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key ===
+            "Enter"
+        ) {
+
+            loginButton.click();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   AVBRYT ADMIN
+===================================================== */
+
+cancelButton.addEventListener(
+    "click",
+    function() {
+
+        closeAdminModal();
+
+    }
+);
+
+
+/* =====================================================
+   RESET MODAL
+===================================================== */
+
+function openResetModal() {
+
+    resetModal.classList.remove(
+        "hidden"
+    );
+}
+
+
+function closeResetModal() {
+
+    resetModal.classList.add(
+        "hidden"
+    );
+}
+
+
+resetCancelButton.addEventListener(
+    "click",
+    function() {
+
+        closeResetModal();
+
+    }
+);
+
+
+/* =====================================================
    DATUM
-========================================================= */
+===================================================== */
 
 function updateDate() {
 
-    const now = new Date();
+    const now =
+        new Date();
+
 
     const day =
-        String(now.getDate()).padStart(2, "0");
+        String(
+            now.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
 
     const month =
-        String(now.getMonth() + 1).padStart(2, "0");
+        String(
+            now.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        );
+
 
     const key =
-        month + "-" + day;
+        month +
+        "-" +
+        day;
 
 
     const months = [
+
         "januari",
         "februari",
         "mars",
@@ -1288,10 +1929,12 @@ function updateDate() {
         "oktober",
         "november",
         "december"
+
     ];
 
 
     const weekdays = [
+
         "Söndag",
         "Måndag",
         "Tisdag",
@@ -1299,52 +1942,122 @@ function updateDate() {
         "Torsdag",
         "Fredag",
         "Lördag"
+
     ];
 
 
     dateElement.textContent =
         now.getDate() +
         " " +
-        months[now.getMonth()];
+        months[
+            now.getMonth()
+        ];
 
 
     weekdayElement.textContent =
-        weekdays[now.getDay()];
-
-
-    const todayNames =
-        nameDays[key] || "DAGENS NAMN";
+        weekdays[
+            now.getDay()
+        ];
 
 
     nameDayElement.textContent =
         "DAGENS NAMN: " +
-        todayNames;
+        (
+            nameDays[key] ||
+            "DAGENS NAMN"
+        );
 }
+
+
+/* =====================================================
+   NAMNSDAGAR
+===================================================== */
+
+
+const nameDays = {
+
+    "08-25":
+        "LOVISA, LOUISE",
+
+    "08-26":
+        "ÖSTEN",
+
+    "08-27":
+        "RAIMOND",
+
+    "08-28":
+        "MARIANNE",
+
+    "08-29":
+        "HANS",
+
+    "08-30":
+        "ALBERT",
+
+    "08-31":
+        "ARVID"
+
+};
+
+
+/*
+   För övriga dagar kan vi bygga ut
+   listan senare eller använda API.
+*/
 
 
 updateDate();
 
 
-/* =========================================================
-   HJÄLPFUNKTIONER
-========================================================= */
+/* =====================================================
+   HTML-SÄKERHET
+===================================================== */
 
-function escapeHtml(text) {
+function escapeHtml(
+    text
+) {
 
     return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 }
 
 
-function showMessage(text, error = false) {
+/* =====================================================
+   MEDDELANDE
+===================================================== */
 
-    messageElement.textContent = text;
+function showMessage(
+    text,
+    error = false
+) {
 
-    messageElement.classList.remove("hidden");
+    messageElement.textContent =
+        text;
+
+
+    messageElement.classList.remove(
+        "hidden"
+    );
+
 
     messageElement.classList.toggle(
         "error",
@@ -1352,36 +2065,55 @@ function showMessage(text, error = false) {
     );
 
 
-    setTimeout(() => {
+    setTimeout(
+        function() {
 
-        messageElement.classList.add("hidden");
+            messageElement.classList.add(
+                "hidden"
+            );
 
-    }, 4000);
+        },
+        3500
+    );
 }
 
 
-/* =========================================================
-   VISA ANMÄLDA
-========================================================= */
+/* =====================================================
+   VISA PERSONER
+===================================================== */
 
-function renderPeople(signups) {
+function renderPeople(
+    signups
+) {
 
     countElement.textContent =
         signups.length +
         " " +
-        (signups.length === 1
-            ? "PERSON"
-            : "PERSONER");
+        (
+            signups.length === 1
+                ? "PERSON"
+                : "PERSONER"
+        );
 
 
-    if (!signups.length) {
+    if (
+        !signups.length
+    ) {
 
         peopleElement.innerHTML = `
+
             <div class="empty">
+
                 🚶<br>
-                Ingen har anmält sig ännu.<br>
+
+                Ingen har anmält sig ännu.
+
+                <br>
+
                 Bli först!
+
             </div>
+
         `;
 
         return;
@@ -1389,71 +2121,92 @@ function renderPeople(signups) {
 
 
     peopleElement.innerHTML =
-        signups.map(person => {
 
-            const name =
-                escapeHtml(person.name);
+        signups.map(
+            function(person) {
 
-
-            const initial =
-                escapeHtml(
-                    person.name
-                        .trim()
-                        .charAt(0)
-                        .toUpperCase()
-                );
-
-
-            let timeText = "Anmäld";
-
-
-            if (person.created_at) {
-
-                const date =
-                    new Date(person.created_at);
-
-
-                timeText =
-                    "Anmäld " +
-                    date.toLocaleTimeString(
-                        "sv-SE",
-                        {
-                            hour: "2-digit",
-                            minute: "2-digit"
-                        }
+                const name =
+                    escapeHtml(
+                        person.name
                     );
+
+
+                const initial =
+                    escapeHtml(
+                        person.name
+                            .trim()
+                            .charAt(0)
+                            .toUpperCase()
+                    );
+
+
+                let time =
+                    "Anmäld";
+
+
+                if (
+                    person.created_at
+                ) {
+
+                    time =
+                        "Anmäld " +
+                        new Date(
+                            person.created_at
+                        ).toLocaleTimeString(
+                            "sv-SE",
+                            {
+                                hour:
+                                    "2-digit",
+
+                                minute:
+                                    "2-digit"
+                            }
+                        );
+                }
+
+
+                return `
+
+                    <div class="person">
+
+                        <div class="avatar">
+
+                            ${initial}
+
+                        </div>
+
+
+                        <div>
+
+                            <div
+                                class="person-name">
+
+                                ${name}
+
+                            </div>
+
+
+                            <div
+                                class="person-time">
+
+                                ${time}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                `;
+
             }
-
-
-            return `
-                <div class="person">
-
-                    <div class="avatar">
-                        ${initial}
-                    </div>
-
-                    <div>
-
-                        <div class="person-name">
-                            ${name}
-                        </div>
-
-                        <div class="person-time">
-                            ${timeText}
-                        </div>
-
-                    </div>
-
-                </div>
-            `;
-
-        }).join("");
+        ).join("");
 }
 
 
-/* =========================================================
-   HÄMTA ANMÄLDA
-========================================================= */
+/* =====================================================
+   HÄMTA LISTA
+===================================================== */
 
 async function loadSignups() {
 
@@ -1465,39 +2218,59 @@ async function loadSignups() {
         } =
         await supabaseClient
 
-            .from("walk_signups")
+            .from(
+                "walk_signups"
+            )
 
-            .select("*")
+            .select(
+                "*"
+            )
 
             .order(
                 "created_at",
                 {
-                    ascending: true
+                    ascending:
+                        true
                 }
             );
 
 
-        if (error) {
+        if (
+            error
+        ) {
 
-            console.error(error);
+            console.error(
+                error
+            );
+
 
             statusElement.textContent =
-                "Kunde inte läsa anmälningarna";
+                "Kunde inte läsa listan";
+
 
             return;
         }
 
 
-        renderPeople(data || []);
+        renderPeople(
+            data || []
+        );
 
 
         statusElement.textContent =
             "Uppdaterad nyss";
 
 
-    } catch (error) {
+    }
 
-        console.error(error);
+    catch (
+        error
+    ) {
+
+        console.error(
+            error
+        );
+
 
         statusElement.textContent =
             "Anslutningsfel";
@@ -1505,9 +2278,9 @@ async function loadSignups() {
 }
 
 
-/* =========================================================
-   ANMÄL DIG
-========================================================= */
+/* =====================================================
+   ANMÄL
+===================================================== */
 
 form.addEventListener(
     "submit",
@@ -1520,22 +2293,29 @@ form.addEventListener(
             nameInput.value.trim();
 
 
-        if (!name) {
+        if (
+            !name
+        ) {
 
             showMessage(
                 "Skriv ditt namn först.",
                 true
             );
 
+
             return;
         }
 
 
         const button =
-            form.querySelector("button");
+            form.querySelector(
+                "button"
+            );
 
 
-        button.disabled = true;
+        button.disabled =
+            true;
+
 
         button.textContent =
             "Anmäler…";
@@ -1548,29 +2328,39 @@ form.addEventListener(
             } =
             await supabaseClient
 
-                .from("walk_signups")
+                .from(
+                    "walk_signups"
+                )
 
                 .insert([
                     {
-                        name: name
+                        name:
+                            name
                     }
                 ]);
 
 
-            if (error) {
+            if (
+                error
+            ) {
 
-                console.error(error);
+                console.error(
+                    error
+                );
+
 
                 showMessage(
                     "Kunde inte anmäla dig.",
                     true
                 );
 
+
                 return;
             }
 
 
-            nameInput.value = "";
+            nameInput.value =
+                "";
 
 
             showMessage(
@@ -1581,9 +2371,16 @@ form.addEventListener(
             await loadSignups();
 
 
-        } catch (error) {
+        }
 
-            console.error(error);
+        catch (
+            error
+        ) {
+
+            console.error(
+                error
+            );
+
 
             showMessage(
                 "Något gick fel.",
@@ -1591,9 +2388,13 @@ form.addEventListener(
             );
 
 
-        } finally {
+        }
 
-            button.disabled = false;
+        finally {
+
+            button.disabled =
+                false;
+
 
             button.textContent =
                 "Häng med";
@@ -1603,21 +2404,133 @@ form.addEventListener(
 );
 
 
-/* =========================================================
+/* =====================================================
+   NOLLSTÄLL LISTAN
+===================================================== */
+
+resetButton.addEventListener(
+    "click",
+    async function() {
+
+        resetButton.disabled =
+            true;
+
+
+        resetButton.textContent =
+            "Nollställer…";
+
+
+        try {
+
+            /*
+               TESTVERSION
+
+               Raderar alla deltagare.
+            */
+
+            const {
+                error
+            } =
+            await supabaseClient
+
+                .from(
+                    "walk_signups"
+                )
+
+                .delete()
+                
+                .neq(
+                    "id",
+                    0
+                );
+
+
+            if (
+                error
+            ) {
+
+                console.error(
+                    error
+                );
+
+
+                showMessage(
+                    "Kunde inte nollställa listan.",
+                    true
+                );
+
+
+                return;
+            }
+
+
+            closeResetModal();
+
+
+            await loadSignups();
+
+
+            showMessage(
+                "Dagens lista är nollställd."
+            );
+
+
+        }
+
+        catch (
+            error
+        ) {
+
+            console.error(
+                error
+            );
+
+
+            showMessage(
+                "Något gick fel.",
+                true
+            );
+
+
+        }
+
+        finally {
+
+            resetButton.disabled =
+                false;
+
+
+            resetButton.textContent =
+                "🗑 Nollställ dagens lista";
+        }
+
+    }
+);
+
+
+/* =====================================================
    REALTIME
-========================================================= */
+===================================================== */
 
 supabaseClient
 
-    .channel("walk-signups")
+    .channel(
+        "walk-signups"
+    )
 
     .on(
         "postgres_changes",
         {
-            event: "*",
-            schema: "public",
-            table: "walk_signups"
+            event:
+                "*",
+
+            schema:
+                "public",
+
+            table:
+                "walk_signups"
         },
+
         function() {
 
             loadSignups();
@@ -1628,20 +2541,25 @@ supabaseClient
     .subscribe();
 
 
-/* =========================================================
-   STARTA PROMENAD
-========================================================= */
+/* =====================================================
+   PROMENAD
+===================================================== */
 
-let walkStarted = false;
+let walkStarted =
+    false;
 
-let walkStartTime = null;
+
+let walkStartTime =
+    null;
 
 
 startButton.addEventListener(
     "click",
     function() {
 
-        walkStarted = true;
+        walkStarted =
+            true;
+
 
         walkStartTime =
             new Date();
@@ -1663,30 +2581,22 @@ startButton.addEventListener(
         statusElement.textContent =
             "Promenaden pågår";
 
-
-        /*
-           GPS KOMMER IN HÄR.
-
-           Nästa steg kan vi lägga in:
-
-           navigator.geolocation.watchPosition()
-
-           och spara GPS-punkterna i Supabase.
-        */
-
     }
 );
 
 
-/* =========================================================
-   AVSLUTA PROMENAD
-========================================================= */
+/* =====================================================
+   AVSLUTA
+===================================================== */
 
 finishButton.addEventListener(
     "click",
     function() {
 
-        if (!walkStarted) {
+        if (
+            !walkStarted
+        ) {
+
             return;
         }
 
@@ -1710,10 +2620,13 @@ finishButton.addEventListener(
             );
 
 
-        document.getElementById(
-            "duration"
-        ).textContent =
-            minutes + " min";
+        document
+            .getElementById(
+                "duration"
+            )
+            .textContent =
+                minutes +
+                " min";
 
 
         finishButton.textContent =
@@ -1727,22 +2640,28 @@ finishButton.addEventListener(
         statusElement.textContent =
             "Promenaden är avslutad";
 
-
-        /*
-           Här kommer den riktiga
-           GPS-kartan i nästa steg.
-        */
     }
 );
 
 
-/* =========================================================
+/* =====================================================
    START
-========================================================= */
+===================================================== */
 
 loadSignups();
+
+
+/*
+   Extra uppdatering var 5:e sekund.
+*/
+
+setInterval(
+    loadSignups,
+    5000
+);
 
 </script>
 
 </body>
+
 </html>

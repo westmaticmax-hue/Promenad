@@ -21,18 +21,11 @@
 <meta name="apple-mobile-web-app-status-bar-style"
       content="black-translucent">
 
-
-<!-- SUPABASE -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-<!-- LEAFLET -->
 
 <link
     rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
->
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
 <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
@@ -48,26 +41,15 @@
 :root {
 
     --bg: #090b0a;
-
     --card: #171a18;
-
     --card2: #202420;
-
     --text: #f5f7f1;
-
     --muted: #969d98;
-
     --green: #caff00;
-
     --green-dark: #a9d900;
-
-    --border:
-        rgba(255,255,255,.09);
-
-    --danger:
-        #ff5757;
+    --border: rgba(255,255,255,.09);
+    --danger: #ff5757;
 }
-
 
 * {
 
@@ -77,12 +59,10 @@
         transparent;
 }
 
-
 html,
 body {
 
     margin: 0;
-
     padding: 0;
 
     background:
@@ -100,7 +80,6 @@ body {
         sans-serif;
 }
 
-
 body {
 
     min-height: 100vh;
@@ -110,7 +89,6 @@ body {
         14px
         max(28px, env(safe-area-inset-bottom));
 }
-
 
 .app {
 
@@ -136,7 +114,6 @@ body {
         18px;
 }
 
-
 .name-day {
 
     color:
@@ -158,7 +135,6 @@ body {
         7px;
 }
 
-
 .date {
 
     font-size:
@@ -173,7 +149,6 @@ body {
     letter-spacing:
         -1.5px;
 }
-
 
 .weekday {
 
@@ -227,7 +202,6 @@ body {
         rgba(180,240,0,.13);
 }
 
-
 .hero::after {
 
     content:
@@ -255,7 +229,6 @@ body {
         rgba(255,255,255,.11);
 }
 
-
 .hero-title {
 
     position:
@@ -276,7 +249,6 @@ body {
     letter-spacing:
         -1px;
 }
-
 
 .hero-sub {
 
@@ -299,7 +271,6 @@ body {
         3px;
 }
 
-
 .hero-row {
 
     position:
@@ -321,7 +292,6 @@ body {
         20px;
 }
 
-
 .time {
 
     font-size:
@@ -335,6 +305,35 @@ body {
 
     letter-spacing:
         -3px;
+}
+
+
+/* =========================================================
+   NEDRÄKNING
+========================================================= */
+
+.countdown {
+
+    font-size:
+        17px;
+
+    line-height:
+        1;
+
+    font-weight:
+        850;
+
+    letter-spacing:
+        .2px;
+
+    margin-top:
+        9px;
+
+    opacity:
+        .72;
+
+    white-space:
+        nowrap;
 }
 
 
@@ -355,7 +354,6 @@ body {
     max-width:
         190px;
 }
-
 
 .departure-label {
 
@@ -394,7 +392,6 @@ body {
     margin:
         14px 0;
 }
-
 
 .status-dot {
 
@@ -444,7 +441,6 @@ body {
         10px;
 }
 
-
 .signup input {
 
     flex:
@@ -472,13 +468,11 @@ body {
         10px;
 }
 
-
 .signup input::placeholder {
 
     color:
         #777e79;
 }
-
 
 .signup button {
 
@@ -510,7 +504,6 @@ body {
         46px;
 }
 
-
 .signup button:active {
 
     transform:
@@ -537,7 +530,6 @@ body {
         23px 3px 10px;
 }
 
-
 .section-title {
 
     font-size:
@@ -546,7 +538,6 @@ body {
     font-weight:
         900;
 }
-
 
 .count {
 
@@ -586,7 +577,6 @@ body {
         7px;
 }
 
-
 .person {
 
     display:
@@ -611,7 +601,6 @@ body {
     padding:
         11px 13px;
 }
-
 
 .avatar {
 
@@ -646,7 +635,6 @@ body {
         18px;
 }
 
-
 .person-name {
 
     font-size:
@@ -655,7 +643,6 @@ body {
     font-weight:
         850;
 }
-
 
 .person-time {
 
@@ -668,7 +655,6 @@ body {
     margin-top:
         2px;
 }
-
 
 .empty {
 
@@ -733,13 +719,11 @@ body {
         pointer;
 }
 
-
 .action:active {
 
     transform:
         scale(.98);
 }
-
 
 .action:disabled {
 
@@ -749,7 +733,6 @@ body {
     cursor:
         default;
 }
-
 
 .action.secondary {
 
@@ -793,7 +776,6 @@ body {
         13px;
 }
 
-
 .gps-dot {
 
     width:
@@ -809,13 +791,11 @@ body {
         var(--green);
 }
 
-
 .gps-dot.active {
 
     animation:
         pulse 1.2s infinite;
 }
-
 
 @keyframes pulse {
 
@@ -837,7 +817,7 @@ body {
 
 
 /* =========================================================
-   STATISTIK UNDER PROMENAD
+   LIVE STATISTIK
 ========================================================= */
 
 .live-stats {
@@ -865,13 +845,11 @@ body {
         12px 5px;
 }
 
-
 .live-stat {
 
     text-align:
         center;
 }
-
 
 .live-stat strong {
 
@@ -884,7 +862,6 @@ body {
     font-size:
         18px;
 }
-
 
 .live-stat span {
 
@@ -922,7 +899,6 @@ body {
         hidden;
 }
 
-
 .map-title {
 
     font-size:
@@ -934,7 +910,6 @@ body {
     margin-bottom:
         10px;
 }
-
 
 #map {
 
@@ -954,19 +929,11 @@ body {
         #101311;
 }
 
-
-/*
-   Leaflet-knapparna får behålla sin normala
-   funktion, men kartan ligger inne i vårt
-   mörka kort.
-*/
-
 .leaflet-control-attribution {
 
     font-size:
         9px !important;
 }
-
 
 .route-stats {
 
@@ -983,7 +950,6 @@ body {
         12px;
 }
 
-
 .route-stat strong {
 
     display:
@@ -992,7 +958,6 @@ body {
     font-size:
         18px;
 }
-
 
 .route-stat span {
 
@@ -1041,7 +1006,6 @@ body {
         9999;
 }
 
-
 .modal {
 
     width:
@@ -1071,7 +1035,6 @@ body {
         center;
 }
 
-
 .modal-icon {
 
     font-size:
@@ -1080,7 +1043,6 @@ body {
     margin-bottom:
         8px;
 }
-
 
 .modal h2 {
 
@@ -1093,7 +1055,6 @@ body {
     font-weight:
         900;
 }
-
 
 .modal p {
 
@@ -1109,7 +1070,6 @@ body {
     margin:
         8px 0 18px;
 }
-
 
 .pin-input {
 
@@ -1148,7 +1108,6 @@ body {
         10px;
 }
 
-
 .admin-button {
 
     width:
@@ -1182,7 +1141,6 @@ body {
         pointer;
 }
 
-
 .admin-button.danger {
 
     background:
@@ -1191,7 +1149,6 @@ body {
     color:
         white;
 }
-
 
 .cancel-button {
 
@@ -1246,13 +1203,11 @@ body {
         var(--muted);
 }
 
-
 .message.error {
 
     color:
         #ff7777;
 }
-
 
 .hidden {
 
@@ -1273,13 +1228,11 @@ body {
             34px;
     }
 
-
     .hero-title {
 
         font-size:
             31px;
     }
-
 
     .time {
 
@@ -1287,6 +1240,11 @@ body {
             55px;
     }
 
+    .countdown {
+
+        font-size:
+            15px;
+    }
 
     .departure {
 
@@ -1297,13 +1255,11 @@ body {
             165px;
     }
 
-
     .signup button {
 
         padding:
             0 14px;
     }
-
 
     #map {
 
@@ -1380,9 +1336,24 @@ body {
 
         <div class="hero-row">
 
-            <div class="time">
+            <div>
 
-                11:15
+                <div class="time">
+
+                    11:15
+
+                </div>
+
+
+                <!-- NY: NEDRÄKNING -->
+
+                <div
+                    class="countdown"
+                    id="countdown">
+
+                    00:00:00 kvar
+
+                </div>
 
             </div>
 
@@ -1893,6 +1864,9 @@ const liveDuration =
 const livePoints =
     document.getElementById("livePoints");
 
+const countdownElement =
+    document.getElementById("countdown");
+
 
 /* ADMIN */
 
@@ -1919,6 +1893,143 @@ const resetButton =
 
 const resetCancelButton =
     document.getElementById("resetCancelButton");
+
+
+/* =========================================================
+   NEDRÄKNING TILL 11:15
+========================================================= */
+
+function updateCountdown() {
+
+    const now =
+        new Date();
+
+
+    const day =
+        now.getDay();
+
+
+    /*
+       0 = söndag
+       6 = lördag
+
+       Ingen promenad på helgen.
+    */
+
+    if (
+        day === 0 ||
+        day === 6
+    ) {
+
+        countdownElement.textContent =
+            "00:00:00 kvar";
+
+        return;
+    }
+
+
+    const departure =
+        new Date();
+
+
+    departure.setHours(
+        11,
+        15,
+        0,
+        0
+    );
+
+
+    const difference =
+        departure.getTime() -
+        now.getTime();
+
+
+    /*
+       När 11:15 är passerat
+       stannar räknaren på noll.
+    */
+
+    if (
+        difference <= 0
+    ) {
+
+        countdownElement.textContent =
+            "00:00:00 kvar";
+
+        return;
+    }
+
+
+    const totalSeconds =
+        Math.floor(
+            difference /
+            1000
+        );
+
+
+    const hours =
+        Math.floor(
+            totalSeconds /
+            3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                totalSeconds %
+                3600
+            ) /
+            60
+        );
+
+
+    const seconds =
+        totalSeconds %
+        60;
+
+
+    countdownElement.textContent =
+
+        String(hours).padStart(
+            2,
+            "0"
+        ) +
+
+        ":" +
+
+        String(minutes).padStart(
+            2,
+            "0"
+        ) +
+
+        ":" +
+
+        String(seconds).padStart(
+            2,
+            "0"
+        ) +
+
+        " kvar";
+}
+
+
+/*
+   Uppdatera direkt.
+*/
+
+updateCountdown();
+
+
+/*
+   Uppdatera varje sekund.
+*/
+
+setInterval(
+    updateCountdown,
+    1000
+);
 
 
 /* =========================================================
@@ -2204,7 +2315,7 @@ updateDate();
 
 
 /* =========================================================
-   DAGENS DATUM FÖR SUPABASE
+   DAGENS DATUM
 ========================================================= */
 
 function getTodayKey() {
@@ -2756,30 +2867,23 @@ resetButton.addEventListener(
 let gpsWatchId =
     null;
 
-
 let gpsPoints =
     [];
-
 
 let walkStarted =
     false;
 
-
 let walkStartTime =
     null;
-
 
 let walkRouteId =
     null;
 
-
 let lastPosition =
     null;
 
-
 let totalDistanceMeters =
     0;
-
 
 let liveTimer =
     null;
@@ -2792,14 +2896,11 @@ let liveTimer =
 let map =
     null;
 
-
 let routeLine =
     null;
 
-
 let startMarker =
     null;
-
 
 let endMarker =
     null;
@@ -2872,7 +2973,7 @@ function initMap(
 
 
 /* =========================================================
-   AVSTÅND MELLAN GPS-PUNKTER
+   AVSTÅND
 ========================================================= */
 
 function distanceBetween(
@@ -2976,10 +3077,6 @@ function handlePosition(
         position.coords.accuracy;
 
 
-    /*
-       Ignorera extremt dåliga GPS-punkter.
-    */
-
     if (
         accuracy >
         100
@@ -3009,10 +3106,6 @@ function handlePosition(
     };
 
 
-    /*
-       Beräkna avstånd från föregående punkt.
-    */
-
     if (
         lastPosition
     ) {
@@ -3025,10 +3118,6 @@ function handlePosition(
                 longitude
             );
 
-
-        /*
-           Ignorera orimliga hopp.
-        */
 
         if (
             addedDistance <
@@ -3052,10 +3141,6 @@ function handlePosition(
     );
 
 
-    /*
-       Uppdatera kartan.
-    */
-
     if (
         routeLine
     ) {
@@ -3078,10 +3163,6 @@ function handlePosition(
 
     }
 
-
-    /*
-       Lägg startmarkör.
-    */
 
     if (
         gpsPoints.length ===
@@ -3249,11 +3330,6 @@ function startGps() {
         "Söker GPS…";
 
 
-    /*
-       watchPosition håller koll på
-       nya positioner under promenaden.
-    */
-
     gpsWatchId =
         navigator.geolocation.watchPosition(
 
@@ -3309,7 +3385,7 @@ function stopGps() {
 
 
 /* =========================================================
-   PROMENADENS TID
+   PROMENADTID
 ========================================================= */
 
 function updateLiveTimer() {
@@ -3357,7 +3433,7 @@ function updateLiveTimer() {
 
 
 /* =========================================================
-   SPARA GPS-RUTT
+   SPARA GPS
 ========================================================= */
 
 async function saveRoute() {
@@ -3382,10 +3458,6 @@ async function saveRoute() {
             ) /
             1000
         );
-
-
-    const routeData =
-        gpsPoints;
 
 
     const {
@@ -3419,7 +3491,7 @@ async function saveRoute() {
                     durationSeconds,
 
                 route:
-                    routeData
+                    gpsPoints
 
             }
 
@@ -3457,7 +3529,7 @@ async function saveRoute() {
 
 
 /* =========================================================
-   RITA KARTAN
+   RITA KARTA
 ========================================================= */
 
 function drawFinalRoute() {
@@ -3489,10 +3561,6 @@ function drawFinalRoute() {
 
     }
 
-
-    /*
-       Start
-    */
 
     const first =
         gpsPoints[0];
@@ -3552,10 +3620,6 @@ function drawFinalRoute() {
         );
 
 
-    /*
-       Anpassa kartan till hela promenaden.
-    */
-
     const bounds =
         L.latLngBounds(
             latLngs
@@ -3590,10 +3654,6 @@ startButton.addEventListener(
             return;
         }
 
-
-        /*
-           GPS startas först.
-        */
 
         const gpsStarted =
             startGps();
@@ -3637,21 +3697,12 @@ startButton.addEventListener(
             "Promenaden pågår";
 
 
-        /*
-           Starta tidsräknaren.
-        */
-
         liveTimer =
             setInterval(
                 updateLiveTimer,
                 1000
             );
 
-
-        /*
-           Skapa kartan när första GPS-positionen
-           kommer in.
-        */
 
         const waitForMap =
             setInterval(
@@ -3672,11 +3723,6 @@ startButton.addEventListener(
                         );
 
 
-                        /*
-                           Lägg till den första punkten
-                           i kartan.
-                        */
-
                         gpsPoints.forEach(
                             function(point) {
 
@@ -3696,10 +3742,6 @@ startButton.addEventListener(
                 500
             );
 
-
-        /*
-           Säkerhetsstopp för väntan på karta.
-        */
 
         setTimeout(
             function() {
@@ -3758,23 +3800,11 @@ finishButton.addEventListener(
 
         try {
 
-            /*
-               Spara GPS-rutten.
-            */
-
             await saveRoute();
 
 
-            /*
-               Rita färdig karta.
-            */
-
             drawFinalRoute();
 
-
-            /*
-               Slutstatistik.
-            */
 
             const durationSeconds =
                 Math.round(
@@ -3935,10 +3965,6 @@ supabaseClient
 
 loadSignups();
 
-
-/*
-   Extra uppdatering var 5:e sekund.
-*/
 
 setInterval(
     loadSignups,

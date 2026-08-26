@@ -21,25 +21,51 @@
 <meta name="apple-mobile-web-app-status-bar-style"
       content="black-translucent">
 
+
+<!-- SUPABASE -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<!-- LEAFLET -->
+
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+>
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
 
 
 <style>
 
+/* =========================================================
+   GRUND
+========================================================= */
+
 :root {
 
     --bg: #090b0a;
+
     --card: #171a18;
+
     --card2: #202420;
 
     --text: #f5f7f1;
+
     --muted: #969d98;
 
     --green: #caff00;
+
     --green-dark: #a9d900;
 
     --border:
         rgba(255,255,255,.09);
+
+    --danger:
+        #ff5757;
 }
 
 
@@ -56,6 +82,7 @@ html,
 body {
 
     margin: 0;
+
     padding: 0;
 
     background:
@@ -95,9 +122,9 @@ body {
 }
 
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 .header {
 
@@ -164,9 +191,9 @@ body {
 }
 
 
-/* =========================
-   GREEN HERO
-========================= */
+/* =========================================================
+   GRÖNA HUVUDKORTET
+========================================================= */
 
 .hero {
 
@@ -349,9 +376,9 @@ body {
 }
 
 
-/* =========================
+/* =========================================================
    STATUS
-========================= */
+========================================================= */
 
 .status {
 
@@ -391,9 +418,9 @@ body {
 }
 
 
-/* =========================
-   SIGNUP
-========================= */
+/* =========================================================
+   ANMÄLAN
+========================================================= */
 
 .signup {
 
@@ -407,7 +434,8 @@ body {
         var(--card);
 
     border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
     border-radius:
         22px;
@@ -490,9 +518,9 @@ body {
 }
 
 
-/* =========================
-   SECTION
-========================= */
+/* =========================================================
+   SEKTION
+========================================================= */
 
 .section-head {
 
@@ -542,9 +570,9 @@ body {
 }
 
 
-/* =========================
-   PEOPLE
-========================= */
+/* =========================================================
+   PERSONER
+========================================================= */
 
 .people {
 
@@ -574,7 +602,8 @@ body {
         var(--card);
 
     border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
     border-radius:
         19px;
@@ -650,7 +679,8 @@ body {
         var(--card);
 
     border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
     border-radius:
         19px;
@@ -666,9 +696,9 @@ body {
 }
 
 
-/* =========================
-   ACTION BUTTONS
-========================= */
+/* =========================================================
+   KNAPPAR
+========================================================= */
 
 .action {
 
@@ -711,6 +741,16 @@ body {
 }
 
 
+.action:disabled {
+
+    opacity:
+        .65;
+
+    cursor:
+        default;
+}
+
+
 .action.secondary {
 
     background:
@@ -725,9 +765,140 @@ body {
 }
 
 
-/* =========================
-   MAP
-========================= */
+/* =========================================================
+   GPS STATUS
+========================================================= */
+
+.gps-status {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    margin-top:
+        11px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+}
+
+
+.gps-dot {
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--green);
+}
+
+
+.gps-dot.active {
+
+    animation:
+        pulse 1.2s infinite;
+}
+
+
+@keyframes pulse {
+
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: .35;
+        transform: scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   STATISTIK UNDER PROMENAD
+========================================================= */
+
+.live-stats {
+
+    display:
+        flex;
+
+    justify-content:
+        space-around;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        18px;
+
+    margin-top:
+        11px;
+
+    padding:
+        12px 5px;
+}
+
+
+.live-stat {
+
+    text-align:
+        center;
+}
+
+
+.live-stat strong {
+
+    display:
+        block;
+
+    color:
+        var(--green);
+
+    font-size:
+        18px;
+}
+
+
+.live-stat span {
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+}
+
+
+/* =========================================================
+   KARTA
+========================================================= */
 
 .map-card {
 
@@ -738,13 +909,17 @@ body {
         var(--card);
 
     border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
     border-radius:
         20px;
 
     padding:
         14px;
+
+    overflow:
+        hidden;
 }
 
 
@@ -761,42 +936,39 @@ body {
 }
 
 
-.map-placeholder {
+#map {
+
+    width:
+        100%;
 
     height:
-        150px;
+        260px;
 
     border-radius:
-        13px;
+        14px;
+
+    overflow:
+        hidden;
 
     background:
         #101311;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    text-align:
-        center;
-
-    color:
-        var(--muted);
-
-    font-size:
-        13px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.05);
 }
 
 
-.stats {
+/*
+   Leaflet-knapparna får behålla sin normala
+   funktion, men kartan ligger inne i vårt
+   mörka kort.
+*/
+
+.leaflet-control-attribution {
+
+    font-size:
+        9px !important;
+}
+
+
+.route-stats {
 
     display:
         flex;
@@ -812,7 +984,7 @@ body {
 }
 
 
-.stat strong {
+.route-stat strong {
 
     display:
         block;
@@ -822,7 +994,7 @@ body {
 }
 
 
-.stat span {
+.route-stat span {
 
     color:
         var(--muted);
@@ -832,43 +1004,9 @@ body {
 }
 
 
-/* =========================
-   MESSAGE
-========================= */
-
-.message {
-
-    text-align:
-        center;
-
-    padding:
-        12px;
-
-    font-size:
-        13px;
-
-    color:
-        var(--muted);
-}
-
-
-.message.error {
-
-    color:
-        #ff7777;
-}
-
-
-.hidden {
-
-    display:
-        none !important;
-}
-
-
-/* =========================
+/* =========================================================
    ADMIN MODAL
-========================= */
+========================================================= */
 
 .modal-overlay {
 
@@ -1011,13 +1149,6 @@ body {
 }
 
 
-.pin-input:focus {
-
-    border-color:
-        var(--green);
-}
-
-
 .admin-button {
 
     width:
@@ -1055,7 +1186,7 @@ body {
 .admin-button.danger {
 
     background:
-        #ff5757;
+        var(--danger);
 
     color:
         white;
@@ -1096,9 +1227,43 @@ body {
 }
 
 
-/* =========================
-   SMALL PHONES
-========================= */
+/* =========================================================
+   MEDDELANDEN
+========================================================= */
+
+.message {
+
+    text-align:
+        center;
+
+    padding:
+        12px;
+
+    font-size:
+        13px;
+
+    color:
+        var(--muted);
+}
+
+
+.message.error {
+
+    color:
+        #ff7777;
+}
+
+
+.hidden {
+
+    display:
+        none !important;
+}
+
+
+/* =========================================================
+   SMÅ TELEFONER
+========================================================= */
 
 @media (max-width: 380px) {
 
@@ -1108,17 +1273,20 @@ body {
             34px;
     }
 
+
     .hero-title {
 
         font-size:
             31px;
     }
 
+
     .time {
 
         font-size:
             55px;
     }
+
 
     .departure {
 
@@ -1129,10 +1297,18 @@ body {
             165px;
     }
 
+
     .signup button {
 
         padding:
             0 14px;
+    }
+
+
+    #map {
+
+        height:
+            230px;
     }
 }
 
@@ -1147,62 +1323,76 @@ body {
 <div class="app">
 
 
-    <!-- =====================
+    <!-- =================================================
          HEADER
-    ====================== -->
+    ================================================== -->
 
     <div class="header">
 
         <div
             class="name-day"
             id="nameDay">
+
             DAGENS NAMN
+
         </div>
 
 
         <div
             class="date"
             id="date">
+
             --
+
         </div>
 
 
         <div
             class="weekday"
             id="weekday">
+
             --
+
         </div>
 
     </div>
 
 
-    <!-- =====================
-         HERO
-    ====================== -->
+    <!-- =================================================
+         HUVUDKORT
+    ================================================== -->
 
     <div class="hero">
 
         <div class="hero-title">
+
             Lunchturen
+
         </div>
 
 
         <div class="hero-sub">
+
             Ca. 30 minuter frisk luft
+
         </div>
 
 
         <div class="hero-row">
 
             <div class="time">
+
                 11:15
+
             </div>
 
 
             <div class="departure">
 
                 <span class="departure-label">
+
                     AVGÅNG
+
                 </span>
 
                 📍 Söder Mälarstrand 77
@@ -1214,24 +1404,26 @@ body {
     </div>
 
 
-    <!-- =====================
+    <!-- =================================================
          STATUS
-    ====================== -->
+    ================================================== -->
 
     <div class="status">
 
         <span class="status-dot"></span>
 
         <span id="status">
+
             Ansluten till dagens promenad
+
         </span>
 
     </div>
 
 
-    <!-- =====================
-         SIGNUP
-    ====================== -->
+    <!-- =================================================
+         ANMÄLAN
+    ================================================== -->
 
     <form
         class="signup"
@@ -1260,19 +1452,22 @@ body {
     <div
         id="message"
         class="message hidden">
+
     </div>
 
 
-    <!-- =====================
-         PEOPLE
-    ====================== -->
+    <!-- =================================================
+         DELTAGARE
+    ================================================== -->
 
     <div
         class="section-head"
         id="adminTrigger">
 
         <div class="section-title">
+
             Anmälda
+
         </div>
 
 
@@ -1306,9 +1501,9 @@ body {
     </div>
 
 
-    <!-- =====================
-         START PROMENAD
-    ====================== -->
+    <!-- =================================================
+         STARTA PROMENAD
+    ================================================== -->
 
     <button
         class="action"
@@ -1320,9 +1515,93 @@ body {
     </button>
 
 
-    <!-- =====================
-         AFTER START
-    ====================== -->
+    <!-- =================================================
+         LIVE GPS
+    ================================================== -->
+
+    <div
+        id="liveArea"
+        class="hidden">
+
+
+        <div class="gps-status">
+
+            <span
+                id="gpsDot"
+                class="gps-dot active">
+            </span>
+
+            <span id="gpsText">
+
+                GPS aktiv
+
+            </span>
+
+        </div>
+
+
+        <div class="live-stats">
+
+
+            <div class="live-stat">
+
+                <strong id="liveDistance">
+
+                    0,00 km
+
+                </strong>
+
+                <span>
+
+                    Distans
+
+                </span>
+
+            </div>
+
+
+            <div class="live-stat">
+
+                <strong id="liveDuration">
+
+                    0 min
+
+                </strong>
+
+                <span>
+
+                    Tid
+
+                </span>
+
+            </div>
+
+
+            <div class="live-stat">
+
+                <strong id="livePoints">
+
+                    0
+
+                </strong>
+
+                <span>
+
+                    GPS-punkter
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         AVSLUTA + KARTA
+    ================================================== -->
 
     <div
         id="afterStart"
@@ -1348,50 +1627,58 @@ body {
             </div>
 
 
-            <div class="map-placeholder">
-
-                GPS-kartan visas här<br>
-                efter avslutad promenad
-
-            </div>
+            <div id="map"></div>
 
 
-            <div class="stats">
+            <div class="route-stats">
 
-                <div class="stat">
+
+                <div class="route-stat">
 
                     <strong id="distance">
+
                         —
+
                     </strong>
 
                     <span>
+
                         Distans
+
                     </span>
 
                 </div>
 
 
-                <div class="stat">
+                <div class="route-stat">
 
                     <strong id="duration">
+
                         —
+
                     </strong>
 
                     <span>
+
                         Tid
+
                     </span>
 
                 </div>
 
 
-                <div class="stat">
+                <div class="route-stat">
 
-                    <strong>
+                    <strong id="startTime">
+
                         11:15
+
                     </strong>
 
                     <span>
+
                         Start
+
                     </span>
 
                 </div>
@@ -1405,10 +1692,9 @@ body {
 </div>
 
 
-
 <!-- =====================================================
-     ADMIN MODAL
-===================================================== -->
+     ADMIN LOGIN
+====================================================== -->
 
 <div
     id="adminModal"
@@ -1417,18 +1703,24 @@ body {
     <div class="modal">
 
         <div class="modal-icon">
+
             🔐
+
         </div>
 
 
         <h2>
+
             Administratör
+
         </h2>
 
 
         <p>
+
             Ange PIN-koden för att
             hantera dagens deltagarlista.
+
         </p>
 
 
@@ -1466,10 +1758,9 @@ body {
 </div>
 
 
-
 <!-- =====================================================
-     RESET MODAL
-===================================================== -->
+     RESET
+====================================================== -->
 
 <div
     id="resetModal"
@@ -1478,18 +1769,24 @@ body {
     <div class="modal">
 
         <div class="modal-icon">
+
             ⚠️
+
         </div>
 
 
         <h2>
+
             Nollställ listan?
+
         </h2>
 
 
         <p>
+
             Alla deltagare för dagens
             promenad kommer att tas bort.
+
         </p>
 
 
@@ -1517,14 +1814,11 @@ body {
 </div>
 
 
-
 <script>
 
-
-/* =====================================================
+/* =========================================================
    SUPABASE
-===================================================== */
-
+========================================================= */
 
 const SUPABASE_URL =
     "https://hhbhilkcljzmzmjypqgm.supabase.co";
@@ -1541,161 +1835,106 @@ const supabaseClient =
     );
 
 
-/* =====================================================
+/* =========================================================
    ELEMENT
-===================================================== */
-
+========================================================= */
 
 const nameDayElement =
-    document.getElementById(
-        "nameDay"
-    );
-
+    document.getElementById("nameDay");
 
 const dateElement =
-    document.getElementById(
-        "date"
-    );
-
+    document.getElementById("date");
 
 const weekdayElement =
-    document.getElementById(
-        "weekday"
-    );
-
+    document.getElementById("weekday");
 
 const peopleElement =
-    document.getElementById(
-        "people"
-    );
-
+    document.getElementById("people");
 
 const countElement =
-    document.getElementById(
-        "count"
-    );
-
+    document.getElementById("count");
 
 const form =
-    document.getElementById(
-        "signupForm"
-    );
-
+    document.getElementById("signupForm");
 
 const nameInput =
-    document.getElementById(
-        "nameInput"
-    );
-
+    document.getElementById("nameInput");
 
 const messageElement =
-    document.getElementById(
-        "message"
-    );
-
+    document.getElementById("message");
 
 const statusElement =
-    document.getElementById(
-        "status"
-    );
-
+    document.getElementById("status");
 
 const startButton =
-    document.getElementById(
-        "startButton"
-    );
-
+    document.getElementById("startButton");
 
 const finishButton =
-    document.getElementById(
-        "finishButton"
-    );
-
+    document.getElementById("finishButton");
 
 const afterStart =
-    document.getElementById(
-        "afterStart"
-    );
+    document.getElementById("afterStart");
+
+const liveArea =
+    document.getElementById("liveArea");
+
+const gpsDot =
+    document.getElementById("gpsDot");
+
+const gpsText =
+    document.getElementById("gpsText");
+
+const liveDistance =
+    document.getElementById("liveDistance");
+
+const liveDuration =
+    document.getElementById("liveDuration");
+
+const livePoints =
+    document.getElementById("livePoints");
 
 
 /* ADMIN */
 
 const adminTrigger =
-    document.getElementById(
-        "adminTrigger"
-    );
-
+    document.getElementById("adminTrigger");
 
 const adminModal =
-    document.getElementById(
-        "adminModal"
-    );
-
+    document.getElementById("adminModal");
 
 const resetModal =
-    document.getElementById(
-        "resetModal"
-    );
-
+    document.getElementById("resetModal");
 
 const pinInput =
-    document.getElementById(
-        "pinInput"
-    );
-
+    document.getElementById("pinInput");
 
 const loginButton =
-    document.getElementById(
-        "loginButton"
-    );
-
+    document.getElementById("loginButton");
 
 const cancelButton =
-    document.getElementById(
-        "cancelButton"
-    );
-
+    document.getElementById("cancelButton");
 
 const resetButton =
-    document.getElementById(
-        "resetButton"
-    );
-
+    document.getElementById("resetButton");
 
 const resetCancelButton =
-    document.getElementById(
-        "resetCancelButton"
-    );
+    document.getElementById("resetCancelButton");
 
 
-/* =====================================================
-   ADMIN PIN
-===================================================== */
-
-
-/*
-   TEST-PIN
-
-   Byt senare om du vill.
-*/
+/* =========================================================
+   ADMIN
+========================================================= */
 
 const ADMIN_PIN =
     "1977";
 
 
-let adminClicks = 0;
+let adminClicks =
+    0;
 
-let adminClickTimer = null;
+let adminClickTimer =
+    null;
 
-
-/* =====================================================
-   DOLDA ADMINFUNKTIONEN
-===================================================== */
-
-
-/*
-   Fem snabba tryck på "Anmälda".
-*/
 
 adminTrigger.addEventListener(
     "click",
@@ -1720,7 +1959,9 @@ adminTrigger.addEventListener(
             );
 
 
-        if (adminClicks >= 5) {
+        if (
+            adminClicks >= 5
+        ) {
 
             adminClicks = 0;
 
@@ -1732,10 +1973,6 @@ adminTrigger.addEventListener(
 );
 
 
-/* =====================================================
-   ÖPPNA ADMIN
-===================================================== */
-
 function openAdminModal() {
 
     adminModal.classList.remove(
@@ -1743,7 +1980,8 @@ function openAdminModal() {
     );
 
 
-    pinInput.value = "";
+    pinInput.value =
+        "";
 
 
     setTimeout(
@@ -1757,10 +1995,6 @@ function openAdminModal() {
 }
 
 
-/* =====================================================
-   STÄNG ADMIN
-===================================================== */
-
 function closeAdminModal() {
 
     adminModal.classList.add(
@@ -1768,10 +2002,6 @@ function closeAdminModal() {
     );
 }
 
-
-/* =====================================================
-   PIN
-===================================================== */
 
 loginButton.addEventListener(
     "click",
@@ -1784,20 +2014,23 @@ loginButton.addEventListener(
 
             closeAdminModal();
 
-
-            openResetModal();
+            resetModal.classList.remove(
+                "hidden"
+            );
 
         }
 
         else {
 
-            pinInput.value = "";
+            pinInput.value =
+                "";
 
             pinInput.placeholder =
                 "Fel PIN";
 
             pinInput.style.borderColor =
                 "#ff5757";
+
 
             setTimeout(
                 function() {
@@ -1818,8 +2051,6 @@ loginButton.addEventListener(
 );
 
 
-/* Enter i PIN */
-
 pinInput.addEventListener(
     "keydown",
     function(event) {
@@ -1837,53 +2068,53 @@ pinInput.addEventListener(
 );
 
 
-/* =====================================================
-   AVBRYT ADMIN
-===================================================== */
-
 cancelButton.addEventListener(
     "click",
-    function() {
-
-        closeAdminModal();
-
-    }
+    closeAdminModal
 );
-
-
-/* =====================================================
-   RESET MODAL
-===================================================== */
-
-function openResetModal() {
-
-    resetModal.classList.remove(
-        "hidden"
-    );
-}
-
-
-function closeResetModal() {
-
-    resetModal.classList.add(
-        "hidden"
-    );
-}
 
 
 resetCancelButton.addEventListener(
     "click",
     function() {
 
-        closeResetModal();
+        resetModal.classList.add(
+            "hidden"
+        );
 
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    DATUM
-===================================================== */
+========================================================= */
+
+const nameDays = {
+
+    "08-25":
+        "LOVISA, LOUISE",
+
+    "08-26":
+        "ÖSTEN",
+
+    "08-27":
+        "RAIMOND",
+
+    "08-28":
+        "MARIANNE",
+
+    "08-29":
+        "HANS",
+
+    "08-30":
+        "ALBERT",
+
+    "08-31":
+        "ARVID"
+
+};
+
 
 function updateDate() {
 
@@ -1969,49 +2200,54 @@ function updateDate() {
 }
 
 
-/* =====================================================
-   NAMNSDAGAR
-===================================================== */
-
-
-const nameDays = {
-
-    "08-25":
-        "LOVISA, LOUISE",
-
-    "08-26":
-        "ÖSTEN",
-
-    "08-27":
-        "RAIMOND",
-
-    "08-28":
-        "MARIANNE",
-
-    "08-29":
-        "HANS",
-
-    "08-30":
-        "ALBERT",
-
-    "08-31":
-        "ARVID"
-
-};
-
-
-/*
-   För övriga dagar kan vi bygga ut
-   listan senare eller använda API.
-*/
-
-
 updateDate();
 
 
-/* =====================================================
-   HTML-SÄKERHET
-===================================================== */
+/* =========================================================
+   DAGENS DATUM FÖR SUPABASE
+========================================================= */
+
+function getTodayKey() {
+
+    const now =
+        new Date();
+
+
+    const year =
+        now.getFullYear();
+
+
+    const month =
+        String(
+            now.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    const day =
+        String(
+            now.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    return (
+        year +
+        "-" +
+        month +
+        "-" +
+        day
+    );
+}
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
 
 function escapeHtml(
     text
@@ -2041,9 +2277,9 @@ function escapeHtml(
 }
 
 
-/* =====================================================
+/* =========================================================
    MEDDELANDE
-===================================================== */
+========================================================= */
 
 function showMessage(
     text,
@@ -2078,9 +2314,9 @@ function showMessage(
 }
 
 
-/* =====================================================
-   VISA PERSONER
-===================================================== */
+/* =========================================================
+   DELTAGARE
+========================================================= */
 
 function renderPeople(
     signups
@@ -2178,16 +2414,14 @@ function renderPeople(
 
                         <div>
 
-                            <div
-                                class="person-name">
+                            <div class="person-name">
 
                                 ${name}
 
                             </div>
 
 
-                            <div
-                                class="person-time">
+                            <div class="person-time">
 
                                 ${time}
 
@@ -2204,13 +2438,17 @@ function renderPeople(
 }
 
 
-/* =====================================================
-   HÄMTA LISTA
-===================================================== */
+/* =========================================================
+   HÄMTA DAGENS DELTAGARE
+========================================================= */
 
 async function loadSignups() {
 
     try {
+
+        const today =
+            getTodayKey();
+
 
         const {
             data,
@@ -2224,6 +2462,11 @@ async function loadSignups() {
 
             .select(
                 "*"
+            )
+
+            .eq(
+                "date_key",
+                today
             )
 
             .order(
@@ -2278,9 +2521,9 @@ async function loadSignups() {
 }
 
 
-/* =====================================================
-   ANMÄL
-===================================================== */
+/* =========================================================
+   ANMÄLAN
+========================================================= */
 
 form.addEventListener(
     "submit",
@@ -2301,7 +2544,6 @@ form.addEventListener(
                 "Skriv ditt namn först.",
                 true
             );
-
 
             return;
         }
@@ -2334,6 +2576,9 @@ form.addEventListener(
 
                 .insert([
                     {
+                        date_key:
+                            getTodayKey(),
+
                         name:
                             name
                     }
@@ -2404,9 +2649,9 @@ form.addEventListener(
 );
 
 
-/* =====================================================
-   NOLLSTÄLL LISTAN
-===================================================== */
+/* =========================================================
+   NOLLSTÄLL DAGENS LISTA
+========================================================= */
 
 resetButton.addEventListener(
     "click",
@@ -2422,12 +2667,6 @@ resetButton.addEventListener(
 
         try {
 
-            /*
-               TESTVERSION
-
-               Raderar alla deltagare.
-            */
-
             const {
                 error
             } =
@@ -2438,10 +2677,10 @@ resetButton.addEventListener(
                 )
 
                 .delete()
-                
-                .neq(
-                    "id",
-                    0
+
+                .eq(
+                    "date_key",
+                    getTodayKey()
                 );
 
 
@@ -2464,7 +2703,9 @@ resetButton.addEventListener(
             }
 
 
-            closeResetModal();
+            resetModal.classList.add(
+                "hidden"
+            );
 
 
             await loadSignups();
@@ -2508,9 +2749,1156 @@ resetButton.addEventListener(
 );
 
 
-/* =====================================================
-   REALTIME
-===================================================== */
+/* =========================================================
+   GPS-VARIABLER
+========================================================= */
+
+let gpsWatchId =
+    null;
+
+
+let gpsPoints =
+    [];
+
+
+let walkStarted =
+    false;
+
+
+let walkStartTime =
+    null;
+
+
+let walkRouteId =
+    null;
+
+
+let lastPosition =
+    null;
+
+
+let totalDistanceMeters =
+    0;
+
+
+let liveTimer =
+    null;
+
+
+/* =========================================================
+   KARTA
+========================================================= */
+
+let map =
+    null;
+
+
+let routeLine =
+    null;
+
+
+let startMarker =
+    null;
+
+
+let endMarker =
+    null;
+
+
+/* =========================================================
+   INITIERA KARTA
+========================================================= */
+
+function initMap(
+    latitude,
+    longitude
+) {
+
+    if (
+        map
+    ) {
+
+        map.remove();
+
+    }
+
+
+    map =
+        L.map(
+            "map"
+        );
+
+
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            maxZoom:
+                19,
+
+            attribution:
+                '&copy; OpenStreetMap'
+        }
+    ).addTo(
+        map
+    );
+
+
+    map.setView(
+        [
+            latitude,
+            longitude
+        ],
+        16
+    );
+
+
+    routeLine =
+        L.polyline(
+            [],
+            {
+                color:
+                    "#caff00",
+
+                weight:
+                    6,
+
+                opacity:
+                    .9
+            }
+        ).addTo(
+            map
+        );
+}
+
+
+/* =========================================================
+   AVSTÅND MELLAN GPS-PUNKTER
+========================================================= */
+
+function distanceBetween(
+    lat1,
+    lon1,
+    lat2,
+    lon2
+) {
+
+    const earthRadius =
+        6371000;
+
+
+    const lat1Rad =
+        lat1 *
+        Math.PI /
+        180;
+
+
+    const lat2Rad =
+        lat2 *
+        Math.PI /
+        180;
+
+
+    const deltaLat =
+        (
+            lat2 -
+            lat1
+        ) *
+        Math.PI /
+        180;
+
+
+    const deltaLon =
+        (
+            lon2 -
+            lon1
+        ) *
+        Math.PI /
+        180;
+
+
+    const a =
+        Math.sin(
+            deltaLat / 2
+        ) *
+        Math.sin(
+            deltaLat / 2
+        ) +
+
+        Math.cos(
+            lat1Rad
+        ) *
+
+        Math.cos(
+            lat2Rad
+        ) *
+
+        Math.sin(
+            deltaLon / 2
+        ) *
+
+        Math.sin(
+            deltaLon / 2
+        );
+
+
+    const c =
+        2 *
+        Math.atan2(
+            Math.sqrt(a),
+            Math.sqrt(1 - a)
+        );
+
+
+    return (
+        earthRadius *
+        c
+    );
+}
+
+
+/* =========================================================
+   GPS POSITION
+========================================================= */
+
+function handlePosition(
+    position
+) {
+
+    const latitude =
+        position.coords.latitude;
+
+
+    const longitude =
+        position.coords.longitude;
+
+
+    const accuracy =
+        position.coords.accuracy;
+
+
+    /*
+       Ignorera extremt dåliga GPS-punkter.
+    */
+
+    if (
+        accuracy >
+        100
+    ) {
+
+        gpsText.textContent =
+            "GPS-signal svag";
+
+        return;
+    }
+
+
+    const point = {
+
+        lat:
+            latitude,
+
+        lng:
+            longitude,
+
+        timestamp:
+            new Date().toISOString(),
+
+        accuracy:
+            accuracy
+
+    };
+
+
+    /*
+       Beräkna avstånd från föregående punkt.
+    */
+
+    if (
+        lastPosition
+    ) {
+
+        const addedDistance =
+            distanceBetween(
+                lastPosition.lat,
+                lastPosition.lng,
+                latitude,
+                longitude
+            );
+
+
+        /*
+           Ignorera orimliga hopp.
+        */
+
+        if (
+            addedDistance <
+            100
+        ) {
+
+            totalDistanceMeters +=
+                addedDistance;
+
+        }
+
+    }
+
+
+    lastPosition =
+        point;
+
+
+    gpsPoints.push(
+        point
+    );
+
+
+    /*
+       Uppdatera kartan.
+    */
+
+    if (
+        routeLine
+    ) {
+
+        routeLine.addLatLng(
+            [
+                latitude,
+                longitude
+            ]
+        );
+
+
+        map.setView(
+            [
+                latitude,
+                longitude
+            ],
+            map.getZoom()
+        );
+
+    }
+
+
+    /*
+       Lägg startmarkör.
+    */
+
+    if (
+        gpsPoints.length ===
+        1
+    ) {
+
+        if (
+            startMarker
+        ) {
+
+            startMarker.remove();
+
+        }
+
+
+        startMarker =
+            L.marker(
+                [
+                    latitude,
+                    longitude
+                ]
+            )
+            .addTo(
+                map
+            )
+            .bindPopup(
+                "Start"
+            );
+
+    }
+
+
+    liveDistance.textContent =
+        (
+            totalDistanceMeters /
+            1000
+        ).toFixed(2)
+        .replace(
+            ".",
+            ","
+        ) +
+        " km";
+
+
+    livePoints.textContent =
+        gpsPoints.length;
+
+
+    gpsText.textContent =
+        "GPS aktiv";
+}
+
+
+/* =========================================================
+   GPS FEL
+========================================================= */
+
+function handleGpsError(
+    error
+) {
+
+    console.error(
+        "GPS-fel:",
+        error
+    );
+
+
+    gpsDot.classList.remove(
+        "active"
+    );
+
+
+    if (
+        error.code ===
+        1
+    ) {
+
+        gpsText.textContent =
+            "GPS nekades";
+
+
+        showMessage(
+            "Du måste tillåta platsåtkomst för GPS.",
+            true
+        );
+
+    }
+
+    else if (
+        error.code ===
+        2
+    ) {
+
+        gpsText.textContent =
+            "GPS-position saknas";
+
+    }
+
+    else if (
+        error.code ===
+        3
+    ) {
+
+        gpsText.textContent =
+            "GPS tog för lång tid";
+
+    }
+
+    else {
+
+        gpsText.textContent =
+            "GPS-fel";
+
+    }
+
+}
+
+
+/* =========================================================
+   STARTA GPS
+========================================================= */
+
+function startGps() {
+
+    if (
+        !navigator.geolocation
+    ) {
+
+        showMessage(
+            "Den här telefonen stöder inte GPS i webbläsaren.",
+            true
+        );
+
+
+        return false;
+    }
+
+
+    gpsPoints =
+        [];
+
+
+    totalDistanceMeters =
+        0;
+
+
+    lastPosition =
+        null;
+
+
+    liveDistance.textContent =
+        "0,00 km";
+
+
+    livePoints.textContent =
+        "0";
+
+
+    gpsDot.classList.add(
+        "active"
+    );
+
+
+    gpsText.textContent =
+        "Söker GPS…";
+
+
+    /*
+       watchPosition håller koll på
+       nya positioner under promenaden.
+    */
+
+    gpsWatchId =
+        navigator.geolocation.watchPosition(
+
+            handlePosition,
+
+            handleGpsError,
+
+            {
+                enableHighAccuracy:
+                    true,
+
+                maximumAge:
+                    3000,
+
+                timeout:
+                    15000
+            }
+
+        );
+
+
+    return true;
+}
+
+
+/* =========================================================
+   STOPPA GPS
+========================================================= */
+
+function stopGps() {
+
+    if (
+        gpsWatchId !== null
+    ) {
+
+        navigator.geolocation.clearWatch(
+            gpsWatchId
+        );
+
+        gpsWatchId =
+            null;
+    }
+
+
+    gpsDot.classList.remove(
+        "active"
+    );
+
+
+    gpsText.textContent =
+        "GPS avslutad";
+}
+
+
+/* =========================================================
+   PROMENADENS TID
+========================================================= */
+
+function updateLiveTimer() {
+
+    if (
+        !walkStartTime
+    ) {
+
+        return;
+    }
+
+
+    const elapsed =
+        Date.now() -
+        walkStartTime.getTime();
+
+
+    const minutes =
+        Math.floor(
+            elapsed /
+            60000
+        );
+
+
+    const seconds =
+        Math.floor(
+            (
+                elapsed %
+                60000
+            ) /
+            1000
+        );
+
+
+    liveDuration.textContent =
+        minutes +
+        ":" +
+        String(
+            seconds
+        ).padStart(
+            2,
+            "0"
+        );
+}
+
+
+/* =========================================================
+   SPARA GPS-RUTT
+========================================================= */
+
+async function saveRoute() {
+
+    if (
+        !gpsPoints.length
+    ) {
+
+        return null;
+    }
+
+
+    const finishedAt =
+        new Date();
+
+
+    const durationSeconds =
+        Math.round(
+            (
+                finishedAt -
+                walkStartTime
+            ) /
+            1000
+        );
+
+
+    const routeData =
+        gpsPoints;
+
+
+    const {
+        data,
+        error
+    } =
+    await supabaseClient
+
+        .from(
+            "walk_routes"
+        )
+
+        .insert([
+            {
+
+                walk_date:
+                    getTodayKey(),
+
+                started_at:
+                    walkStartTime.toISOString(),
+
+                finished_at:
+                    finishedAt.toISOString(),
+
+                distance_meters:
+                    Math.round(
+                        totalDistanceMeters
+                    ),
+
+                duration_seconds:
+                    durationSeconds,
+
+                route:
+                    routeData
+
+            }
+
+        ])
+
+        .select();
+
+
+    if (
+        error
+    ) {
+
+        console.error(
+            error
+        );
+
+
+        throw error;
+    }
+
+
+    if (
+        data &&
+        data.length
+    ) {
+
+        walkRouteId =
+            data[0].id;
+
+    }
+
+
+    return data;
+}
+
+
+/* =========================================================
+   RITA KARTAN
+========================================================= */
+
+function drawFinalRoute() {
+
+    if (
+        !gpsPoints.length
+    ) {
+
+        return;
+    }
+
+
+    const latLngs =
+        gpsPoints.map(
+            point => [
+                point.lat,
+                point.lng
+            ]
+        );
+
+
+    if (
+        routeLine
+    ) {
+
+        routeLine.setLatLngs(
+            latLngs
+        );
+
+    }
+
+
+    /*
+       Start
+    */
+
+    const first =
+        gpsPoints[0];
+
+
+    const last =
+        gpsPoints[
+            gpsPoints.length - 1
+        ];
+
+
+    if (
+        startMarker
+    ) {
+
+        startMarker.remove();
+
+    }
+
+
+    if (
+        endMarker
+    ) {
+
+        endMarker.remove();
+
+    }
+
+
+    startMarker =
+        L.marker(
+            [
+                first.lat,
+                first.lng
+            ]
+        )
+        .addTo(
+            map
+        )
+        .bindPopup(
+            "🚶 Start"
+        );
+
+
+    endMarker =
+        L.marker(
+            [
+                last.lat,
+                last.lng
+            ]
+        )
+        .addTo(
+            map
+        )
+        .bindPopup(
+            "🏁 Mål"
+        );
+
+
+    /*
+       Anpassa kartan till hela promenaden.
+    */
+
+    const bounds =
+        L.latLngBounds(
+            latLngs
+        );
+
+
+    map.fitBounds(
+        bounds,
+        {
+            padding:
+                [
+                    25,
+                    25
+                ]
+        }
+    );
+}
+
+
+/* =========================================================
+   STARTA PROMENAD
+========================================================= */
+
+startButton.addEventListener(
+    "click",
+    async function() {
+
+        if (
+            walkStarted
+        ) {
+
+            return;
+        }
+
+
+        /*
+           GPS startas först.
+        */
+
+        const gpsStarted =
+            startGps();
+
+
+        if (
+            !gpsStarted
+        ) {
+
+            return;
+        }
+
+
+        walkStarted =
+            true;
+
+
+        walkStartTime =
+            new Date();
+
+
+        startButton.textContent =
+            "🟢 PROMENADEN PÅGÅR";
+
+
+        startButton.disabled =
+            true;
+
+
+        liveArea.classList.remove(
+            "hidden"
+        );
+
+
+        afterStart.classList.remove(
+            "hidden"
+        );
+
+
+        statusElement.textContent =
+            "Promenaden pågår";
+
+
+        /*
+           Starta tidsräknaren.
+        */
+
+        liveTimer =
+            setInterval(
+                updateLiveTimer,
+                1000
+            );
+
+
+        /*
+           Skapa kartan när första GPS-positionen
+           kommer in.
+        */
+
+        const waitForMap =
+            setInterval(
+                function() {
+
+                    if (
+                        gpsPoints.length > 0
+                    ) {
+
+                        clearInterval(
+                            waitForMap
+                        );
+
+
+                        initMap(
+                            gpsPoints[0].lat,
+                            gpsPoints[0].lng
+                        );
+
+
+                        /*
+                           Lägg till den första punkten
+                           i kartan.
+                        */
+
+                        gpsPoints.forEach(
+                            function(point) {
+
+                                routeLine.addLatLng(
+                                    [
+                                        point.lat,
+                                        point.lng
+                                    ]
+                                );
+
+                            }
+                        );
+
+                    }
+
+                },
+                500
+            );
+
+
+        /*
+           Säkerhetsstopp för väntan på karta.
+        */
+
+        setTimeout(
+            function() {
+
+                clearInterval(
+                    waitForMap
+                );
+
+            },
+            30000
+        );
+
+    }
+);
+
+
+/* =========================================================
+   AVSLUTA PROMENAD
+========================================================= */
+
+finishButton.addEventListener(
+    "click",
+    async function() {
+
+        if (
+            !walkStarted
+        ) {
+
+            return;
+        }
+
+
+        finishButton.disabled =
+            true;
+
+
+        finishButton.textContent =
+            "Sparar promenaden…";
+
+
+        stopGps();
+
+
+        if (
+            liveTimer
+        ) {
+
+            clearInterval(
+                liveTimer
+            );
+
+            liveTimer =
+                null;
+        }
+
+
+        try {
+
+            /*
+               Spara GPS-rutten.
+            */
+
+            await saveRoute();
+
+
+            /*
+               Rita färdig karta.
+            */
+
+            drawFinalRoute();
+
+
+            /*
+               Slutstatistik.
+            */
+
+            const durationSeconds =
+                Math.round(
+                    (
+                        Date.now() -
+                        walkStartTime.getTime()
+                    ) /
+                    1000
+                );
+
+
+            const minutes =
+                Math.floor(
+                    durationSeconds /
+                    60
+                );
+
+
+            const seconds =
+                durationSeconds %
+                60;
+
+
+            document
+                .getElementById(
+                    "distance"
+                )
+                .textContent =
+
+                (
+                    totalDistanceMeters /
+                    1000
+                ).toFixed(2)
+                .replace(
+                    ".",
+                    ","
+                ) +
+                " km";
+
+
+            document
+                .getElementById(
+                    "duration"
+                )
+                .textContent =
+
+                minutes +
+                ":" +
+                String(
+                    seconds
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
+            document
+                .getElementById(
+                    "startTime"
+                )
+                .textContent =
+
+                walkStartTime.toLocaleTimeString(
+                    "sv-SE",
+                    {
+                        hour:
+                            "2-digit",
+
+                        minute:
+                            "2-digit"
+                    }
+                );
+
+
+            finishButton.textContent =
+                "✓ PROMENADEN AVSLUTAD";
+
+
+            statusElement.textContent =
+                "Promenaden är avslutad";
+
+
+            gpsText.textContent =
+                "GPS avslutad";
+
+
+            showMessage(
+                "Promenaden är sparad! 🗺️"
+            );
+
+
+        }
+
+        catch (
+            error
+        ) {
+
+            console.error(
+                error
+            );
+
+
+            finishButton.disabled =
+                false;
+
+
+            finishButton.textContent =
+                "🏁 AVSLUTA PROMENAD";
+
+
+            showMessage(
+                "Kunde inte spara GPS-rutten.",
+                true
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   REALTIME DELTAGARE
+========================================================= */
 
 supabaseClient
 
@@ -2541,112 +3929,9 @@ supabaseClient
     .subscribe();
 
 
-/* =====================================================
-   PROMENAD
-===================================================== */
-
-let walkStarted =
-    false;
-
-
-let walkStartTime =
-    null;
-
-
-startButton.addEventListener(
-    "click",
-    function() {
-
-        walkStarted =
-            true;
-
-
-        walkStartTime =
-            new Date();
-
-
-        startButton.textContent =
-            "🟢 PROMENADEN PÅGÅR";
-
-
-        startButton.disabled =
-            true;
-
-
-        afterStart.classList.remove(
-            "hidden"
-        );
-
-
-        statusElement.textContent =
-            "Promenaden pågår";
-
-    }
-);
-
-
-/* =====================================================
-   AVSLUTA
-===================================================== */
-
-finishButton.addEventListener(
-    "click",
-    function() {
-
-        if (
-            !walkStarted
-        ) {
-
-            return;
-        }
-
-
-        const finishTime =
-            new Date();
-
-
-        const milliseconds =
-            finishTime -
-            walkStartTime;
-
-
-        const minutes =
-            Math.max(
-                1,
-                Math.round(
-                    milliseconds /
-                    60000
-                )
-            );
-
-
-        document
-            .getElementById(
-                "duration"
-            )
-            .textContent =
-                minutes +
-                " min";
-
-
-        finishButton.textContent =
-            "✓ PROMENADEN AVSLUTAD";
-
-
-        finishButton.disabled =
-            true;
-
-
-        statusElement.textContent =
-            "Promenaden är avslutad";
-
-    }
-);
-
-
-/* =====================================================
+/* =========================================================
    START
-===================================================== */
+========================================================= */
 
 loadSignups();
 

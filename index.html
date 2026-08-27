@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -10,7 +9,7 @@ initial-scale=1,
 maximum-scale=1,
 viewport-fit=cover">
 
-<title>Dagens promenad</title>
+<title>Lunchturen</title>
 
 <meta name="theme-color" content="#090b0a">
 
@@ -22,19 +21,12 @@ content="black-translucent">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<link
-rel="stylesheet"
+<link rel="stylesheet"
 href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
-<script
-src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <style>
-
-/* =========================================================
-   GRUND
-========================================================= */
 
 :root {
     --bg:#090b0a;
@@ -43,7 +35,6 @@ src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
     --text:#f5f7f1;
     --muted:#969d98;
     --green:#caff00;
-    --green-dark:#a9d900;
     --border:rgba(255,255,255,.09);
     --danger:#ff5757;
 }
@@ -85,9 +76,9 @@ body {
 }
 
 
-/* =========================================================
+/* =========================
    HEADER
-========================================================= */
+========================= */
 
 .header {
     text-align:center;
@@ -118,9 +109,9 @@ body {
 }
 
 
-/* =========================================================
+/* =========================
    HUVUDKORT
-========================================================= */
+========================= */
 
 .hero {
     position:relative;
@@ -138,14 +129,7 @@ body {
 
     border-radius:30px;
 
-    padding:
-    23px
-    23px
-    21px;
-
-    box-shadow:
-    0 18px 45px
-    rgba(180,240,0,.13);
+    padding:23px;
 }
 
 .hero::after {
@@ -161,7 +145,8 @@ body {
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.11);
+    background:
+    rgba(255,255,255,.11);
 }
 
 .hero-title {
@@ -180,9 +165,8 @@ body {
 
     font-size:16px;
     font-weight:650;
-    opacity:.72;
 
-    margin-top:3px;
+    opacity:.72;
 }
 
 .hero-row {
@@ -212,17 +196,16 @@ body {
 .time.proposal-message {
     font-size:22px;
     line-height:1.05;
+
     letter-spacing:-.4px;
+
     max-width:230px;
 }
 
 .countdown {
     font-size:17px;
-    line-height:1;
 
     font-weight:850;
-
-    letter-spacing:.2px;
 
     margin-top:9px;
 
@@ -246,6 +229,7 @@ body {
     display:block;
 
     font-size:11px;
+
     letter-spacing:1.2px;
 
     opacity:.55;
@@ -254,9 +238,9 @@ body {
 }
 
 
-/* =========================================================
+/* =========================
    STATUS
-========================================================= */
+========================= */
 
 .status {
     text-align:center;
@@ -282,14 +266,15 @@ body {
 }
 
 
-/* =========================================================
-   SEKTION
-========================================================= */
+/* =========================
+   DELTAGARE
+========================= */
 
 .section-head {
     display:flex;
 
     justify-content:space-between;
+
     align-items:center;
 
     margin:23px 3px 10px;
@@ -297,6 +282,7 @@ body {
 
 .section-title {
     font-size:23px;
+
     font-weight:900;
 }
 
@@ -314,14 +300,11 @@ body {
     font-weight:850;
 }
 
-
-/* =========================================================
-   DELTAGARE
-========================================================= */
-
 .people {
     display:flex;
+
     flex-direction:column;
+
     gap:7px;
 }
 
@@ -334,9 +317,7 @@ body {
 
     background:var(--card);
 
-    border:
-    1px solid
-    var(--border);
+    border:1px solid var(--border);
 
     border-radius:19px;
 
@@ -354,6 +335,7 @@ body {
     border-radius:50%;
 
     display:grid;
+
     place-items:center;
 
     background:#292d29;
@@ -367,17 +349,21 @@ body {
 
 .person-content {
     min-width:0;
+
     flex:1;
 }
 
 .person-name {
     font-size:18px;
+
     font-weight:850;
 }
 
 .person-time {
     font-size:13px;
+
     color:var(--muted);
+
     margin-top:2px;
 }
 
@@ -387,16 +373,17 @@ body {
 
 .person-note {
     font-size:12px;
+
     color:#b9beb9;
 
     margin-top:4px;
 
-    white-space:normal;
     overflow-wrap:anywhere;
 }
 
 .person-arrow {
     color:#626862;
+
     font-size:20px;
 }
 
@@ -405,9 +392,7 @@ body {
 
     background:var(--card);
 
-    border:
-    1px solid
-    var(--border);
+    border:1px solid var(--border);
 
     border-radius:19px;
 
@@ -419,9 +404,9 @@ body {
 }
 
 
-/* =========================================================
+/* =========================
    TIDSFÖRSLAG
-========================================================= */
+========================= */
 
 .proposal-section {
     margin-top:24px;
@@ -429,6 +414,7 @@ body {
 
 .proposal-title {
     font-size:21px;
+
     font-weight:900;
 
     margin:
@@ -457,9 +443,7 @@ body {
 
     background:var(--card);
 
-    border:
-    1px solid
-    var(--border);
+    border:1px solid var(--border);
 
     border-radius:22px;
 
@@ -474,6 +458,7 @@ body {
     min-width:100px;
 
     border:0;
+
     outline:0;
 
     background:transparent;
@@ -485,22 +470,83 @@ body {
     padding:10px;
 }
 
-.proposal-form input[type="time"] {
-    width:105px;
 
-    border:0;
+/* =========================
+   NYTT TYDLIGT TIDSFÄLT
+========================= */
+
+.time-picker {
+    width:120px;
+
+    position:relative;
+}
+
+.time-picker input[type="time"] {
+    width:100%;
+
+    height:45px;
+
+    border:
+    1px solid
+    rgba(255,255,255,.16);
+
     outline:0;
 
-    background:var(--card2);
+    background:
+    var(--card2);
 
     color:white;
 
     border-radius:14px;
 
-    font-size:16px;
+    font-size:15px;
 
-    padding:10px;
+    font-weight:800;
+
+    padding:
+    0 9px;
+
+    cursor:pointer;
+
+    -webkit-appearance:auto;
 }
+
+.time-picker input[type="time"]::-webkit-calendar-picker-indicator {
+    filter:invert(1);
+
+    opacity:.9;
+
+    cursor:pointer;
+}
+
+.time-placeholder {
+    position:absolute;
+
+    left:10px;
+
+    top:50%;
+
+    transform:
+    translateY(-50%);
+
+    pointer-events:none;
+
+    color:#c5cbc5;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+.time-picker.has-value
+.time-placeholder {
+    display:none;
+}
+
+
+/* =========================
+   FÖRESLAGNA TIDER
+========================= */
 
 .proposal-form button {
     width:100%;
@@ -521,11 +567,6 @@ body {
 
     cursor:pointer;
 }
-
-
-/* =========================================================
-   TIDSKORT
-========================================================= */
 
 .proposal-list {
     display:flex;
@@ -555,10 +596,6 @@ body {
     border:
     1px solid
     rgba(202,255,0,.55);
-
-    box-shadow:
-    0 0 0 1px
-    rgba(202,255,0,.08);
 }
 
 .popular-badge {
@@ -671,8 +708,7 @@ body {
     min-height:43px;
 
     padding:
-    0
-    14px;
+    0 14px;
 
     font-size:13px;
 
@@ -692,9 +728,9 @@ body {
 }
 
 
-/* =========================================================
+/* =========================
    KNAPPAR
-========================================================= */
+========================= */
 
 .action {
     width:100%;
@@ -733,9 +769,9 @@ body {
 }
 
 
-/* =========================================================
+/* =========================
    GPS
-========================================================= */
+========================= */
 
 .gps-status {
     display:flex;
@@ -787,11 +823,6 @@ body {
     }
 }
 
-
-/* =========================================================
-   LIVE STATISTIK
-========================================================= */
-
 .live-stats {
     display:flex;
 
@@ -829,9 +860,9 @@ body {
 }
 
 
-/* =========================================================
+/* =========================
    KARTA
-========================================================= */
+========================= */
 
 .map-card {
     margin-top:13px;
@@ -896,16 +927,17 @@ body {
 }
 
 
-/* =========================================================
+/* =========================
    MODAL
-========================================================= */
+========================= */
 
 .modal-overlay {
     position:fixed;
 
     inset:0;
 
-    background:rgba(0,0,0,.72);
+    background:
+    rgba(0,0,0,.72);
 
     backdrop-filter:blur(8px);
 
@@ -966,9 +998,7 @@ body {
     line-height:1.4;
 
     margin:
-    8px
-    0
-    18px;
+    8px 0 18px;
 }
 
 .modal-time {
@@ -1073,9 +1103,9 @@ body {
 <div class="app">
 
 
-<!-- =====================================================
+<!-- =========================
      HEADER
-====================================================== -->
+========================= -->
 
 <div class="header">
 
@@ -1106,9 +1136,9 @@ body {
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      HUVUDKORT
-====================================================== -->
+========================= -->
 
 <div class="hero">
 
@@ -1157,10 +1187,6 @@ body {
 </div>
 
 
-<!-- =====================================================
-     STATUS
-====================================================== -->
-
 <div class="status">
 
     <span class="status-dot"></span>
@@ -1174,9 +1200,9 @@ body {
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      DELTAGARE
-====================================================== -->
+========================= -->
 
 <div
 class="section-head"
@@ -1211,16 +1237,17 @@ id="people">
 
     <br>
 
-    Välj en tid längre ned för att följa med.
+    Välj en tid längre ned
+    för att följa med.
 
     </div>
 
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      TIDSFÖRSLAG
-====================================================== -->
+========================= -->
 
 <div class="proposal-section">
 
@@ -1232,14 +1259,16 @@ id="people">
 
     <div class="proposal-intro">
 
-    Föreslå en tid eller tryck 👍 på
-    en tid du vill följa med.
+    Föreslå en tid eller tryck 👍
+    på en tid du vill följa med.
 
     </div>
+
 
     <form
     class="proposal-form"
     id="proposalForm">
+
 
         <input
         id="proposalName"
@@ -1248,18 +1277,40 @@ id="people">
         placeholder="Ditt namn…"
         required>
 
-        <input
-        id="proposalTime"
-        type="time"
-        required>
 
-        <button type="submit">
+        <!--
+             TYDLIGT TIDSFÄLT
+        -->
+
+        <div
+        class="time-picker"
+        id="timePicker">
+
+            <input
+            id="proposalTime"
+            type="time"
+            required
+            aria-label="Välj tid">
+
+            <span
+            class="time-placeholder">
+
+            🕐 Välj tid
+
+            </span>
+
+        </div>
+
+
+        <button
+        type="submit">
 
         Föreslå tid
 
         </button>
 
     </form>
+
 
     <div
     id="proposalList"
@@ -1270,9 +1321,9 @@ id="people">
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      STARTA PROMENAD
-====================================================== -->
+========================= -->
 
 <button
 class="action"
@@ -1284,9 +1335,9 @@ type="button">
 </button>
 
 
-<!-- =====================================================
+<!-- =========================
      LIVE GPS
-====================================================== -->
+========================= -->
 
 <div
 id="liveArea"
@@ -1297,6 +1348,7 @@ class="hidden">
         <span
         id="gpsDot"
         class="gps-dot active">
+
         </span>
 
         <span id="gpsText">
@@ -1307,11 +1359,13 @@ class="hidden">
 
     </div>
 
+
     <div class="live-stats">
 
         <div class="live-stat">
 
-            <strong id="liveDistance">
+            <strong
+            id="liveDistance">
 
             0,00 km
 
@@ -1325,9 +1379,11 @@ class="hidden">
 
         </div>
 
+
         <div class="live-stat">
 
-            <strong id="liveDuration">
+            <strong
+            id="liveDuration">
 
             0:00
 
@@ -1341,9 +1397,11 @@ class="hidden">
 
         </div>
 
+
         <div class="live-stat">
 
-            <strong id="livePoints">
+            <strong
+            id="livePoints">
 
             0
 
@@ -1362,9 +1420,9 @@ class="hidden">
 </div>
 
 
-<!-- =====================================================
-     KARTA
-====================================================== -->
+<!-- =========================
+     EFTER PROMENAD
+========================= -->
 
 <div
 id="afterStart"
@@ -1379,6 +1437,7 @@ class="hidden">
 
     </button>
 
+
     <div class="map-card">
 
         <div class="map-title">
@@ -1387,13 +1446,16 @@ class="hidden">
 
         </div>
 
+
         <div id="map"></div>
+
 
         <div class="route-stats">
 
             <div class="route-stat">
 
-                <strong id="distance">
+                <strong
+                id="distance">
 
                 —
 
@@ -1407,9 +1469,11 @@ class="hidden">
 
             </div>
 
+
             <div class="route-stat">
 
-                <strong id="duration">
+                <strong
+                id="duration">
 
                 —
 
@@ -1423,9 +1487,11 @@ class="hidden">
 
             </div>
 
+
             <div class="route-stat">
 
-                <strong id="startTime">
+                <strong
+                id="startTime">
 
                 —
 
@@ -1448,9 +1514,9 @@ class="hidden">
 </div>
 
 
-<!-- =====================================================
-     DELTAGARE / REDIGERING
-====================================================== -->
+<!-- =========================
+     DELTAGARMODAL
+========================= -->
 
 <div
 id="joinModal"
@@ -1492,11 +1558,13 @@ class="modal-overlay hidden">
         maxlength="30"
         placeholder="Ditt namn…">
 
+
         <textarea
         id="joinNote"
         class="modal-textarea"
         maxlength="150"
         placeholder="Notering, valfritt…"></textarea>
+
 
         <button
         id="joinConfirm"
@@ -1507,6 +1575,7 @@ class="modal-overlay hidden">
 
         </button>
 
+
         <button
         id="joinRemove"
         class="modal-button danger hidden"
@@ -1515,6 +1584,7 @@ class="modal-overlay hidden">
         Ta bort min anmälan
 
         </button>
+
 
         <button
         id="joinCancel"
@@ -1530,9 +1600,9 @@ class="modal-overlay hidden">
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      ADMIN
-====================================================== -->
+========================= -->
 
 <div
 id="adminModal"
@@ -1567,6 +1637,7 @@ class="modal-overlay hidden">
         maxlength="4"
         placeholder="••••">
 
+
         <button
         id="loginButton"
         class="modal-button"
@@ -1575,6 +1646,7 @@ class="modal-overlay hidden">
         Fortsätt
 
         </button>
+
 
         <button
         id="cancelButton"
@@ -1590,9 +1662,9 @@ class="modal-overlay hidden">
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      RESET
-====================================================== -->
+========================= -->
 
 <div
 id="resetModal"
@@ -1614,10 +1686,12 @@ class="modal-overlay hidden">
 
         <p>
 
-        Alla deltagare, tidsförslag
-        och röster för idag tas bort.
+        Alla deltagare,
+        tidsförslag och röster
+        för idag tas bort.
 
         </p>
+
 
         <button
         id="resetButton"
@@ -1627,6 +1701,7 @@ class="modal-overlay hidden">
         🗑 Nollställ dagens lista
 
         </button>
+
 
         <button
         id="resetCancelButton"
@@ -1644,9 +1719,9 @@ class="modal-overlay hidden">
 
 <script>
 
-/* =========================================================
+/* =====================================================
    SUPABASE
-========================================================= */
+===================================================== */
 
 const SUPABASE_URL =
 "https://hhbhilkcljzmzmjypqgm.supabase.co";
@@ -1661,53 +1736,17 @@ window.supabase.createClient(
 );
 
 
-/* =========================================================
+/* =====================================================
    ELEMENT
-========================================================= */
+===================================================== */
 
-const nameDayElement =
-document.getElementById("nameDay");
-
-const dateElement =
-document.getElementById("date");
-
-const weekdayElement =
-document.getElementById("weekday");
-
-const peopleElement =
-document.getElementById("people");
-
-const countElement =
-document.getElementById("count");
-
-const statusElement =
-document.getElementById("status");
-
-const proposalForm =
-document.getElementById("proposalForm");
-
-const proposalName =
-document.getElementById("proposalName");
-
-const proposalTime =
-document.getElementById("proposalTime");
-
-const proposalList =
-document.getElementById("proposalList");
-
-const mainTimeElement =
-document.getElementById("mainTime");
-
-const countdownElement =
-document.getElementById("countdown");
-
-const departureElement =
-document.getElementById("departure");
+const $ = id =>
+document.getElementById(id);
 
 
-/* =========================================================
-   DAGENS NAMN
-========================================================= */
+/* =====================================================
+   NAMNSDAGAR
+===================================================== */
 
 const nameDays = {
 
@@ -1722,22 +1761,17 @@ const nameDays = {
 };
 
 
-/* =========================================================
+/* =====================================================
    DATUM
-========================================================= */
+===================================================== */
 
 function updateDate() {
 
-    const now = new Date();
-
-    const key =
-    String(now.getMonth()+1).padStart(2,"0")
-    +
-    "-"
-    +
-    String(now.getDate()).padStart(2,"0");
+    const now =
+    new Date();
 
     const months = [
+
         "januari",
         "februari",
         "mars",
@@ -1750,9 +1784,11 @@ function updateDate() {
         "oktober",
         "november",
         "december"
+
     ];
 
     const weekdays = [
+
         "Söndag",
         "Måndag",
         "Tisdag",
@@ -1760,21 +1796,50 @@ function updateDate() {
         "Torsdag",
         "Fredag",
         "Lördag"
+
     ];
 
-    dateElement.textContent =
+    const key =
+
+    String(
+        now.getMonth()+1
+    ).padStart(2,"0")
+
+    +
+
+    "-"
+
+    +
+
+    String(
+        now.getDate()
+    ).padStart(2,"0");
+
+
+    $("date").textContent =
+
     now.getDate()
     +
     " "
     +
-    months[now.getMonth()];
+    months[
+        now.getMonth()
+    ];
 
-    weekdayElement.textContent =
-    weekdays[now.getDay()];
 
-    nameDayElement.textContent =
+    $("weekday").textContent =
+
+    weekdays[
+        now.getDay()
+    ];
+
+
+    $("nameDay").textContent =
+
     "DAGENS NAMN: "
+
     +
+
     (
         nameDays[key]
         ||
@@ -1785,39 +1850,52 @@ function updateDate() {
 updateDate();
 
 
-/* =========================================================
+/* =====================================================
    DAGENS NYCKEL
-========================================================= */
+===================================================== */
 
-function getTodayKey() {
+function todayKey() {
 
-    const now = new Date();
+    const now =
+    new Date();
 
     return (
+
         now.getFullYear()
+
         +
+
         "-"
+
         +
+
         String(
             now.getMonth()+1
         ).padStart(2,"0")
+
         +
+
         "-"
+
         +
+
         String(
             now.getDate()
         ).padStart(2,"0")
+
     );
 }
 
 
-/* =========================================================
+/* =====================================================
    ESCAPE
-========================================================= */
+===================================================== */
 
-function escapeHtml(text) {
+function esc(value) {
 
-    return String(text)
+    return String(
+        value ?? ""
+    )
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
@@ -1826,9 +1904,41 @@ function escapeHtml(text) {
 }
 
 
-/* =========================================================
+/* =====================================================
+   STATUS
+===================================================== */
+
+function showMessage(
+    text,
+    error=false
+) {
+
+    $("status").textContent =
+    text;
+
+    $("status").style.color =
+    error
+    ? "#ff7777"
+    : "";
+
+    setTimeout(
+        () => {
+
+            $("status").textContent =
+            "Uppdaterad nyss";
+
+            $("status").style.color =
+            "";
+
+        },
+        3500
+    );
+}
+
+
+/* =====================================================
    DATA
-========================================================= */
+===================================================== */
 
 let allProposals = [];
 
@@ -1841,71 +1951,37 @@ let selectedProposalId = null;
 let editingName = null;
 
 
-/* =========================================================
-   STATUS
-========================================================= */
+/* =====================================================
+   DELTAGARE PÅ TID
+===================================================== */
 
-function showMessage(
-    text,
-    error=false
-) {
-
-    statusElement.textContent =
-    text;
-
-    statusElement.style.color =
-    error
-    ? "#ff7777"
-    : "";
-
-    setTimeout(
-        () => {
-
-            statusElement.textContent =
-            "Uppdaterad nyss";
-
-            statusElement.style.color =
-            "";
-
-        },
-        3500
-    );
-}
-
-
-/* =========================================================
-   HÄMTA MEDLEMMAR PÅ TID
-========================================================= */
-
-function getProposalMembers(
+function getMembers(
     proposal
 ) {
 
-    const members = [];
+    const names = [];
 
-    /*
-       Förslagsställaren räknas bara
-       om personen fortfarande är
-       deltagare.
-    */
 
-    const proposerStillExists =
-    allSignups.some(
+    const proposer =
+    allSignups.find(
         signup =>
+
         signup.name
         .toLowerCase()
         .trim()
+
         ===
+
         proposal.name
         .toLowerCase()
         .trim()
     );
 
 
-    if (proposerStillExists) {
+    if (proposer) {
 
-        members.push(
-            proposal.name
+        names.push(
+            proposer.name
         );
     }
 
@@ -1913,28 +1989,30 @@ function getProposalMembers(
     allVotes
     .filter(
         vote =>
-        vote.proposal_id ===
+
+        vote.proposal_id
+        ===
         proposal.id
+
         &&
-        vote.vote ===
+
+        vote.vote
+        ===
         "yes"
     )
     .forEach(
         vote => {
 
-            /*
-               Kontrollera att personen
-               fortfarande finns i
-               deltagarlistan.
-            */
-
             const exists =
             allSignups.some(
                 signup =>
+
                 signup.name
                 .toLowerCase()
                 .trim()
+
                 ===
+
                 vote.name
                 .toLowerCase()
                 .trim()
@@ -1943,88 +2021,64 @@ function getProposalMembers(
 
             if (exists) {
 
-                members.push(
+                names.push(
                     vote.name
                 );
             }
+
         }
     );
 
 
-    const unique = [];
+    return [
+        ...
+        new Map(
+            names.map(
+                name => [
+                    name
+                    .toLowerCase()
+                    .trim(),
 
-    const seen = new Set();
-
-
-    members.forEach(
-        name => {
-
-            const key =
-            name
-            .toLowerCase()
-            .trim();
-
-
-            if (!seen.has(key)) {
-
-                seen.add(key);
-
-                unique.push(name);
-            }
-        }
-    );
-
-
-    return unique;
+                    name
+                ]
+            )
+        ).values()
+    ];
 }
 
 
-/* =========================================================
-   POPULÄRASTE TID
-========================================================= */
+/* =====================================================
+   POPULÄRASTE
+===================================================== */
 
-function getPopularProposal() {
-
-    if (
-        !allProposals.length
-    ) {
-
-        return null;
-    }
-
+function getPopular() {
 
     let best = null;
 
-    let bestCount = -1;
+    let bestCount = 0;
 
 
     allProposals.forEach(
         proposal => {
 
             const count =
-            getProposalMembers(
+            getMembers(
                 proposal
             ).length;
 
 
-            /*
-               Ett tidsförslag utan
-               deltagare ska inte vara
-               huvudtid.
-            */
-
             if (
-                count > bestCount
-                &&
-                count > 0
+                count >
+                bestCount
             ) {
-
-                bestCount =
-                count;
 
                 best =
                 proposal;
+
+                bestCount =
+                count;
             }
+
         }
     );
 
@@ -2033,30 +2087,34 @@ function getPopularProposal() {
 }
 
 
-/* =========================================================
+/* =====================================================
    HUVUDTID
-========================================================= */
+===================================================== */
 
 function updateMainTime() {
 
     const popular =
-    getPopularProposal();
+    getPopular();
 
 
     if (!popular) {
 
-        mainTimeElement.textContent =
+        $("mainTime").textContent =
         "Kom med förslag på tid";
 
-        mainTimeElement.classList.add(
+        $("mainTime")
+        .classList
+        .add(
             "proposal-message"
         );
 
-        countdownElement.classList.add(
+        $("countdown")
+        .classList
+        .add(
             "hidden"
         );
 
-        departureElement.innerHTML =
+        $("departure").innerHTML =
         "";
 
         return;
@@ -2072,18 +2130,25 @@ function updateMainTime() {
     );
 
 
-    mainTimeElement.textContent =
+    $("mainTime").textContent =
     time;
 
-    mainTimeElement.classList.remove(
+
+    $("mainTime")
+    .classList
+    .remove(
         "proposal-message"
     );
 
-    countdownElement.classList.remove(
+
+    $("countdown")
+    .classList
+    .remove(
         "hidden"
     );
 
-    departureElement.innerHTML = `
+
+    $("departure").innerHTML = `
 
         <span class="departure-label">
 
@@ -2095,23 +2160,45 @@ function updateMainTime() {
 
     `;
 
+
     updateCountdown();
 }
 
 
-/* =========================================================
+/* =====================================================
    NEDRÄKNING
-========================================================= */
+===================================================== */
+
+function currentTime() {
+
+    const popular =
+    getPopular();
+
+    if (!popular) {
+
+        return null;
+    }
+
+    return String(
+        popular.proposed_time
+    ).substring(
+        0,
+        5
+    );
+}
+
 
 function updateCountdown() {
 
     const time =
-    currentSuggestedTime();
+    currentTime();
 
 
     if (!time) {
 
-        countdownElement.classList.add(
+        $("countdown")
+        .classList
+        .add(
             "hidden"
         );
 
@@ -2125,7 +2212,6 @@ function updateCountdown() {
 
     const now =
     new Date();
-
 
     const departure =
     new Date();
@@ -2149,7 +2235,7 @@ function updateCountdown() {
         difference <= 0
     ) {
 
-        countdownElement.textContent =
+        $("countdown").textContent =
         "00:00:00 kvar";
 
         return;
@@ -2158,66 +2244,51 @@ function updateCountdown() {
 
     const totalSeconds =
     Math.floor(
-        difference /
-        1000
+        difference / 1000
     );
 
 
     const hours =
     Math.floor(
-        totalSeconds /
-        3600
+        totalSeconds / 3600
     );
 
 
     const minutes =
     Math.floor(
         (
-            totalSeconds %
-            3600
-        ) /
-        60
+            totalSeconds % 3600
+        ) / 60
     );
 
 
     const seconds =
-    totalSeconds %
-    60;
+    totalSeconds % 60;
 
 
-    countdownElement.textContent =
+    $("countdown").textContent =
+
     String(hours).padStart(2,"0")
+
     +
+
     ":"
+
     +
+
     String(minutes).padStart(2,"0")
+
     +
+
     ":"
+
     +
+
     String(seconds).padStart(2,"0")
+
     +
+
     " kvar";
-}
-
-
-function currentSuggestedTime() {
-
-    const popular =
-    getPopularProposal();
-
-
-    if (!popular) {
-
-        return null;
-    }
-
-
-    return String(
-        popular.proposed_time
-    ).substring(
-        0,
-        5
-    );
 }
 
 
@@ -2227,38 +2298,43 @@ setInterval(
 );
 
 
-/* =========================================================
+/* =====================================================
    RENDERA DELTAGARE
-========================================================= */
+===================================================== */
 
 function renderPeople() {
 
-    countElement.textContent =
+    $("count").textContent =
+
     allSignups.length
     +
     " "
     +
     (
         allSignups.length === 1
-        ? "PERSON"
-        : "PERSONER"
+        ?
+        "PERSON"
+        :
+        "PERSONER"
     );
 
 
-    if (!allSignups.length) {
+    if (
+        !allSignups.length
+    ) {
 
-        peopleElement.innerHTML = `
+        $("people").innerHTML = `
 
             <div class="empty">
 
-                🚶<br>
+            🚶<br>
 
-                Ingen har anmält sig ännu.
+            Ingen har anmält sig ännu.
 
-                <br>
+            <br>
 
-                Välj en tid längre ned
-                för att följa med.
+            Välj en tid längre ned
+            för att följa med.
 
             </div>
 
@@ -2268,45 +2344,36 @@ function renderPeople() {
     }
 
 
-    peopleElement.innerHTML =
+    $("people").innerHTML =
+
     allSignups
     .map(
         person => {
 
-            const name =
-            escapeHtml(
-                person.name
-            );
-
-
-            const initial =
-            escapeHtml(
-                person.name
-                .trim()
-                .charAt(0)
-                .toUpperCase()
-            );
-
-
             const vote =
             allVotes.find(
-                vote =>
-                vote.name
+                v =>
+
+                v.name
                 .toLowerCase()
                 .trim()
+
                 ===
+
                 person.name
                 .toLowerCase()
                 .trim()
+
                 &&
-                vote.vote ===
+
+                v.vote
+                ===
                 "yes"
             );
 
 
             let selectedTime =
             "";
-
 
             let note =
             "";
@@ -2316,8 +2383,9 @@ function renderPeople() {
 
                 const proposal =
                 allProposals.find(
-                    proposal =>
-                    proposal.id ===
+                    p =>
+                    p.id
+                    ===
                     vote.proposal_id
                 );
 
@@ -2335,7 +2403,8 @@ function renderPeople() {
 
 
                 note =
-                vote.note ||
+                vote.note
+                ||
                 "";
             }
 
@@ -2344,65 +2413,93 @@ function renderPeople() {
 
                 <div
                 class="person"
-                data-person-name="${escapeHtml(person.name)}">
+                data-name="${esc(
+                    person.name
+                )}">
 
                     <div class="avatar">
 
-                        ${initial}
+                    ${esc(
+                        person.name
+                        .trim()
+                        .charAt(0)
+                        .toUpperCase()
+                    )}
 
                     </div>
 
-                    <div class="person-content">
 
-                        <div class="person-name">
+                    <div
+                    class="person-content">
 
-                            ${name}
+                        <div
+                        class="person-name">
+
+                        ${esc(
+                            person.name
+                        )}
 
                         </div>
 
-                        <div class="person-time">
 
-                            ${
+                        <div
+                        class="person-time">
+
+                        ${
+                            selectedTime
+
+                            ?
+
+                            `
+                            👍 Med på
+                            <strong>
+                            ${esc(
                                 selectedTime
-                                ?
-                                `
-                                👍 Med på
-                                <strong>
-                                ${selectedTime}
-                                </strong>
-                                `
-                                :
-                                "Anmäld"
-                            }
+                            )}
+                            </strong>
+                            `
+
+                            :
+
+                            "Anmäld"
+                        }
 
                         </div>
+
 
                         ${
                             note
+
                             ?
+
                             `
                             <div
                             class="person-note">
 
-                            “${escapeHtml(note)}”
+                            “${esc(note)}”
 
                             </div>
                             `
+
                             :
+
                             ""
                         }
 
                     </div>
 
-                    <div class="person-arrow">
 
-                        ›
+                    <div
+                    class="person-arrow">
+
+                    ›
 
                     </div>
 
                 </div>
 
             `;
+
         }
     )
     .join("");
@@ -2420,7 +2517,7 @@ function renderPeople() {
                 () => {
 
                     openEditPerson(
-                        element.dataset.personName
+                        element.dataset.name
                     );
 
                 }
@@ -2431,9 +2528,215 @@ function renderPeople() {
 }
 
 
-/* =========================================================
+/* =====================================================
+   RENDERA TIDSFÖRSLAG
+===================================================== */
+
+function renderProposals() {
+
+    if (
+        !allProposals.length
+    ) {
+
+        $("proposalList").innerHTML = `
+
+            <div class="no-proposals">
+
+            Ingen tid föreslagen ännu.
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    const popular =
+    getPopular();
+
+
+    $("proposalList").innerHTML =
+
+    allProposals
+    .map(
+        proposal => {
+
+            const time =
+            String(
+                proposal.proposed_time
+            ).substring(
+                0,
+                5
+            );
+
+
+            const members =
+            getMembers(
+                proposal
+            );
+
+
+            const isPopular =
+            popular
+            &&
+            popular.id
+            ===
+            proposal.id;
+
+
+            return `
+
+                <div
+                class="proposal
+                ${
+                    isPopular
+                    ?
+                    "popular"
+                    :
+                    ""
+                }">
+
+
+                    ${
+                        isPopular
+
+                        ?
+
+                        `
+                        <div
+                        class="popular-badge">
+
+                        ⭐ POPULÄRAST
+
+                        </div>
+                        `
+
+                        :
+
+                        ""
+                    }
+
+
+                    <div
+                    class="proposal-top">
+
+
+                        <div
+                        class="proposal-time">
+
+                        ${esc(time)}
+
+                        </div>
+
+
+                        <div
+                        class="proposal-person">
+
+                        Föreslagen av<br>
+
+                        <strong>
+
+                        ${esc(
+                            proposal.name
+                        )}
+
+                        </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                    class="proposal-members">
+
+                    ${
+                        members
+                        .map(
+                            name => `
+
+                            <span
+                            class="member-chip">
+
+                            ${esc(name)}
+
+                            </span>
+
+                            `
+                        )
+                        .join("")
+                    }
+
+                    </div>
+
+
+                    <div
+                    class="proposal-bottom">
+
+
+                        <div
+                        class="member-count">
+
+                        👍
+                        ${members.length}
+                        ${
+                            members.length === 1
+                            ?
+                            "person"
+                            :
+                            "personer"
+                        }
+
+                        </div>
+
+
+                        <button
+                        class="join-button"
+                        type="button"
+                        data-id="${proposal.id}">
+
+                        👍 Jag är med
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    )
+    .join("");
+
+
+    document
+    .querySelectorAll(
+        ".join-button"
+    )
+    .forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    openJoinModal(
+                        button.dataset.id
+                    );
+
+                }
+            );
+
+        }
+    );
+}
+
+
+/* =====================================================
    LADDA DELTAGARE
-========================================================= */
+===================================================== */
 
 async function loadSignups() {
 
@@ -2442,11 +2745,13 @@ async function loadSignups() {
         error
     } =
     await supabaseClient
-    .from("walk_signups")
+    .from(
+        "walk_signups"
+    )
     .select("*")
     .eq(
         "date_key",
-        getTodayKey()
+        todayKey()
     )
     .order(
         "created_at",
@@ -2477,22 +2782,24 @@ async function loadSignups() {
 }
 
 
-/* =========================================================
-   LADDA TIDSFÖRSLAG OCH RÖSTER
-========================================================= */
+/* =====================================================
+   LADDA TIDER
+===================================================== */
 
 async function loadProposals() {
 
     const {
-        data: proposals,
-        error: proposalError
+        data:proposals,
+        error
     } =
     await supabaseClient
-    .from("walk_time_proposals")
+    .from(
+        "walk_time_proposals"
+    )
     .select("*")
     .eq(
         "date_key",
-        getTodayKey()
+        todayKey()
     )
     .order(
         "created_at",
@@ -2502,11 +2809,9 @@ async function loadProposals() {
     );
 
 
-    if (proposalError) {
+    if (error) {
 
-        console.error(
-            proposalError
-        );
+        console.error(error);
 
         return;
     }
@@ -2516,14 +2821,9 @@ async function loadProposals() {
     proposals || [];
 
 
-    const ids =
-    allProposals.map(
-        proposal =>
-        proposal.id
-    );
-
-
-    if (!ids.length) {
+    if (
+        !allProposals.length
+    ) {
 
         allVotes = [];
 
@@ -2535,12 +2835,20 @@ async function loadProposals() {
     }
 
 
+    const ids =
+    allProposals.map(
+        p => p.id
+    );
+
+
     const {
-        data: votes,
-        error: voteError
+        data:votes,
+        error:voteError
     } =
     await supabaseClient
-    .from("walk_time_votes")
+    .from(
+        "walk_time_votes"
+    )
     .select("*")
     .in(
         "proposal_id",
@@ -2568,200 +2876,114 @@ async function loadProposals() {
 }
 
 
-/* =========================================================
-   RENDERA TIDER
-========================================================= */
+/* =====================================================
+   LADDA ALLT
+===================================================== */
 
-function renderProposals() {
+async function loadAll() {
 
-    if (
-        !allProposals.length
-    ) {
+    await loadSignups();
 
-        proposalList.innerHTML = `
-
-            <div class="no-proposals">
-
-            Ingen tid föreslagen ännu.
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    const popular =
-    getPopularProposal();
-
-
-    proposalList.innerHTML =
-    allProposals
-    .map(
-        proposal => {
-
-            const time =
-            String(
-                proposal.proposed_time
-            ).substring(
-                0,
-                5
-            );
-
-
-            const members =
-            getProposalMembers(
-                proposal
-            );
-
-
-            const isPopular =
-            popular &&
-            popular.id ===
-            proposal.id;
-
-
-            const chips =
-            members
-            .map(
-                name => `
-
-                    <span
-                    class="member-chip">
-
-                    ${escapeHtml(name)}
-
-                    </span>
-
-                `
-            )
-            .join("");
-
-
-            return `
-
-                <div
-                class="proposal
-                ${isPopular ? "popular" : ""}">
-
-                    ${
-                        isPopular
-                        ?
-                        `
-                        <div
-                        class="popular-badge">
-
-                        ⭐ POPULÄRAST
-
-                        </div>
-                        `
-                        :
-                        ""
-                    }
-
-                    <div class="proposal-top">
-
-                        <div>
-
-                            <div
-                            class="proposal-time">
-
-                            ${time}
-
-                            </div>
-
-                        </div>
-
-                        <div
-                        class="proposal-person">
-
-                            Föreslagen av<br>
-
-                            <strong>
-
-                            ${escapeHtml(
-                                proposal.name
-                            )}
-
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                    <div
-                    class="proposal-members">
-
-                        ${chips}
-
-                    </div>
-
-                    <div
-                    class="proposal-bottom">
-
-                        <div
-                        class="member-count">
-
-                            👍 ${members.length}
-
-                            ${
-                                members.length === 1
-                                ?
-                                "person"
-                                :
-                                "personer"
-                            }
-
-                        </div>
-
-                        <button
-                        class="join-button"
-                        type="button"
-                        data-proposal-id="${proposal.id}">
-
-                        👍 Jag är med
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `;
-        }
-    )
-    .join("");
-
-
-    document
-    .querySelectorAll(
-        ".join-button"
-    )
-    .forEach(
-        button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    openJoinModal(
-                        button.dataset.proposalId
-                    );
-
-                }
-            );
-
-        }
-    );
+    await loadProposals();
 }
 
 
-/* =========================================================
-   FÖRESLÅ NY TID
-========================================================= */
+/* =====================================================
+   NYCKEL FÖR TIDSFÄLTET
+===================================================== */
 
-proposalForm.addEventListener(
+function openTimePicker() {
+
+    const input =
+    $("proposalTime");
+
+
+    /*
+       showPicker används om
+       webbläsaren stöder det.
+    */
+
+    try {
+
+        if (
+            typeof input.showPicker
+            ===
+            "function"
+        ) {
+
+            input.showPicker();
+
+            return;
+        }
+
+    } catch (error) {
+
+        console.log(
+            "showPicker ej tillgänglig"
+        );
+
+    }
+
+
+    /*
+       Fallback för Safari/iPhone.
+    */
+
+    input.focus();
+
+    input.click();
+}
+
+
+/* =====================================================
+   TIDSFÄLT – SYNLIGHET
+===================================================== */
+
+$("proposalTime")
+.addEventListener(
+    "change",
+    function() {
+
+        $("timePicker")
+        .classList
+        .toggle(
+            "has-value",
+            !!this.value
+        );
+
+    }
+);
+
+
+/*
+   Tryck på hela tidsrutan.
+*/
+
+$("timePicker")
+.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target
+            !==
+            $("proposalTime")
+        ) {
+
+            openTimePicker();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   FÖRESLÅ TID
+===================================================== */
+
+$("proposalForm")
+.addEventListener(
     "submit",
     async function(event) {
 
@@ -2769,31 +2991,49 @@ proposalForm.addEventListener(
 
 
         const name =
-        proposalName.value.trim();
+        $("proposalName")
+        .value
+        .trim();
 
 
         const time =
-        proposalTime.value;
+        $("proposalTime")
+        .value;
 
 
-        if (
-            !name ||
-            !time
-        ) {
+        /*
+           VIKTIGT:
+           Om tiden saknas öppnas
+           tidväljaren istället för
+           att formuläret bara ger
+           ett fel.
+        */
+
+        if (!time) {
+
+            openTimePicker();
+
+            return;
+        }
+
+
+        if (!name) {
+
+            $("proposalName")
+            .focus();
 
             return;
         }
 
 
         const button =
-        proposalForm.querySelector(
+        this.querySelector(
             "button"
         );
 
 
         button.disabled =
         true;
-
 
         button.textContent =
         "Skickar…";
@@ -2802,15 +3042,17 @@ proposalForm.addEventListener(
         try {
 
             const {
-                data: proposal,
+                data:proposal,
                 error
             } =
             await supabaseClient
-            .from("walk_time_proposals")
+            .from(
+                "walk_time_proposals"
+            )
             .insert([
                 {
                     date_key:
-                    getTodayKey(),
+                    todayKey(),
 
                     name:
                     name,
@@ -2841,12 +3083,16 @@ proposalForm.addEventListener(
             );
 
 
-            proposalName.value =
-            name;
-
-
-            proposalTime.value =
+            $("proposalTime")
+            .value =
             "";
+
+
+            $("timePicker")
+            .classList
+            .remove(
+                "has-value"
+            );
 
 
             await loadAll();
@@ -2872,14 +3118,16 @@ proposalForm.addEventListener(
 
             button.textContent =
             "Föreslå tid";
+
         }
+
     }
 );
 
 
-/* =========================================================
+/* =====================================================
    SÄKERSTÄLL DELTAGARE
-========================================================= */
+===================================================== */
 
 async function ensureSignup(
     name
@@ -2890,11 +3138,13 @@ async function ensureSignup(
         error
     } =
     await supabaseClient
-    .from("walk_signups")
+    .from(
+        "walk_signups"
+    )
     .select("id")
     .eq(
         "date_key",
-        getTodayKey()
+        todayKey()
     )
     .eq(
         "name",
@@ -2913,11 +3163,13 @@ async function ensureSignup(
 
         const result =
         await supabaseClient
-        .from("walk_signups")
+        .from(
+            "walk_signups"
+        )
         .insert([
             {
                 date_key:
-                getTodayKey(),
+                todayKey(),
 
                 name:
                 name
@@ -2929,13 +3181,14 @@ async function ensureSignup(
 
             throw result.error;
         }
+
     }
 }
 
 
-/* =========================================================
+/* =====================================================
    FLYTTA PERSON TILL TID
-========================================================= */
+===================================================== */
 
 async function movePersonToProposal(
     name,
@@ -2944,73 +3197,37 @@ async function movePersonToProposal(
 ) {
 
     /*
-       Ta bort personens tidigare
-       JA-röster.
+       En person kan bara ha
+       en aktiv tid.
     */
 
     const {
-        data: previousVotes,
-        error: previousError
+        error:deleteError
     } =
     await supabaseClient
-    .from("walk_time_votes")
-    .select("id")
+    .from(
+        "walk_time_votes"
+    )
+    .delete()
     .eq(
         "name",
         name
-    )
-    .eq(
-        "vote",
-        "yes"
     );
 
 
-    if (previousError) {
+    if (deleteError) {
 
-        throw previousError;
+        throw deleteError;
     }
 
-
-    if (
-        previousVotes &&
-        previousVotes.length
-    ) {
-
-        const ids =
-        previousVotes.map(
-            vote =>
-            vote.id
-        );
-
-
-        const {
-            error
-        } =
-        await supabaseClient
-        .from("walk_time_votes")
-        .delete()
-        .in(
-            "id",
-            ids
-        );
-
-
-        if (error) {
-
-            throw error;
-        }
-    }
-
-
-    /*
-       Lägg ny röst.
-    */
 
     const {
         error
     } =
     await supabaseClient
-    .from("walk_time_votes")
+    .from(
+        "walk_time_votes"
+    )
     .insert([
         {
             proposal_id:
@@ -3040,45 +3257,9 @@ async function movePersonToProposal(
 }
 
 
-/* =========================================================
+/* =====================================================
    JOIN MODAL
-========================================================= */
-
-const joinModal =
-document.getElementById(
-    "joinModal"
-);
-
-const joinTime =
-document.getElementById(
-    "joinTime"
-);
-
-const joinName =
-document.getElementById(
-    "joinName"
-);
-
-const joinNote =
-document.getElementById(
-    "joinNote"
-);
-
-const joinConfirm =
-document.getElementById(
-    "joinConfirm"
-);
-
-const joinRemove =
-document.getElementById(
-    "joinRemove"
-);
-
-const joinCancel =
-document.getElementById(
-    "joinCancel"
-);
-
+===================================================== */
 
 function openJoinModal(
     proposalId,
@@ -3087,8 +3268,8 @@ function openJoinModal(
 
     const proposal =
     allProposals.find(
-        proposal =>
-        String(proposal.id)
+        p =>
+        String(p.id)
         ===
         String(proposalId)
     );
@@ -3103,12 +3284,12 @@ function openJoinModal(
     selectedProposalId =
     proposalId;
 
-
     editingName =
     personName;
 
 
-    joinTime.textContent =
+    $("joinTime")
+    .textContent =
     String(
         proposal.proposed_time
     ).substring(
@@ -3117,11 +3298,13 @@ function openJoinModal(
     );
 
 
-    joinName.value =
+    $("joinName")
+    .value =
     personName || "";
 
 
-    joinNote.value =
+    $("joinNote")
+    .value =
     "";
 
 
@@ -3129,48 +3312,64 @@ function openJoinModal(
 
         const vote =
         allVotes.find(
-            vote =>
-            vote.name
+            v =>
+
+            v.name
             .toLowerCase()
             .trim()
+
             ===
+
             personName
             .toLowerCase()
             .trim()
+
             &&
-            vote.vote ===
+
+            v.vote
+            ===
             "yes"
         );
 
 
         if (vote) {
 
-            joinNote.value =
+            $("joinNote")
+            .value =
             vote.note || "";
         }
 
 
-        joinConfirm.textContent =
+        $("joinConfirm")
+        .textContent =
         "Spara ändringar";
 
 
-        joinRemove.classList.remove(
+        $("joinRemove")
+        .classList
+        .remove(
             "hidden"
         );
 
     } else {
 
-        joinConfirm.textContent =
+        $("joinConfirm")
+        .textContent =
         "👍 Jag är med";
 
 
-        joinRemove.classList.add(
+        $("joinRemove")
+        .classList
+        .add(
             "hidden"
         );
+
     }
 
 
-    joinModal.classList.remove(
+    $("joinModal")
+    .classList
+    .remove(
         "hidden"
     );
 
@@ -3178,7 +3377,8 @@ function openJoinModal(
     setTimeout(
         () => {
 
-            joinName.focus();
+            $("joinName")
+            .focus();
 
         },
         150
@@ -3188,40 +3388,320 @@ function openJoinModal(
 
 function closeJoinModal() {
 
-    joinModal.classList.add(
+    $("joinModal")
+    .classList
+    .add(
         "hidden"
     );
 
-
     selectedProposalId =
     null;
-
 
     editingName =
     null;
 }
 
 
-joinCancel.addEventListener(
+$("joinCancel")
+.addEventListener(
     "click",
     closeJoinModal
 );
 
 
-/* =========================================================
-   BEKRÄFTA DELTAGANDE
-========================================================= */
+/* =====================================================
+   REDIGERA DELTAGARE
+===================================================== */
 
-joinConfirm.addEventListener(
+function openEditPerson(
+    name
+) {
+
+    const vote =
+    allVotes.find(
+        v =>
+
+        v.name
+        .toLowerCase()
+        .trim()
+
+        ===
+
+        name
+        .toLowerCase()
+        .trim()
+
+        &&
+
+        v.vote
+        ===
+        "yes"
+    );
+
+
+    if (!vote) {
+
+        return;
+    }
+
+
+    openJoinModal(
+        vote.proposal_id,
+        name
+    );
+}
+
+
+/* =====================================================
+   TA BORT PERSON
+===================================================== */
+
+async function removePersonData(
+    name
+) {
+
+    /*
+       Hitta personens egna
+       tidsförslag.
+    */
+
+    const {
+        data:ownProposals,
+        error
+    } =
+    await supabaseClient
+    .from(
+        "walk_time_proposals"
+    )
+    .select("id")
+    .eq(
+        "date_key",
+        todayKey()
+    )
+    .eq(
+        "name",
+        name
+    );
+
+
+    if (error) {
+
+        throw error;
+    }
+
+
+    const proposalIds =
+    (ownProposals || [])
+    .map(
+        p => p.id
+    );
+
+
+    /*
+       Ta bort personens röster.
+    */
+
+    const {
+        error:voteError
+    } =
+    await supabaseClient
+    .from(
+        "walk_time_votes"
+    )
+    .delete()
+    .eq(
+        "name",
+        name
+    );
+
+
+    if (voteError) {
+
+        throw voteError;
+    }
+
+
+    /*
+       Ta bort personen.
+    */
+
+    const {
+        error:signupError
+    } =
+    await supabaseClient
+    .from(
+        "walk_signups"
+    )
+    .delete()
+    .eq(
+        "date_key",
+        todayKey()
+    )
+    .eq(
+        "name",
+        name
+    );
+
+
+    if (signupError) {
+
+        throw signupError;
+    }
+
+
+    /*
+       Ta bort personens tidsförslag
+       om ingen längre använder dem.
+    */
+
+    for (
+        const proposalId
+        of proposalIds
+    ) {
+
+        const {
+            data:votes,
+            error:remainingError
+        } =
+        await supabaseClient
+        .from(
+            "walk_time_votes"
+        )
+        .select("id")
+        .eq(
+            "proposal_id",
+            proposalId
+        )
+        .eq(
+            "vote",
+            "yes"
+        );
+
+
+        if (
+            remainingError
+        ) {
+
+            throw remainingError;
+        }
+
+
+        if (
+            !votes ||
+            votes.length === 0
+        ) {
+
+            const {
+                error:deleteError
+            } =
+            await supabaseClient
+            .from(
+                "walk_time_proposals"
+            )
+            .delete()
+            .eq(
+                "id",
+                proposalId
+            );
+
+
+            if (deleteError) {
+
+                throw deleteError;
+            }
+
+        }
+
+    }
+
+
+    await cleanupEmptyProposals();
+}
+
+
+/* =====================================================
+   STÄDA TOMMA TIDSFÖRSLAG
+===================================================== */
+
+async function cleanupEmptyProposals() {
+
+    const {
+        data:proposals
+    } =
+    await supabaseClient
+    .from(
+        "walk_time_proposals"
+    )
+    .select("id")
+    .eq(
+        "date_key",
+        todayKey()
+    );
+
+
+    for (
+        const proposal
+        of proposals || []
+    ) {
+
+        const {
+            data:votes
+        } =
+        await supabaseClient
+        .from(
+            "walk_time_votes"
+        )
+        .select("id")
+        .eq(
+            "proposal_id",
+            proposal.id
+        )
+        .eq(
+            "vote",
+            "yes"
+        );
+
+
+        if (
+            !votes ||
+            votes.length === 0
+        ) {
+
+            await supabaseClient
+            .from(
+                "walk_time_proposals"
+            )
+            .delete()
+            .eq(
+                "id",
+                proposal.id
+            );
+
+        }
+
+    }
+}
+
+
+/* =====================================================
+   BEKRÄFTA DELTAGANDE
+===================================================== */
+
+$("joinConfirm")
+.addEventListener(
     "click",
     async function() {
 
         const name =
-        joinName.value.trim();
+        $("joinName")
+        .value
+        .trim();
 
 
         const note =
-        joinNote.value.trim();
+        $("joinNote")
+        .value
+        .trim();
 
 
         if (
@@ -3233,18 +3713,21 @@ joinConfirm.addEventListener(
         }
 
 
-        joinConfirm.disabled =
+        $("joinConfirm")
+        .disabled =
         true;
 
 
-        joinConfirm.textContent =
+        $("joinConfirm")
+        .textContent =
         "Sparar…";
 
 
         try {
 
             if (
-                editingName &&
+                editingName
+                &&
                 editingName !== name
             ) {
 
@@ -3261,7 +3744,8 @@ joinConfirm.addEventListener(
             );
 
 
-            proposalName.value =
+            $("proposalName")
+            .value =
             name;
 
 
@@ -3286,311 +3770,25 @@ joinConfirm.addEventListener(
 
         } finally {
 
-            joinConfirm.disabled =
+            $("joinConfirm")
+            .disabled =
             false;
 
-            joinConfirm.textContent =
+            $("joinConfirm")
+            .textContent =
             "Spara ändringar";
         }
+
     }
 );
 
 
-/* =========================================================
-   REDIGERA PERSON
-========================================================= */
-
-function openEditPerson(
-    name
-) {
-
-    const vote =
-    allVotes.find(
-        vote =>
-        vote.name
-        .toLowerCase()
-        .trim()
-        ===
-        name
-        .toLowerCase()
-        .trim()
-        &&
-        vote.vote ===
-        "yes"
-    );
-
-
-    if (!vote) {
-
-        return;
-    }
-
-
-    openJoinModal(
-        vote.proposal_id,
-        name
-    );
-}
-
-
-/* =========================================================
-   HÄR ÄR DEN VIKTIGA KORRIGERINGEN
-   TA BORT PERSON
-========================================================= */
-
-async function removePersonData(
-    name
-) {
-
-    /*
-       1. Hitta personens egna
-          tidsförslag idag.
-    */
-
-    const {
-        data: ownProposals,
-        error: ownProposalError
-    } =
-    await supabaseClient
-    .from("walk_time_proposals")
-    .select("id")
-    .eq(
-        "date_key",
-        getTodayKey()
-    )
-    .eq(
-        "name",
-        name
-    );
-
-
-    if (ownProposalError) {
-
-        throw ownProposalError;
-    }
-
-
-    const ownProposalIds =
-    (ownProposals || [])
-    .map(
-        proposal =>
-        proposal.id
-    );
-
-
-    /*
-       2. Ta bort personens röster.
-    */
-
-    const {
-        error: voteError
-    } =
-    await supabaseClient
-    .from("walk_time_votes")
-    .delete()
-    .eq(
-        "name",
-        name
-    );
-
-
-    if (voteError) {
-
-        throw voteError;
-    }
-
-
-    /*
-       3. Ta bort personen från
-          deltagarlistan.
-    */
-
-    const {
-        error: signupError
-    } =
-    await supabaseClient
-    .from("walk_signups")
-    .delete()
-    .eq(
-        "date_key",
-        getTodayKey()
-    )
-    .eq(
-        "name",
-        name
-    );
-
-
-    if (signupError) {
-
-        throw signupError;
-    }
-
-
-    /*
-       4. Om personen hade föreslagit
-          en tid kontrollerar vi om
-          någon annan fortfarande
-          använder den tiden.
-    */
-
-    for (
-        const proposalId
-        of ownProposalIds
-    ) {
-
-        const {
-            data: remainingVotes,
-            error: remainingError
-        } =
-        await supabaseClient
-        .from("walk_time_votes")
-        .select("id")
-        .eq(
-            "proposal_id",
-            proposalId
-        )
-        .eq(
-            "vote",
-            "yes"
-        );
-
-
-        if (remainingError) {
-
-            throw remainingError;
-        }
-
-
-        /*
-           Om ingen längre använder
-           tidsförslaget tas det bort.
-        */
-
-        if (
-            !remainingVotes ||
-            remainingVotes.length === 0
-        ) {
-
-            const {
-                error:
-                deleteProposalError
-            } =
-            await supabaseClient
-            .from("walk_time_proposals")
-            .delete()
-            .eq(
-                "id",
-                proposalId
-            );
-
-
-            if (
-                deleteProposalError
-            ) {
-
-                throw deleteProposalError;
-            }
-        }
-    }
-
-
-    /*
-       5. Städa även bort eventuella
-          gamla tidsförslag som saknar
-          deltagare.
-    */
-
-    await cleanupEmptyProposals();
-}
-
-
-/* =========================================================
-   STÄDA TOMMA TIDSFÖRSLAG
-========================================================= */
-
-async function cleanupEmptyProposals() {
-
-    const {
-        data: proposals,
-        error
-    } =
-    await supabaseClient
-    .from("walk_time_proposals")
-    .select("id")
-    .eq(
-        "date_key",
-        getTodayKey()
-    );
-
-
-    if (error) {
-
-        console.error(error);
-
-        return;
-    }
-
-
-    if (
-        !proposals ||
-        !proposals.length
-    ) {
-
-        return;
-    }
-
-
-    for (
-        const proposal
-        of proposals
-    ) {
-
-        const {
-            data: votes,
-            error: voteError
-        } =
-        await supabaseClient
-        .from("walk_time_votes")
-        .select("id")
-        .eq(
-            "proposal_id",
-            proposal.id
-        )
-        .eq(
-            "vote",
-            "yes"
-        );
-
-
-        if (voteError) {
-
-            continue;
-        }
-
-
-        if (
-            !votes ||
-            votes.length === 0
-        ) {
-
-            await supabaseClient
-            .from("walk_time_proposals")
-            .delete()
-            .eq(
-                "id",
-                proposal.id
-            );
-        }
-    }
-}
-
-
-/* =========================================================
+/* =====================================================
    TA BORT MIN ANMÄLAN
-========================================================= */
+===================================================== */
 
-joinRemove.addEventListener(
+$("joinRemove")
+.addEventListener(
     "click",
     async function() {
 
@@ -3604,23 +3802,23 @@ joinRemove.addEventListener(
         }
 
 
-        const confirmed =
-        confirm(
-            "Vill du ta bort din anmälan?"
-        );
-
-
-        if (!confirmed) {
+        if (
+            !confirm(
+                "Vill du ta bort din anmälan?"
+            )
+        ) {
 
             return;
         }
 
 
-        joinRemove.disabled =
+        $("joinRemove")
+        .disabled =
         true;
 
 
-        joinRemove.textContent =
+        $("joinRemove")
+        .textContent =
         "Tar bort…";
 
 
@@ -3652,68 +3850,35 @@ joinRemove.addEventListener(
 
         } finally {
 
-            joinRemove.disabled =
+            $("joinRemove")
+            .disabled =
             false;
 
-            joinRemove.textContent =
+            $("joinRemove")
+            .textContent =
             "Ta bort min anmälan";
         }
+
     }
 );
 
 
-/* =========================================================
-   ADMIN
-========================================================= */
+/* =====================================================
+   DOLD ADMIN
+   FEM TRYCK PÅ "DELTAGARE"
+===================================================== */
 
 const ADMIN_PIN =
 "1977";
 
-const adminModal =
-document.getElementById(
-    "adminModal"
-);
+let adminClicks =
+0;
 
-const resetModal =
-document.getElementById(
-    "resetModal"
-);
-
-const pinInput =
-document.getElementById(
-    "pinInput"
-);
-
-const loginButton =
-document.getElementById(
-    "loginButton"
-);
-
-const cancelButton =
-document.getElementById(
-    "cancelButton"
-);
-
-const resetButton =
-document.getElementById(
-    "resetButton"
-);
-
-const resetCancelButton =
-document.getElementById(
-    "resetCancelButton"
-);
+let adminTimer =
+null;
 
 
-let adminClicks = 0;
-
-let adminClickTimer = null;
-
-
-document
-.getElementById(
-    "adminTrigger"
-)
+$("adminTrigger")
 .addEventListener(
     "click",
     function() {
@@ -3722,15 +3887,16 @@ document
 
 
         clearTimeout(
-            adminClickTimer
+            adminTimer
         );
 
 
-        adminClickTimer =
+        adminTimer =
         setTimeout(
             () => {
 
-                adminClicks = 0;
+                adminClicks =
+                0;
 
             },
             1000
@@ -3741,74 +3907,105 @@ document
             adminClicks >= 5
         ) {
 
-            adminClicks = 0;
+            adminClicks =
+            0;
 
 
-            adminModal.classList.remove(
+            $("adminModal")
+            .classList
+            .remove(
                 "hidden"
             );
 
 
-            pinInput.value =
+            $("pinInput")
+            .value =
             "";
+
 
             setTimeout(
                 () => {
 
-                    pinInput.focus();
+                    $("pinInput")
+                    .focus();
 
                 },
                 150
             );
         }
+
     }
 );
 
 
-loginButton.addEventListener(
+/* =====================================================
+   ADMIN LOGIN
+===================================================== */
+
+$("cancelButton")
+.addEventListener(
     "click",
-    function() {
+    () => {
+
+        $("adminModal")
+        .classList
+        .add(
+            "hidden"
+        );
+
+    }
+);
+
+
+$("loginButton")
+.addEventListener(
+    "click",
+    () => {
 
         if (
-            pinInput.value ===
+            $("pinInput")
+            .value
+            ===
             ADMIN_PIN
         ) {
 
-            adminModal.classList.add(
+            $("adminModal")
+            .classList
+            .add(
                 "hidden"
             );
 
-            resetModal.classList.remove(
+
+            $("resetModal")
+            .classList
+            .remove(
                 "hidden"
             );
 
         } else {
 
-            pinInput.value =
+            $("pinInput")
+            .value =
             "";
 
-            pinInput.placeholder =
+            $("pinInput")
+            .placeholder =
             "Fel PIN";
 
-            setTimeout(
-                () => {
-
-                    pinInput.placeholder =
-                    "••••";
-
-                },
-                1500
-            );
         }
+
     }
 );
 
 
-cancelButton.addEventListener(
+$("resetCancelButton")
+.addEventListener(
     "click",
     () => {
 
-        adminModal.classList.add(
+        $("resetModal")
+        .classList
+        .add(
             "hidden"
         );
 
@@ -3816,72 +4013,63 @@ cancelButton.addEventListener(
 );
 
 
-resetCancelButton.addEventListener(
-    "click",
-    () => {
+/* =====================================================
+   NOLLSTÄLL
+===================================================== */
 
-        resetModal.classList.add(
-            "hidden"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   NOLLSTÄLL HELA DAGEN
-========================================================= */
-
-resetButton.addEventListener(
+$("resetButton")
+.addEventListener(
     "click",
     async function() {
 
-        resetButton.disabled =
+        this.disabled =
         true;
 
-
-        resetButton.textContent =
+        this.textContent =
         "Nollställer…";
 
 
         try {
 
             const {
-                data: proposals,
-                error: proposalError
+                data:proposals,
+                error
             } =
             await supabaseClient
-            .from("walk_time_proposals")
+            .from(
+                "walk_time_proposals"
+            )
             .select("id")
             .eq(
                 "date_key",
-                getTodayKey()
+                todayKey()
             );
 
 
-            if (proposalError) {
+            if (error) {
 
-                throw proposalError;
+                throw error;
             }
 
 
+            const ids =
+            (proposals || [])
+            .map(
+                p => p.id
+            );
+
+
             if (
-                proposals &&
-                proposals.length
+                ids.length
             ) {
 
-                const ids =
-                proposals.map(
-                    proposal =>
-                    proposal.id
-                );
-
-
                 const {
-                    error
+                    error:voteError
                 } =
                 await supabaseClient
-                .from("walk_time_votes")
+                .from(
+                    "walk_time_votes"
+                )
                 .delete()
                 .in(
                     "proposal_id",
@@ -3889,63 +4077,62 @@ resetButton.addEventListener(
                 );
 
 
-                if (error) {
+                if (voteError) {
 
-                    throw error;
+                    throw voteError;
                 }
             }
 
 
-            const {
-                error:
-                deleteProposalError
-            } =
+            let result =
             await supabaseClient
-            .from("walk_time_proposals")
+            .from(
+                "walk_time_proposals"
+            )
             .delete()
             .eq(
                 "date_key",
-                getTodayKey()
+                todayKey()
             );
 
 
-            if (
-                deleteProposalError
-            ) {
+            if (result.error) {
 
-                throw deleteProposalError;
+                throw result.error;
             }
 
 
-            const {
-                error:
-                deleteSignupError
-            } =
+            result =
             await supabaseClient
-            .from("walk_signups")
+            .from(
+                "walk_signups"
+            )
             .delete()
             .eq(
                 "date_key",
-                getTodayKey()
+                todayKey()
             );
 
 
-            if (
-                deleteSignupError
-            ) {
+            if (result.error) {
 
-                throw deleteSignupError;
+                throw result.error;
             }
 
 
-            allProposals = [];
+            allProposals =
+            [];
 
-            allVotes = [];
+            allVotes =
+            [];
 
-            allSignups = [];
+            allSignups =
+            [];
 
 
-            resetModal.classList.add(
+            $("resetModal")
+            .classList
+            .add(
                 "hidden"
             );
 
@@ -3968,46 +4155,58 @@ resetButton.addEventListener(
 
         } finally {
 
-            resetButton.disabled =
+            this.disabled =
             false;
 
-            resetButton.textContent =
+            this.textContent =
             "🗑 Nollställ dagens lista";
         }
+
     }
 );
 
 
-/* =========================================================
+/* =====================================================
    GPS
-========================================================= */
+===================================================== */
 
-let gpsWatchId = null;
+let gpsWatchId =
+null;
 
-let gpsPoints = [];
+let gpsPoints =
+[];
 
-let walkStarted = false;
+let walkStarted =
+false;
 
-let walkStartTime = null;
+let walkStartTime =
+null;
 
-let lastPosition = null;
+let lastPosition =
+null;
 
-let totalDistanceMeters = 0;
+let totalDistanceMeters =
+0;
 
-let liveTimer = null;
+let liveTimer =
+null;
 
-let map = null;
+let map =
+null;
 
-let routeLine = null;
+let routeLine =
+null;
 
-let startMarker = null;
+let startMarker =
+null;
 
-let endMarker = null;
+let endMarker =
+null;
 
 
-/* =========================================================
-   GPS-AVSTÅND
-========================================================= */
+/* =====================================================
+   AVSTÅND
+===================================================== */
 
 function distanceBetween(
     lat1,
@@ -4016,34 +4215,36 @@ function distanceBetween(
     lon2
 ) {
 
-    const earthRadius =
+    const R =
     6371000;
 
 
-    const lat1Rad =
+    const p1 =
     lat1 *
     Math.PI /
     180;
 
 
-    const lat2Rad =
+    const p2 =
     lat2 *
     Math.PI /
     180;
 
 
-    const deltaLat =
+    const dp =
     (
-        lat2-lat1
+        lat2 -
+        lat1
     )
     *
     Math.PI /
     180;
 
 
-    const deltaLon =
+    const dl =
     (
-        lon2-lon1
+        lon2 -
+        lon1
     )
     *
     Math.PI /
@@ -4051,13 +4252,13 @@ function distanceBetween(
 
 
     const a =
-    Math.sin(deltaLat/2) ** 2
+    Math.sin(dp/2) ** 2
     +
-    Math.cos(lat1Rad)
+    Math.cos(p1)
     *
-    Math.cos(lat2Rad)
+    Math.cos(p2)
     *
-    Math.sin(deltaLon/2) ** 2;
+    Math.sin(dl/2) ** 2;
 
 
     const c =
@@ -4068,20 +4269,17 @@ function distanceBetween(
     );
 
 
-    return (
-        earthRadius *
-        c
-    );
+    return R * c;
 }
 
 
-/* =========================================================
+/* =====================================================
    KARTA
-========================================================= */
+===================================================== */
 
 function initMap(
-    latitude,
-    longitude
+    lat,
+    lng
 ) {
 
     if (map) {
@@ -4102,13 +4300,14 @@ function initMap(
             attribution:
             "&copy; OpenStreetMap"
         }
-    ).addTo(map);
+    )
+    .addTo(map);
 
 
     map.setView(
         [
-            latitude,
-            longitude
+            lat,
+            lng
         ],
         16
     );
@@ -4121,25 +4320,24 @@ function initMap(
             weight:6,
             opacity:.9
         }
-    ).addTo(map);
+    )
+    .addTo(map);
 }
 
 
-/* =========================================================
+/* =====================================================
    GPS POSITION
-========================================================= */
+===================================================== */
 
 function handlePosition(
     position
 ) {
 
-    const latitude =
+    const lat =
     position.coords.latitude;
 
-
-    const longitude =
+    const lng =
     position.coords.longitude;
-
 
     const accuracy =
     position.coords.accuracy;
@@ -4149,10 +4347,7 @@ function handlePosition(
         accuracy > 100
     ) {
 
-        document
-        .getElementById(
-            "gpsText"
-        )
+        $("gpsText")
         .textContent =
         "GPS-signal svag";
 
@@ -4163,16 +4358,22 @@ function handlePosition(
     const point = {
 
         lat:
-        latitude,
+
+        lat,
 
         lng:
-        longitude,
+
+        lng,
 
         timestamp:
-        new Date().toISOString(),
+
+        new Date()
+        .toISOString(),
 
         accuracy:
+
         accuracy
+
     };
 
 
@@ -4182,8 +4383,8 @@ function handlePosition(
         distanceBetween(
             lastPosition.lat,
             lastPosition.lng,
-            latitude,
-            longitude
+            lat,
+            lng
         );
 
 
@@ -4191,8 +4392,10 @@ function handlePosition(
             addedDistance < 100
         ) {
 
-            totalDistanceMeters +=
+            totalDistanceMeters
+            +=
             addedDistance;
+
         }
     }
 
@@ -4209,30 +4412,27 @@ function handlePosition(
     if (!map) {
 
         initMap(
-            latitude,
-            longitude
+            lat,
+            lng
         );
     }
 
 
-    if (routeLine) {
-
-        routeLine.addLatLng(
-            [
-                latitude,
-                longitude
-            ]
-        );
+    routeLine.addLatLng(
+        [
+            lat,
+            lng
+        ]
+    );
 
 
-        map.setView(
-            [
-                latitude,
-                longitude
-            ],
-            map.getZoom()
-        );
-    }
+    map.setView(
+        [
+            lat,
+            lng
+        ],
+        map.getZoom()
+    );
 
 
     if (
@@ -4242,22 +4442,21 @@ function handlePosition(
         startMarker =
         L.marker(
             [
-                latitude,
-                longitude
+                lat,
+                lng
             ]
         )
         .addTo(map)
         .bindPopup(
             "🚶 Start"
         );
+
     }
 
 
-    document
-    .getElementById(
-        "liveDistance"
-    )
+    $("liveDistance")
     .textContent =
+
     (
         totalDistanceMeters /
         1000
@@ -4268,26 +4467,20 @@ function handlePosition(
     " km";
 
 
-    document
-    .getElementById(
-        "livePoints"
-    )
+    $("livePoints")
     .textContent =
     gpsPoints.length;
 
 
-    document
-    .getElementById(
-        "gpsText"
-    )
+    $("gpsText")
     .textContent =
     "GPS aktiv";
 }
 
 
-/* =========================================================
-   GPS-FEL
-========================================================= */
+/* =====================================================
+   GPS FEL
+===================================================== */
 
 function handleGpsError(
     error
@@ -4296,19 +4489,9 @@ function handleGpsError(
     console.error(error);
 
 
-    const gpsText =
-    document.getElementById(
-        "gpsText"
-    );
-
-
-    const gpsDot =
-    document.getElementById(
-        "gpsDot"
-    );
-
-
-    gpsDot.classList.remove(
+    $("gpsDot")
+    .classList
+    .remove(
         "active"
     );
 
@@ -4317,7 +4500,8 @@ function handleGpsError(
         error.code === 1
     ) {
 
-        gpsText.textContent =
+        $("gpsText")
+        .textContent =
         "GPS nekades";
 
         showMessage(
@@ -4329,27 +4513,30 @@ function handleGpsError(
         error.code === 2
     ) {
 
-        gpsText.textContent =
+        $("gpsText")
+        .textContent =
         "GPS-position saknas";
 
     } else if (
         error.code === 3
     ) {
 
-        gpsText.textContent =
+        $("gpsText")
+        .textContent =
         "GPS tog för lång tid";
 
     } else {
 
-        gpsText.textContent =
+        $("gpsText")
+        .textContent =
         "GPS-fel";
     }
 }
 
 
-/* =========================================================
+/* =====================================================
    START GPS
-========================================================= */
+===================================================== */
 
 function startGps() {
 
@@ -4366,50 +4553,46 @@ function startGps() {
     }
 
 
-    gpsPoints = [];
+    gpsPoints =
+    [];
 
-    totalDistanceMeters = 0;
+    totalDistanceMeters =
+    0;
 
-    lastPosition = null;
+    lastPosition =
+    null;
 
-    map = null;
+    map =
+    null;
 
-    routeLine = null;
+    routeLine =
+    null;
 
-    startMarker = null;
+    startMarker =
+    null;
 
-    endMarker = null;
+    endMarker =
+    null;
 
 
-    document
-    .getElementById(
-        "liveDistance"
-    )
+    $("liveDistance")
     .textContent =
     "0,00 km";
 
 
-    document
-    .getElementById(
-        "livePoints"
-    )
+    $("livePoints")
     .textContent =
     "0";
 
 
-    document
-    .getElementById(
-        "gpsDot"
-    )
-    .classList.add(
+    $("gpsDot")
+    .classList
+    .add(
         "active"
     );
 
 
-    document
-    .getElementById(
-        "gpsText"
-    )
+    $("gpsText")
     .textContent =
     "Söker GPS…";
 
@@ -4420,7 +4603,9 @@ function startGps() {
         handleGpsError,
         {
             enableHighAccuracy:true,
+
             maximumAge:3000,
+
             timeout:15000
         }
     );
@@ -4430,9 +4615,9 @@ function startGps() {
 }
 
 
-/* =========================================================
-   STOPPA GPS
-========================================================= */
+/* =====================================================
+   STOP GPS
+===================================================== */
 
 function stopGps() {
 
@@ -4440,7 +4625,8 @@ function stopGps() {
         gpsWatchId !== null
     ) {
 
-        navigator.geolocation.clearWatch(
+        navigator.geolocation
+        .clearWatch(
             gpsWatchId
         );
 
@@ -4449,27 +4635,22 @@ function stopGps() {
     }
 
 
-    document
-    .getElementById(
-        "gpsDot"
-    )
-    .classList.remove(
+    $("gpsDot")
+    .classList
+    .remove(
         "active"
     );
 
 
-    document
-    .getElementById(
-        "gpsText"
-    )
+    $("gpsText")
     .textContent =
     "GPS avslutad";
 }
 
 
-/* =========================================================
-   LIVE-TIMER
-========================================================= */
+/* =====================================================
+   LIVE TIMER
+===================================================== */
 
 function updateLiveTimer() {
 
@@ -4487,24 +4668,23 @@ function updateLiveTimer() {
 
     const minutes =
     Math.floor(
-        elapsed/60000
+        elapsed / 60000
     );
 
 
     const seconds =
     Math.floor(
         (
-            elapsed%60000
-        )/
+            elapsed % 60000
+        )
+        /
         1000
     );
 
 
-    document
-    .getElementById(
-        "liveDuration"
-    )
+    $("liveDuration")
     .textContent =
+
     minutes
     +
     ":"
@@ -4517,9 +4697,9 @@ function updateLiveTimer() {
 }
 
 
-/* =========================================================
-   SPARA GPS-RUTT
-========================================================= */
+/* =====================================================
+   SPARA GPS
+===================================================== */
 
 async function saveRoute() {
 
@@ -4527,7 +4707,7 @@ async function saveRoute() {
         !gpsPoints.length
     ) {
 
-        return null;
+        return;
     }
 
 
@@ -4535,10 +4715,11 @@ async function saveRoute() {
     new Date();
 
 
-    const durationSeconds =
+    const duration =
     Math.round(
         (
-            finishedAt -
+            finishedAt
+            -
             walkStartTime
         )
         /
@@ -4547,15 +4728,16 @@ async function saveRoute() {
 
 
     const {
-        data,
         error
     } =
     await supabaseClient
-    .from("walk_routes")
+    .from(
+        "walk_routes"
+    )
     .insert([
         {
             walk_date:
-            getTodayKey(),
+            todayKey(),
 
             started_at:
             walkStartTime
@@ -4571,33 +4753,30 @@ async function saveRoute() {
             ),
 
             duration_seconds:
-            durationSeconds,
+            duration,
 
             route:
             gpsPoints
         }
-    ])
-    .select();
+    ]);
 
 
     if (error) {
 
         throw error;
     }
-
-
-    return data;
 }
 
 
-/* =========================================================
-   RITA SLUTLIG KARTA
-========================================================= */
+/* =====================================================
+   SLUTLIG KARTA
+===================================================== */
 
 function drawFinalRoute() {
 
     if (
-        !gpsPoints.length ||
+        !gpsPoints.length
+        ||
         !map
     ) {
 
@@ -4605,21 +4784,18 @@ function drawFinalRoute() {
     }
 
 
-    const latLngs =
+    const points =
     gpsPoints.map(
-        point => [
-            point.lat,
-            point.lng
+        p => [
+            p.lat,
+            p.lng
         ]
     );
 
 
-    if (routeLine) {
-
-        routeLine.setLatLngs(
-            latLngs
-        );
-    }
+    routeLine.setLatLngs(
+        points
+    );
 
 
     const first =
@@ -4628,7 +4804,7 @@ function drawFinalRoute() {
 
     const last =
     gpsPoints[
-        gpsPoints.length-1
+        gpsPoints.length - 1
     ];
 
 
@@ -4672,7 +4848,7 @@ function drawFinalRoute() {
 
     map.fitBounds(
         L.latLngBounds(
-            latLngs
+            points
         ),
         {
             padding:[
@@ -4684,27 +4860,12 @@ function drawFinalRoute() {
 }
 
 
-/* =========================================================
+/* =====================================================
    STARTA PROMENAD
-========================================================= */
+===================================================== */
 
-const startButton =
-document.getElementById(
-    "startButton"
-);
-
-const liveArea =
-document.getElementById(
-    "liveArea"
-);
-
-const afterStart =
-document.getElementById(
-    "afterStart"
-);
-
-
-startButton.addEventListener(
+$("startButton")
+.addEventListener(
     "click",
     function() {
 
@@ -4732,25 +4893,32 @@ startButton.addEventListener(
         new Date();
 
 
-        startButton.textContent =
+        $("startButton")
+        .textContent =
         "🟢 PROMENADEN PÅGÅR";
 
 
-        startButton.disabled =
+        $("startButton")
+        .disabled =
         true;
 
 
-        liveArea.classList.remove(
+        $("liveArea")
+        .classList
+        .remove(
             "hidden"
         );
 
 
-        afterStart.classList.remove(
+        $("afterStart")
+        .classList
+        .remove(
             "hidden"
         );
 
 
-        statusElement.textContent =
+        $("status")
+        .textContent =
         "Promenaden pågår";
 
 
@@ -4759,21 +4927,17 @@ startButton.addEventListener(
             updateLiveTimer,
             1000
         );
+
     }
 );
 
 
-/* =========================================================
+/* =====================================================
    AVSLUTA PROMENAD
-========================================================= */
+===================================================== */
 
-const finishButton =
-document.getElementById(
-    "finishButton"
-);
-
-
-finishButton.addEventListener(
+$("finishButton")
+.addEventListener(
     "click",
     async function() {
 
@@ -4785,11 +4949,11 @@ finishButton.addEventListener(
         }
 
 
-        finishButton.disabled =
+        this.disabled =
         true;
 
 
-        finishButton.textContent =
+        this.textContent =
         "Sparar promenaden…";
 
 
@@ -4815,12 +4979,13 @@ finishButton.addEventListener(
             drawFinalRoute();
 
 
-            const durationSeconds =
+            const duration =
             Math.round(
                 (
                     Date.now()
                     -
-                    walkStartTime.getTime()
+                    walkStartTime
+                    .getTime()
                 )
                 /
                 1000
@@ -4829,21 +4994,19 @@ finishButton.addEventListener(
 
             const minutes =
             Math.floor(
-                durationSeconds/60
+                duration / 60
             );
 
 
             const seconds =
-            durationSeconds%60;
+            duration % 60;
 
 
-            document
-            .getElementById(
-                "distance"
-            )
+            $("distance")
             .textContent =
+
             (
-                totalDistanceMeters/
+                totalDistanceMeters /
                 1000
             )
             .toFixed(2)
@@ -4852,11 +5015,9 @@ finishButton.addEventListener(
             " km";
 
 
-            document
-            .getElementById(
-                "duration"
-            )
+            $("duration")
             .textContent =
+
             minutes
             +
             ":"
@@ -4868,11 +5029,9 @@ finishButton.addEventListener(
             );
 
 
-            document
-            .getElementById(
-                "startTime"
-            )
+            $("startTime")
             .textContent =
+
             walkStartTime
             .toLocaleTimeString(
                 "sv-SE",
@@ -4883,11 +5042,12 @@ finishButton.addEventListener(
             );
 
 
-            finishButton.textContent =
+            this.textContent =
             "✓ PROMENADEN AVSLUTAD";
 
 
-            statusElement.textContent =
+            $("status")
+            .textContent =
             "Promenaden är avslutad";
 
 
@@ -4900,11 +5060,11 @@ finishButton.addEventListener(
             console.error(error);
 
 
-            finishButton.disabled =
+            this.disabled =
             false;
 
 
-            finishButton.textContent =
+            this.textContent =
             "🏁 AVSLUTA PROMENAD";
 
 
@@ -4912,37 +5072,16 @@ finishButton.addEventListener(
                 "Kunde inte spara GPS-rutten.",
                 true
             );
+
         }
+
     }
 );
 
 
-/* =========================================================
-   LADDA ALLT
-========================================================= */
-
-async function loadAll() {
-
-    /*
-       Viktigt:
-       deltagare laddas först,
-       därefter tidsförslag.
-       Då vet vi vilka förslag som
-       faktiskt fortfarande används.
-    */
-
-    await loadSignups();
-
-    await loadProposals();
-}
-
-
-loadAll();
-
-
-/* =========================================================
-   REALTIME – DELTAGARE
-========================================================= */
+/* =====================================================
+   REALTIME
+===================================================== */
 
 supabaseClient
 .channel(
@@ -4964,10 +5103,6 @@ supabaseClient
 .subscribe();
 
 
-/* =========================================================
-   REALTIME – TIDSFÖRSLAG
-========================================================= */
-
 supabaseClient
 .channel(
     "walk-proposals-live"
@@ -4987,10 +5122,6 @@ supabaseClient
 )
 .subscribe();
 
-
-/* =========================================================
-   REALTIME – RÖSTER
-========================================================= */
 
 supabaseClient
 .channel(
@@ -5012,9 +5143,17 @@ supabaseClient
 .subscribe();
 
 
-/* =========================================================
-   EXTRA SYNKRONISERING
-========================================================= */
+/* =====================================================
+   START
+===================================================== */
+
+loadAll();
+
+
+/*
+   Extra säkerhet:
+   uppdatera var femte sekund.
+*/
 
 setInterval(
     loadAll,

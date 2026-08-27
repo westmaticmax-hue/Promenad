@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,
-      initial-scale=1,
-      maximum-scale=1,
-      viewport-fit=cover">
+content="width=device-width,
+initial-scale=1,
+maximum-scale=1,
+viewport-fit=cover">
 
 <title>Dagens promenad</title>
 
@@ -18,13 +18,13 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 <meta name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent">
+content="black-translucent">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <link
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-rel="stylesheet">
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
 <script
 src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
@@ -38,52 +38,51 @@ src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 ========================================================= */
 
 :root {
-    --bg: #090b0a;
-    --card: #171a18;
-    --card2: #202420;
-    --text: #f5f7f1;
-    --muted: #969d98;
-    --green: #caff00;
-    --green-dark: #a9d900;
-    --border: rgba(255,255,255,.09);
-    --danger: #ff5757;
+    --bg:#090b0a;
+    --card:#171a18;
+    --card2:#202420;
+    --text:#f5f7f1;
+    --muted:#969d98;
+    --green:#caff00;
+    --green-dark:#a9d900;
+    --border:rgba(255,255,255,.09);
+    --danger:#ff5757;
 }
 
 * {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-
-    background: var(--bg);
-    color: var(--text);
+    margin:0;
+    padding:0;
+    background:var(--bg);
+    color:var(--text);
 
     font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "SF Pro Display",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 }
 
 body {
-    min-height: 100vh;
+    min-height:100vh;
 
     padding:
-        max(18px, env(safe-area-inset-top))
-        14px
-        max(28px, env(safe-area-inset-bottom));
+    max(18px,env(safe-area-inset-top))
+    14px
+    max(28px,env(safe-area-inset-bottom));
 }
 
 .app {
-    width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
+    width:100%;
+    max-width:520px;
+    margin:0 auto;
 }
 
 
@@ -92,39 +91,31 @@ body {
 ========================================================= */
 
 .header {
-    text-align: center;
-    padding: 3px 4px 18px;
+    text-align:center;
+    padding:3px 4px 18px;
 }
 
 .name-day {
-    color: var(--green);
-
-    font-size: 13px;
-    font-weight: 850;
-
-    letter-spacing: 1.7px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 7px;
+    color:var(--green);
+    font-size:13px;
+    font-weight:850;
+    letter-spacing:1.7px;
+    text-transform:uppercase;
+    margin-bottom:7px;
 }
 
 .date {
-    font-size: 38px;
-    line-height: 1;
-
-    font-weight: 850;
-
-    letter-spacing: -1.5px;
+    font-size:38px;
+    line-height:1;
+    font-weight:850;
+    letter-spacing:-1.5px;
 }
 
 .weekday {
-    color: var(--muted);
-
-    font-size: 18px;
-    font-weight: 650;
-
-    margin-top: 8px;
+    color:var(--muted);
+    font-size:18px;
+    font-weight:650;
+    margin-top:8px;
 }
 
 
@@ -133,145 +124,134 @@ body {
 ========================================================= */
 
 .hero {
-    position: relative;
-    overflow: hidden;
+    position:relative;
+    overflow:hidden;
 
     background:
-        linear-gradient(
-            135deg,
-            #d5ff00 0%,
-            #caff00 55%,
-            #a9df00 100%
-        );
+    linear-gradient(
+        135deg,
+        #d5ff00 0%,
+        #caff00 55%,
+        #a9df00 100%
+    );
 
-    color: #10120e;
+    color:#10120e;
 
-    border-radius: 30px;
+    border-radius:30px;
 
     padding:
-        23px
-        23px
-        21px;
+    23px
+    23px
+    21px;
 
     box-shadow:
-        0 18px 45px
-        rgba(180,240,0,.13);
+    0 18px 45px
+    rgba(180,240,0,.13);
 }
 
 .hero::after {
-    content: "";
+    content:"";
 
-    position: absolute;
+    position:absolute;
 
-    width: 210px;
-    height: 210px;
+    width:210px;
+    height:210px;
 
-    right: -85px;
-    bottom: -110px;
+    right:-85px;
+    bottom:-110px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    background:
-        rgba(255,255,255,.11);
+    background:rgba(255,255,255,.11);
 }
 
 .hero-title {
-    position: relative;
-    z-index: 1;
+    position:relative;
+    z-index:1;
 
-    font-size: 34px;
-    font-weight: 950;
-
-    font-style: italic;
-
-    letter-spacing: -1px;
+    font-size:34px;
+    font-weight:950;
+    font-style:italic;
+    letter-spacing:-1px;
 }
 
 .hero-sub {
-    position: relative;
-    z-index: 1;
+    position:relative;
+    z-index:1;
 
-    font-size: 16px;
-    font-weight: 650;
+    font-size:16px;
+    font-weight:650;
+    opacity:.72;
 
-    opacity: .72;
-
-    margin-top: 3px;
+    margin-top:3px;
 }
 
 .hero-row {
-    position: relative;
-    z-index: 1;
+    position:relative;
+    z-index:1;
 
-    display: flex;
+    display:flex;
 
-    align-items: flex-end;
+    align-items:flex-end;
 
-    justify-content: space-between;
+    justify-content:space-between;
 
-    gap: 15px;
+    gap:15px;
 
-    margin-top: 20px;
+    margin-top:20px;
 }
 
 .time {
-    font-size: 61px;
+    font-size:61px;
+    line-height:.88;
 
-    line-height: .88;
+    font-weight:950;
 
-    font-weight: 950;
-
-    letter-spacing: -3px;
+    letter-spacing:-3px;
 }
 
 .time.proposal-message {
-    font-size: 22px;
-
-    line-height: 1.05;
-
-    letter-spacing: -.4px;
-
-    max-width: 230px;
+    font-size:22px;
+    line-height:1.05;
+    letter-spacing:-.4px;
+    max-width:230px;
 }
 
 .countdown {
-    font-size: 17px;
+    font-size:17px;
+    line-height:1;
 
-    line-height: 1;
+    font-weight:850;
 
-    font-weight: 850;
+    letter-spacing:.2px;
 
-    letter-spacing: .2px;
+    margin-top:9px;
 
-    margin-top: 9px;
+    opacity:.72;
 
-    opacity: .72;
-
-    white-space: nowrap;
+    white-space:nowrap;
 }
 
 .departure {
-    text-align: right;
+    text-align:right;
 
-    font-size: 14px;
+    font-size:14px;
+    line-height:1.3;
 
-    line-height: 1.3;
+    font-weight:800;
 
-    font-weight: 800;
-
-    max-width: 190px;
+    max-width:190px;
 }
 
 .departure-label {
-    display: block;
+    display:block;
 
-    font-size: 11px;
+    font-size:11px;
+    letter-spacing:1.2px;
 
-    letter-spacing: 1.2px;
+    opacity:.55;
 
-    opacity: .55;
-
-    margin-bottom: 4px;
+    margin-bottom:4px;
 }
 
 
@@ -280,92 +260,26 @@ body {
 ========================================================= */
 
 .status {
-    text-align: center;
+    text-align:center;
 
-    color: var(--muted);
+    color:var(--muted);
 
-    font-size: 13px;
+    font-size:13px;
 
-    margin: 14px 0;
+    margin:14px 0;
 }
 
 .status-dot {
-    display: inline-block;
+    display:inline-block;
 
-    width: 7px;
-    height: 7px;
+    width:7px;
+    height:7px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    background: var(--green);
+    background:var(--green);
 
-    margin-right: 6px;
-}
-
-
-/* =========================================================
-   ANMÄLAN
-========================================================= */
-
-.signup {
-    display: flex;
-
-    gap: 8px;
-
-    background: var(--card);
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius: 22px;
-
-    padding: 10px;
-}
-
-.signup input {
-    flex: 1;
-
-    min-width: 0;
-
-    border: 0;
-    outline: 0;
-
-    background: transparent;
-
-    color: white;
-
-    font-size: 16px;
-
-    padding: 10px;
-}
-
-.signup input::placeholder {
-    color: #777e79;
-}
-
-.signup button {
-    border: 0;
-
-    background: var(--green);
-
-    color: #111;
-
-    border-radius: 16px;
-
-    font-weight: 900;
-
-    font-size: 16px;
-
-    padding: 0 18px;
-
-    cursor: pointer;
-
-    min-height: 46px;
-}
-
-.signup button:active {
-    transform: scale(.97);
+    margin-right:6px;
 }
 
 
@@ -374,120 +288,135 @@ body {
 ========================================================= */
 
 .section-head {
-    display: flex;
+    display:flex;
 
-    justify-content: space-between;
+    justify-content:space-between;
+    align-items:center;
 
-    align-items: center;
-
-    margin: 23px 3px 10px;
+    margin:23px 3px 10px;
 }
 
 .section-title {
-    font-size: 23px;
-    font-weight: 900;
+    font-size:23px;
+    font-weight:900;
 }
 
 .count {
-    background: var(--card2);
+    background:var(--card2);
 
-    color: var(--green);
+    color:var(--green);
 
-    border-radius: 20px;
+    border-radius:20px;
 
-    padding: 7px 12px;
+    padding:7px 12px;
 
-    font-size: 12px;
+    font-size:12px;
 
-    font-weight: 850;
+    font-weight:850;
 }
 
 
 /* =========================================================
-   PERSONER
+   DELTAGARE
 ========================================================= */
 
 .people {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 7px;
+    display:flex;
+    flex-direction:column;
+    gap:7px;
 }
 
 .person {
-    display: flex;
+    display:flex;
 
-    align-items: center;
+    align-items:center;
 
-    gap: 12px;
+    gap:12px;
 
-    background: var(--card);
+    background:var(--card);
 
     border:
-        1px solid
-        var(--border);
+    1px solid
+    var(--border);
 
-    border-radius: 19px;
+    border-radius:19px;
 
-    padding: 11px 13px;
+    padding:11px 13px;
+
+    cursor:pointer;
 }
 
 .avatar {
-    width: 43px;
-    height: 43px;
+    width:43px;
+    height:43px;
 
-    flex: 0 0 43px;
+    flex:0 0 43px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    display: grid;
+    display:grid;
+    place-items:center;
 
-    place-items: center;
+    background:#292d29;
 
-    background: #292d29;
+    color:var(--green);
 
-    color: var(--green);
+    font-weight:900;
 
-    font-weight: 900;
+    font-size:18px;
+}
 
-    font-size: 18px;
+.person-content {
+    min-width:0;
+    flex:1;
 }
 
 .person-name {
-    font-size: 18px;
-
-    font-weight: 850;
+    font-size:18px;
+    font-weight:850;
 }
 
 .person-time {
-    font-size: 13px;
-
-    color: var(--muted);
-
-    margin-top: 2px;
+    font-size:13px;
+    color:var(--muted);
+    margin-top:2px;
 }
 
 .person-time strong {
-    color: var(--green);
+    color:var(--green);
+}
+
+.person-note {
+    font-size:12px;
+    color:#b9beb9;
+
+    margin-top:4px;
+
+    white-space:normal;
+    overflow-wrap:anywhere;
+}
+
+.person-arrow {
+    color:#626862;
+    font-size:20px;
 }
 
 .empty {
-    text-align: center;
+    text-align:center;
 
-    background: var(--card);
+    background:var(--card);
 
     border:
-        1px solid
-        var(--border);
+    1px solid
+    var(--border);
 
-    border-radius: 19px;
+    border-radius:19px;
 
-    padding: 24px;
+    padding:24px;
 
-    color: var(--muted);
+    color:var(--muted);
 
-    font-size: 14px;
+    font-size:14px;
 }
 
 
@@ -496,100 +425,102 @@ body {
 ========================================================= */
 
 .proposal-section {
-    margin-top: 24px;
+    margin-top:24px;
 }
 
 .proposal-title {
-    font-size: 21px;
+    font-size:21px;
+    font-weight:900;
 
-    font-weight: 900;
-
-    margin: 0 3px 10px;
+    margin:
+    0
+    3px
+    5px;
 }
 
 .proposal-intro {
-    color: var(--muted);
+    color:var(--muted);
 
-    font-size: 13px;
+    font-size:13px;
 
-    line-height: 1.4;
+    line-height:1.4;
 
     margin:
-        0
-        3px
-        11px;
+    0
+    3px
+    11px;
 }
 
 .proposal-form {
-    display: flex;
+    display:flex;
 
-    gap: 8px;
+    gap:8px;
 
-    background: var(--card);
+    background:var(--card);
 
     border:
-        1px solid
-        var(--border);
+    1px solid
+    var(--border);
 
-    border-radius: 22px;
+    border-radius:22px;
 
-    padding: 10px;
+    padding:10px;
 
-    flex-wrap: wrap;
+    flex-wrap:wrap;
 }
 
 .proposal-form input[type="text"] {
-    flex: 1 1 130px;
+    flex:1 1 130px;
 
-    min-width: 100px;
+    min-width:100px;
 
-    border: 0;
-    outline: 0;
+    border:0;
+    outline:0;
 
-    background: transparent;
+    background:transparent;
 
-    color: white;
+    color:white;
 
-    font-size: 16px;
+    font-size:16px;
 
-    padding: 10px;
+    padding:10px;
 }
 
 .proposal-form input[type="time"] {
-    width: 105px;
+    width:105px;
 
-    border: 0;
-    outline: 0;
+    border:0;
+    outline:0;
 
-    background: var(--card2);
+    background:var(--card2);
 
-    color: white;
+    color:white;
 
-    border-radius: 14px;
+    border-radius:14px;
 
-    font-size: 16px;
+    font-size:16px;
 
-    padding: 10px;
+    padding:10px;
 }
 
 .proposal-form button {
-    width: 100%;
+    width:100%;
 
-    min-height: 46px;
+    min-height:46px;
 
-    border: 0;
+    border:0;
 
-    border-radius: 15px;
+    border-radius:15px;
 
-    background: var(--green);
+    background:var(--green);
 
-    color: #111;
+    color:#111;
 
-    font-size: 15px;
+    font-size:15px;
 
-    font-weight: 900;
+    font-weight:900;
 
-    cursor: pointer;
+    cursor:pointer;
 }
 
 
@@ -598,241 +529,167 @@ body {
 ========================================================= */
 
 .proposal-list {
-    display: flex;
+    display:flex;
 
-    flex-direction: column;
+    flex-direction:column;
 
-    gap: 10px;
+    gap:10px;
 
-    margin-top: 11px;
+    margin-top:11px;
 }
 
 .proposal {
-    position: relative;
+    position:relative;
 
-    background: var(--card);
+    background:var(--card);
 
     border:
-        1px solid
-        var(--border);
+    1px solid
+    var(--border);
 
-    border-radius: 22px;
+    border-radius:22px;
 
-    padding: 16px;
+    padding:16px;
 }
 
 .proposal.popular {
     border:
-        1px solid
-        rgba(202,255,0,.55);
+    1px solid
+    rgba(202,255,0,.55);
 
     box-shadow:
-        0 0 0 1px
-        rgba(202,255,0,.08);
+    0 0 0 1px
+    rgba(202,255,0,.08);
 }
 
 .popular-badge {
-    display: inline-block;
+    display:inline-block;
 
-    background: var(--green);
+    background:var(--green);
 
-    color: #111;
+    color:#111;
 
-    font-size: 10px;
+    font-size:10px;
 
-    font-weight: 950;
+    font-weight:950;
 
-    letter-spacing: .8px;
+    letter-spacing:.8px;
 
-    padding: 5px 8px;
+    padding:5px 8px;
 
-    border-radius: 9px;
+    border-radius:9px;
 
-    margin-bottom: 8px;
+    margin-bottom:8px;
 }
 
 .proposal-top {
-    display: flex;
+    display:flex;
 
-    justify-content: space-between;
+    justify-content:space-between;
 
-    align-items: center;
+    align-items:center;
 
-    gap: 10px;
+    gap:10px;
 }
 
 .proposal-time {
-    color: var(--green);
+    color:var(--green);
 
-    font-size: 31px;
+    font-size:31px;
 
-    font-weight: 950;
+    font-weight:950;
 
-    letter-spacing: -1px;
+    letter-spacing:-1px;
 }
 
 .proposal-person {
-    font-size: 14px;
+    font-size:14px;
 
-    color: var(--muted);
+    color:var(--muted);
 
-    font-weight: 700;
+    font-weight:700;
 
-    text-align: right;
+    text-align:right;
 }
 
 .proposal-person strong {
-    color: var(--text);
+    color:var(--text);
 }
 
 .proposal-members {
-    display: flex;
+    display:flex;
 
-    flex-wrap: wrap;
+    flex-wrap:wrap;
 
-    gap: 5px;
+    gap:5px;
 
-    margin-top: 12px;
+    margin-top:12px;
 }
 
 .member-chip {
-    background: var(--card2);
+    background:var(--card2);
 
-    color: #d8ddd7;
+    color:#d8ddd7;
 
-    border-radius: 12px;
+    border-radius:12px;
 
-    padding: 6px 8px;
+    padding:6px 8px;
 
-    font-size: 12px;
+    font-size:12px;
 
-    font-weight: 700;
+    font-weight:700;
 }
 
 .proposal-bottom {
-    display: flex;
+    display:flex;
 
-    justify-content: space-between;
+    justify-content:space-between;
 
-    align-items: center;
+    align-items:center;
 
-    gap: 8px;
+    gap:8px;
 
-    margin-top: 13px;
+    margin-top:13px;
 }
 
 .member-count {
-    color: var(--muted);
+    color:var(--muted);
 
-    font-size: 13px;
+    font-size:13px;
 
-    font-weight: 700;
+    font-weight:700;
 }
 
 .join-button {
-    border: 0;
+    border:0;
 
-    background: var(--green);
+    background:var(--green);
 
-    color: #111;
+    color:#111;
 
-    border-radius: 13px;
+    border-radius:13px;
 
-    min-height: 43px;
+    min-height:43px;
 
     padding:
-        0
-        14px;
+    0
+    14px;
 
-    font-size: 13px;
+    font-size:13px;
 
-    font-weight: 900;
+    font-weight:900;
 
-    cursor: pointer;
-}
-
-.join-button:active {
-    transform: scale(.97);
+    cursor:pointer;
 }
 
 .no-proposals {
-    text-align: center;
+    text-align:center;
 
-    color: var(--muted);
+    color:var(--muted);
 
-    font-size: 13px;
+    font-size:13px;
 
-    padding: 13px 0 3px;
-}
-
-
-/* =========================================================
-   JOIN-MODAL
-========================================================= */
-
-.join-time {
-    color: var(--green);
-
-    font-size: 34px;
-
-    font-weight: 950;
-
-    margin:
-        5px
-        0
-        12px;
-}
-
-.join-explanation {
-    color: var(--muted);
-
-    font-size: 13px;
-
-    line-height: 1.4;
-
-    margin-bottom: 15px;
-}
-
-.join-input {
-    width: 100%;
-
-    background: #0d0f0e;
-
-    color: white;
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    border-radius: 15px;
-
-    padding: 14px;
-
-    font-size: 17px;
-
-    outline: none;
-}
-
-.join-confirm {
-    width: 100%;
-
-    min-height: 50px;
-
-    border: 0;
-
-    border-radius: 15px;
-
-    background: var(--green);
-
-    color: #111;
-
-    font-size: 16px;
-
-    font-weight: 900;
-
-    margin-top: 10px;
-
-    cursor: pointer;
+    padding:13px 0 3px;
 }
 
 
@@ -841,45 +698,39 @@ body {
 ========================================================= */
 
 .action {
-    width: 100%;
+    width:100%;
 
-    min-height: 53px;
+    min-height:53px;
 
-    margin-top: 15px;
+    margin-top:15px;
 
-    border: 0;
+    border:0;
 
-    border-radius: 17px;
+    border-radius:17px;
 
-    background: var(--green);
+    background:var(--green);
 
-    color: #111;
+    color:#111;
 
-    font-size: 17px;
+    font-size:17px;
 
-    font-weight: 900;
+    font-weight:900;
 
-    cursor: pointer;
-}
-
-.action:active {
-    transform: scale(.98);
+    cursor:pointer;
 }
 
 .action:disabled {
-    opacity: .65;
-
-    cursor: default;
+    opacity:.65;
 }
 
 .action.secondary {
-    background: var(--card2);
+    background:var(--card2);
 
-    color: var(--green);
+    color:var(--green);
 
     border:
-        1px solid
-        rgba(202,255,0,.25);
+    1px solid
+    rgba(202,255,0,.25);
 }
 
 
@@ -888,52 +739,52 @@ body {
 ========================================================= */
 
 .gps-status {
-    display: flex;
+    display:flex;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: center;
+    justify-content:center;
 
-    gap: 7px;
+    gap:7px;
 
-    margin-top: 11px;
+    margin-top:11px;
 
-    color: var(--muted);
+    color:var(--muted);
 
-    font-size: 13px;
+    font-size:13px;
 }
 
 .gps-dot {
-    width: 8px;
-    height: 8px;
+    width:8px;
+    height:8px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    background: var(--green);
+    background:var(--green);
 }
 
 .gps-dot.active {
     animation:
-        pulse
-        1.2s
-        infinite;
+    pulse
+    1.2s
+    infinite;
 }
 
 @keyframes pulse {
 
     0% {
-        opacity: 1;
-        transform: scale(1);
+        opacity:1;
+        transform:scale(1);
     }
 
     50% {
-        opacity: .35;
-        transform: scale(.7);
+        opacity:.35;
+        transform:scale(.7);
     }
 
     100% {
-        opacity: 1;
-        transform: scale(1);
+        opacity:1;
+        transform:scale(1);
     }
 }
 
@@ -943,39 +794,39 @@ body {
 ========================================================= */
 
 .live-stats {
-    display: flex;
+    display:flex;
 
-    justify-content: space-around;
+    justify-content:space-around;
 
-    background: var(--card);
+    background:var(--card);
 
     border:
-        1px solid
-        var(--border);
+    1px solid
+    var(--border);
 
-    border-radius: 18px;
+    border-radius:18px;
 
-    margin-top: 11px;
+    margin-top:11px;
 
-    padding: 12px 5px;
+    padding:12px 5px;
 }
 
 .live-stat {
-    text-align: center;
+    text-align:center;
 }
 
 .live-stat strong {
-    display: block;
+    display:block;
 
-    color: var(--green);
+    color:var(--green);
 
-    font-size: 18px;
+    font-size:18px;
 }
 
 .live-stat span {
-    color: var(--muted);
+    color:var(--muted);
 
-    font-size: 11px;
+    font-size:11px;
 }
 
 
@@ -984,65 +835,65 @@ body {
 ========================================================= */
 
 .map-card {
-    margin-top: 13px;
+    margin-top:13px;
 
-    background: var(--card);
+    background:var(--card);
 
     border:
-        1px solid
-        var(--border);
+    1px solid
+    var(--border);
 
-    border-radius: 20px;
+    border-radius:20px;
 
-    padding: 14px;
+    padding:14px;
 
-    overflow: hidden;
+    overflow:hidden;
 }
 
 .map-title {
-    font-size: 18px;
+    font-size:18px;
 
-    font-weight: 850;
+    font-weight:850;
 
-    margin-bottom: 10px;
+    margin-bottom:10px;
 }
 
 #map {
-    width: 100%;
+    width:100%;
 
-    height: 260px;
+    height:260px;
 
-    border-radius: 14px;
+    border-radius:14px;
 
-    overflow: hidden;
+    overflow:hidden;
 
-    background: #101311;
+    background:#101311;
 }
 
 .leaflet-control-attribution {
-    font-size: 9px !important;
+    font-size:9px !important;
 }
 
 .route-stats {
-    display: flex;
+    display:flex;
 
-    justify-content: space-around;
+    justify-content:space-around;
 
-    text-align: center;
+    text-align:center;
 
-    margin-top: 12px;
+    margin-top:12px;
 }
 
 .route-stat strong {
-    display: block;
+    display:block;
 
-    font-size: 18px;
+    font-size:18px;
 }
 
 .route-stat span {
-    color: var(--muted);
+    color:var(--muted);
 
-    font-size: 12px;
+    font-size:12px;
 }
 
 
@@ -1051,176 +902,186 @@ body {
 ========================================================= */
 
 .modal-overlay {
-    position: fixed;
+    position:fixed;
 
-    inset: 0;
+    inset:0;
 
-    background:
-        rgba(0,0,0,.72);
+    background:rgba(0,0,0,.72);
 
-    backdrop-filter:
-        blur(8px);
+    backdrop-filter:blur(8px);
 
-    -webkit-backdrop-filter:
-        blur(8px);
+    -webkit-backdrop-filter:blur(8px);
 
-    display: flex;
+    display:flex;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: center;
+    justify-content:center;
 
-    padding: 20px;
+    padding:20px;
 
-    z-index: 9999;
+    z-index:9999;
 }
 
 .modal {
-    width: 100%;
+    width:100%;
 
-    max-width: 350px;
+    max-width:350px;
 
-    background: #171a18;
+    background:#171a18;
 
     border:
-        1px solid
-        rgba(255,255,255,.1);
+    1px solid
+    rgba(255,255,255,.1);
 
-    border-radius: 25px;
+    border-radius:25px;
 
-    padding: 24px;
+    padding:24px;
 
     box-shadow:
-        0 25px 80px
-        rgba(0,0,0,.5);
+    0 25px 80px
+    rgba(0,0,0,.5);
 
-    text-align: center;
+    text-align:center;
 }
 
 .modal-icon {
-    font-size: 34px;
+    font-size:34px;
 
-    margin-bottom: 8px;
+    margin-bottom:8px;
 }
 
 .modal h2 {
-    margin: 0;
+    margin:0;
 
-    font-size: 23px;
+    font-size:23px;
 
-    font-weight: 900;
+    font-weight:900;
 }
 
 .modal p {
-    color: var(--muted);
+    color:var(--muted);
 
-    font-size: 14px;
+    font-size:14px;
 
-    line-height: 1.4;
+    line-height:1.4;
 
     margin:
-        8px
-        0
-        18px;
+    8px
+    0
+    18px;
 }
 
-.pin-input {
-    width: 100%;
+.modal-time {
+    color:var(--green);
 
-    background: #0d0f0e;
+    font-size:34px;
 
-    color: white;
+    font-weight:950;
+
+    margin-bottom:12px;
+}
+
+.modal-input,
+.modal-textarea {
+    width:100%;
+
+    background:#0d0f0e;
+
+    color:white;
 
     border:
-        1px solid
-        rgba(255,255,255,.12);
+    1px solid
+    rgba(255,255,255,.12);
 
-    border-radius: 15px;
+    border-radius:15px;
 
-    padding: 15px;
+    padding:14px;
 
-    font-size: 22px;
+    font-size:16px;
 
-    text-align: center;
+    outline:none;
 
-    letter-spacing: 7px;
-
-    outline: none;
-
-    margin-bottom: 10px;
+    margin-bottom:9px;
 }
 
-.admin-button {
-    width: 100%;
+.modal-textarea {
+    min-height:82px;
 
-    min-height: 48px;
-
-    border: 0;
-
-    border-radius: 15px;
-
-    background: var(--green);
-
-    color: #111;
-
-    font-size: 15px;
-
-    font-weight: 900;
-
-    margin-top: 8px;
-
-    cursor: pointer;
+    resize:none;
 }
 
-.admin-button.danger {
-    background: var(--danger);
+.modal-button {
+    width:100%;
 
-    color: white;
+    min-height:48px;
+
+    border:0;
+
+    border-radius:15px;
+
+    background:var(--green);
+
+    color:#111;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    margin-top:7px;
+
+    cursor:pointer;
+}
+
+.modal-button.danger {
+    background:var(--danger);
+
+    color:white;
 }
 
 .cancel-button {
-    width: 100%;
+    width:100%;
 
-    min-height: 44px;
+    min-height:44px;
 
-    border: 0;
+    border:0;
 
-    border-radius: 14px;
+    border-radius:14px;
 
-    background: #272b28;
+    background:#272b28;
 
-    color: #aaa;
+    color:#aaa;
 
-    font-size: 14px;
+    font-size:14px;
 
-    font-weight: 750;
+    font-weight:750;
 
-    margin-top: 8px;
+    margin-top:8px;
 
-    cursor: pointer;
+    cursor:pointer;
+}
+
+.hidden {
+    display:none !important;
 }
 
 
 /* =========================================================
-   MEDDELANDEN
+   MEDDELANDE
 ========================================================= */
 
 .message {
-    text-align: center;
+    text-align:center;
 
-    padding: 12px;
+    padding:12px;
 
-    font-size: 13px;
+    font-size:13px;
 
-    color: var(--muted);
+    color:var(--muted);
 }
 
 .message.error {
-    color: #ff7777;
-}
-
-.hidden {
-    display: none !important;
+    color:#ff7777;
 }
 
 
@@ -1228,42 +1089,35 @@ body {
    SMÅ TELEFONER
 ========================================================= */
 
-@media (max-width: 380px) {
+@media(max-width:380px) {
 
     .date {
-        font-size: 34px;
+        font-size:34px;
     }
 
     .hero-title {
-        font-size: 31px;
+        font-size:31px;
     }
 
     .time {
-        font-size: 55px;
+        font-size:55px;
     }
 
     .time.proposal-message {
-        font-size: 20px;
+        font-size:20px;
     }
 
     .countdown {
-        font-size: 15px;
+        font-size:15px;
     }
 
     .departure {
-        font-size: 13px;
-
-        max-width: 165px;
-    }
-
-    .signup button {
-        padding:
-            0
-            14px;
+        font-size:13px;
+        max-width:165px;
     }
 
     #map {
-        height: 230px;
+        height:230px;
     }
 }
 
@@ -1285,28 +1139,28 @@ body {
 <div class="header">
 
     <div
-        class="name-day"
-        id="nameDay">
+    class="name-day"
+    id="nameDay">
 
-        DAGENS NAMN
-
-    </div>
-
-
-    <div
-        class="date"
-        id="date">
-
-        --
+    DAGENS NAMN
 
     </div>
 
 
     <div
-        class="weekday"
-        id="weekday">
+    class="date"
+    id="date">
 
-        --
+    --
+
+    </div>
+
+
+    <div
+    class="weekday"
+    id="weekday">
+
+    --
 
     </div>
 
@@ -1321,14 +1175,14 @@ body {
 
     <div class="hero-title">
 
-        Lunchturen
+    Lunchturen
 
     </div>
 
 
     <div class="hero-sub">
 
-        Ca. 30 minuter frisk luft
+    Ca. 30 minuter frisk luft
 
     </div>
 
@@ -1338,19 +1192,19 @@ body {
         <div>
 
             <div
-                class="time proposal-message"
-                id="mainTime">
+            class="time proposal-message"
+            id="mainTime">
 
-                Kom med förslag på tid
+            Kom med förslag på tid
 
             </div>
 
 
             <div
-                class="countdown hidden"
-                id="countdown">
+            class="countdown hidden"
+            id="countdown">
 
-                00:00:00 kvar
+            00:00:00 kvar
 
             </div>
 
@@ -1358,8 +1212,8 @@ body {
 
 
         <div
-            class="departure"
-            id="departure">
+        class="departure"
+        id="departure">
 
         </div>
 
@@ -1378,42 +1232,10 @@ body {
 
     <span id="status">
 
-        Ansluten till dagens promenad
+    Ansluten till dagens promenad
 
     </span>
 
-</div>
-
-
-<!-- =====================================================
-     ANMÄLAN
-====================================================== -->
-
-<form
-    class="signup"
-    id="signupForm">
-
-    <input
-        id="nameInput"
-        type="text"
-        maxlength="30"
-        autocomplete="name"
-        placeholder="Skriv ditt namn…"
-        required>
-
-
-    <button type="submit">
-
-        Häng med
-
-    </button>
-
-</form>
-
-
-<div
-    id="message"
-    class="message hidden">
 </div>
 
 
@@ -1422,21 +1244,21 @@ body {
 ====================================================== -->
 
 <div
-    class="section-head"
-    id="adminTrigger">
+class="section-head"
+id="adminTrigger">
 
     <div class="section-title">
 
-        Anmälda
+    Deltagare
 
     </div>
 
 
     <div
-        class="count"
-        id="count">
+    class="count"
+    id="count">
 
-        0 PERSONER
+    0 PERSONER
 
     </div>
 
@@ -1444,18 +1266,18 @@ body {
 
 
 <div
-    class="people"
-    id="people">
+class="people"
+id="people">
 
     <div class="empty">
 
-        🚶<br>
+    🚶<br>
 
-        Ingen har anmält sig ännu.
+    Ingen har anmält sig ännu.
 
-        <br>
+    <br>
 
-        Bli först!
+    Välj en tid längre ned för att följa med.
 
     </div>
 
@@ -1470,41 +1292,41 @@ body {
 
     <div class="proposal-title">
 
-        När går vi?
+    När går vi?
 
     </div>
 
 
     <div class="proposal-intro">
 
-        Föreslå en tid eller tryck 👍 på
-        en tid du vill följa med på.
+    Föreslå en tid eller tryck 👍 på
+    en tid du vill följa med på.
 
     </div>
 
 
     <form
-        class="proposal-form"
-        id="proposalForm">
+    class="proposal-form"
+    id="proposalForm">
 
 
         <input
-            id="proposalName"
-            type="text"
-            maxlength="30"
-            placeholder="Ditt namn…"
-            required>
+        id="proposalName"
+        type="text"
+        maxlength="30"
+        placeholder="Ditt namn…"
+        required>
 
 
         <input
-            id="proposalTime"
-            type="time"
-            required>
+        id="proposalTime"
+        type="time"
+        required>
 
 
         <button type="submit">
 
-            Föreslå tid
+        Föreslå tid
 
         </button>
 
@@ -1512,8 +1334,8 @@ body {
 
 
     <div
-        id="proposalList"
-        class="proposal-list">
+    id="proposalList"
+    class="proposal-list">
 
     </div>
 
@@ -1525,11 +1347,11 @@ body {
 ====================================================== -->
 
 <button
-    class="action"
-    id="startButton"
-    type="button">
+class="action"
+id="startButton"
+type="button">
 
-    🚶 STARTA PROMENAD
+🚶 STARTA PROMENAD
 
 </button>
 
@@ -1539,20 +1361,20 @@ body {
 ====================================================== -->
 
 <div
-    id="liveArea"
-    class="hidden">
+id="liveArea"
+class="hidden">
 
 
     <div class="gps-status">
 
         <span
-            id="gpsDot"
-            class="gps-dot active">
+        id="gpsDot"
+        class="gps-dot active">
         </span>
 
         <span id="gpsText">
 
-            GPS aktiv
+        GPS aktiv
 
         </span>
 
@@ -1566,13 +1388,13 @@ body {
 
             <strong id="liveDistance">
 
-                0,00 km
+            0,00 km
 
             </strong>
 
             <span>
 
-                Distans
+            Distans
 
             </span>
 
@@ -1583,13 +1405,13 @@ body {
 
             <strong id="liveDuration">
 
-                0:00
+            0:00
 
             </strong>
 
             <span>
 
-                Tid
+            Tid
 
             </span>
 
@@ -1600,13 +1422,13 @@ body {
 
             <strong id="livePoints">
 
-                0
+            0
 
             </strong>
 
             <span>
 
-                GPS-punkter
+            GPS-punkter
 
             </span>
 
@@ -1622,16 +1444,16 @@ body {
 ====================================================== -->
 
 <div
-    id="afterStart"
-    class="hidden">
+id="afterStart"
+class="hidden">
 
 
     <button
-        class="action secondary"
-        id="finishButton"
-        type="button">
+    class="action secondary"
+    id="finishButton"
+    type="button">
 
-        🏁 AVSLUTA PROMENAD
+    🏁 AVSLUTA PROMENAD
 
     </button>
 
@@ -1640,7 +1462,7 @@ body {
 
         <div class="map-title">
 
-            🗺️ Dagens promenad
+        🗺️ Dagens promenad
 
         </div>
 
@@ -1655,13 +1477,13 @@ body {
 
                 <strong id="distance">
 
-                    —
+                —
 
                 </strong>
 
                 <span>
 
-                    Distans
+                Distans
 
                 </span>
 
@@ -1672,13 +1494,13 @@ body {
 
                 <strong id="duration">
 
-                    —
+                —
 
                 </strong>
 
                 <span>
 
-                    Tid
+                Tid
 
                 </span>
 
@@ -1689,13 +1511,13 @@ body {
 
                 <strong id="startTime">
 
-                    —
+                —
 
                 </strong>
 
                 <span>
 
-                    Start
+                Start
 
                 </span>
 
@@ -1711,71 +1533,88 @@ body {
 
 
 <!-- =====================================================
-     GÅ MED I TID
+     GÅ MED / ÄNDRA
 ====================================================== -->
 
 <div
-    id="joinModal"
-    class="modal-overlay hidden">
+id="joinModal"
+class="modal-overlay hidden">
 
     <div class="modal">
 
         <div class="modal-icon">
 
-            👍
+        👍
 
         </div>
 
 
         <h2>
 
-            Följ med!
+        Jag är med
 
         </h2>
 
 
         <div
-            id="joinTime"
-            class="join-time">
+        id="joinTime"
+        class="modal-time">
 
-            11:30
-
-        </div>
-
-
-        <div class="join-explanation">
-
-            Skriv ditt namn så läggs du
-            till på den här tiden.
+        11:30
 
         </div>
+
+
+        <p>
+
+        Skriv ditt namn.
+        Notering är frivillig.
+
+        </p>
 
 
         <input
-            id="joinName"
-            class="join-input"
-            type="text"
-            maxlength="30"
-            placeholder="Ditt namn…"
-            autocomplete="name">
+        id="joinName"
+        class="modal-input"
+        type="text"
+        maxlength="30"
+        placeholder="Ditt namn…">
+
+
+        <textarea
+        id="joinNote"
+        class="modal-textarea"
+        maxlength="150"
+        placeholder="Notering, valfritt…">
+        </textarea>
 
 
         <button
-            id="joinConfirm"
-            class="join-confirm"
-            type="button">
+        id="joinConfirm"
+        class="modal-button"
+        type="button">
 
-            👍 Jag är med
+        👍 Jag är med
 
         </button>
 
 
         <button
-            id="joinCancel"
-            class="cancel-button"
-            type="button">
+        id="joinRemove"
+        class="modal-button danger hidden"
+        type="button">
 
-            Avbryt
+        Ta bort min anmälan
+
+        </button>
+
+
+        <button
+        id="joinCancel"
+        class="cancel-button"
+        type="button">
+
+        Avbryt
 
         </button>
 
@@ -1785,63 +1624,62 @@ body {
 
 
 <!-- =====================================================
-     ADMIN LOGIN
+     ADMIN
 ====================================================== -->
 
 <div
-    id="adminModal"
-    class="modal-overlay hidden">
+id="adminModal"
+class="modal-overlay hidden">
 
     <div class="modal">
 
         <div class="modal-icon">
 
-            🔐
+        🔐
 
         </div>
 
 
         <h2>
 
-            Administratör
+        Administratör
 
         </h2>
 
 
         <p>
 
-            Ange PIN-koden för att
-            hantera dagens lista.
+        Ange PIN-koden för att
+        hantera dagens lista.
 
         </p>
 
 
         <input
-            id="pinInput"
-            class="pin-input"
-            type="password"
-            inputmode="numeric"
-            maxlength="4"
-            placeholder="••••"
-            autocomplete="off">
+        id="pinInput"
+        class="modal-input"
+        type="password"
+        inputmode="numeric"
+        maxlength="4"
+        placeholder="••••">
 
 
         <button
-            id="loginButton"
-            class="admin-button"
-            type="button">
+        id="loginButton"
+        class="modal-button"
+        type="button">
 
-            Fortsätt
+        Fortsätt
 
         </button>
 
 
         <button
-            id="cancelButton"
-            class="cancel-button"
-            type="button">
+        id="cancelButton"
+        class="cancel-button"
+        type="button">
 
-            Avbryt
+        Avbryt
 
         </button>
 
@@ -1855,50 +1693,49 @@ body {
 ====================================================== -->
 
 <div
-    id="resetModal"
-    class="modal-overlay hidden">
+id="resetModal"
+class="modal-overlay hidden">
 
     <div class="modal">
 
         <div class="modal-icon">
 
-            ⚠️
+        ⚠️
 
         </div>
 
 
         <h2>
 
-            Nollställ listan?
+        Nollställ listan?
 
         </h2>
 
 
         <p>
 
-            Alla deltagare, tidsförslag
-            och röster för dagens
-            promenad kommer att tas bort.
+        Alla deltagare, tidsförslag
+        och röster för idag tas bort.
 
         </p>
 
 
         <button
-            id="resetButton"
-            class="admin-button danger"
-            type="button">
+        id="resetButton"
+        class="modal-button danger"
+        type="button">
 
-            🗑 Nollställ dagens lista
+        🗑 Nollställ dagens lista
 
         </button>
 
 
         <button
-            id="resetCancelButton"
-            class="cancel-button"
-            type="button">
+        id="resetCancelButton"
+        class="cancel-button"
+        type="button">
 
-            Avbryt
+        Avbryt
 
         </button>
 
@@ -1914,16 +1751,16 @@ body {
 ========================================================= */
 
 const SUPABASE_URL =
-    "https://hhbhilkcljzmzmjypqgm.supabase.co";
+"https://hhbhilkcljzmzmjypqgm.supabase.co";
 
 const SUPABASE_KEY =
-    "sb_publishable_UzO8tyWP0jt-3HGnLftNLg_U3tLVH9F";
+"sb_publishable_UzO8tyWP0jt-3HGnLftNLg_U3tLVH9F";
 
 const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
+window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 
 
 /* =========================================================
@@ -1931,52 +1768,46 @@ const supabaseClient =
 ========================================================= */
 
 const nameDayElement =
-    document.getElementById("nameDay");
+document.getElementById("nameDay");
 
 const dateElement =
-    document.getElementById("date");
+document.getElementById("date");
 
 const weekdayElement =
-    document.getElementById("weekday");
+document.getElementById("weekday");
 
 const peopleElement =
-    document.getElementById("people");
+document.getElementById("people");
 
 const countElement =
-    document.getElementById("count");
-
-const signupForm =
-    document.getElementById("signupForm");
-
-const nameInput =
-    document.getElementById("nameInput");
-
-const messageElement =
-    document.getElementById("message");
+document.getElementById("count");
 
 const statusElement =
-    document.getElementById("status");
+document.getElementById("status");
 
 const proposalForm =
-    document.getElementById("proposalForm");
+document.getElementById("proposalForm");
 
 const proposalName =
-    document.getElementById("proposalName");
+document.getElementById("proposalName");
 
 const proposalTime =
-    document.getElementById("proposalTime");
+document.getElementById("proposalTime");
 
 const proposalList =
-    document.getElementById("proposalList");
+document.getElementById("proposalList");
 
 const mainTimeElement =
-    document.getElementById("mainTime");
+document.getElementById("mainTime");
 
 const countdownElement =
-    document.getElementById("countdown");
+document.getElementById("countdown");
 
 const departureElement =
-    document.getElementById("departure");
+document.getElementById("departure");
+
+const messageElement =
+document.getElementById("message");
 
 
 /* =========================================================
@@ -1985,13 +1816,13 @@ const departureElement =
 
 const nameDays = {
 
-    "08-25": "LOVISA, LOUISE",
-    "08-26": "ÖSTEN",
-    "08-27": "RAIMOND",
-    "08-28": "MARIANNE",
-    "08-29": "HANS",
-    "08-30": "ALBERT",
-    "08-31": "ARVID"
+    "08-25":"LOVISA, LOUISE",
+    "08-26":"ÖSTEN",
+    "08-27":"RAIMOND",
+    "08-28":"MARIANNE",
+    "08-29":"HANS",
+    "08-30":"ALBERT",
+    "08-31":"ARVID"
 
 };
 
@@ -2003,19 +1834,23 @@ const nameDays = {
 function updateDate() {
 
     const now =
-        new Date();
+    new Date();
+
 
     const key =
-        String(
-            now.getMonth() + 1
-        ).padStart(2, "0") +
-        "-" +
-        String(
-            now.getDate()
-        ).padStart(2, "0");
+    String(
+        now.getMonth()+1
+    ).padStart(2,"0")
+    +
+    "-"
+    +
+    String(
+        now.getDate()
+    ).padStart(2,"0");
 
 
     const months = [
+
         "januari",
         "februari",
         "mars",
@@ -2028,10 +1863,12 @@ function updateDate() {
         "oktober",
         "november",
         "december"
+
     ];
 
 
     const weekdays = [
+
         "Söndag",
         "Måndag",
         "Tisdag",
@@ -2039,25 +1876,34 @@ function updateDate() {
         "Torsdag",
         "Fredag",
         "Lördag"
+
     ];
 
 
     dateElement.textContent =
-        now.getDate() +
-        " " +
-        months[now.getMonth()];
+    now.getDate()
+    +
+    " "
+    +
+    months[
+        now.getMonth()
+    ];
 
 
     weekdayElement.textContent =
-        weekdays[now.getDay()];
+    weekdays[
+        now.getDay()
+    ];
 
 
     nameDayElement.textContent =
-        "DAGENS NAMN: " +
-        (
-            nameDays[key] ||
-            "DAGENS NAMN"
-        );
+    "DAGENS NAMN: "
+    +
+    (
+        nameDays[key]
+        ||
+        "DAGENS NAMN"
+    );
 }
 
 
@@ -2065,42 +1911,63 @@ updateDate();
 
 
 /* =========================================================
-   DAGENS DATUMNYCKEL
+   DATUMNYCKEL
 ========================================================= */
 
 function getTodayKey() {
 
     const now =
-        new Date();
+    new Date();
 
 
     return (
-        now.getFullYear() +
-        "-" +
+
+        now.getFullYear()
+        +
+        "-"
+        +
         String(
-            now.getMonth() + 1
-        ).padStart(2, "0") +
-        "-" +
+            now.getMonth()+1
+        ).padStart(2,"0")
+        +
+        "-"
+        +
         String(
             now.getDate()
-        ).padStart(2, "0")
+        ).padStart(2,"0")
+
     );
 }
 
 
 /* =========================================================
-   ESCAPE HTML
+   ESCAPE
 ========================================================= */
 
-function escapeHtml(text) {
+function escapeHtml(
+    text
+) {
 
     return String(text)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 }
+
+
+/* =========================================================
+   DATA
+========================================================= */
+
+let allProposals = [];
+
+let allVotes = [];
+
+let selectedProposalId = null;
+
+let editingName = null;
 
 
 /* =========================================================
@@ -2109,30 +1976,41 @@ function escapeHtml(text) {
 
 function showMessage(
     text,
-    error = false
+    error=false
 ) {
 
-    messageElement.textContent =
-        text;
+    /*
+       messageElement finns inte visuellt
+       i denna layout om inget meddelande
+       skapas. Vi använder alert-liknande
+       status i statusfältet.
+    */
+
+    statusElement.textContent =
+    text;
 
 
-    messageElement.classList.remove(
-        "hidden"
-    );
+    if (error) {
 
+        statusElement.style.color =
+        "#ff7777";
 
-    messageElement.classList.toggle(
-        "error",
-        error
-    );
+    } else {
+
+        statusElement.style.color =
+        "";
+
+    }
 
 
     setTimeout(
         () => {
 
-            messageElement.classList.add(
-                "hidden"
-            );
+            statusElement.textContent =
+            "Uppdaterad nyss";
+
+            statusElement.style.color =
+            "";
 
         },
         3500
@@ -2141,24 +2019,70 @@ function showMessage(
 
 
 /* =========================================================
-   DATA FÖR TIDER
+   POPULÄRASTE TID
 ========================================================= */
 
-let allProposals = [];
+function getProposalMembers(
+    proposal
+) {
 
-let allVotes = [];
+    const members = [
+        proposal.name
+    ];
+
+
+    allVotes
+    .filter(
+        vote =>
+        vote.proposal_id ===
+        proposal.id
+        &&
+        vote.vote ===
+        "yes"
+    )
+    .forEach(
+        vote => {
+
+            members.push(
+                vote.name
+            );
+
+        }
+    );
+
+
+    const unique = [];
+
+
+    const seen =
+    new Set();
+
+
+    members.forEach(
+        name => {
+
+            const key =
+            name
+            .toLowerCase()
+            .trim();
+
+
+            if (!seen.has(key)) {
+
+                seen.add(key);
+
+                unique.push(name);
+            }
+        }
+    );
+
+
+    return unique;
+}
 
 
 /* =========================================================
-   AKTUELL HUVUDTID
-========================================================= */
-
-let currentSuggestedTime =
-    null;
-
-
-/* =========================================================
-   VÄLJ POPULÄRASTE TID
+   POPULÄRASTE
 ========================================================= */
 
 function getPopularProposal() {
@@ -2172,48 +2096,33 @@ function getPopularProposal() {
 
 
     let best =
-        null;
+    null;
 
 
-    let bestVotes =
-        -1;
+    let bestCount =
+    -1;
 
 
     allProposals.forEach(
         proposal => {
 
-            const yesCount =
-                allVotes.filter(
-                    vote =>
-                        vote.proposal_id ===
-                        proposal.id &&
-                        vote.vote ===
-                        "yes"
-                ).length;
-
-
-            /*
-               Förslagsställaren räknas
-               automatiskt som deltagare
-               på sin egen tid.
-            */
-
-            const memberCount =
-                yesCount + 1;
+            const count =
+            getProposalMembers(
+                proposal
+            ).length;
 
 
             if (
-                memberCount >
-                bestVotes
+                count >
+                bestCount
             ) {
 
-                bestVotes =
-                    memberCount;
+                bestCount =
+                count;
 
                 best =
-                    proposal;
+                proposal;
             }
-
         }
     );
 
@@ -2223,23 +2132,19 @@ function getPopularProposal() {
 
 
 /* =========================================================
-   HUVUDKORTETS TID
+   HUVUDTID
 ========================================================= */
 
 function updateMainTime() {
 
     const popular =
-        getPopularProposal();
+    getPopularProposal();
 
 
     if (!popular) {
 
-        currentSuggestedTime =
-            null;
-
-
         mainTimeElement.textContent =
-            "Kom med förslag på tid";
+        "Kom med förslag på tid";
 
 
         mainTimeElement.classList.add(
@@ -2253,24 +2158,24 @@ function updateMainTime() {
 
 
         departureElement.innerHTML =
-            "";
+        "";
 
 
         return;
     }
 
 
-    currentSuggestedTime =
-        String(
-            popular.proposed_time
-        ).substring(
-            0,
-            5
-        );
+    const time =
+    String(
+        popular.proposed_time
+    ).substring(
+        0,
+        5
+    );
 
 
     mainTimeElement.textContent =
-        currentSuggestedTime;
+    time;
 
 
     mainTimeElement.classList.remove(
@@ -2287,7 +2192,7 @@ function updateMainTime() {
 
         <span class="departure-label">
 
-            AVGÅNG
+        AVGÅNG
 
         </span>
 
@@ -2307,28 +2212,32 @@ function updateMainTime() {
 function updateCountdown() {
 
     if (
-        !currentSuggestedTime
+        !currentSuggestedTime()
     ) {
 
         countdownElement.classList.add(
             "hidden"
         );
 
+
         return;
     }
 
 
-    const now =
-        new Date();
+    const time =
+    currentSuggestedTime();
 
 
     const parts =
-        currentSuggestedTime
-            .split(":");
+    time.split(":");
+
+
+    const now =
+    new Date();
 
 
     const departure =
-        new Date();
+    new Date();
 
 
     departure.setHours(
@@ -2340,8 +2249,9 @@ function updateCountdown() {
 
 
     const difference =
-        departure.getTime() -
-        now.getTime();
+    departure.getTime()
+    -
+    now.getTime();
 
 
     if (
@@ -2349,52 +2259,75 @@ function updateCountdown() {
     ) {
 
         countdownElement.textContent =
-            "00:00:00 kvar";
+        "00:00:00 kvar";
+
 
         return;
     }
 
 
     const totalSeconds =
-        Math.floor(
-            difference / 1000
-        );
+    Math.floor(
+        difference /
+        1000
+    );
 
 
     const hours =
-        Math.floor(
-            totalSeconds / 3600
-        );
+    Math.floor(
+        totalSeconds /
+        3600
+    );
 
 
     const minutes =
-        Math.floor(
-            (
-                totalSeconds % 3600
-            ) / 60
-        );
+    Math.floor(
+        (
+            totalSeconds %
+            3600
+        ) /
+        60
+    );
 
 
     const seconds =
-        totalSeconds % 60;
+    totalSeconds %
+    60;
 
 
     countdownElement.textContent =
-        String(hours).padStart(
-            2,
-            "0"
-        ) +
-        ":" +
-        String(minutes).padStart(
-            2,
-            "0"
-        ) +
-        ":" +
-        String(seconds).padStart(
-            2,
-            "0"
-        ) +
-        " kvar";
+    String(hours).padStart(2,"0")
+    +
+    ":"
+    +
+    String(minutes).padStart(2,"0")
+    +
+    ":"
+    +
+    String(seconds).padStart(2,"0")
+    +
+    " kvar";
+}
+
+
+function currentSuggestedTime() {
+
+    const popular =
+    getPopularProposal();
+
+
+    if (!popular) {
+
+        return null;
+    }
+
+
+    return String(
+        popular.proposed_time
+    ).substring(
+        0,
+        5
+    );
 }
 
 
@@ -2413,18 +2346,18 @@ function renderPeople(
 ) {
 
     countElement.textContent =
-        signups.length +
-        " " +
-        (
-            signups.length === 1
-                ? "PERSON"
-                : "PERSONER"
-        );
+    signups.length
+    +
+    " "
+    +
+    (
+        signups.length === 1
+        ? "PERSON"
+        : "PERSONER"
+    );
 
 
-    if (
-        !signups.length
-    ) {
+    if (!signups.length) {
 
         peopleElement.innerHTML = `
 
@@ -2436,114 +2369,178 @@ function renderPeople(
 
                 <br>
 
-                Bli först!
+                Välj en tid längre ned
+                för att följa med.
 
             </div>
 
         `;
+
 
         return;
     }
 
 
     peopleElement.innerHTML =
-        signups.map(
-            person => {
+    signups
+    .map(
+        person => {
 
-                const name =
-                    escapeHtml(
-                        person.name
+            const name =
+            escapeHtml(
+                person.name
+            );
+
+
+            const initial =
+            escapeHtml(
+                person.name
+                .trim()
+                .charAt(0)
+                .toUpperCase()
+            );
+
+
+            const vote =
+            allVotes.find(
+                vote =>
+                vote.name
+                .toLowerCase()
+                .trim()
+                ===
+                person.name
+                .toLowerCase()
+                .trim()
+                &&
+                vote.vote ===
+                "yes"
+            );
+
+
+            let selectedTime =
+            "";
+
+
+            let note =
+            "";
+
+
+            if (vote) {
+
+                const proposal =
+                allProposals.find(
+                    proposal =>
+                    proposal.id ===
+                    vote.proposal_id
+                );
+
+
+                if (proposal) {
+
+                    selectedTime =
+                    String(
+                        proposal.proposed_time
+                    ).substring(
+                        0,
+                        5
                     );
-
-
-                const initial =
-                    escapeHtml(
-                        person.name
-                            .trim()
-                            .charAt(0)
-                            .toUpperCase()
-                    );
-
-
-                const joinedProposal =
-                    allVotes.find(
-                        vote =>
-                            vote.name
-                                .toLowerCase()
-                                .trim() ===
-                            person.name
-                                .toLowerCase()
-                                .trim() &&
-                            vote.vote ===
-                            "yes"
-                    );
-
-
-                let timeText =
-                    "Anmäld";
-
-
-                if (
-                    joinedProposal
-                ) {
-
-                    const proposal =
-                        allProposals.find(
-                            item =>
-                                item.id ===
-                                joinedProposal.proposal_id
-                        );
-
-
-                    if (
-                        proposal
-                    ) {
-
-                        timeText =
-                            "👍 Med " +
-                            String(
-                                proposal.proposed_time
-                            ).substring(
-                                0,
-                                5
-                            );
-                    }
                 }
 
 
-                return `
-
-                    <div class="person">
-
-                        <div class="avatar">
-
-                            ${initial}
-
-                        </div>
+                note =
+                vote.note ||
+                "";
+            }
 
 
-                        <div>
+            return `
 
-                            <div class="person-name">
+                <div
+                class="person"
+                data-person-name="${escapeHtml(person.name)}">
 
-                                ${name}
+                    <div class="avatar">
 
-                            </div>
-
-
-                            <div class="person-time">
-
-                                ${timeText}
-
-                            </div>
-
-                        </div>
+                        ${initial}
 
                     </div>
 
-                `;
-            }
-        ).join("");
+
+                    <div class="person-content">
+
+                        <div class="person-name">
+
+                            ${name}
+
+                        </div>
+
+
+                        <div class="person-time">
+
+                            ${
+                                selectedTime
+                                ? `
+                                    👍 Med på
+                                    <strong>
+                                    ${selectedTime}
+                                    </strong>
+                                  `
+                                : "Anmäld"
+                            }
+
+                        </div>
+
+
+                        ${
+                            note
+                            ? `
+                                <div
+                                class="person-note">
+
+                                “${escapeHtml(note)}”
+
+                                </div>
+                              `
+                            : ""
+                        }
+
+                    </div>
+
+
+                    <div class="person-arrow">
+
+                        ›
+                        
+                    </div>
+
+                </div>
+
+            `;
+        }
+    )
+    .join("");
+
+
+    document
+    .querySelectorAll(
+        ".person"
+    )
+    .forEach(
+        element => {
+
+            element.addEventListener(
+                "click",
+                () => {
+
+                    openEditPerson(
+                        element.dataset.personName
+                    );
+
+                }
+            );
+
+        }
+    );
 }
 
 
@@ -2558,30 +2555,29 @@ async function loadSignups() {
         error
     } =
     await supabaseClient
-        .from("walk_signups")
-        .select("*")
-        .eq(
-            "date_key",
-            getTodayKey()
-        )
-        .order(
-            "created_at",
-            {
-                ascending: true
-            }
-        );
+    .from("walk_signups")
+    .select("*")
+    .eq(
+        "date_key",
+        getTodayKey()
+    )
+    .order(
+        "created_at",
+        {
+            ascending:true
+        }
+    );
 
 
     if (error) {
 
         console.error(
-            "Deltagarfel:",
             error
         );
 
 
         statusElement.textContent =
-            "Kunde inte läsa listan";
+        "Kunde inte läsa deltagare";
 
 
         return;
@@ -2591,108 +2587,11 @@ async function loadSignups() {
     renderPeople(
         data || []
     );
-
-
-    statusElement.textContent =
-        "Uppdaterad nyss";
 }
 
 
 /* =========================================================
-   ANMÄLAN
-========================================================= */
-
-signupForm.addEventListener(
-    "submit",
-    async function(event) {
-
-        event.preventDefault();
-
-
-        const name =
-            nameInput.value.trim();
-
-
-        if (!name) {
-
-            return;
-        }
-
-
-        const button =
-            signupForm.querySelector(
-                "button"
-            );
-
-
-        button.disabled =
-            true;
-
-
-        button.textContent =
-            "Anmäler…";
-
-
-        const {
-            error
-        } =
-        await supabaseClient
-            .from("walk_signups")
-            .insert([
-                {
-                    date_key:
-                        getTodayKey(),
-
-                    name:
-                        name
-                }
-            ]);
-
-
-        if (error) {
-
-            console.error(
-                error
-            );
-
-
-            showMessage(
-                "Kunde inte anmäla dig.",
-                true
-            );
-
-
-        } else {
-
-            nameInput.value =
-                "";
-
-
-            proposalName.value =
-                name;
-
-
-            showMessage(
-                "Du är anmäld! 🚶"
-            );
-
-
-            await loadSignups();
-        }
-
-
-        button.disabled =
-            false;
-
-
-        button.textContent =
-            "Häng med";
-    }
-);
-
-
-/* =========================================================
-   TIDSFÖRSLAG
+   FÖRESLÅ TID
 ========================================================= */
 
 proposalForm.addEventListener(
@@ -2703,11 +2602,11 @@ proposalForm.addEventListener(
 
 
         const name =
-            proposalName.value.trim();
+        proposalName.value.trim();
 
 
         const time =
-            proposalTime.value;
+        proposalTime.value;
 
 
         if (
@@ -2715,56 +2614,97 @@ proposalForm.addEventListener(
             !time
         ) {
 
-            showMessage(
-                "Fyll i namn och tid.",
-                true
-            );
-
-
             return;
         }
 
 
         const button =
-            proposalForm.querySelector(
-                "button"
-            );
+        proposalForm.querySelector(
+            "button"
+        );
 
 
         button.disabled =
-            true;
+        true;
 
 
         button.textContent =
-            "Skickar…";
+        "Skickar…";
 
 
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
+        try {
+
+            /*
+               Skapa tidsförslaget.
+            */
+
+            const {
+                data: proposal,
+                error
+            } =
+            await supabaseClient
             .from("walk_time_proposals")
             .insert([
                 {
                     date_key:
-                        getTodayKey(),
+                    getTodayKey(),
 
                     name:
-                        name,
+                    name,
 
                     proposed_time:
-                        time
+                    time
                 }
             ])
             .select()
             .single();
 
 
-        if (error) {
+            if (error) {
+
+                throw error;
+            }
+
+
+            /*
+               Lägg personen i deltagarlistan.
+            */
+
+            await ensureSignup(
+                name
+            );
+
+
+            /*
+               Lägg automatiskt personen
+               som JA på sin egen tid.
+            */
+
+            await movePersonToProposal(
+                name,
+                proposal.id,
+                ""
+            );
+
+
+            proposalName.value =
+            name;
+
+
+            proposalTime.value =
+            "";
+
+
+            showMessage(
+                "Tiden är föreslagen! 👍"
+            );
+
+
+            await loadAll();
+
+        } catch (error) {
 
             console.error(
-                "Förslagsfel:",
                 error
             );
 
@@ -2774,34 +2714,77 @@ proposalForm.addEventListener(
                 true
             );
 
+        } finally {
 
-        } else {
-
-            proposalTime.value =
-                "";
-
-
-            showMessage(
-                "Tiden är föreslagen! 🕚"
-            );
-
-
-            await loadProposals();
-        }
-
-
-        button.disabled =
+            button.disabled =
             false;
 
 
-        button.textContent =
+            button.textContent =
             "Föreslå tid";
+        }
     }
 );
 
 
 /* =========================================================
-   HÄMTA FÖRSLAG + RÖSTER
+   SÄKERSTÄLL DELTAGARE
+========================================================= */
+
+async function ensureSignup(
+    name
+) {
+
+    const {
+        data,
+        error
+    } =
+    await supabaseClient
+    .from("walk_signups")
+    .select("id")
+    .eq(
+        "date_key",
+        getTodayKey()
+    )
+    .eq(
+        "name",
+        name
+    )
+    .maybeSingle();
+
+
+    if (error) {
+
+        throw error;
+    }
+
+
+    if (!data) {
+
+        const result =
+        await supabaseClient
+        .from("walk_signups")
+        .insert([
+            {
+                date_key:
+                getTodayKey(),
+
+                name:
+                name
+            }
+        ]);
+
+
+        if (result.error) {
+
+            throw result.error;
+        }
+    }
+}
+
+
+/* =========================================================
+   HÄMTA FÖRSLAG
 ========================================================= */
 
 async function loadProposals() {
@@ -2811,18 +2794,18 @@ async function loadProposals() {
         error: proposalError
     } =
     await supabaseClient
-        .from("walk_time_proposals")
-        .select("*")
-        .eq(
-            "date_key",
-            getTodayKey()
-        )
-        .order(
-            "created_at",
-            {
-                ascending: true
-            }
-        );
+    .from("walk_time_proposals")
+    .select("*")
+    .eq(
+        "date_key",
+        getTodayKey()
+    )
+    .order(
+        "created_at",
+        {
+            ascending:true
+        }
+    );
 
 
     if (proposalError) {
@@ -2837,30 +2820,25 @@ async function loadProposals() {
 
 
     allProposals =
-        proposals || [];
+    proposals || [];
 
 
     const ids =
-        allProposals.map(
-            proposal =>
-                proposal.id
-        );
+    allProposals.map(
+        proposal =>
+        proposal.id
+    );
 
 
     if (!ids.length) {
 
         allVotes =
-            [];
+        [];
 
 
         renderProposals();
 
-
         updateMainTime();
-
-
-        await loadSignups();
-
 
         return;
     }
@@ -2871,12 +2849,12 @@ async function loadProposals() {
         error: voteError
     } =
     await supabaseClient
-        .from("walk_time_votes")
-        .select("*")
-        .in(
-            "proposal_id",
-            ids
-        );
+    .from("walk_time_votes")
+    .select("*")
+    .in(
+        "proposal_id",
+        ids
+    );
 
 
     if (voteError) {
@@ -2891,21 +2869,17 @@ async function loadProposals() {
 
 
     allVotes =
-        votes || [];
+    votes || [];
 
 
     renderProposals();
 
-
     updateMainTime();
-
-
-    await loadSignups();
 }
 
 
 /* =========================================================
-   VISA TIDSFÖRSLAG
+   VISA TIDER
 ========================================================= */
 
 function renderProposals() {
@@ -2930,140 +2904,86 @@ function renderProposals() {
 
 
     const popular =
-        getPopularProposal();
+    getPopularProposal();
 
 
     proposalList.innerHTML =
-        allProposals.map(
-            proposal => {
+    allProposals
+    .map(
+        proposal => {
 
-                const time =
-                    String(
-                        proposal.proposed_time
-                    ).substring(
-                        0,
-                        5
-                    );
-
-
-                const yesVotes =
-                    allVotes.filter(
-                        vote =>
-                            vote.proposal_id ===
-                            proposal.id &&
-                            vote.vote ===
-                            "yes"
-                    );
+            const time =
+            String(
+                proposal.proposed_time
+            ).substring(
+                0,
+                5
+            );
 
 
-                /*
-                   Förslagsställaren räknas
-                   som första deltagare.
-                */
-
-                const names = [
-                    proposal.name,
-                    ...yesVotes.map(
-                        vote =>
-                            vote.name
-                    )
-                ];
+            const members =
+            getProposalMembers(
+                proposal
+            );
 
 
-                /*
-                   Ta bort dubbletter.
-                */
-
-                const uniqueNames =
-                    [
-                        ...new Map(
-                            names.map(
-                                name => [
-                                    name
-                                        .toLowerCase()
-                                        .trim(),
-                                    name
-                                ]
-                            )
-                        ).values()
-                    ];
+            const isPopular =
+            popular &&
+            popular.id ===
+            proposal.id;
 
 
-                const memberCount =
-                    uniqueNames.length;
+            const chips =
+            members
+            .map(
+                name => `
+
+                    <span
+                    class="member-chip">
+
+                    ${escapeHtml(name)}
+
+                    </span>
+
+                `
+            )
+            .join("");
 
 
-                const isPopular =
-                    popular &&
-                    popular.id ===
-                    proposal.id;
+            return `
+
+                <div
+                class="proposal
+                ${isPopular ? "popular" : ""}">
 
 
-                const chips =
-                    uniqueNames.map(
-                        name => `
-
-                            <span
-                                class="member-chip">
-
-                                ${escapeHtml(
-                                    name
-                                )}
-
-                            </span>
-
+                    ${
+                        isPopular
+                        ?
                         `
-                    ).join("");
 
+                            <div
+                            class="popular-badge">
 
-                return `
-
-                    <div
-                        class="proposal
-                        ${isPopular
-                            ? "popular"
-                            : ""}">
-
-                        ${
-                            isPopular
-                                ? `
-                                    <div
-                                        class="popular-badge">
-
-                                        ⭐ POPULÄRAST
-
-                                    </div>
-                                  `
-                                : ""
-                        }
-
-
-                        <div class="proposal-top">
-
-                            <div>
-
-                                <div
-                                    class="proposal-time">
-
-                                    ${time}
-
-                                </div>
+                            ⭐ POPULÄRAST
 
                             </div>
 
+                          `
+                        :
+                        ""
+                    }
+
+
+                    <div class="proposal-top">
+
+
+                        <div>
 
                             <div
-                                class="proposal-person">
+                            class="proposal-time">
 
-                                Föreslagen av<br>
-
-                                <strong>
-
-                                    ${escapeHtml(
-                                        proposal.name
-                                    )}
-
-                                </strong>
+                            ${time}
 
                             </div>
 
@@ -3071,66 +2991,87 @@ function renderProposals() {
 
 
                         <div
-                            class="proposal-members">
+                        class="proposal-person">
 
-                            ${chips}
+                            Föreslagen av<br>
 
-                        </div>
+                            <strong>
 
+                            ${escapeHtml(
+                                proposal.name
+                            )}
 
-                        <div class="proposal-bottom">
-
-                            <div
-                                class="member-count">
-
-                                👍 ${memberCount}
-                                ${
-                                    memberCount === 1
-                                        ? "person"
-                                        : "personer"
-                                }
-
-                            </div>
-
-
-                            <button
-                                class="join-button"
-                                type="button"
-                                data-proposal-id="${proposal.id}">
-
-                                👍 Jag är med
-
-                            </button>
+                            </strong>
 
                         </div>
 
                     </div>
 
-                `;
-            }
-        ).join("");
+
+                    <div
+                    class="proposal-members">
+
+                        ${chips}
+
+                    </div>
+
+
+                    <div
+                    class="proposal-bottom">
+
+
+                        <div
+                        class="member-count">
+
+                            👍 ${members.length}
+                            ${
+                                members.length === 1
+                                ? "person"
+                                : "personer"
+                            }
+
+                        </div>
+
+
+                        <button
+                        class="join-button"
+                        type="button"
+                        data-proposal-id="${proposal.id}">
+
+                        👍 Jag är med
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+        }
+    )
+    .join("");
 
 
     document
-        .querySelectorAll(
-            ".join-button"
-        )
-        .forEach(
-            button => {
+    .querySelectorAll(
+        ".join-button"
+    )
+    .forEach(
+        button => {
 
-                button.addEventListener(
-                    "click",
-                    function() {
+            button.addEventListener(
+                "click",
+                () => {
 
-                        openJoinModal(
-                            this.dataset.proposalId
-                        );
+                    openJoinModal(
+                        button.dataset.proposalId
+                    );
 
-                    }
-                );
+                }
+            );
 
-            }
-        );
+        }
+    );
 }
 
 
@@ -3138,73 +3079,132 @@ function renderProposals() {
    JOIN MODAL
 ========================================================= */
 
-let selectedProposalId =
-    null;
-
-
 const joinModal =
-    document.getElementById(
-        "joinModal"
-    );
-
+document.getElementById(
+    "joinModal"
+);
 
 const joinTime =
-    document.getElementById(
-        "joinTime"
-    );
-
+document.getElementById(
+    "joinTime"
+);
 
 const joinName =
-    document.getElementById(
-        "joinName"
-    );
+document.getElementById(
+    "joinName"
+);
 
+const joinNote =
+document.getElementById(
+    "joinNote"
+);
 
 const joinConfirm =
-    document.getElementById(
-        "joinConfirm"
-    );
+document.getElementById(
+    "joinConfirm"
+);
 
+const joinRemove =
+document.getElementById(
+    "joinRemove"
+);
 
 const joinCancel =
-    document.getElementById(
-        "joinCancel"
-    );
+document.getElementById(
+    "joinCancel"
+);
 
 
 function openJoinModal(
-    proposalId
+    proposalId,
+    personName=null
 ) {
 
     const proposal =
-        allProposals.find(
-            item =>
-                String(item.id) ===
-                String(proposalId)
-        );
+    allProposals.find(
+        proposal =>
+        String(proposal.id)
+        ===
+        String(proposalId)
+    );
 
 
     if (!proposal) {
+
         return;
     }
 
 
     selectedProposalId =
-        proposalId;
+    proposalId;
+
+
+    editingName =
+    personName;
 
 
     joinTime.textContent =
-        String(
-            proposal.proposed_time
-        ).substring(
-            0,
-            5
-        );
+    String(
+        proposal.proposed_time
+    ).substring(
+        0,
+        5
+    );
 
 
     joinName.value =
-        nameInput.value.trim() ||
-        proposalName.value.trim();
+    personName ||
+    "";
+
+
+    joinNote.value =
+    "";
+
+
+    if (personName) {
+
+        const vote =
+        allVotes.find(
+            vote =>
+            vote.proposal_id ===
+            proposal.id
+            &&
+            vote.name
+            .toLowerCase()
+            .trim()
+            ===
+            personName
+            .toLowerCase()
+            .trim()
+        );
+
+
+        if (vote) {
+
+            joinNote.value =
+            vote.note ||
+            "";
+        }
+
+
+        joinConfirm.textContent =
+        "Spara ändringar";
+
+
+        joinRemove.classList.remove(
+            "hidden"
+        );
+
+    } else {
+
+        joinConfirm.textContent =
+        "👍 Jag är med";
+
+
+        joinRemove.classList.add(
+            "hidden"
+        );
+    }
 
 
     joinModal.classList.remove(
@@ -3231,7 +3231,11 @@ function closeJoinModal() {
 
 
     selectedProposalId =
-        null;
+    null;
+
+
+    editingName =
+    null;
 }
 
 
@@ -3242,7 +3246,115 @@ joinCancel.addEventListener(
 
 
 /* =========================================================
-   GÅ MED PÅ TID
+   FLYTTA PERSON TILL TID
+========================================================= */
+
+async function movePersonToProposal(
+    name,
+    proposalId,
+    note
+) {
+
+    /*
+       Ta bort personens tidigare JA-röster.
+       Detta gör att personen bara kan
+       tillhöra en tid.
+    */
+
+    const {
+        data: previousVotes,
+        error: previousError
+    } =
+    await supabaseClient
+    .from("walk_time_votes")
+    .select("id")
+    .eq(
+        "name",
+        name
+    )
+    .eq(
+        "vote",
+        "yes"
+    );
+
+
+    if (previousError) {
+
+        throw previousError;
+    }
+
+
+    if (
+        previousVotes &&
+        previousVotes.length
+    ) {
+
+        const ids =
+        previousVotes.map(
+            vote =>
+            vote.id
+        );
+
+
+        const {
+            error
+        } =
+        await supabaseClient
+        .from("walk_time_votes")
+        .delete()
+        .in(
+            "id",
+            ids
+        );
+
+
+        if (error) {
+
+            throw error;
+        }
+    }
+
+
+    /*
+       Lägg ny JA-röst.
+    */
+
+    const {
+        error
+    } =
+    await supabaseClient
+    .from("walk_time_votes")
+    .insert([
+        {
+            proposal_id:
+            proposalId,
+
+            name:
+            name,
+
+            vote:
+            "yes",
+
+            note:
+            note || null
+        }
+    ]);
+
+
+    if (error) {
+
+        throw error;
+    }
+
+
+    await ensureSignup(
+        name
+    );
+}
+
+
+/* =========================================================
+   BEKRÄFTA DELTAGANDE
 ========================================================= */
 
 joinConfirm.addEventListener(
@@ -3250,7 +3362,11 @@ joinConfirm.addEventListener(
     async function() {
 
         const name =
-            joinName.value.trim();
+        joinName.value.trim();
+
+
+        const note =
+        joinNote.value.trim();
 
 
         if (
@@ -3263,249 +3379,246 @@ joinConfirm.addEventListener(
 
 
         joinConfirm.disabled =
-            true;
+        true;
 
 
         joinConfirm.textContent =
-            "Ansluter…";
+        "Sparar…";
 
 
         try {
 
             /*
-               Kontrollera om personen
-               redan har en JA-röst.
-            */
-
-            const {
-                data: existingVotes,
-                error: existingError
-            } =
-            await supabaseClient
-                .from("walk_time_votes")
-                .select("*")
-                .eq(
-                    "name",
-                    name
-                )
-                .eq(
-                    "vote",
-                    "yes"
-                );
-
-
-            if (existingError) {
-                throw existingError;
-            }
-
-
-            /*
-               Om personen redan valt en annan
-               tid flyttas rösten till den nya.
+               Om vi redigerar ett befintligt
+               namn och personen bytt namn,
+               försöker vi ta bort den gamla
+               posten.
             */
 
             if (
-                existingVotes &&
-                existingVotes.length
+                editingName &&
+                editingName !== name
             ) {
 
-                const ids =
-                    existingVotes.map(
-                        vote =>
-                            vote.id
-                    );
-
-
-                const {
-                    error
-                } =
-                await supabaseClient
-                    .from("walk_time_votes")
-                    .delete()
-                    .in(
-                        "id",
-                        ids
-                    );
-
-
-                if (error) {
-                    throw error;
-                }
+                await removePersonData(
+                    editingName
+                );
             }
 
 
-            /*
-               Kontrollera om personen redan
-               har röstat på denna tid.
-            */
-
-            const {
-                data: currentVote,
-                error: currentVoteError
-            } =
-            await supabaseClient
-                .from("walk_time_votes")
-                .select("*")
-                .eq(
-                    "proposal_id",
-                    selectedProposalId
-                )
-                .eq(
-                    "name",
-                    name
-                )
-                .maybeSingle();
-
-
-            if (currentVoteError) {
-                throw currentVoteError;
-            }
-
-
-            if (currentVote) {
-
-                const {
-                    error
-                } =
-                await supabaseClient
-                    .from("walk_time_votes")
-                    .update({
-                        vote:
-                            "yes"
-                    })
-                    .eq(
-                        "id",
-                        currentVote.id
-                    );
-
-
-                if (error) {
-                    throw error;
-                }
-
-
-            } else {
-
-                const {
-                    error
-                } =
-                await supabaseClient
-                    .from("walk_time_votes")
-                    .insert([
-                        {
-                            proposal_id:
-                                selectedProposalId,
-
-                            name:
-                                name,
-
-                            vote:
-                                "yes"
-                        }
-                    ]);
-
-
-                if (error) {
-                    throw error;
-                }
-            }
-
-
-            /*
-               Lägg samtidigt till personen
-               i den vanliga deltagarlistan
-               om namnet inte redan finns idag.
-            */
-
-            const {
-                data: existingSignup,
-                error: signupCheckError
-            } =
-            await supabaseClient
-                .from("walk_signups")
-                .select("id")
-                .eq(
-                    "date_key",
-                    getTodayKey()
-                )
-                .eq(
-                    "name",
-                    name
-                )
-                .maybeSingle();
-
-
-            if (signupCheckError) {
-                throw signupCheckError;
-            }
-
-
-            if (!existingSignup) {
-
-                const {
-                    error
-                } =
-                await supabaseClient
-                    .from("walk_signups")
-                    .insert([
-                        {
-                            date_key:
-                                getTodayKey(),
-
-                            name:
-                                name
-                        }
-                    ]);
-
-
-                if (error) {
-                    throw error;
-                }
-            }
-
-
-            nameInput.value =
-                name;
+            await movePersonToProposal(
+                name,
+                selectedProposalId,
+                note
+            );
 
 
             proposalName.value =
-                name;
+            name;
 
 
             closeJoinModal();
 
 
             showMessage(
-                "Du är med på " +
-                joinTime.textContent +
-                "! 👍"
+                "Anmälan sparad! 👍"
             );
 
 
-            await loadProposals();
-
+            await loadAll();
 
         } catch (error) {
 
             console.error(
-                "Kunde inte ansluta:",
                 error
             );
 
 
             showMessage(
-                "Kunde inte registrera dig.",
+                "Kunde inte spara anmälan.",
                 true
             );
 
         } finally {
 
             joinConfirm.disabled =
-                false;
-
+            false;
 
             joinConfirm.textContent =
-                "👍 Jag är med";
+            "Spara ändringar";
+        }
+    }
+);
+
+
+/* =========================================================
+   ÖPPNA REDIGERING
+========================================================= */
+
+function openEditPerson(
+    name
+) {
+
+    const vote =
+    allVotes.find(
+        vote =>
+        vote.name
+        .toLowerCase()
+        .trim()
+        ===
+        name
+        .toLowerCase()
+        .trim()
+        &&
+        vote.vote ===
+        "yes"
+    );
+
+
+    if (!vote) {
+
+        return;
+    }
+
+
+    openJoinModal(
+        vote.proposal_id,
+        name
+    );
+}
+
+
+/* =========================================================
+   TA BORT PERSON
+========================================================= */
+
+async function removePersonData(
+    name
+) {
+
+    /*
+       Ta bort röster.
+    */
+
+    const {
+        error: voteError
+    } =
+    await supabaseClient
+    .from("walk_time_votes")
+    .delete()
+    .eq(
+        "name",
+        name
+    );
+
+
+    if (voteError) {
+
+        throw voteError;
+    }
+
+
+    /*
+       Ta bort deltagare.
+    */
+
+    const {
+        error: signupError
+    } =
+    await supabaseClient
+    .from("walk_signups")
+    .delete()
+    .eq(
+        "date_key",
+        getTodayKey()
+    )
+    .eq(
+        "name",
+        name
+    );
+
+
+    if (signupError) {
+
+        throw signupError;
+    }
+}
+
+
+/* =========================================================
+   TA BORT MIN ANMÄLAN
+========================================================= */
+
+joinRemove.addEventListener(
+    "click",
+    async function() {
+
+        const name =
+        editingName;
+
+
+        if (!name) {
+
+            return;
+        }
+
+
+        const confirmed =
+        confirm(
+            "Vill du ta bort din anmälan?"
+        );
+
+
+        if (!confirmed) {
+
+            return;
+        }
+
+
+        joinRemove.disabled =
+        true;
+
+
+        joinRemove.textContent =
+        "Tar bort…";
+
+
+        try {
+
+            await removePersonData(
+                name
+            );
+
+
+            closeJoinModal();
+
+
+            showMessage(
+                "Din anmälan är borttagen."
+            );
+
+
+            await loadAll();
+
+        } catch (error) {
+
+            console.error(
+                error
+            );
+
+
+            showMessage(
+                "Kunde inte ta bort anmälan.",
+                true
+            );
+
+        } finally {
+
+            joinRemove.disabled =
+            false;
+
+            joinRemove.textContent =
+            "Ta bort min anmälan";
         }
     }
 );
@@ -3516,66 +3629,58 @@ joinConfirm.addEventListener(
 ========================================================= */
 
 const ADMIN_PIN =
-    "1977";
-
-
-const adminTrigger =
-    document.getElementById(
-        "adminTrigger"
-    );
+"1977";
 
 
 const adminModal =
-    document.getElementById(
-        "adminModal"
-    );
-
+document.getElementById(
+    "adminModal"
+);
 
 const resetModal =
-    document.getElementById(
-        "resetModal"
-    );
-
+document.getElementById(
+    "resetModal"
+);
 
 const pinInput =
-    document.getElementById(
-        "pinInput"
-    );
-
+document.getElementById(
+    "pinInput"
+);
 
 const loginButton =
-    document.getElementById(
-        "loginButton"
-    );
-
+document.getElementById(
+    "loginButton"
+);
 
 const cancelButton =
-    document.getElementById(
-        "cancelButton"
-    );
-
+document.getElementById(
+    "cancelButton"
+);
 
 const resetButton =
-    document.getElementById(
-        "resetButton"
-    );
-
+document.getElementById(
+    "resetButton"
+);
 
 const resetCancelButton =
-    document.getElementById(
-        "resetCancelButton"
-    );
+document.getElementById(
+    "resetCancelButton"
+);
 
 
 let adminClicks =
-    0;
+0;
 
 
 let adminClickTimer =
-    null;
+null;
 
 
-adminTrigger.addEventListener(
+document
+.getElementById(
+    "adminTrigger"
+)
+.addEventListener(
     "click",
     function() {
 
@@ -3588,15 +3693,15 @@ adminTrigger.addEventListener(
 
 
         adminClickTimer =
-            setTimeout(
-                () => {
+        setTimeout(
+            () => {
 
-                    adminClicks =
-                        0;
+                adminClicks =
+                0;
 
-                },
-                1000
-            );
+            },
+            1000
+        );
 
 
         if (
@@ -3604,7 +3709,7 @@ adminTrigger.addEventListener(
         ) {
 
             adminClicks =
-                0;
+            0;
 
 
             adminModal.classList.remove(
@@ -3613,7 +3718,7 @@ adminTrigger.addEventListener(
 
 
             pinInput.value =
-                "";
+            "";
 
 
             setTimeout(
@@ -3629,14 +3734,6 @@ adminTrigger.addEventListener(
 );
 
 
-function closeAdminModal() {
-
-    adminModal.classList.add(
-        "hidden"
-    );
-}
-
-
 loginButton.addEventListener(
     "click",
     function() {
@@ -3646,29 +3743,30 @@ loginButton.addEventListener(
             ADMIN_PIN
         ) {
 
-            closeAdminModal();
+            adminModal.classList.add(
+                "hidden"
+            );
 
 
             resetModal.classList.remove(
                 "hidden"
             );
 
-
         } else {
 
             pinInput.value =
-                "";
+            "";
 
 
             pinInput.placeholder =
-                "Fel PIN";
+            "Fel PIN";
 
 
             setTimeout(
                 () => {
 
                     pinInput.placeholder =
-                        "••••";
+                    "••••";
 
                 },
                 1500
@@ -3678,31 +3776,21 @@ loginButton.addEventListener(
 );
 
 
-pinInput.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key ===
-            "Enter"
-        ) {
-
-            loginButton.click();
-
-        }
-    }
-);
-
-
 cancelButton.addEventListener(
     "click",
-    closeAdminModal
+    () => {
+
+        adminModal.classList.add(
+            "hidden"
+        );
+
+    }
 );
 
 
 resetCancelButton.addEventListener(
     "click",
-    function() {
+    () => {
 
         resetModal.classList.add(
             "hidden"
@@ -3721,40 +3809,33 @@ resetButton.addEventListener(
     async function() {
 
         resetButton.disabled =
-            true;
+        true;
 
 
         resetButton.textContent =
-            "Nollställer…";
+        "Nollställer…";
 
 
         try {
-
-            /*
-               Hämta dagens förslag.
-            */
 
             const {
                 data: proposals,
                 error: proposalError
             } =
             await supabaseClient
-                .from("walk_time_proposals")
-                .select("id")
-                .eq(
-                    "date_key",
-                    getTodayKey()
-                );
+            .from("walk_time_proposals")
+            .select("id")
+            .eq(
+                "date_key",
+                getTodayKey()
+            );
 
 
             if (proposalError) {
+
                 throw proposalError;
             }
 
-
-            /*
-               Ta bort dagens röster.
-            */
 
             if (
                 proposals &&
@@ -3762,89 +3843,79 @@ resetButton.addEventListener(
             ) {
 
                 const ids =
-                    proposals.map(
-                        proposal =>
-                            proposal.id
-                    );
+                proposals.map(
+                    proposal =>
+                    proposal.id
+                );
 
 
                 const {
                     error
                 } =
                 await supabaseClient
-                    .from("walk_time_votes")
-                    .delete()
-                    .in(
-                        "proposal_id",
-                        ids
-                    );
+                .from("walk_time_votes")
+                .delete()
+                .in(
+                    "proposal_id",
+                    ids
+                );
 
 
                 if (error) {
+
                     throw error;
                 }
             }
 
 
-            /*
-               Ta bort dagens tidsförslag.
-            */
-
             const {
                 error:
-                    deleteProposalError
+                deleteProposalError
             } =
             await supabaseClient
-                .from("walk_time_proposals")
-                .delete()
-                .eq(
-                    "date_key",
-                    getTodayKey()
-                );
+            .from("walk_time_proposals")
+            .delete()
+            .eq(
+                "date_key",
+                getTodayKey()
+            );
 
 
-            if (deleteProposalError) {
+            if (
+                deleteProposalError
+            ) {
+
                 throw deleteProposalError;
             }
 
 
-            /*
-               Ta bort dagens deltagare.
-            */
-
             const {
                 error:
-                    deleteSignupError
+                deleteSignupError
             } =
             await supabaseClient
-                .from("walk_signups")
-                .delete()
-                .eq(
-                    "date_key",
-                    getTodayKey()
-                );
+            .from("walk_signups")
+            .delete()
+            .eq(
+                "date_key",
+                getTodayKey()
+            );
 
 
-            if (deleteSignupError) {
+            if (
+                deleteSignupError
+            ) {
+
                 throw deleteSignupError;
             }
 
 
             allProposals =
-                [];
+            [];
 
 
             allVotes =
-                [];
-
-
-            updateMainTime();
-
-
-            renderProposals();
-
-
-            await loadSignups();
+            [];
 
 
             resetModal.classList.add(
@@ -3852,15 +3923,21 @@ resetButton.addEventListener(
             );
 
 
+            updateMainTime();
+
+            renderProposals();
+
+
+            await loadSignups();
+
+
             showMessage(
                 "Dagens lista är nollställd."
             );
 
-
         } catch (error) {
 
             console.error(
-                "Nollställning misslyckades:",
                 error
             );
 
@@ -3873,11 +3950,11 @@ resetButton.addEventListener(
         } finally {
 
             resetButton.disabled =
-                false;
+            false;
 
 
             resetButton.textContent =
-                "🗑 Nollställ dagens lista";
+            "🗑 Nollställ dagens lista";
         }
     }
 );
@@ -3888,44 +3965,41 @@ resetButton.addEventListener(
 ========================================================= */
 
 let gpsWatchId =
-    null;
+null;
 
 let gpsPoints =
-    [];
+[];
 
 let walkStarted =
-    false;
+false;
 
 let walkStartTime =
-    null;
-
-let walkRouteId =
-    null;
+null;
 
 let lastPosition =
-    null;
+null;
 
 let totalDistanceMeters =
-    0;
+0;
 
 let liveTimer =
-    null;
+null;
 
 let map =
-    null;
+null;
 
 let routeLine =
-    null;
+null;
 
 let startMarker =
-    null;
+null;
 
 let endMarker =
-    null;
+null;
 
 
 /* =========================================================
-   AVSTÅND
+   GPS-AVSTÅND
 ========================================================= */
 
 function distanceBetween(
@@ -3936,59 +4010,63 @@ function distanceBetween(
 ) {
 
     const earthRadius =
-        6371000;
+    6371000;
 
 
     const lat1Rad =
-        lat1 *
-        Math.PI /
-        180;
+    lat1 *
+    Math.PI /
+    180;
 
 
     const lat2Rad =
-        lat2 *
-        Math.PI /
-        180;
+    lat2 *
+    Math.PI /
+    180;
 
 
     const deltaLat =
-        (
-            lat2 -
-            lat1
-        ) *
-        Math.PI /
-        180;
+    (
+        lat2-lat1
+    ) *
+    Math.PI /
+    180;
 
 
     const deltaLon =
-        (
-            lon2 -
-            lon1
-        ) *
-        Math.PI /
-        180;
+    (
+        lon2-lon1
+    ) *
+    Math.PI /
+    180;
 
 
     const a =
-        Math.sin(
-            deltaLat / 2
-        ) ** 2 +
-        Math.cos(lat1Rad) *
-        Math.cos(lat2Rad) *
-        Math.sin(
-            deltaLon / 2
-        ) ** 2;
+    Math.sin(
+        deltaLat/2
+    ) ** 2
+    +
+    Math.cos(lat1Rad)
+    *
+    Math.cos(lat2Rad)
+    *
+    Math.sin(
+        deltaLon/2
+    ) ** 2;
 
 
     const c =
-        2 *
-        Math.atan2(
-            Math.sqrt(a),
-            Math.sqrt(1 - a)
-        );
+    2 *
+    Math.atan2(
+        Math.sqrt(a),
+        Math.sqrt(1-a)
+    );
 
 
-    return earthRadius * c;
+    return (
+        earthRadius *
+        c
+    );
 }
 
 
@@ -4008,16 +4086,16 @@ function initMap(
 
 
     map =
-        L.map("map");
+    L.map("map");
 
 
     L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
-            maxZoom: 19,
+            maxZoom:19,
 
             attribution:
-                "&copy; OpenStreetMap"
+            "&copy; OpenStreetMap"
         }
     ).addTo(map);
 
@@ -4032,19 +4110,14 @@ function initMap(
 
 
     routeLine =
-        L.polyline(
-            [],
-            {
-                color:
-                    "#caff00",
-
-                weight:
-                    6,
-
-                opacity:
-                    .9
-            }
-        ).addTo(map);
+    L.polyline(
+        [],
+        {
+            color:"#caff00",
+            weight:6,
+            opacity:.9
+        }
+    ).addTo(map);
 }
 
 
@@ -4057,15 +4130,15 @@ function handlePosition(
 ) {
 
     const latitude =
-        position.coords.latitude;
+    position.coords.latitude;
 
 
     const longitude =
-        position.coords.longitude;
+    position.coords.longitude;
 
 
     const accuracy =
-        position.coords.accuracy;
+    position.coords.accuracy;
 
 
     if (
@@ -4073,11 +4146,11 @@ function handlePosition(
     ) {
 
         document
-            .getElementById(
-                "gpsText"
-            )
-            .textContent =
-            "GPS-signal svag";
+        .getElementById(
+            "gpsText"
+        )
+        .textContent =
+        "GPS-signal svag";
 
 
         return;
@@ -4087,29 +4160,28 @@ function handlePosition(
     const point = {
 
         lat:
-            latitude,
+        latitude,
 
         lng:
-            longitude,
+        longitude,
 
         timestamp:
-            new Date()
-                .toISOString(),
+        new Date().toISOString(),
 
         accuracy:
-            accuracy
+        accuracy
     };
 
 
     if (lastPosition) {
 
         const addedDistance =
-            distanceBetween(
-                lastPosition.lat,
-                lastPosition.lng,
-                latitude,
-                longitude
-            );
+        distanceBetween(
+            lastPosition.lat,
+            lastPosition.lng,
+            latitude,
+            longitude
+        );
 
 
         if (
@@ -4117,13 +4189,13 @@ function handlePosition(
         ) {
 
             totalDistanceMeters +=
-                addedDistance;
+            addedDistance;
         }
     }
 
 
     lastPosition =
-        point;
+    point;
 
 
     gpsPoints.push(
@@ -4165,47 +4237,48 @@ function handlePosition(
     ) {
 
         startMarker =
-            L.marker(
-                [
-                    latitude,
-                    longitude
-                ]
-            )
-            .addTo(map)
-            .bindPopup(
-                "🚶 Start"
-            );
+        L.marker(
+            [
+                latitude,
+                longitude
+            ]
+        )
+        .addTo(map)
+        .bindPopup(
+            "🚶 Start"
+        );
     }
 
 
     document
-        .getElementById(
-            "liveDistance"
-        )
-        .textContent =
-        (
-            totalDistanceMeters /
-            1000
-        )
-        .toFixed(2)
-        .replace(".", ",") +
-        " km";
+    .getElementById(
+        "liveDistance"
+    )
+    .textContent =
+    (
+        totalDistanceMeters /
+        1000
+    )
+    .toFixed(2)
+    .replace(".",",")
+    +
+    " km";
 
 
     document
-        .getElementById(
-            "livePoints"
-        )
-        .textContent =
-        gpsPoints.length;
+    .getElementById(
+        "livePoints"
+    )
+    .textContent =
+    gpsPoints.length;
 
 
     document
-        .getElementById(
-            "gpsText"
-        )
-        .textContent =
-        "GPS aktiv";
+    .getElementById(
+        "gpsText"
+    )
+    .textContent =
+    "GPS aktiv";
 }
 
 
@@ -4218,21 +4291,20 @@ function handleGpsError(
 ) {
 
     console.error(
-        "GPS-fel:",
         error
     );
 
 
     const gpsText =
-        document.getElementById(
-            "gpsText"
-        );
+    document.getElementById(
+        "gpsText"
+    );
 
 
     const gpsDot =
-        document.getElementById(
-            "gpsDot"
-        );
+    document.getElementById(
+        "gpsDot"
+    );
 
 
     gpsDot.classList.remove(
@@ -4245,7 +4317,7 @@ function handleGpsError(
     ) {
 
         gpsText.textContent =
-            "GPS nekades";
+        "GPS nekades";
 
 
         showMessage(
@@ -4259,7 +4331,7 @@ function handleGpsError(
     ) {
 
         gpsText.textContent =
-            "GPS-position saknas";
+        "GPS-position saknas";
 
 
     } else if (
@@ -4267,13 +4339,13 @@ function handleGpsError(
     ) {
 
         gpsText.textContent =
-            "GPS tog för lång tid";
+        "GPS tog för lång tid";
 
 
     } else {
 
         gpsText.textContent =
-            "GPS-fel";
+        "GPS-fel";
     }
 }
 
@@ -4299,81 +4371,76 @@ function startGps() {
 
 
     gpsPoints =
-        [];
+    [];
 
 
     totalDistanceMeters =
-        0;
+    0;
 
 
     lastPosition =
-        null;
+    null;
 
 
     map =
-        null;
+    null;
 
 
     routeLine =
-        null;
+    null;
 
 
     startMarker =
-        null;
+    null;
 
 
     endMarker =
-        null;
+    null;
 
 
     document
-        .getElementById(
-            "liveDistance"
-        )
-        .textContent =
-        "0,00 km";
+    .getElementById(
+        "liveDistance"
+    )
+    .textContent =
+    "0,00 km";
 
 
     document
-        .getElementById(
-            "livePoints"
-        )
-        .textContent =
-        "0";
+    .getElementById(
+        "livePoints"
+    )
+    .textContent =
+    "0";
 
 
     document
-        .getElementById(
-            "gpsDot"
-        )
-        .classList.add(
-            "active"
-        );
+    .getElementById(
+        "gpsDot"
+    )
+    .classList.add(
+        "active"
+    );
 
 
     document
-        .getElementById(
-            "gpsText"
-        )
-        .textContent =
-        "Söker GPS…";
+    .getElementById(
+        "gpsText"
+    )
+    .textContent =
+    "Söker GPS…";
 
 
     gpsWatchId =
-        navigator.geolocation.watchPosition(
-            handlePosition,
-            handleGpsError,
-            {
-                enableHighAccuracy:
-                    true,
-
-                maximumAge:
-                    3000,
-
-                timeout:
-                    15000
-            }
-        );
+    navigator.geolocation.watchPosition(
+        handlePosition,
+        handleGpsError,
+        {
+            enableHighAccuracy:true,
+            maximumAge:3000,
+            timeout:15000
+        }
+    );
 
 
     return true;
@@ -4396,25 +4463,25 @@ function stopGps() {
 
 
         gpsWatchId =
-            null;
+        null;
     }
 
 
     document
-        .getElementById(
-            "gpsDot"
-        )
-        .classList.remove(
-            "active"
-        );
+    .getElementById(
+        "gpsDot"
+    )
+    .classList.remove(
+        "active"
+    );
 
 
     document
-        .getElementById(
-            "gpsText"
-        )
-        .textContent =
-        "GPS avslutad";
+    .getElementById(
+        "gpsText"
+    )
+    .textContent =
+    "GPS avslutad";
 }
 
 
@@ -4425,46 +4492,51 @@ function stopGps() {
 function updateLiveTimer() {
 
     if (!walkStartTime) {
+
         return;
     }
 
 
     const elapsed =
-        Date.now() -
-        walkStartTime.getTime();
+    Date.now()
+    -
+    walkStartTime.getTime();
 
 
     const minutes =
-        Math.floor(
-            elapsed / 60000
-        );
+    Math.floor(
+        elapsed/60000
+    );
 
 
     const seconds =
-        Math.floor(
-            (
-                elapsed % 60000
-            ) / 1000
-        );
+    Math.floor(
+        (
+            elapsed%60000
+        )/
+        1000
+    );
 
 
     document
-        .getElementById(
-            "liveDuration"
-        )
-        .textContent =
-        minutes +
-        ":" +
-        String(seconds)
-            .padStart(
-                2,
-                "0"
-            );
+    .getElementById(
+        "liveDuration"
+    )
+    .textContent =
+    minutes
+    +
+    ":"
+    +
+    String(seconds)
+    .padStart(
+        2,
+        "0"
+    );
 }
 
 
 /* =========================================================
-   SPARA RUTT
+   SPARA GPS-RUTT
 ========================================================= */
 
 async function saveRoute() {
@@ -4478,16 +4550,17 @@ async function saveRoute() {
 
 
     const finishedAt =
-        new Date();
+    new Date();
 
 
     const durationSeconds =
-        Math.round(
-            (
-                finishedAt -
-                walkStartTime
-            ) / 1000
-        );
+    Math.round(
+        (
+            finishedAt -
+            walkStartTime
+        )/
+        1000
+    );
 
 
     const {
@@ -4495,47 +4568,38 @@ async function saveRoute() {
         error
     } =
     await supabaseClient
-        .from("walk_routes")
-        .insert([
-            {
-                walk_date:
-                    getTodayKey(),
+    .from("walk_routes")
+    .insert([
+        {
+            walk_date:
+            getTodayKey(),
 
-                started_at:
-                    walkStartTime
-                        .toISOString(),
+            started_at:
+            walkStartTime
+            .toISOString(),
 
-                finished_at:
-                    finishedAt
-                        .toISOString(),
+            finished_at:
+            finishedAt
+            .toISOString(),
 
-                distance_meters:
-                    Math.round(
-                        totalDistanceMeters
-                    ),
+            distance_meters:
+            Math.round(
+                totalDistanceMeters
+            ),
 
-                duration_seconds:
-                    durationSeconds,
+            duration_seconds:
+            durationSeconds,
 
-                route:
-                    gpsPoints
-            }
-        ])
-        .select();
+            route:
+            gpsPoints
+        }
+    ])
+    .select();
 
 
     if (error) {
+
         throw error;
-    }
-
-
-    if (
-        data &&
-        data.length
-    ) {
-
-        walkRouteId =
-            data[0].id;
     }
 
 
@@ -4544,7 +4608,7 @@ async function saveRoute() {
 
 
 /* =========================================================
-   SLUTLIG KARTA
+   RITA SLUTLIG KARTA
 ========================================================= */
 
 function drawFinalRoute() {
@@ -4559,12 +4623,12 @@ function drawFinalRoute() {
 
 
     const latLngs =
-        gpsPoints.map(
-            point => [
-                point.lat,
-                point.lng
-            ]
-        );
+    gpsPoints.map(
+        point => [
+            point.lat,
+            point.lng
+        ]
+    );
 
 
     if (routeLine) {
@@ -4576,13 +4640,13 @@ function drawFinalRoute() {
 
 
     const first =
-        gpsPoints[0];
+    gpsPoints[0];
 
 
     const last =
-        gpsPoints[
-            gpsPoints.length - 1
-        ];
+    gpsPoints[
+        gpsPoints.length-1
+    ];
 
 
     if (startMarker) {
@@ -4598,29 +4662,29 @@ function drawFinalRoute() {
 
 
     startMarker =
-        L.marker(
-            [
-                first.lat,
-                first.lng
-            ]
-        )
-        .addTo(map)
-        .bindPopup(
-            "🚶 Start"
-        );
+    L.marker(
+        [
+            first.lat,
+            first.lng
+        ]
+    )
+    .addTo(map)
+    .bindPopup(
+        "🚶 Start"
+    );
 
 
     endMarker =
-        L.marker(
-            [
-                last.lat,
-                last.lng
-            ]
-        )
-        .addTo(map)
-        .bindPopup(
-            "🏁 Mål"
-        );
+    L.marker(
+        [
+            last.lat,
+            last.lng
+        ]
+    )
+    .addTo(map)
+    .bindPopup(
+        "🏁 Mål"
+    );
 
 
     map.fitBounds(
@@ -4628,11 +4692,10 @@ function drawFinalRoute() {
             latLngs
         ),
         {
-            padding:
-                [
-                    25,
-                    25
-                ]
+            padding:[
+                25,
+                25
+            ]
         }
     );
 }
@@ -4643,21 +4706,19 @@ function drawFinalRoute() {
 ========================================================= */
 
 const startButton =
-    document.getElementById(
-        "startButton"
-    );
-
+document.getElementById(
+    "startButton"
+);
 
 const liveArea =
-    document.getElementById(
-        "liveArea"
-    );
-
+document.getElementById(
+    "liveArea"
+);
 
 const afterStart =
-    document.getElementById(
-        "afterStart"
-    );
+document.getElementById(
+    "afterStart"
+);
 
 
 startButton.addEventListener(
@@ -4681,19 +4742,19 @@ startButton.addEventListener(
 
 
         walkStarted =
-            true;
+        true;
 
 
         walkStartTime =
-            new Date();
+        new Date();
 
 
         startButton.textContent =
-            "🟢 PROMENADEN PÅGÅR";
+        "🟢 PROMENADEN PÅGÅR";
 
 
         startButton.disabled =
-            true;
+        true;
 
 
         liveArea.classList.remove(
@@ -4707,14 +4768,14 @@ startButton.addEventListener(
 
 
         statusElement.textContent =
-            "Promenaden pågår";
+        "Promenaden pågår";
 
 
         liveTimer =
-            setInterval(
-                updateLiveTimer,
-                1000
-            );
+        setInterval(
+            updateLiveTimer,
+            1000
+        );
     }
 );
 
@@ -4724,9 +4785,9 @@ startButton.addEventListener(
 ========================================================= */
 
 const finishButton =
-    document.getElementById(
-        "finishButton"
-    );
+document.getElementById(
+    "finishButton"
+);
 
 
 finishButton.addEventListener(
@@ -4742,19 +4803,17 @@ finishButton.addEventListener(
 
 
         finishButton.disabled =
-            true;
+        true;
 
 
         finishButton.textContent =
-            "Sparar promenaden…";
+        "Sparar promenaden…";
 
 
         stopGps();
 
 
-        if (
-            liveTimer
-        ) {
+        if (liveTimer) {
 
             clearInterval(
                 liveTimer
@@ -4762,7 +4821,7 @@ finishButton.addEventListener(
 
 
             liveTimer =
-                null;
+            null;
         }
 
 
@@ -4775,83 +4834,83 @@ finishButton.addEventListener(
 
 
             const durationSeconds =
-                Math.round(
-                    (
-                        Date.now() -
-                        walkStartTime
-                            .getTime()
-                    ) / 1000
-                );
+            Math.round(
+                (
+                    Date.now()
+                    -
+                    walkStartTime.getTime()
+                )/
+                1000
+            );
 
 
             const minutes =
-                Math.floor(
-                    durationSeconds / 60
-                );
+            Math.floor(
+                durationSeconds/60
+            );
 
 
             const seconds =
-                durationSeconds % 60;
+            durationSeconds%60;
 
 
             document
-                .getElementById(
-                    "distance"
-                )
-                .textContent =
-                (
-                    totalDistanceMeters /
-                    1000
-                )
-                .toFixed(2)
-                .replace(".", ",") +
-                " km";
+            .getElementById(
+                "distance"
+            )
+            .textContent =
+            (
+                totalDistanceMeters/
+                1000
+            )
+            .toFixed(2)
+            .replace(".",",")
+            +
+            " km";
 
 
             document
-                .getElementById(
-                    "duration"
-                )
-                .textContent =
-                minutes +
-                ":" +
-                String(seconds)
-                    .padStart(
-                        2,
-                        "0"
-                    );
+            .getElementById(
+                "duration"
+            )
+            .textContent =
+            minutes
+            +
+            ":"
+            +
+            String(seconds)
+            .padStart(
+                2,
+                "0"
+            );
 
 
             document
-                .getElementById(
-                    "startTime"
-                )
-                .textContent =
-                walkStartTime
-                    .toLocaleTimeString(
-                        "sv-SE",
-                        {
-                            hour:
-                                "2-digit",
-
-                            minute:
-                                "2-digit"
-                        }
-                    );
+            .getElementById(
+                "startTime"
+            )
+            .textContent =
+            walkStartTime
+            .toLocaleTimeString(
+                "sv-SE",
+                {
+                    hour:"2-digit",
+                    minute:"2-digit"
+                }
+            );
 
 
             finishButton.textContent =
-                "✓ PROMENADEN AVSLUTAD";
+            "✓ PROMENADEN AVSLUTAD";
 
 
             statusElement.textContent =
-                "Promenaden är avslutad";
+            "Promenaden är avslutad";
 
 
             showMessage(
                 "Promenaden är sparad! 🗺️"
             );
-
 
         } catch (error) {
 
@@ -4861,11 +4920,11 @@ finishButton.addEventListener(
 
 
             finishButton.disabled =
-                false;
+            false;
 
 
             finishButton.textContent =
-                "🏁 AVSLUTA PROMENAD";
+            "🏁 AVSLUTA PROMENAD";
 
 
             showMessage(
@@ -4878,112 +4937,94 @@ finishButton.addEventListener(
 
 
 /* =========================================================
+   LADDA ALLT
+========================================================= */
+
+async function loadAll() {
+
+    await loadProposals();
+
+    await loadSignups();
+}
+
+
+loadAll();
+
+
+/* =========================================================
    REALTIME
 ========================================================= */
 
 supabaseClient
-    .channel(
-        "walk-signups-live"
-    )
-    .on(
-        "postgres_changes",
-        {
-            event:
-                "*",
+.channel(
+    "walk-signups-live"
+)
+.on(
+    "postgres_changes",
+    {
+        event:"*",
+        schema:"public",
+        table:"walk_signups"
+    },
+    () => {
 
-            schema:
-                "public",
+        loadSignups();
 
-            table:
-                "walk_signups"
-        },
-        () => {
-
-            loadSignups();
-
-        }
-    )
-    .subscribe();
+    }
+)
+.subscribe();
 
 
 supabaseClient
-    .channel(
-        "walk-proposals-live"
-    )
-    .on(
-        "postgres_changes",
-        {
-            event:
-                "*",
+.channel(
+    "walk-proposals-live"
+)
+.on(
+    "postgres_changes",
+    {
+        event:"*",
+        schema:"public",
+        table:"walk_time_proposals"
+    },
+    () => {
 
-            schema:
-                "public",
+        loadProposals();
 
-            table:
-                "walk_time_proposals"
-        },
-        () => {
-
-            loadProposals();
-
-        }
-    )
-    .subscribe();
+    }
+)
+.subscribe();
 
 
 supabaseClient
-    .channel(
-        "walk-votes-live"
-    )
-    .on(
-        "postgres_changes",
-        {
-            event:
-                "*",
+.channel(
+    "walk-votes-live"
+)
+.on(
+    "postgres_changes",
+    {
+        event:"*",
+        schema:"public",
+        table:"walk_time_votes"
+    },
+    () => {
 
-            schema:
-                "public",
+        loadAll();
 
-            table:
-                "walk_time_votes"
-        },
-        () => {
-
-            loadProposals();
-
-        }
-    )
-    .subscribe();
+    }
+)
+.subscribe();
 
 
 /* =========================================================
-   START
+   EXTRA SYNC
 ========================================================= */
 
-loadProposals();
-
-loadSignups();
-
-
-/*
-   Extra kontroll var femte sekund.
-   Detta gör sidan robust även om Realtime
-   tillfälligt inte uppdaterar.
-*/
-
 setInterval(
-    loadSignups,
-    5000
-);
-
-
-setInterval(
-    loadProposals,
+    loadAll,
     5000
 );
 
 </script>
 
 </body>
-
 </html>

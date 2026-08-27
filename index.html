@@ -7,16 +7,15 @@
 
 <meta name="viewport"
       content="width=device-width,
-               initial-scale=1,
-               maximum-scale=1,
-               viewport-fit=cover">
+      initial-scale=1,
+      maximum-scale=1,
+      viewport-fit=cover">
 
 <title>Dagens promenad</title>
 
 <meta name="theme-color" content="#090b0a">
 
-<meta name="apple-mobile-web-app-capable"
-      content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 
 <meta name="apple-mobile-web-app-status-bar-style"
       content="black-translucent">
@@ -24,11 +23,11 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+rel="stylesheet">
 
 <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 </script>
 
 
@@ -39,7 +38,6 @@
 ========================================================= */
 
 :root {
-
     --bg: #090b0a;
     --card: #171a18;
     --card2: #202420;
@@ -52,24 +50,17 @@
 }
 
 * {
-
     box-sizing: border-box;
-
-    -webkit-tap-highlight-color:
-        transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html,
 body {
-
     margin: 0;
     padding: 0;
 
-    background:
-        var(--bg);
-
-    color:
-        var(--text);
+    background: var(--bg);
+    color: var(--text);
 
     font-family:
         -apple-system,
@@ -81,7 +72,6 @@ body {
 }
 
 body {
-
     min-height: 100vh;
 
     padding:
@@ -91,11 +81,8 @@ body {
 }
 
 .app {
-
     width: 100%;
-
     max-width: 520px;
-
     margin: 0 auto;
 }
 
@@ -105,78 +92,49 @@ body {
 ========================================================= */
 
 .header {
-
     text-align: center;
-
-    padding:
-        3px
-        4px
-        18px;
+    padding: 3px 4px 18px;
 }
 
 .name-day {
+    color: var(--green);
 
-    color:
-        var(--green);
+    font-size: 13px;
+    font-weight: 850;
 
-    font-size:
-        13px;
+    letter-spacing: 1.7px;
 
-    font-weight:
-        850;
+    text-transform: uppercase;
 
-    letter-spacing:
-        1.7px;
-
-    text-transform:
-        uppercase;
-
-    margin-bottom:
-        7px;
+    margin-bottom: 7px;
 }
 
 .date {
+    font-size: 38px;
+    line-height: 1;
 
-    font-size:
-        38px;
+    font-weight: 850;
 
-    line-height:
-        1;
-
-    font-weight:
-        850;
-
-    letter-spacing:
-        -1.5px;
+    letter-spacing: -1.5px;
 }
 
 .weekday {
+    color: var(--muted);
 
-    color:
-        var(--muted);
+    font-size: 18px;
+    font-weight: 650;
 
-    font-size:
-        18px;
-
-    font-weight:
-        650;
-
-    margin-top:
-        8px;
+    margin-top: 8px;
 }
 
 
 /* =========================================================
-   GRÖNA HUVUDKORTET
+   HUVUDKORT
 ========================================================= */
 
 .hero {
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
+    position: relative;
+    overflow: hidden;
 
     background:
         linear-gradient(
@@ -186,11 +144,9 @@ body {
             #a9df00 100%
         );
 
-    color:
-        #10120e;
+    color: #10120e;
 
-    border-radius:
-        30px;
+    border-radius: 30px;
 
     padding:
         23px
@@ -203,174 +159,119 @@ body {
 }
 
 .hero::after {
+    content: "";
 
-    content:
-        "";
+    position: absolute;
 
-    position:
-        absolute;
+    width: 210px;
+    height: 210px;
 
-    width:
-        210px;
+    right: -85px;
+    bottom: -110px;
 
-    height:
-        210px;
-
-    right:
-        -85px;
-
-    bottom:
-        -110px;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     background:
         rgba(255,255,255,.11);
 }
 
 .hero-title {
+    position: relative;
+    z-index: 1;
 
-    position:
-        relative;
+    font-size: 34px;
+    font-weight: 950;
 
-    z-index:
-        1;
+    font-style: italic;
 
-    font-size:
-        34px;
-
-    font-weight:
-        950;
-
-    font-style:
-        italic;
-
-    letter-spacing:
-        -1px;
+    letter-spacing: -1px;
 }
 
 .hero-sub {
+    position: relative;
+    z-index: 1;
 
-    position:
-        relative;
+    font-size: 16px;
+    font-weight: 650;
 
-    z-index:
-        1;
+    opacity: .72;
 
-    font-size:
-        16px;
-
-    font-weight:
-        650;
-
-    opacity:
-        .72;
-
-    margin-top:
-        3px;
+    margin-top: 3px;
 }
 
 .hero-row {
+    position: relative;
+    z-index: 1;
 
-    position:
-        relative;
+    display: flex;
 
-    z-index:
-        1;
+    align-items: flex-end;
 
-    display:
-        flex;
+    justify-content: space-between;
 
-    align-items:
-        flex-end;
+    gap: 15px;
 
-    justify-content:
-        space-between;
-
-    margin-top:
-        20px;
+    margin-top: 20px;
 }
 
 .time {
+    font-size: 61px;
 
-    font-size:
-        61px;
+    line-height: .88;
 
-    line-height:
-        .88;
+    font-weight: 950;
 
-    font-weight:
-        950;
-
-    letter-spacing:
-        -3px;
+    letter-spacing: -3px;
 }
 
+.time.proposal-message {
+    font-size: 22px;
 
-/* =========================================================
-   NEDRÄKNING
-========================================================= */
+    line-height: 1.05;
+
+    letter-spacing: -.4px;
+
+    max-width: 230px;
+}
 
 .countdown {
+    font-size: 17px;
 
-    font-size:
-        17px;
+    line-height: 1;
 
-    line-height:
-        1;
+    font-weight: 850;
 
-    font-weight:
-        850;
+    letter-spacing: .2px;
 
-    letter-spacing:
-        .2px;
+    margin-top: 9px;
 
-    margin-top:
-        9px;
+    opacity: .72;
 
-    opacity:
-        .72;
-
-    white-space:
-        nowrap;
+    white-space: nowrap;
 }
 
-
 .departure {
+    text-align: right;
 
-    text-align:
-        right;
+    font-size: 14px;
 
-    font-size:
-        14px;
+    line-height: 1.3;
 
-    line-height:
-        1.3;
+    font-weight: 800;
 
-    font-weight:
-        800;
-
-    max-width:
-        190px;
+    max-width: 190px;
 }
 
 .departure-label {
+    display: block;
 
-    display:
-        block;
+    font-size: 11px;
 
-    font-size:
-        11px;
+    letter-spacing: 1.2px;
 
-    letter-spacing:
-        1.2px;
+    opacity: .55;
 
-    opacity:
-        .55;
-
-    margin-bottom:
-        4px;
+    margin-bottom: 4px;
 }
 
 
@@ -379,39 +280,26 @@ body {
 ========================================================= */
 
 .status {
+    text-align: center;
 
-    text-align:
-        center;
+    color: var(--muted);
 
-    color:
-        var(--muted);
+    font-size: 13px;
 
-    font-size:
-        13px;
-
-    margin:
-        14px 0;
+    margin: 14px 0;
 }
 
 .status-dot {
+    display: inline-block;
 
-    display:
-        inline-block;
+    width: 7px;
+    height: 7px;
 
-    width:
-        7px;
+    border-radius: 50%;
 
-    height:
-        7px;
+    background: var(--green);
 
-    border-radius:
-        50%;
-
-    background:
-        var(--green);
-
-    margin-right:
-        6px;
+    margin-right: 6px;
 }
 
 
@@ -420,94 +308,64 @@ body {
 ========================================================= */
 
 .signup {
+    display: flex;
 
-    display:
-        flex;
+    gap: 8px;
 
-    gap:
-        8px;
-
-    background:
-        var(--card);
+    background: var(--card);
 
     border:
         1px solid
         var(--border);
 
-    border-radius:
-        22px;
+    border-radius: 22px;
 
-    padding:
-        10px;
+    padding: 10px;
 }
 
 .signup input {
+    flex: 1;
 
-    flex:
-        1;
+    min-width: 0;
 
-    min-width:
-        0;
+    border: 0;
+    outline: 0;
 
-    border:
-        0;
+    background: transparent;
 
-    outline:
-        0;
+    color: white;
 
-    background:
-        transparent;
+    font-size: 16px;
 
-    color:
-        white;
-
-    font-size:
-        16px;
-
-    padding:
-        10px;
+    padding: 10px;
 }
 
 .signup input::placeholder {
-
-    color:
-        #777e79;
+    color: #777e79;
 }
 
 .signup button {
+    border: 0;
 
-    border:
-        0;
+    background: var(--green);
 
-    background:
-        var(--green);
+    color: #111;
 
-    color:
-        #111;
+    border-radius: 16px;
 
-    border-radius:
-        16px;
+    font-weight: 900;
 
-    font-weight:
-        900;
+    font-size: 16px;
 
-    font-size:
-        16px;
+    padding: 0 18px;
 
-    padding:
-        0 18px;
+    cursor: pointer;
 
-    cursor:
-        pointer;
-
-    min-height:
-        46px;
+    min-height: 46px;
 }
 
 .signup button:active {
-
-    transform:
-        scale(.97);
+    transform: scale(.97);
 }
 
 
@@ -516,48 +374,32 @@ body {
 ========================================================= */
 
 .section-head {
+    display: flex;
 
-    display:
-        flex;
+    justify-content: space-between;
 
-    justify-content:
-        space-between;
+    align-items: center;
 
-    align-items:
-        center;
-
-    margin:
-        23px 3px 10px;
+    margin: 23px 3px 10px;
 }
 
 .section-title {
-
-    font-size:
-        23px;
-
-    font-weight:
-        900;
+    font-size: 23px;
+    font-weight: 900;
 }
 
 .count {
+    background: var(--card2);
 
-    background:
-        var(--card2);
+    color: var(--green);
 
-    color:
-        var(--green);
+    border-radius: 20px;
 
-    border-radius:
-        20px;
+    padding: 7px 12px;
 
-    padding:
-        7px 12px;
+    font-size: 12px;
 
-    font-size:
-        12px;
-
-    font-weight:
-        850;
+    font-weight: 850;
 }
 
 
@@ -566,119 +408,431 @@ body {
 ========================================================= */
 
 .people {
+    display: flex;
 
-    display:
-        flex;
+    flex-direction: column;
 
-    flex-direction:
-        column;
-
-    gap:
-        7px;
+    gap: 7px;
 }
 
 .person {
+    display: flex;
 
-    display:
-        flex;
+    align-items: center;
 
-    align-items:
-        center;
+    gap: 12px;
 
-    gap:
-        12px;
-
-    background:
-        var(--card);
+    background: var(--card);
 
     border:
         1px solid
         var(--border);
 
-    border-radius:
-        19px;
+    border-radius: 19px;
 
-    padding:
-        11px 13px;
+    padding: 11px 13px;
 }
 
 .avatar {
+    width: 43px;
+    height: 43px;
 
-    width:
-        43px;
+    flex: 0 0 43px;
 
-    height:
-        43px;
+    border-radius: 50%;
 
-    flex:
-        0 0 43px;
+    display: grid;
 
-    border-radius:
-        50%;
+    place-items: center;
 
-    display:
-        grid;
+    background: #292d29;
 
-    place-items:
-        center;
+    color: var(--green);
 
-    background:
-        #292d29;
+    font-weight: 900;
 
-    color:
-        var(--green);
-
-    font-weight:
-        900;
-
-    font-size:
-        18px;
+    font-size: 18px;
 }
 
 .person-name {
+    font-size: 18px;
 
-    font-size:
-        18px;
-
-    font-weight:
-        850;
+    font-weight: 850;
 }
 
 .person-time {
+    font-size: 13px;
 
-    font-size:
-        13px;
+    color: var(--muted);
 
-    color:
-        var(--muted);
+    margin-top: 2px;
+}
 
-    margin-top:
-        2px;
+.person-time strong {
+    color: var(--green);
 }
 
 .empty {
+    text-align: center;
 
-    text-align:
-        center;
-
-    background:
-        var(--card);
+    background: var(--card);
 
     border:
         1px solid
         var(--border);
 
-    border-radius:
-        19px;
+    border-radius: 19px;
+
+    padding: 24px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   TIDSFÖRSLAG
+========================================================= */
+
+.proposal-section {
+    margin-top: 24px;
+}
+
+.proposal-title {
+    font-size: 21px;
+
+    font-weight: 900;
+
+    margin: 0 3px 10px;
+}
+
+.proposal-intro {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    margin:
+        0
+        3px
+        11px;
+}
+
+.proposal-form {
+    display: flex;
+
+    gap: 8px;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 22px;
+
+    padding: 10px;
+
+    flex-wrap: wrap;
+}
+
+.proposal-form input[type="text"] {
+    flex: 1 1 130px;
+
+    min-width: 100px;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 16px;
+
+    padding: 10px;
+}
+
+.proposal-form input[type="time"] {
+    width: 105px;
+
+    border: 0;
+    outline: 0;
+
+    background: var(--card2);
+
+    color: white;
+
+    border-radius: 14px;
+
+    font-size: 16px;
+
+    padding: 10px;
+}
+
+.proposal-form button {
+    width: 100%;
+
+    min-height: 46px;
+
+    border: 0;
+
+    border-radius: 15px;
+
+    background: var(--green);
+
+    color: #111;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   TIDSKORT
+========================================================= */
+
+.proposal-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 11px;
+}
+
+.proposal {
+    position: relative;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 22px;
+
+    padding: 16px;
+}
+
+.proposal.popular {
+    border:
+        1px solid
+        rgba(202,255,0,.55);
+
+    box-shadow:
+        0 0 0 1px
+        rgba(202,255,0,.08);
+}
+
+.popular-badge {
+    display: inline-block;
+
+    background: var(--green);
+
+    color: #111;
+
+    font-size: 10px;
+
+    font-weight: 950;
+
+    letter-spacing: .8px;
+
+    padding: 5px 8px;
+
+    border-radius: 9px;
+
+    margin-bottom: 8px;
+}
+
+.proposal-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.proposal-time {
+    color: var(--green);
+
+    font-size: 31px;
+
+    font-weight: 950;
+
+    letter-spacing: -1px;
+}
+
+.proposal-person {
+    font-size: 14px;
+
+    color: var(--muted);
+
+    font-weight: 700;
+
+    text-align: right;
+}
+
+.proposal-person strong {
+    color: var(--text);
+}
+
+.proposal-members {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-top: 12px;
+}
+
+.member-chip {
+    background: var(--card2);
+
+    color: #d8ddd7;
+
+    border-radius: 12px;
+
+    padding: 6px 8px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.proposal-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 13px;
+}
+
+.member-count {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.join-button {
+    border: 0;
+
+    background: var(--green);
+
+    color: #111;
+
+    border-radius: 13px;
+
+    min-height: 43px;
 
     padding:
-        24px;
-
-    color:
-        var(--muted);
-
-    font-size:
+        0
         14px;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+.join-button:active {
+    transform: scale(.97);
+}
+
+.no-proposals {
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    padding: 13px 0 3px;
+}
+
+
+/* =========================================================
+   JOIN-MODAL
+========================================================= */
+
+.join-time {
+    color: var(--green);
+
+    font-size: 34px;
+
+    font-weight: 950;
+
+    margin:
+        5px
+        0
+        12px;
+}
+
+.join-explanation {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    margin-bottom: 15px;
+}
+
+.join-input {
+    width: 100%;
+
+    background: #0d0f0e;
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius: 15px;
+
+    padding: 14px;
+
+    font-size: 17px;
+
+    outline: none;
+}
+
+.join-confirm {
+    width: 100%;
+
+    min-height: 50px;
+
+    border: 0;
+
+    border-radius: 15px;
+
+    background: var(--green);
+
+    color: #111;
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    margin-top: 10px;
+
+    cursor: pointer;
 }
 
 
@@ -687,60 +841,41 @@ body {
 ========================================================= */
 
 .action {
+    width: 100%;
 
-    width:
-        100%;
+    min-height: 53px;
 
-    min-height:
-        53px;
+    margin-top: 15px;
 
-    margin-top:
-        15px;
+    border: 0;
 
-    border:
-        0;
+    border-radius: 17px;
 
-    border-radius:
-        17px;
+    background: var(--green);
 
-    background:
-        var(--green);
+    color: #111;
 
-    color:
-        #111;
+    font-size: 17px;
 
-    font-size:
-        17px;
+    font-weight: 900;
 
-    font-weight:
-        900;
-
-    cursor:
-        pointer;
+    cursor: pointer;
 }
 
 .action:active {
-
-    transform:
-        scale(.98);
+    transform: scale(.98);
 }
 
 .action:disabled {
+    opacity: .65;
 
-    opacity:
-        .65;
-
-    cursor:
-        default;
+    cursor: default;
 }
 
 .action.secondary {
+    background: var(--card2);
 
-    background:
-        var(--card2);
-
-    color:
-        var(--green);
+    color: var(--green);
 
     border:
         1px solid
@@ -749,52 +884,39 @@ body {
 
 
 /* =========================================================
-   GPS STATUS
+   GPS
 ========================================================= */
 
 .gps-status {
+    display: flex;
 
-    display:
-        flex;
+    align-items: center;
 
-    align-items:
-        center;
+    justify-content: center;
 
-    justify-content:
-        center;
+    gap: 7px;
 
-    gap:
-        7px;
+    margin-top: 11px;
 
-    margin-top:
-        11px;
+    color: var(--muted);
 
-    color:
-        var(--muted);
-
-    font-size:
-        13px;
+    font-size: 13px;
 }
 
 .gps-dot {
+    width: 8px;
+    height: 8px;
 
-    width:
-        8px;
+    border-radius: 50%;
 
-    height:
-        8px;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--green);
+    background: var(--green);
 }
 
 .gps-dot.active {
-
     animation:
-        pulse 1.2s infinite;
+        pulse
+        1.2s
+        infinite;
 }
 
 @keyframes pulse {
@@ -821,55 +943,39 @@ body {
 ========================================================= */
 
 .live-stats {
+    display: flex;
 
-    display:
-        flex;
+    justify-content: space-around;
 
-    justify-content:
-        space-around;
-
-    background:
-        var(--card);
+    background: var(--card);
 
     border:
         1px solid
         var(--border);
 
-    border-radius:
-        18px;
+    border-radius: 18px;
 
-    margin-top:
-        11px;
+    margin-top: 11px;
 
-    padding:
-        12px 5px;
+    padding: 12px 5px;
 }
 
 .live-stat {
-
-    text-align:
-        center;
+    text-align: center;
 }
 
 .live-stat strong {
+    display: block;
 
-    display:
-        block;
+    color: var(--green);
 
-    color:
-        var(--green);
-
-    font-size:
-        18px;
+    font-size: 18px;
 }
 
 .live-stat span {
+    color: var(--muted);
 
-    color:
-        var(--muted);
-
-    font-size:
-        11px;
+    font-size: 11px;
 }
 
 
@@ -878,108 +984,76 @@ body {
 ========================================================= */
 
 .map-card {
+    margin-top: 13px;
 
-    margin-top:
-        13px;
-
-    background:
-        var(--card);
+    background: var(--card);
 
     border:
         1px solid
         var(--border);
 
-    border-radius:
-        20px;
+    border-radius: 20px;
 
-    padding:
-        14px;
+    padding: 14px;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 }
 
 .map-title {
+    font-size: 18px;
 
-    font-size:
-        18px;
+    font-weight: 850;
 
-    font-weight:
-        850;
-
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 }
 
 #map {
+    width: 100%;
 
-    width:
-        100%;
+    height: 260px;
 
-    height:
-        260px;
+    border-radius: 14px;
 
-    border-radius:
-        14px;
+    overflow: hidden;
 
-    overflow:
-        hidden;
-
-    background:
-        #101311;
+    background: #101311;
 }
 
 .leaflet-control-attribution {
-
-    font-size:
-        9px !important;
+    font-size: 9px !important;
 }
 
 .route-stats {
+    display: flex;
 
-    display:
-        flex;
+    justify-content: space-around;
 
-    justify-content:
-        space-around;
+    text-align: center;
 
-    text-align:
-        center;
-
-    margin-top:
-        12px;
+    margin-top: 12px;
 }
 
 .route-stat strong {
+    display: block;
 
-    display:
-        block;
-
-    font-size:
-        18px;
+    font-size: 18px;
 }
 
 .route-stat span {
+    color: var(--muted);
 
-    color:
-        var(--muted);
-
-    font-size:
-        12px;
+    font-size: 12px;
 }
 
 
 /* =========================================================
-   ADMIN MODAL
+   MODAL
 ========================================================= */
 
 .modal-overlay {
+    position: fixed;
 
-    position:
-        fixed;
-
-    inset:
-        0;
+    inset: 0;
 
     background:
         rgba(0,0,0,.72);
@@ -990,197 +1064,140 @@ body {
     -webkit-backdrop-filter:
         blur(8px);
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    padding:
-        20px;
+    padding: 20px;
 
-    z-index:
-        9999;
+    z-index: 9999;
 }
 
 .modal {
+    width: 100%;
 
-    width:
-        100%;
+    max-width: 350px;
 
-    max-width:
-        350px;
-
-    background:
-        #171a18;
+    background: #171a18;
 
     border:
         1px solid
         rgba(255,255,255,.1);
 
-    border-radius:
-        25px;
+    border-radius: 25px;
 
-    padding:
-        24px;
+    padding: 24px;
 
     box-shadow:
         0 25px 80px
         rgba(0,0,0,.5);
 
-    text-align:
-        center;
+    text-align: center;
 }
 
 .modal-icon {
+    font-size: 34px;
 
-    font-size:
-        34px;
-
-    margin-bottom:
-        8px;
+    margin-bottom: 8px;
 }
 
 .modal h2 {
+    margin: 0;
 
-    margin:
-        0;
+    font-size: 23px;
 
-    font-size:
-        23px;
-
-    font-weight:
-        900;
+    font-weight: 900;
 }
 
 .modal p {
+    color: var(--muted);
 
-    color:
-        var(--muted);
+    font-size: 14px;
 
-    font-size:
-        14px;
-
-    line-height:
-        1.4;
+    line-height: 1.4;
 
     margin:
-        8px 0 18px;
+        8px
+        0
+        18px;
 }
 
 .pin-input {
+    width: 100%;
 
-    width:
-        100%;
+    background: #0d0f0e;
 
-    background:
-        #0d0f0e;
-
-    color:
-        white;
+    color: white;
 
     border:
         1px solid
         rgba(255,255,255,.12);
 
-    border-radius:
-        15px;
+    border-radius: 15px;
 
-    padding:
-        15px;
+    padding: 15px;
 
-    font-size:
-        22px;
+    font-size: 22px;
 
-    text-align:
-        center;
+    text-align: center;
 
-    letter-spacing:
-        7px;
+    letter-spacing: 7px;
 
-    outline:
-        none;
+    outline: none;
 
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 }
 
 .admin-button {
+    width: 100%;
 
-    width:
-        100%;
+    min-height: 48px;
 
-    min-height:
-        48px;
+    border: 0;
 
-    border:
-        0;
+    border-radius: 15px;
 
-    border-radius:
-        15px;
+    background: var(--green);
 
-    background:
-        var(--green);
+    color: #111;
 
-    color:
-        #111;
+    font-size: 15px;
 
-    font-size:
-        15px;
+    font-weight: 900;
 
-    font-weight:
-        900;
+    margin-top: 8px;
 
-    margin-top:
-        8px;
-
-    cursor:
-        pointer;
+    cursor: pointer;
 }
 
 .admin-button.danger {
+    background: var(--danger);
 
-    background:
-        var(--danger);
-
-    color:
-        white;
+    color: white;
 }
 
 .cancel-button {
+    width: 100%;
 
-    width:
-        100%;
+    min-height: 44px;
 
-    min-height:
-        44px;
+    border: 0;
 
-    border:
-        0;
+    border-radius: 14px;
 
-    border-radius:
-        14px;
+    background: #272b28;
 
-    background:
-        #272b28;
+    color: #aaa;
 
-    color:
-        #aaa;
+    font-size: 14px;
 
-    font-size:
-        14px;
+    font-weight: 750;
 
-    font-weight:
-        750;
+    margin-top: 8px;
 
-    margin-top:
-        8px;
-
-    cursor:
-        pointer;
+    cursor: pointer;
 }
 
 
@@ -1189,30 +1206,21 @@ body {
 ========================================================= */
 
 .message {
+    text-align: center;
 
-    text-align:
-        center;
+    padding: 12px;
 
-    padding:
-        12px;
+    font-size: 13px;
 
-    font-size:
-        13px;
-
-    color:
-        var(--muted);
+    color: var(--muted);
 }
 
 .message.error {
-
-    color:
-        #ff7777;
+    color: #ff7777;
 }
 
 .hidden {
-
-    display:
-        none !important;
+    display: none !important;
 }
 
 
@@ -1223,48 +1231,39 @@ body {
 @media (max-width: 380px) {
 
     .date {
-
-        font-size:
-            34px;
+        font-size: 34px;
     }
 
     .hero-title {
-
-        font-size:
-            31px;
+        font-size: 31px;
     }
 
     .time {
+        font-size: 55px;
+    }
 
-        font-size:
-            55px;
+    .time.proposal-message {
+        font-size: 20px;
     }
 
     .countdown {
-
-        font-size:
-            15px;
+        font-size: 15px;
     }
 
     .departure {
+        font-size: 13px;
 
-        font-size:
-            13px;
-
-        max-width:
-            165px;
+        max-width: 165px;
     }
 
     .signup button {
-
         padding:
-            0 14px;
+            0
+            14px;
     }
 
     #map {
-
-        height:
-            230px;
+        height: 230px;
     }
 }
 
@@ -1279,141 +1278,233 @@ body {
 <div class="app">
 
 
-    <!-- =================================================
-         HEADER
-    ================================================== -->
+<!-- =====================================================
+     HEADER
+====================================================== -->
 
-    <div class="header">
+<div class="header">
 
-        <div
-            class="name-day"
-            id="nameDay">
+    <div
+        class="name-day"
+        id="nameDay">
 
-            DAGENS NAMN
-
-        </div>
-
-
-        <div
-            class="date"
-            id="date">
-
-            --
-
-        </div>
-
-
-        <div
-            class="weekday"
-            id="weekday">
-
-            --
-
-        </div>
+        DAGENS NAMN
 
     </div>
 
 
-    <!-- =================================================
-         HUVUDKORT
-    ================================================== -->
+    <div
+        class="date"
+        id="date">
 
-    <div class="hero">
+        --
 
-        <div class="hero-title">
-
-            Lunchturen
-
-        </div>
+    </div>
 
 
-        <div class="hero-sub">
+    <div
+        class="weekday"
+        id="weekday">
 
-            Ca. 30 minuter frisk luft
+        --
 
-        </div>
+    </div>
 
-
-        <div class="hero-row">
-
-            <div>
-
-                <div class="time">
-
-                    11:15
-
-                </div>
+</div>
 
 
-                <!-- NY: NEDRÄKNING -->
+<!-- =====================================================
+     HUVUDKORT
+====================================================== -->
 
-                <div
-                    class="countdown"
-                    id="countdown">
+<div class="hero">
 
-                    00:00:00 kvar
+    <div class="hero-title">
 
-                </div>
+        Lunchturen
+
+    </div>
+
+
+    <div class="hero-sub">
+
+        Ca. 30 minuter frisk luft
+
+    </div>
+
+
+    <div class="hero-row">
+
+        <div>
+
+            <div
+                class="time proposal-message"
+                id="mainTime">
+
+                Kom med förslag på tid
 
             </div>
 
 
-            <div class="departure">
+            <div
+                class="countdown hidden"
+                id="countdown">
 
-                <span class="departure-label">
-
-                    AVGÅNG
-
-                </span>
-
-                📍 Söder Mälarstrand 77
+                00:00:00 kvar
 
             </div>
 
         </div>
 
-    </div>
 
+        <div
+            class="departure"
+            id="departure">
 
-    <!-- =================================================
-         STATUS
-    ================================================== -->
-
-    <div class="status">
-
-        <span class="status-dot"></span>
-
-        <span id="status">
-
-            Ansluten till dagens promenad
-
-        </span>
+        </div>
 
     </div>
 
+</div>
 
-    <!-- =================================================
-         ANMÄLAN
-    ================================================== -->
+
+<!-- =====================================================
+     STATUS
+====================================================== -->
+
+<div class="status">
+
+    <span class="status-dot"></span>
+
+    <span id="status">
+
+        Ansluten till dagens promenad
+
+    </span>
+
+</div>
+
+
+<!-- =====================================================
+     ANMÄLAN
+====================================================== -->
+
+<form
+    class="signup"
+    id="signupForm">
+
+    <input
+        id="nameInput"
+        type="text"
+        maxlength="30"
+        autocomplete="name"
+        placeholder="Skriv ditt namn…"
+        required>
+
+
+    <button type="submit">
+
+        Häng med
+
+    </button>
+
+</form>
+
+
+<div
+    id="message"
+    class="message hidden">
+</div>
+
+
+<!-- =====================================================
+     DELTAGARE
+====================================================== -->
+
+<div
+    class="section-head"
+    id="adminTrigger">
+
+    <div class="section-title">
+
+        Anmälda
+
+    </div>
+
+
+    <div
+        class="count"
+        id="count">
+
+        0 PERSONER
+
+    </div>
+
+</div>
+
+
+<div
+    class="people"
+    id="people">
+
+    <div class="empty">
+
+        🚶<br>
+
+        Ingen har anmält sig ännu.
+
+        <br>
+
+        Bli först!
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TIDSFÖRSLAG
+====================================================== -->
+
+<div class="proposal-section">
+
+    <div class="proposal-title">
+
+        När går vi?
+
+    </div>
+
+
+    <div class="proposal-intro">
+
+        Föreslå en tid eller tryck 👍 på
+        en tid du vill följa med på.
+
+    </div>
+
 
     <form
-        class="signup"
-        id="signupForm">
+        class="proposal-form"
+        id="proposalForm">
+
 
         <input
-            id="nameInput"
+            id="proposalName"
             type="text"
             maxlength="30"
-            autocomplete="name"
-            placeholder="Skriv ditt namn…"
-            aria-label="Skriv ditt namn"
+            placeholder="Ditt namn…"
             required>
 
 
-        <button
-            type="submit">
+        <input
+            id="proposalTime"
+            type="time"
+            required>
 
-            Häng med
+
+        <button type="submit">
+
+            Föreslå tid
 
         </button>
 
@@ -1421,104 +1512,150 @@ body {
 
 
     <div
-        id="message"
-        class="message hidden">
+        id="proposalList"
+        class="proposal-list">
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     STARTA PROMENAD
+====================================================== -->
+
+<button
+    class="action"
+    id="startButton"
+    type="button">
+
+    🚶 STARTA PROMENAD
+
+</button>
+
+
+<!-- =====================================================
+     LIVE GPS
+====================================================== -->
+
+<div
+    id="liveArea"
+    class="hidden">
+
+
+    <div class="gps-status">
+
+        <span
+            id="gpsDot"
+            class="gps-dot active">
+        </span>
+
+        <span id="gpsText">
+
+            GPS aktiv
+
+        </span>
 
     </div>
 
 
-    <!-- =================================================
-         DELTAGARE
-    ================================================== -->
+    <div class="live-stats">
 
-    <div
-        class="section-head"
-        id="adminTrigger">
 
-        <div class="section-title">
+        <div class="live-stat">
 
-            Anmälda
+            <strong id="liveDistance">
+
+                0,00 km
+
+            </strong>
+
+            <span>
+
+                Distans
+
+            </span>
 
         </div>
 
 
-        <div
-            class="count"
-            id="count">
+        <div class="live-stat">
 
-            0 PERSONER
+            <strong id="liveDuration">
+
+                0:00
+
+            </strong>
+
+            <span>
+
+                Tid
+
+            </span>
+
+        </div>
+
+
+        <div class="live-stat">
+
+            <strong id="livePoints">
+
+                0
+
+            </strong>
+
+            <span>
+
+                GPS-punkter
+
+            </span>
 
         </div>
 
     </div>
 
-
-    <div
-        class="people"
-        id="people">
-
-        <div class="empty">
-
-            🚶<br>
-
-            Ingen har anmält sig ännu.
-
-            <br>
-
-            Bli först!
-
-        </div>
-
-    </div>
+</div>
 
 
-    <!-- =================================================
-         STARTA PROMENAD
-    ================================================== -->
+<!-- =====================================================
+     KARTA
+====================================================== -->
+
+<div
+    id="afterStart"
+    class="hidden">
+
 
     <button
-        class="action"
-        id="startButton"
+        class="action secondary"
+        id="finishButton"
         type="button">
 
-        🚶 STARTA PROMENAD
+        🏁 AVSLUTA PROMENAD
 
     </button>
 
 
-    <!-- =================================================
-         LIVE GPS
-    ================================================== -->
+    <div class="map-card">
 
-    <div
-        id="liveArea"
-        class="hidden">
+        <div class="map-title">
 
-
-        <div class="gps-status">
-
-            <span
-                id="gpsDot"
-                class="gps-dot active">
-            </span>
-
-            <span id="gpsText">
-
-                GPS aktiv
-
-            </span>
+            🗺️ Dagens promenad
 
         </div>
 
 
-        <div class="live-stats">
+        <div id="map"></div>
 
 
-            <div class="live-stat">
+        <div class="route-stats">
 
-                <strong id="liveDistance">
 
-                    0,00 km
+            <div class="route-stat">
+
+                <strong id="distance">
+
+                    —
 
                 </strong>
 
@@ -1531,11 +1668,11 @@ body {
             </div>
 
 
-            <div class="live-stat">
+            <div class="route-stat">
 
-                <strong id="liveDuration">
+                <strong id="duration">
 
-                    0 min
+                    —
 
                 </strong>
 
@@ -1548,17 +1685,17 @@ body {
             </div>
 
 
-            <div class="live-stat">
+            <div class="route-stat">
 
-                <strong id="livePoints">
+                <strong id="startTime">
 
-                    0
+                    —
 
                 </strong>
 
                 <span>
 
-                    GPS-punkter
+                    Start
 
                 </span>
 
@@ -1566,97 +1703,81 @@ body {
 
         </div>
 
-
     </div>
 
+</div>
 
-    <!-- =================================================
-         AVSLUTA + KARTA
-    ================================================== -->
+</div>
 
-    <div
-        id="afterStart"
-        class="hidden">
+
+<!-- =====================================================
+     GÅ MED I TID
+====================================================== -->
+
+<div
+    id="joinModal"
+    class="modal-overlay hidden">
+
+    <div class="modal">
+
+        <div class="modal-icon">
+
+            👍
+
+        </div>
+
+
+        <h2>
+
+            Följ med!
+
+        </h2>
+
+
+        <div
+            id="joinTime"
+            class="join-time">
+
+            11:30
+
+        </div>
+
+
+        <div class="join-explanation">
+
+            Skriv ditt namn så läggs du
+            till på den här tiden.
+
+        </div>
+
+
+        <input
+            id="joinName"
+            class="join-input"
+            type="text"
+            maxlength="30"
+            placeholder="Ditt namn…"
+            autocomplete="name">
 
 
         <button
-            class="action secondary"
-            id="finishButton"
+            id="joinConfirm"
+            class="join-confirm"
             type="button">
 
-            🏁 AVSLUTA PROMENAD
+            👍 Jag är med
 
         </button>
 
 
-        <div class="map-card">
+        <button
+            id="joinCancel"
+            class="cancel-button"
+            type="button">
 
-            <div class="map-title">
+            Avbryt
 
-                🗺️ Dagens promenad
-
-            </div>
-
-
-            <div id="map"></div>
-
-
-            <div class="route-stats">
-
-
-                <div class="route-stat">
-
-                    <strong id="distance">
-
-                        —
-
-                    </strong>
-
-                    <span>
-
-                        Distans
-
-                    </span>
-
-                </div>
-
-
-                <div class="route-stat">
-
-                    <strong id="duration">
-
-                        —
-
-                    </strong>
-
-                    <span>
-
-                        Tid
-
-                    </span>
-
-                </div>
-
-
-                <div class="route-stat">
-
-                    <strong id="startTime">
-
-                        11:15
-
-                    </strong>
-
-                    <span>
-
-                        Start
-
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
+        </button>
 
     </div>
 
@@ -1690,7 +1811,7 @@ body {
         <p>
 
             Ange PIN-koden för att
-            hantera dagens deltagarlista.
+            hantera dagens lista.
 
         </p>
 
@@ -1755,7 +1876,8 @@ body {
 
         <p>
 
-            Alla deltagare för dagens
+            Alla deltagare, tidsförslag
+            och röster för dagens
             promenad kommer att tas bort.
 
         </p>
@@ -1794,10 +1916,8 @@ body {
 const SUPABASE_URL =
     "https://hhbhilkcljzmzmjypqgm.supabase.co";
 
-
 const SUPABASE_KEY =
     "sb_publishable_UzO8tyWP0jt-3HGnLftNLg_U3tLVH9F";
-
 
 const supabaseClient =
     window.supabase.createClient(
@@ -1825,7 +1945,7 @@ const peopleElement =
 const countElement =
     document.getElementById("count");
 
-const form =
+const signupForm =
     document.getElementById("signupForm");
 
 const nameInput =
@@ -1837,428 +1957,65 @@ const messageElement =
 const statusElement =
     document.getElementById("status");
 
-const startButton =
-    document.getElementById("startButton");
+const proposalForm =
+    document.getElementById("proposalForm");
 
-const finishButton =
-    document.getElementById("finishButton");
+const proposalName =
+    document.getElementById("proposalName");
 
-const afterStart =
-    document.getElementById("afterStart");
+const proposalTime =
+    document.getElementById("proposalTime");
 
-const liveArea =
-    document.getElementById("liveArea");
+const proposalList =
+    document.getElementById("proposalList");
 
-const gpsDot =
-    document.getElementById("gpsDot");
-
-const gpsText =
-    document.getElementById("gpsText");
-
-const liveDistance =
-    document.getElementById("liveDistance");
-
-const liveDuration =
-    document.getElementById("liveDuration");
-
-const livePoints =
-    document.getElementById("livePoints");
+const mainTimeElement =
+    document.getElementById("mainTime");
 
 const countdownElement =
     document.getElementById("countdown");
 
-
-/* ADMIN */
-
-const adminTrigger =
-    document.getElementById("adminTrigger");
-
-const adminModal =
-    document.getElementById("adminModal");
-
-const resetModal =
-    document.getElementById("resetModal");
-
-const pinInput =
-    document.getElementById("pinInput");
-
-const loginButton =
-    document.getElementById("loginButton");
-
-const cancelButton =
-    document.getElementById("cancelButton");
-
-const resetButton =
-    document.getElementById("resetButton");
-
-const resetCancelButton =
-    document.getElementById("resetCancelButton");
+const departureElement =
+    document.getElementById("departure");
 
 
 /* =========================================================
-   NEDRÄKNING TILL 11:15
+   DAGENS NAMN
 ========================================================= */
 
-function updateCountdown() {
-
-    const now =
-        new Date();
-
-
-    const day =
-        now.getDay();
-
-
-    /*
-       0 = söndag
-       6 = lördag
-
-       Ingen promenad på helgen.
-    */
-
-    if (
-        day === 0 ||
-        day === 6
-    ) {
-
-        countdownElement.textContent =
-            "00:00:00 kvar";
-
-        return;
-    }
-
-
-    const departure =
-        new Date();
-
-
-    departure.setHours(
-        11,
-        15,
-        0,
-        0
-    );
-
-
-    const difference =
-        departure.getTime() -
-        now.getTime();
-
-
-    /*
-       När 11:15 är passerat
-       stannar räknaren på noll.
-    */
-
-    if (
-        difference <= 0
-    ) {
-
-        countdownElement.textContent =
-            "00:00:00 kvar";
-
-        return;
-    }
-
-
-    const totalSeconds =
-        Math.floor(
-            difference /
-            1000
-        );
-
-
-    const hours =
-        Math.floor(
-            totalSeconds /
-            3600
-        );
-
-
-    const minutes =
-        Math.floor(
-            (
-                totalSeconds %
-                3600
-            ) /
-            60
-        );
-
-
-    const seconds =
-        totalSeconds %
-        60;
-
-
-    countdownElement.textContent =
-
-        String(hours).padStart(
-            2,
-            "0"
-        ) +
-
-        ":" +
-
-        String(minutes).padStart(
-            2,
-            "0"
-        ) +
-
-        ":" +
-
-        String(seconds).padStart(
-            2,
-            "0"
-        ) +
-
-        " kvar";
-}
-
-
-/*
-   Uppdatera direkt.
-*/
-
-updateCountdown();
-
-
-/*
-   Uppdatera varje sekund.
-*/
-
-setInterval(
-    updateCountdown,
-    1000
-);
-
-
-/* =========================================================
-   ADMIN
-========================================================= */
-
-const ADMIN_PIN =
-    "1977";
-
-
-let adminClicks =
-    0;
-
-let adminClickTimer =
-    null;
-
-
-adminTrigger.addEventListener(
-    "click",
-    function() {
-
-        adminClicks++;
-
-
-        clearTimeout(
-            adminClickTimer
-        );
-
-
-        adminClickTimer =
-            setTimeout(
-                function() {
-
-                    adminClicks = 0;
-
-                },
-                1000
-            );
-
-
-        if (
-            adminClicks >= 5
-        ) {
-
-            adminClicks = 0;
-
-            openAdminModal();
-
-        }
-
-    }
-);
-
-
-function openAdminModal() {
-
-    adminModal.classList.remove(
-        "hidden"
-    );
-
-
-    pinInput.value =
-        "";
-
-
-    setTimeout(
-        function() {
-
-            pinInput.focus();
-
-        },
-        150
-    );
-}
-
-
-function closeAdminModal() {
-
-    adminModal.classList.add(
-        "hidden"
-    );
-}
-
-
-loginButton.addEventListener(
-    "click",
-    function() {
-
-        if (
-            pinInput.value ===
-            ADMIN_PIN
-        ) {
-
-            closeAdminModal();
-
-            resetModal.classList.remove(
-                "hidden"
-            );
-
-        }
-
-        else {
-
-            pinInput.value =
-                "";
-
-            pinInput.placeholder =
-                "Fel PIN";
-
-            pinInput.style.borderColor =
-                "#ff5757";
-
-
-            setTimeout(
-                function() {
-
-                    pinInput.style.borderColor =
-                        "";
-
-                    pinInput.placeholder =
-                        "••••";
-
-                },
-                1500
-            );
-
-        }
-
-    }
-);
-
-
-pinInput.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key ===
-            "Enter"
-        ) {
-
-            loginButton.click();
-
-        }
-
-    }
-);
-
-
-cancelButton.addEventListener(
-    "click",
-    closeAdminModal
-);
-
-
-resetCancelButton.addEventListener(
-    "click",
-    function() {
-
-        resetModal.classList.add(
-            "hidden"
-        );
-
-    }
-);
+const nameDays = {
+
+    "08-25": "LOVISA, LOUISE",
+    "08-26": "ÖSTEN",
+    "08-27": "RAIMOND",
+    "08-28": "MARIANNE",
+    "08-29": "HANS",
+    "08-30": "ALBERT",
+    "08-31": "ARVID"
+
+};
 
 
 /* =========================================================
    DATUM
 ========================================================= */
 
-const nameDays = {
-
-    "08-25":
-        "LOVISA, LOUISE",
-
-    "08-26":
-        "ÖSTEN",
-
-    "08-27":
-        "RAIMOND",
-
-    "08-28":
-        "MARIANNE",
-
-    "08-29":
-        "HANS",
-
-    "08-30":
-        "ALBERT",
-
-    "08-31":
-        "ARVID"
-
-};
-
-
 function updateDate() {
 
     const now =
         new Date();
 
-
-    const day =
-        String(
-            now.getDate()
-        ).padStart(
-            2,
-            "0"
-        );
-
-
-    const month =
+    const key =
         String(
             now.getMonth() + 1
-        ).padStart(
-            2,
-            "0"
-        );
-
-
-    const key =
-        month +
+        ).padStart(2, "0") +
         "-" +
-        day;
+        String(
+            now.getDate()
+        ).padStart(2, "0");
 
 
     const months = [
-
         "januari",
         "februari",
         "mars",
@@ -2271,12 +2028,10 @@ function updateDate() {
         "oktober",
         "november",
         "december"
-
     ];
 
 
     const weekdays = [
-
         "Söndag",
         "Måndag",
         "Tisdag",
@@ -2284,22 +2039,17 @@ function updateDate() {
         "Torsdag",
         "Fredag",
         "Lördag"
-
     ];
 
 
     dateElement.textContent =
         now.getDate() +
         " " +
-        months[
-            now.getMonth()
-        ];
+        months[now.getMonth()];
 
 
     weekdayElement.textContent =
-        weekdays[
-            now.getDay()
-        ];
+        weekdays[now.getDay()];
 
 
     nameDayElement.textContent =
@@ -2315,7 +2065,7 @@ updateDate();
 
 
 /* =========================================================
-   DAGENS DATUM
+   DAGENS DATUMNYCKEL
 ========================================================= */
 
 function getTodayKey() {
@@ -2324,67 +2074,32 @@ function getTodayKey() {
         new Date();
 
 
-    const year =
-        now.getFullYear();
-
-
-    const month =
+    return (
+        now.getFullYear() +
+        "-" +
         String(
             now.getMonth() + 1
-        ).padStart(
-            2,
-            "0"
-        );
-
-
-    const day =
+        ).padStart(2, "0") +
+        "-" +
         String(
             now.getDate()
-        ).padStart(
-            2,
-            "0"
-        );
-
-
-    return (
-        year +
-        "-" +
-        month +
-        "-" +
-        day
+        ).padStart(2, "0")
     );
 }
 
 
 /* =========================================================
-   ESCAPE
+   ESCAPE HTML
 ========================================================= */
 
-function escapeHtml(
-    text
-) {
+function escapeHtml(text) {
 
-    return text
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 }
 
 
@@ -2413,7 +2128,7 @@ function showMessage(
 
 
     setTimeout(
-        function() {
+        () => {
 
             messageElement.classList.add(
                 "hidden"
@@ -2423,6 +2138,270 @@ function showMessage(
         3500
     );
 }
+
+
+/* =========================================================
+   DATA FÖR TIDER
+========================================================= */
+
+let allProposals = [];
+
+let allVotes = [];
+
+
+/* =========================================================
+   AKTUELL HUVUDTID
+========================================================= */
+
+let currentSuggestedTime =
+    null;
+
+
+/* =========================================================
+   VÄLJ POPULÄRASTE TID
+========================================================= */
+
+function getPopularProposal() {
+
+    if (
+        !allProposals.length
+    ) {
+
+        return null;
+    }
+
+
+    let best =
+        null;
+
+
+    let bestVotes =
+        -1;
+
+
+    allProposals.forEach(
+        proposal => {
+
+            const yesCount =
+                allVotes.filter(
+                    vote =>
+                        vote.proposal_id ===
+                        proposal.id &&
+                        vote.vote ===
+                        "yes"
+                ).length;
+
+
+            /*
+               Förslagsställaren räknas
+               automatiskt som deltagare
+               på sin egen tid.
+            */
+
+            const memberCount =
+                yesCount + 1;
+
+
+            if (
+                memberCount >
+                bestVotes
+            ) {
+
+                bestVotes =
+                    memberCount;
+
+                best =
+                    proposal;
+            }
+
+        }
+    );
+
+
+    return best;
+}
+
+
+/* =========================================================
+   HUVUDKORTETS TID
+========================================================= */
+
+function updateMainTime() {
+
+    const popular =
+        getPopularProposal();
+
+
+    if (!popular) {
+
+        currentSuggestedTime =
+            null;
+
+
+        mainTimeElement.textContent =
+            "Kom med förslag på tid";
+
+
+        mainTimeElement.classList.add(
+            "proposal-message"
+        );
+
+
+        countdownElement.classList.add(
+            "hidden"
+        );
+
+
+        departureElement.innerHTML =
+            "";
+
+
+        return;
+    }
+
+
+    currentSuggestedTime =
+        String(
+            popular.proposed_time
+        ).substring(
+            0,
+            5
+        );
+
+
+    mainTimeElement.textContent =
+        currentSuggestedTime;
+
+
+    mainTimeElement.classList.remove(
+        "proposal-message"
+    );
+
+
+    countdownElement.classList.remove(
+        "hidden"
+    );
+
+
+    departureElement.innerHTML = `
+
+        <span class="departure-label">
+
+            AVGÅNG
+
+        </span>
+
+        📍 Söder Mälarstrand 77
+
+    `;
+
+
+    updateCountdown();
+}
+
+
+/* =========================================================
+   NEDRÄKNING
+========================================================= */
+
+function updateCountdown() {
+
+    if (
+        !currentSuggestedTime
+    ) {
+
+        countdownElement.classList.add(
+            "hidden"
+        );
+
+        return;
+    }
+
+
+    const now =
+        new Date();
+
+
+    const parts =
+        currentSuggestedTime
+            .split(":");
+
+
+    const departure =
+        new Date();
+
+
+    departure.setHours(
+        Number(parts[0]),
+        Number(parts[1]),
+        0,
+        0
+    );
+
+
+    const difference =
+        departure.getTime() -
+        now.getTime();
+
+
+    if (
+        difference <= 0
+    ) {
+
+        countdownElement.textContent =
+            "00:00:00 kvar";
+
+        return;
+    }
+
+
+    const totalSeconds =
+        Math.floor(
+            difference / 1000
+        );
+
+
+    const hours =
+        Math.floor(
+            totalSeconds / 3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                totalSeconds % 3600
+            ) / 60
+        );
+
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    countdownElement.textContent =
+        String(hours).padStart(
+            2,
+            "0"
+        ) +
+        ":" +
+        String(minutes).padStart(
+            2,
+            "0"
+        ) +
+        ":" +
+        String(seconds).padStart(
+            2,
+            "0"
+        ) +
+        " kvar";
+}
+
+
+setInterval(
+    updateCountdown,
+    1000
+);
 
 
 /* =========================================================
@@ -2468,9 +2447,8 @@ function renderPeople(
 
 
     peopleElement.innerHTML =
-
         signups.map(
-            function(person) {
+            person => {
 
                 const name =
                     escapeHtml(
@@ -2487,28 +2465,49 @@ function renderPeople(
                     );
 
 
-                let time =
+                const joinedProposal =
+                    allVotes.find(
+                        vote =>
+                            vote.name
+                                .toLowerCase()
+                                .trim() ===
+                            person.name
+                                .toLowerCase()
+                                .trim() &&
+                            vote.vote ===
+                            "yes"
+                    );
+
+
+                let timeText =
                     "Anmäld";
 
 
                 if (
-                    person.created_at
+                    joinedProposal
                 ) {
 
-                    time =
-                        "Anmäld " +
-                        new Date(
-                            person.created_at
-                        ).toLocaleTimeString(
-                            "sv-SE",
-                            {
-                                hour:
-                                    "2-digit",
-
-                                minute:
-                                    "2-digit"
-                            }
+                    const proposal =
+                        allProposals.find(
+                            item =>
+                                item.id ===
+                                joinedProposal.proposal_id
                         );
+
+
+                    if (
+                        proposal
+                    ) {
+
+                        timeText =
+                            "👍 Med " +
+                            String(
+                                proposal.proposed_time
+                            ).substring(
+                                0,
+                                5
+                            );
+                    }
                 }
 
 
@@ -2534,7 +2533,7 @@ function renderPeople(
 
                             <div class="person-time">
 
-                                ${time}
+                                ${timeText}
 
                             </div>
 
@@ -2543,92 +2542,59 @@ function renderPeople(
                     </div>
 
                 `;
-
             }
         ).join("");
 }
 
 
 /* =========================================================
-   HÄMTA DAGENS DELTAGARE
+   HÄMTA DELTAGARE
 ========================================================= */
 
 async function loadSignups() {
 
-    try {
-
-        const today =
-            getTodayKey();
-
-
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
-
-            .from(
-                "walk_signups"
-            )
-
-            .select(
-                "*"
-            )
-
-            .eq(
-                "date_key",
-                today
-            )
-
-            .order(
-                "created_at",
-                {
-                    ascending:
-                        true
-                }
-            );
-
-
-        if (
-            error
-        ) {
-
-            console.error(
-                error
-            );
-
-
-            statusElement.textContent =
-                "Kunde inte läsa listan";
-
-
-            return;
-        }
-
-
-        renderPeople(
-            data || []
+    const {
+        data,
+        error
+    } =
+    await supabaseClient
+        .from("walk_signups")
+        .select("*")
+        .eq(
+            "date_key",
+            getTodayKey()
+        )
+        .order(
+            "created_at",
+            {
+                ascending: true
+            }
         );
 
 
-        statusElement.textContent =
-            "Uppdaterad nyss";
-
-
-    }
-
-    catch (
-        error
-    ) {
+    if (error) {
 
         console.error(
+            "Deltagarfel:",
             error
         );
 
 
         statusElement.textContent =
-            "Anslutningsfel";
+            "Kunde inte läsa listan";
+
+
+        return;
     }
+
+
+    renderPeople(
+        data || []
+    );
+
+
+    statusElement.textContent =
+        "Uppdaterad nyss";
 }
 
 
@@ -2636,7 +2602,7 @@ async function loadSignups() {
    ANMÄLAN
 ========================================================= */
 
-form.addEventListener(
+signupForm.addEventListener(
     "submit",
     async function(event) {
 
@@ -2647,21 +2613,14 @@ form.addEventListener(
             nameInput.value.trim();
 
 
-        if (
-            !name
-        ) {
-
-            showMessage(
-                "Skriv ditt namn först.",
-                true
-            );
+        if (!name) {
 
             return;
         }
 
 
         const button =
-            form.querySelector(
+            signupForm.querySelector(
                 "button"
             );
 
@@ -2674,49 +2633,43 @@ form.addEventListener(
             "Anmäler…";
 
 
-        try {
+        const {
+            error
+        } =
+        await supabaseClient
+            .from("walk_signups")
+            .insert([
+                {
+                    date_key:
+                        getTodayKey(),
 
-            const {
+                    name:
+                        name
+                }
+            ]);
+
+
+        if (error) {
+
+            console.error(
                 error
-            } =
-            await supabaseClient
-
-                .from(
-                    "walk_signups"
-                )
-
-                .insert([
-                    {
-                        date_key:
-                            getTodayKey(),
-
-                        name:
-                            name
-                    }
-                ]);
+            );
 
 
-            if (
-                error
-            ) {
-
-                console.error(
-                    error
-                );
+            showMessage(
+                "Kunde inte anmäla dig.",
+                true
+            );
 
 
-                showMessage(
-                    "Kunde inte anmäla dig.",
-                    true
-                );
-
-
-                return;
-            }
-
+        } else {
 
             nameInput.value =
                 "";
+
+
+            proposalName.value =
+                name;
 
 
             showMessage(
@@ -2725,43 +2678,1042 @@ form.addEventListener(
 
 
             await loadSignups();
-
-
         }
 
-        catch (
-            error
+
+        button.disabled =
+            false;
+
+
+        button.textContent =
+            "Häng med";
+    }
+);
+
+
+/* =========================================================
+   TIDSFÖRSLAG
+========================================================= */
+
+proposalForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            proposalName.value.trim();
+
+
+        const time =
+            proposalTime.value;
+
+
+        if (
+            !name ||
+            !time
         ) {
 
+            showMessage(
+                "Fyll i namn och tid.",
+                true
+            );
+
+
+            return;
+        }
+
+
+        const button =
+            proposalForm.querySelector(
+                "button"
+            );
+
+
+        button.disabled =
+            true;
+
+
+        button.textContent =
+            "Skickar…";
+
+
+        const {
+            data,
+            error
+        } =
+        await supabaseClient
+            .from("walk_time_proposals")
+            .insert([
+                {
+                    date_key:
+                        getTodayKey(),
+
+                    name:
+                        name,
+
+                    proposed_time:
+                        time
+                }
+            ])
+            .select()
+            .single();
+
+
+        if (error) {
+
             console.error(
+                "Förslagsfel:",
                 error
             );
 
 
             showMessage(
-                "Något gick fel.",
+                "Kunde inte skapa tidsförslaget.",
                 true
             );
 
 
+        } else {
+
+            proposalTime.value =
+                "";
+
+
+            showMessage(
+                "Tiden är föreslagen! 🕚"
+            );
+
+
+            await loadProposals();
         }
 
-        finally {
 
-            button.disabled =
+        button.disabled =
+            false;
+
+
+        button.textContent =
+            "Föreslå tid";
+    }
+);
+
+
+/* =========================================================
+   HÄMTA FÖRSLAG + RÖSTER
+========================================================= */
+
+async function loadProposals() {
+
+    const {
+        data: proposals,
+        error: proposalError
+    } =
+    await supabaseClient
+        .from("walk_time_proposals")
+        .select("*")
+        .eq(
+            "date_key",
+            getTodayKey()
+        )
+        .order(
+            "created_at",
+            {
+                ascending: true
+            }
+        );
+
+
+    if (proposalError) {
+
+        console.error(
+            proposalError
+        );
+
+
+        return;
+    }
+
+
+    allProposals =
+        proposals || [];
+
+
+    const ids =
+        allProposals.map(
+            proposal =>
+                proposal.id
+        );
+
+
+    if (!ids.length) {
+
+        allVotes =
+            [];
+
+
+        renderProposals();
+
+
+        updateMainTime();
+
+
+        await loadSignups();
+
+
+        return;
+    }
+
+
+    const {
+        data: votes,
+        error: voteError
+    } =
+    await supabaseClient
+        .from("walk_time_votes")
+        .select("*")
+        .in(
+            "proposal_id",
+            ids
+        );
+
+
+    if (voteError) {
+
+        console.error(
+            voteError
+        );
+
+
+        return;
+    }
+
+
+    allVotes =
+        votes || [];
+
+
+    renderProposals();
+
+
+    updateMainTime();
+
+
+    await loadSignups();
+}
+
+
+/* =========================================================
+   VISA TIDSFÖRSLAG
+========================================================= */
+
+function renderProposals() {
+
+    if (
+        !allProposals.length
+    ) {
+
+        proposalList.innerHTML = `
+
+            <div class="no-proposals">
+
+                Ingen tid föreslagen ännu.
+
+            </div>
+
+        `;
+
+
+        return;
+    }
+
+
+    const popular =
+        getPopularProposal();
+
+
+    proposalList.innerHTML =
+        allProposals.map(
+            proposal => {
+
+                const time =
+                    String(
+                        proposal.proposed_time
+                    ).substring(
+                        0,
+                        5
+                    );
+
+
+                const yesVotes =
+                    allVotes.filter(
+                        vote =>
+                            vote.proposal_id ===
+                            proposal.id &&
+                            vote.vote ===
+                            "yes"
+                    );
+
+
+                /*
+                   Förslagsställaren räknas
+                   som första deltagare.
+                */
+
+                const names = [
+                    proposal.name,
+                    ...yesVotes.map(
+                        vote =>
+                            vote.name
+                    )
+                ];
+
+
+                /*
+                   Ta bort dubbletter.
+                */
+
+                const uniqueNames =
+                    [
+                        ...new Map(
+                            names.map(
+                                name => [
+                                    name
+                                        .toLowerCase()
+                                        .trim(),
+                                    name
+                                ]
+                            )
+                        ).values()
+                    ];
+
+
+                const memberCount =
+                    uniqueNames.length;
+
+
+                const isPopular =
+                    popular &&
+                    popular.id ===
+                    proposal.id;
+
+
+                const chips =
+                    uniqueNames.map(
+                        name => `
+
+                            <span
+                                class="member-chip">
+
+                                ${escapeHtml(
+                                    name
+                                )}
+
+                            </span>
+
+                        `
+                    ).join("");
+
+
+                return `
+
+                    <div
+                        class="proposal
+                        ${isPopular
+                            ? "popular"
+                            : ""}">
+
+                        ${
+                            isPopular
+                                ? `
+                                    <div
+                                        class="popular-badge">
+
+                                        ⭐ POPULÄRAST
+
+                                    </div>
+                                  `
+                                : ""
+                        }
+
+
+                        <div class="proposal-top">
+
+                            <div>
+
+                                <div
+                                    class="proposal-time">
+
+                                    ${time}
+
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="proposal-person">
+
+                                Föreslagen av<br>
+
+                                <strong>
+
+                                    ${escapeHtml(
+                                        proposal.name
+                                    )}
+
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="proposal-members">
+
+                            ${chips}
+
+                        </div>
+
+
+                        <div class="proposal-bottom">
+
+                            <div
+                                class="member-count">
+
+                                👍 ${memberCount}
+                                ${
+                                    memberCount === 1
+                                        ? "person"
+                                        : "personer"
+                                }
+
+                            </div>
+
+
+                            <button
+                                class="join-button"
+                                type="button"
+                                data-proposal-id="${proposal.id}">
+
+                                👍 Jag är med
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+            }
+        ).join("");
+
+
+    document
+        .querySelectorAll(
+            ".join-button"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        openJoinModal(
+                            this.dataset.proposalId
+                        );
+
+                    }
+                );
+
+            }
+        );
+}
+
+
+/* =========================================================
+   JOIN MODAL
+========================================================= */
+
+let selectedProposalId =
+    null;
+
+
+const joinModal =
+    document.getElementById(
+        "joinModal"
+    );
+
+
+const joinTime =
+    document.getElementById(
+        "joinTime"
+    );
+
+
+const joinName =
+    document.getElementById(
+        "joinName"
+    );
+
+
+const joinConfirm =
+    document.getElementById(
+        "joinConfirm"
+    );
+
+
+const joinCancel =
+    document.getElementById(
+        "joinCancel"
+    );
+
+
+function openJoinModal(
+    proposalId
+) {
+
+    const proposal =
+        allProposals.find(
+            item =>
+                String(item.id) ===
+                String(proposalId)
+        );
+
+
+    if (!proposal) {
+        return;
+    }
+
+
+    selectedProposalId =
+        proposalId;
+
+
+    joinTime.textContent =
+        String(
+            proposal.proposed_time
+        ).substring(
+            0,
+            5
+        );
+
+
+    joinName.value =
+        nameInput.value.trim() ||
+        proposalName.value.trim();
+
+
+    joinModal.classList.remove(
+        "hidden"
+    );
+
+
+    setTimeout(
+        () => {
+
+            joinName.focus();
+
+        },
+        150
+    );
+}
+
+
+function closeJoinModal() {
+
+    joinModal.classList.add(
+        "hidden"
+    );
+
+
+    selectedProposalId =
+        null;
+}
+
+
+joinCancel.addEventListener(
+    "click",
+    closeJoinModal
+);
+
+
+/* =========================================================
+   GÅ MED PÅ TID
+========================================================= */
+
+joinConfirm.addEventListener(
+    "click",
+    async function() {
+
+        const name =
+            joinName.value.trim();
+
+
+        if (
+            !name ||
+            !selectedProposalId
+        ) {
+
+            return;
+        }
+
+
+        joinConfirm.disabled =
+            true;
+
+
+        joinConfirm.textContent =
+            "Ansluter…";
+
+
+        try {
+
+            /*
+               Kontrollera om personen
+               redan har en JA-röst.
+            */
+
+            const {
+                data: existingVotes,
+                error: existingError
+            } =
+            await supabaseClient
+                .from("walk_time_votes")
+                .select("*")
+                .eq(
+                    "name",
+                    name
+                )
+                .eq(
+                    "vote",
+                    "yes"
+                );
+
+
+            if (existingError) {
+                throw existingError;
+            }
+
+
+            /*
+               Om personen redan valt en annan
+               tid flyttas rösten till den nya.
+            */
+
+            if (
+                existingVotes &&
+                existingVotes.length
+            ) {
+
+                const ids =
+                    existingVotes.map(
+                        vote =>
+                            vote.id
+                    );
+
+
+                const {
+                    error
+                } =
+                await supabaseClient
+                    .from("walk_time_votes")
+                    .delete()
+                    .in(
+                        "id",
+                        ids
+                    );
+
+
+                if (error) {
+                    throw error;
+                }
+            }
+
+
+            /*
+               Kontrollera om personen redan
+               har röstat på denna tid.
+            */
+
+            const {
+                data: currentVote,
+                error: currentVoteError
+            } =
+            await supabaseClient
+                .from("walk_time_votes")
+                .select("*")
+                .eq(
+                    "proposal_id",
+                    selectedProposalId
+                )
+                .eq(
+                    "name",
+                    name
+                )
+                .maybeSingle();
+
+
+            if (currentVoteError) {
+                throw currentVoteError;
+            }
+
+
+            if (currentVote) {
+
+                const {
+                    error
+                } =
+                await supabaseClient
+                    .from("walk_time_votes")
+                    .update({
+                        vote:
+                            "yes"
+                    })
+                    .eq(
+                        "id",
+                        currentVote.id
+                    );
+
+
+                if (error) {
+                    throw error;
+                }
+
+
+            } else {
+
+                const {
+                    error
+                } =
+                await supabaseClient
+                    .from("walk_time_votes")
+                    .insert([
+                        {
+                            proposal_id:
+                                selectedProposalId,
+
+                            name:
+                                name,
+
+                            vote:
+                                "yes"
+                        }
+                    ]);
+
+
+                if (error) {
+                    throw error;
+                }
+            }
+
+
+            /*
+               Lägg samtidigt till personen
+               i den vanliga deltagarlistan
+               om namnet inte redan finns idag.
+            */
+
+            const {
+                data: existingSignup,
+                error: signupCheckError
+            } =
+            await supabaseClient
+                .from("walk_signups")
+                .select("id")
+                .eq(
+                    "date_key",
+                    getTodayKey()
+                )
+                .eq(
+                    "name",
+                    name
+                )
+                .maybeSingle();
+
+
+            if (signupCheckError) {
+                throw signupCheckError;
+            }
+
+
+            if (!existingSignup) {
+
+                const {
+                    error
+                } =
+                await supabaseClient
+                    .from("walk_signups")
+                    .insert([
+                        {
+                            date_key:
+                                getTodayKey(),
+
+                            name:
+                                name
+                        }
+                    ]);
+
+
+                if (error) {
+                    throw error;
+                }
+            }
+
+
+            nameInput.value =
+                name;
+
+
+            proposalName.value =
+                name;
+
+
+            closeJoinModal();
+
+
+            showMessage(
+                "Du är med på " +
+                joinTime.textContent +
+                "! 👍"
+            );
+
+
+            await loadProposals();
+
+
+        } catch (error) {
+
+            console.error(
+                "Kunde inte ansluta:",
+                error
+            );
+
+
+            showMessage(
+                "Kunde inte registrera dig.",
+                true
+            );
+
+        } finally {
+
+            joinConfirm.disabled =
                 false;
 
 
-            button.textContent =
-                "Häng med";
+            joinConfirm.textContent =
+                "👍 Jag är med";
         }
+    }
+);
+
+
+/* =========================================================
+   ADMIN
+========================================================= */
+
+const ADMIN_PIN =
+    "1977";
+
+
+const adminTrigger =
+    document.getElementById(
+        "adminTrigger"
+    );
+
+
+const adminModal =
+    document.getElementById(
+        "adminModal"
+    );
+
+
+const resetModal =
+    document.getElementById(
+        "resetModal"
+    );
+
+
+const pinInput =
+    document.getElementById(
+        "pinInput"
+    );
+
+
+const loginButton =
+    document.getElementById(
+        "loginButton"
+    );
+
+
+const cancelButton =
+    document.getElementById(
+        "cancelButton"
+    );
+
+
+const resetButton =
+    document.getElementById(
+        "resetButton"
+    );
+
+
+const resetCancelButton =
+    document.getElementById(
+        "resetCancelButton"
+    );
+
+
+let adminClicks =
+    0;
+
+
+let adminClickTimer =
+    null;
+
+
+adminTrigger.addEventListener(
+    "click",
+    function() {
+
+        adminClicks++;
+
+
+        clearTimeout(
+            adminClickTimer
+        );
+
+
+        adminClickTimer =
+            setTimeout(
+                () => {
+
+                    adminClicks =
+                        0;
+
+                },
+                1000
+            );
+
+
+        if (
+            adminClicks >= 5
+        ) {
+
+            adminClicks =
+                0;
+
+
+            adminModal.classList.remove(
+                "hidden"
+            );
+
+
+            pinInput.value =
+                "";
+
+
+            setTimeout(
+                () => {
+
+                    pinInput.focus();
+
+                },
+                150
+            );
+        }
+    }
+);
+
+
+function closeAdminModal() {
+
+    adminModal.classList.add(
+        "hidden"
+    );
+}
+
+
+loginButton.addEventListener(
+    "click",
+    function() {
+
+        if (
+            pinInput.value ===
+            ADMIN_PIN
+        ) {
+
+            closeAdminModal();
+
+
+            resetModal.classList.remove(
+                "hidden"
+            );
+
+
+        } else {
+
+            pinInput.value =
+                "";
+
+
+            pinInput.placeholder =
+                "Fel PIN";
+
+
+            setTimeout(
+                () => {
+
+                    pinInput.placeholder =
+                        "••••";
+
+                },
+                1500
+            );
+        }
+    }
+);
+
+
+pinInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key ===
+            "Enter"
+        ) {
+
+            loginButton.click();
+
+        }
+    }
+);
+
+
+cancelButton.addEventListener(
+    "click",
+    closeAdminModal
+);
+
+
+resetCancelButton.addEventListener(
+    "click",
+    function() {
+
+        resetModal.classList.add(
+            "hidden"
+        );
 
     }
 );
 
 
 /* =========================================================
-   NOLLSTÄLL DAGENS LISTA
+   NOLLSTÄLL
 ========================================================= */
 
 resetButton.addEventListener(
@@ -2778,40 +3730,121 @@ resetButton.addEventListener(
 
         try {
 
+            /*
+               Hämta dagens förslag.
+            */
+
             const {
-                error
+                data: proposals,
+                error: proposalError
             } =
             await supabaseClient
-
-                .from(
-                    "walk_signups"
-                )
-
-                .delete()
-
+                .from("walk_time_proposals")
+                .select("id")
                 .eq(
                     "date_key",
                     getTodayKey()
                 );
 
 
+            if (proposalError) {
+                throw proposalError;
+            }
+
+
+            /*
+               Ta bort dagens röster.
+            */
+
             if (
-                error
+                proposals &&
+                proposals.length
             ) {
 
-                console.error(
+                const ids =
+                    proposals.map(
+                        proposal =>
+                            proposal.id
+                    );
+
+
+                const {
                     error
-                );
+                } =
+                await supabaseClient
+                    .from("walk_time_votes")
+                    .delete()
+                    .in(
+                        "proposal_id",
+                        ids
+                    );
 
 
-                showMessage(
-                    "Kunde inte nollställa listan.",
-                    true
-                );
-
-
-                return;
+                if (error) {
+                    throw error;
+                }
             }
+
+
+            /*
+               Ta bort dagens tidsförslag.
+            */
+
+            const {
+                error:
+                    deleteProposalError
+            } =
+            await supabaseClient
+                .from("walk_time_proposals")
+                .delete()
+                .eq(
+                    "date_key",
+                    getTodayKey()
+                );
+
+
+            if (deleteProposalError) {
+                throw deleteProposalError;
+            }
+
+
+            /*
+               Ta bort dagens deltagare.
+            */
+
+            const {
+                error:
+                    deleteSignupError
+            } =
+            await supabaseClient
+                .from("walk_signups")
+                .delete()
+                .eq(
+                    "date_key",
+                    getTodayKey()
+                );
+
+
+            if (deleteSignupError) {
+                throw deleteSignupError;
+            }
+
+
+            allProposals =
+                [];
+
+
+            allVotes =
+                [];
+
+
+            updateMainTime();
+
+
+            renderProposals();
+
+
+            await loadSignups();
 
 
             resetModal.classList.add(
@@ -2819,34 +3852,25 @@ resetButton.addEventListener(
             );
 
 
-            await loadSignups();
-
-
             showMessage(
                 "Dagens lista är nollställd."
             );
 
 
-        }
-
-        catch (
-            error
-        ) {
+        } catch (error) {
 
             console.error(
+                "Nollställning misslyckades:",
                 error
             );
 
 
             showMessage(
-                "Något gick fel.",
+                "Kunde inte nollställa listan.",
                 true
             );
 
-
-        }
-
-        finally {
+        } finally {
 
             resetButton.disabled =
                 false;
@@ -2855,13 +3879,12 @@ resetButton.addEventListener(
             resetButton.textContent =
                 "🗑 Nollställ dagens lista";
         }
-
     }
 );
 
 
 /* =========================================================
-   GPS-VARIABLER
+   GPS
 ========================================================= */
 
 let gpsWatchId =
@@ -2888,11 +3911,6 @@ let totalDistanceMeters =
 let liveTimer =
     null;
 
-
-/* =========================================================
-   KARTA
-========================================================= */
-
 let map =
     null;
 
@@ -2904,72 +3922,6 @@ let startMarker =
 
 let endMarker =
     null;
-
-
-/* =========================================================
-   INITIERA KARTA
-========================================================= */
-
-function initMap(
-    latitude,
-    longitude
-) {
-
-    if (
-        map
-    ) {
-
-        map.remove();
-
-    }
-
-
-    map =
-        L.map(
-            "map"
-        );
-
-
-    L.tileLayer(
-        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        {
-            maxZoom:
-                19,
-
-            attribution:
-                '&copy; OpenStreetMap'
-        }
-    ).addTo(
-        map
-    );
-
-
-    map.setView(
-        [
-            latitude,
-            longitude
-        ],
-        16
-    );
-
-
-    routeLine =
-        L.polyline(
-            [],
-            {
-                color:
-                    "#caff00",
-
-                weight:
-                    6,
-
-                opacity:
-                    .9
-            }
-        ).addTo(
-            map
-        );
-}
 
 
 /* =========================================================
@@ -3020,26 +3972,12 @@ function distanceBetween(
     const a =
         Math.sin(
             deltaLat / 2
-        ) *
-        Math.sin(
-            deltaLat / 2
-        ) +
-
-        Math.cos(
-            lat1Rad
-        ) *
-
-        Math.cos(
-            lat2Rad
-        ) *
-
+        ) ** 2 +
+        Math.cos(lat1Rad) *
+        Math.cos(lat2Rad) *
         Math.sin(
             deltaLon / 2
-        ) *
-
-        Math.sin(
-            deltaLon / 2
-        );
+        ) ** 2;
 
 
     const c =
@@ -3050,10 +3988,63 @@ function distanceBetween(
         );
 
 
-    return (
-        earthRadius *
-        c
+    return earthRadius * c;
+}
+
+
+/* =========================================================
+   KARTA
+========================================================= */
+
+function initMap(
+    latitude,
+    longitude
+) {
+
+    if (map) {
+
+        map.remove();
+    }
+
+
+    map =
+        L.map("map");
+
+
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            maxZoom: 19,
+
+            attribution:
+                "&copy; OpenStreetMap"
+        }
+    ).addTo(map);
+
+
+    map.setView(
+        [
+            latitude,
+            longitude
+        ],
+        16
     );
+
+
+    routeLine =
+        L.polyline(
+            [],
+            {
+                color:
+                    "#caff00",
+
+                weight:
+                    6,
+
+                opacity:
+                    .9
+            }
+        ).addTo(map);
 }
 
 
@@ -3078,12 +4069,16 @@ function handlePosition(
 
 
     if (
-        accuracy >
-        100
+        accuracy > 100
     ) {
 
-        gpsText.textContent =
+        document
+            .getElementById(
+                "gpsText"
+            )
+            .textContent =
             "GPS-signal svag";
+
 
         return;
     }
@@ -3098,17 +4093,15 @@ function handlePosition(
             longitude,
 
         timestamp:
-            new Date().toISOString(),
+            new Date()
+                .toISOString(),
 
         accuracy:
             accuracy
-
     };
 
 
-    if (
-        lastPosition
-    ) {
+    if (lastPosition) {
 
         const addedDistance =
             distanceBetween(
@@ -3120,15 +4113,12 @@ function handlePosition(
 
 
         if (
-            addedDistance <
-            100
+            addedDistance < 100
         ) {
 
             totalDistanceMeters +=
                 addedDistance;
-
         }
-
     }
 
 
@@ -3141,9 +4131,16 @@ function handlePosition(
     );
 
 
-    if (
-        routeLine
-    ) {
+    if (!map) {
+
+        initMap(
+            latitude,
+            longitude
+        );
+    }
+
+
+    if (routeLine) {
 
         routeLine.addLatLng(
             [
@@ -3160,23 +4157,12 @@ function handlePosition(
             ],
             map.getZoom()
         );
-
     }
 
 
     if (
-        gpsPoints.length ===
-        1
+        gpsPoints.length === 1
     ) {
-
-        if (
-            startMarker
-        ) {
-
-            startMarker.remove();
-
-        }
-
 
         startMarker =
             L.marker(
@@ -3185,33 +4171,40 @@ function handlePosition(
                     longitude
                 ]
             )
-            .addTo(
-                map
-            )
+            .addTo(map)
             .bindPopup(
-                "Start"
+                "🚶 Start"
             );
-
     }
 
 
-    liveDistance.textContent =
+    document
+        .getElementById(
+            "liveDistance"
+        )
+        .textContent =
         (
             totalDistanceMeters /
             1000
-        ).toFixed(2)
-        .replace(
-            ".",
-            ","
-        ) +
+        )
+        .toFixed(2)
+        .replace(".", ",") +
         " km";
 
 
-    livePoints.textContent =
+    document
+        .getElementById(
+            "livePoints"
+        )
+        .textContent =
         gpsPoints.length;
 
 
-    gpsText.textContent =
+    document
+        .getElementById(
+            "gpsText"
+        )
+        .textContent =
         "GPS aktiv";
 }
 
@@ -3230,14 +4223,25 @@ function handleGpsError(
     );
 
 
+    const gpsText =
+        document.getElementById(
+            "gpsText"
+        );
+
+
+    const gpsDot =
+        document.getElementById(
+            "gpsDot"
+        );
+
+
     gpsDot.classList.remove(
         "active"
     );
 
 
     if (
-        error.code ===
-        1
+        error.code === 1
     ) {
 
         gpsText.textContent =
@@ -3249,40 +4253,33 @@ function handleGpsError(
             true
         );
 
-    }
 
-    else if (
-        error.code ===
-        2
+    } else if (
+        error.code === 2
     ) {
 
         gpsText.textContent =
             "GPS-position saknas";
 
-    }
 
-    else if (
-        error.code ===
-        3
+    } else if (
+        error.code === 3
     ) {
 
         gpsText.textContent =
             "GPS tog för lång tid";
 
-    }
 
-    else {
+    } else {
 
         gpsText.textContent =
             "GPS-fel";
-
     }
-
 }
 
 
 /* =========================================================
-   STARTA GPS
+   START GPS
 ========================================================= */
 
 function startGps() {
@@ -3292,7 +4289,7 @@ function startGps() {
     ) {
 
         showMessage(
-            "Den här telefonen stöder inte GPS i webbläsaren.",
+            "Telefonen stöder inte GPS.",
             true
         );
 
@@ -3313,30 +4310,59 @@ function startGps() {
         null;
 
 
-    liveDistance.textContent =
+    map =
+        null;
+
+
+    routeLine =
+        null;
+
+
+    startMarker =
+        null;
+
+
+    endMarker =
+        null;
+
+
+    document
+        .getElementById(
+            "liveDistance"
+        )
+        .textContent =
         "0,00 km";
 
 
-    livePoints.textContent =
+    document
+        .getElementById(
+            "livePoints"
+        )
+        .textContent =
         "0";
 
 
-    gpsDot.classList.add(
-        "active"
-    );
+    document
+        .getElementById(
+            "gpsDot"
+        )
+        .classList.add(
+            "active"
+        );
 
 
-    gpsText.textContent =
+    document
+        .getElementById(
+            "gpsText"
+        )
+        .textContent =
         "Söker GPS…";
 
 
     gpsWatchId =
         navigator.geolocation.watchPosition(
-
             handlePosition,
-
             handleGpsError,
-
             {
                 enableHighAccuracy:
                     true,
@@ -3347,7 +4373,6 @@ function startGps() {
                 timeout:
                     15000
             }
-
         );
 
 
@@ -3369,31 +4394,37 @@ function stopGps() {
             gpsWatchId
         );
 
+
         gpsWatchId =
             null;
     }
 
 
-    gpsDot.classList.remove(
-        "active"
-    );
+    document
+        .getElementById(
+            "gpsDot"
+        )
+        .classList.remove(
+            "active"
+        );
 
 
-    gpsText.textContent =
+    document
+        .getElementById(
+            "gpsText"
+        )
+        .textContent =
         "GPS avslutad";
 }
 
 
 /* =========================================================
-   PROMENADTID
+   LIVE-TID
 ========================================================= */
 
 function updateLiveTimer() {
 
-    if (
-        !walkStartTime
-    ) {
-
+    if (!walkStartTime) {
         return;
     }
 
@@ -3405,35 +4436,35 @@ function updateLiveTimer() {
 
     const minutes =
         Math.floor(
-            elapsed /
-            60000
+            elapsed / 60000
         );
 
 
     const seconds =
         Math.floor(
             (
-                elapsed %
-                60000
-            ) /
-            1000
+                elapsed % 60000
+            ) / 1000
         );
 
 
-    liveDuration.textContent =
+    document
+        .getElementById(
+            "liveDuration"
+        )
+        .textContent =
         minutes +
         ":" +
-        String(
-            seconds
-        ).padStart(
-            2,
-            "0"
-        );
+        String(seconds)
+            .padStart(
+                2,
+                "0"
+            );
 }
 
 
 /* =========================================================
-   SPARA GPS
+   SPARA RUTT
 ========================================================= */
 
 async function saveRoute() {
@@ -3455,8 +4486,7 @@ async function saveRoute() {
             (
                 finishedAt -
                 walkStartTime
-            ) /
-            1000
+            ) / 1000
         );
 
 
@@ -3465,22 +4495,19 @@ async function saveRoute() {
         error
     } =
     await supabaseClient
-
-        .from(
-            "walk_routes"
-        )
-
+        .from("walk_routes")
         .insert([
             {
-
                 walk_date:
                     getTodayKey(),
 
                 started_at:
-                    walkStartTime.toISOString(),
+                    walkStartTime
+                        .toISOString(),
 
                 finished_at:
-                    finishedAt.toISOString(),
+                    finishedAt
+                        .toISOString(),
 
                 distance_meters:
                     Math.round(
@@ -3492,23 +4519,12 @@ async function saveRoute() {
 
                 route:
                     gpsPoints
-
             }
-
         ])
-
         .select();
 
 
-    if (
-        error
-    ) {
-
-        console.error(
-            error
-        );
-
-
+    if (error) {
         throw error;
     }
 
@@ -3520,7 +4536,6 @@ async function saveRoute() {
 
         walkRouteId =
             data[0].id;
-
     }
 
 
@@ -3529,13 +4544,14 @@ async function saveRoute() {
 
 
 /* =========================================================
-   RITA KARTA
+   SLUTLIG KARTA
 ========================================================= */
 
 function drawFinalRoute() {
 
     if (
-        !gpsPoints.length
+        !gpsPoints.length ||
+        !map
     ) {
 
         return;
@@ -3551,14 +4567,11 @@ function drawFinalRoute() {
         );
 
 
-    if (
-        routeLine
-    ) {
+    if (routeLine) {
 
         routeLine.setLatLngs(
             latLngs
         );
-
     }
 
 
@@ -3572,21 +4585,15 @@ function drawFinalRoute() {
         ];
 
 
-    if (
-        startMarker
-    ) {
+    if (startMarker) {
 
         startMarker.remove();
-
     }
 
 
-    if (
-        endMarker
-    ) {
+    if (endMarker) {
 
         endMarker.remove();
-
     }
 
 
@@ -3597,9 +4604,7 @@ function drawFinalRoute() {
                 first.lng
             ]
         )
-        .addTo(
-            map
-        )
+        .addTo(map)
         .bindPopup(
             "🚶 Start"
         );
@@ -3612,22 +4617,16 @@ function drawFinalRoute() {
                 last.lng
             ]
         )
-        .addTo(
-            map
-        )
+        .addTo(map)
         .bindPopup(
             "🏁 Mål"
         );
 
 
-    const bounds =
+    map.fitBounds(
         L.latLngBounds(
             latLngs
-        );
-
-
-    map.fitBounds(
-        bounds,
+        ),
         {
             padding:
                 [
@@ -3643,9 +4642,27 @@ function drawFinalRoute() {
    STARTA PROMENAD
 ========================================================= */
 
+const startButton =
+    document.getElementById(
+        "startButton"
+    );
+
+
+const liveArea =
+    document.getElementById(
+        "liveArea"
+    );
+
+
+const afterStart =
+    document.getElementById(
+        "afterStart"
+    );
+
+
 startButton.addEventListener(
     "click",
-    async function() {
+    function() {
 
         if (
             walkStarted
@@ -3655,12 +4672,8 @@ startButton.addEventListener(
         }
 
 
-        const gpsStarted =
-            startGps();
-
-
         if (
-            !gpsStarted
+            !startGps()
         ) {
 
             return;
@@ -3702,58 +4715,6 @@ startButton.addEventListener(
                 updateLiveTimer,
                 1000
             );
-
-
-        const waitForMap =
-            setInterval(
-                function() {
-
-                    if (
-                        gpsPoints.length > 0
-                    ) {
-
-                        clearInterval(
-                            waitForMap
-                        );
-
-
-                        initMap(
-                            gpsPoints[0].lat,
-                            gpsPoints[0].lng
-                        );
-
-
-                        gpsPoints.forEach(
-                            function(point) {
-
-                                routeLine.addLatLng(
-                                    [
-                                        point.lat,
-                                        point.lng
-                                    ]
-                                );
-
-                            }
-                        );
-
-                    }
-
-                },
-                500
-            );
-
-
-        setTimeout(
-            function() {
-
-                clearInterval(
-                    waitForMap
-                );
-
-            },
-            30000
-        );
-
     }
 );
 
@@ -3761,6 +4722,12 @@ startButton.addEventListener(
 /* =========================================================
    AVSLUTA PROMENAD
 ========================================================= */
+
+const finishButton =
+    document.getElementById(
+        "finishButton"
+    );
+
 
 finishButton.addEventListener(
     "click",
@@ -3793,6 +4760,7 @@ finishButton.addEventListener(
                 liveTimer
             );
 
+
             liveTimer =
                 null;
         }
@@ -3810,22 +4778,20 @@ finishButton.addEventListener(
                 Math.round(
                     (
                         Date.now() -
-                        walkStartTime.getTime()
-                    ) /
-                    1000
+                        walkStartTime
+                            .getTime()
+                    ) / 1000
                 );
 
 
             const minutes =
                 Math.floor(
-                    durationSeconds /
-                    60
+                    durationSeconds / 60
                 );
 
 
             const seconds =
-                durationSeconds %
-                60;
+                durationSeconds % 60;
 
 
             document
@@ -3833,15 +4799,12 @@ finishButton.addEventListener(
                     "distance"
                 )
                 .textContent =
-
                 (
                     totalDistanceMeters /
                     1000
-                ).toFixed(2)
-                .replace(
-                    ".",
-                    ","
-                ) +
+                )
+                .toFixed(2)
+                .replace(".", ",") +
                 " km";
 
 
@@ -3850,15 +4813,13 @@ finishButton.addEventListener(
                     "duration"
                 )
                 .textContent =
-
                 minutes +
                 ":" +
-                String(
-                    seconds
-                ).padStart(
-                    2,
-                    "0"
-                );
+                String(seconds)
+                    .padStart(
+                        2,
+                        "0"
+                    );
 
 
             document
@@ -3866,17 +4827,17 @@ finishButton.addEventListener(
                     "startTime"
                 )
                 .textContent =
+                walkStartTime
+                    .toLocaleTimeString(
+                        "sv-SE",
+                        {
+                            hour:
+                                "2-digit",
 
-                walkStartTime.toLocaleTimeString(
-                    "sv-SE",
-                    {
-                        hour:
-                            "2-digit",
-
-                        minute:
-                            "2-digit"
-                    }
-                );
+                            minute:
+                                "2-digit"
+                        }
+                    );
 
 
             finishButton.textContent =
@@ -3887,20 +4848,12 @@ finishButton.addEventListener(
                 "Promenaden är avslutad";
 
 
-            gpsText.textContent =
-                "GPS avslutad";
-
-
             showMessage(
                 "Promenaden är sparad! 🗺️"
             );
 
 
-        }
-
-        catch (
-            error
-        ) {
+        } catch (error) {
 
             console.error(
                 error
@@ -3919,23 +4872,19 @@ finishButton.addEventListener(
                 "Kunde inte spara GPS-rutten.",
                 true
             );
-
         }
-
     }
 );
 
 
 /* =========================================================
-   REALTIME DELTAGARE
+   REALTIME
 ========================================================= */
 
 supabaseClient
-
     .channel(
-        "walk-signups"
+        "walk-signups-live"
     )
-
     .on(
         "postgres_changes",
         {
@@ -3948,14 +4897,62 @@ supabaseClient
             table:
                 "walk_signups"
         },
-
-        function() {
+        () => {
 
             loadSignups();
 
         }
     )
+    .subscribe();
 
+
+supabaseClient
+    .channel(
+        "walk-proposals-live"
+    )
+    .on(
+        "postgres_changes",
+        {
+            event:
+                "*",
+
+            schema:
+                "public",
+
+            table:
+                "walk_time_proposals"
+        },
+        () => {
+
+            loadProposals();
+
+        }
+    )
+    .subscribe();
+
+
+supabaseClient
+    .channel(
+        "walk-votes-live"
+    )
+    .on(
+        "postgres_changes",
+        {
+            event:
+                "*",
+
+            schema:
+                "public",
+
+            table:
+                "walk_time_votes"
+        },
+        () => {
+
+            loadProposals();
+
+        }
+    )
     .subscribe();
 
 
@@ -3963,11 +4960,25 @@ supabaseClient
    START
 ========================================================= */
 
+loadProposals();
+
 loadSignups();
 
 
+/*
+   Extra kontroll var femte sekund.
+   Detta gör sidan robust även om Realtime
+   tillfälligt inte uppdaterar.
+*/
+
 setInterval(
     loadSignups,
+    5000
+);
+
+
+setInterval(
+    loadProposals,
     5000
 );
 

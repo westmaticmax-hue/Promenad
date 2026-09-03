@@ -472,7 +472,7 @@ body {
 
 
 /* =========================
-   NYTT TYDLIGT TIDSFÄLT
+   TYDLIGT TIDSFÄLT
 ========================= */
 
 .time-picker {
@@ -1150,7 +1150,7 @@ body {
 
     <div class="hero-sub">
 
-    Häng med på en promenad. 
+    Häng med på en promenad.
 
     </div>
 
@@ -1277,10 +1277,6 @@ id="people">
         placeholder="Ditt namn…"
         required>
 
-
-        <!--
-             TYDLIGT TIDSFÄLT
-        -->
 
         <div
         class="time-picker"
@@ -1745,23 +1741,6 @@ document.getElementById(id);
 
 
 /* =====================================================
-   NAMNSDAGAR
-===================================================== */
-
-const nameDays = {
-
-    "08-25":"LOVISA, LOUISE",
-    "08-26":"ÖSTEN",
-    "08-27":"RAIMOND",
-    "08-28":"MARIANNE",
-    "08-29":"HANS",
-    "08-30":"ALBERT",
-    "08-31":"ARVID"
-
-};
-
-
-/* =====================================================
    DATUM
 ===================================================== */
 
@@ -1799,22 +1778,6 @@ function updateDate() {
 
     ];
 
-    const key =
-
-    String(
-        now.getMonth()+1
-    ).padStart(2,"0")
-
-    +
-
-    "-"
-
-    +
-
-    String(
-        now.getDate()
-    ).padStart(2,"0");
-
 
     $("date").textContent =
 
@@ -1834,18 +1797,99 @@ function updateDate() {
     ];
 
 
-    $("nameDay").textContent =
-
-    "DAGENS NAMN: "
-
-    +
-
-    (
-        nameDays[key]
-        ||
-        "DAGENS NAMN"
-    );
+    loadNameDay();
 }
+
+
+/* =====================================================
+   SVENSK NAMNSDAG
+===================================================== */
+
+async function loadNameDay() {
+
+    const now =
+    new Date();
+
+    const month =
+    now.getMonth() + 1;
+
+    const day =
+    now.getDate();
+
+
+    $("nameDay").textContent =
+    "DAGENS NAMN: …";
+
+
+    try {
+
+        const response =
+        await fetch(
+            `https://namnsdag.tammergard.se/api/v1/on/${month}/${day}?countryCode=SE`,
+            {
+                cache:"no-store"
+            }
+        );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Namnsdags-API svarade inte"
+            );
+        }
+
+
+        const data =
+        await response.json();
+
+
+        if (
+            Array.isArray(data)
+            &&
+            data.length > 0
+        ) {
+
+            const names =
+            data
+            .map(
+                item => item.name
+            )
+            .filter(Boolean)
+            .join(", ");
+
+
+            if (names) {
+
+                $("nameDay").textContent =
+                "DAGENS NAMN: "
+                +
+                names.toUpperCase();
+
+                return;
+            }
+
+        }
+
+
+        throw new Error(
+            "Ingen namnsdag hittades"
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Kunde inte hämta namnsdag:",
+            error
+        );
+
+
+        $("nameDay").textContent =
+        "DAGENS NAMN";
+
+    }
+}
+
 
 updateDate();
 
@@ -2898,11 +2942,6 @@ function openTimePicker() {
     $("proposalTime");
 
 
-    /*
-       showPicker används om
-       webbläsaren stöder det.
-    */
-
     try {
 
         if (
@@ -2924,10 +2963,6 @@ function openTimePicker() {
 
     }
 
-
-    /*
-       Fallback för Safari/iPhone.
-    */
 
     input.focus();
 
@@ -3000,14 +3035,6 @@ $("proposalForm")
         $("proposalTime")
         .value;
 
-
-        /*
-           VIKTIGT:
-           Om tiden saknas öppnas
-           tidväljaren istället för
-           att formuläret bara ger
-           ett fel.
-        */
 
         if (!time) {
 
@@ -3195,11 +3222,6 @@ async function movePersonToProposal(
     proposalId,
     note
 ) {
-
-    /*
-       En person kan bara ha
-       en aktiv tid.
-    */
 
     const {
         error:deleteError
@@ -3460,11 +3482,6 @@ async function removePersonData(
     name
 ) {
 
-    /*
-       Hitta personens egna
-       tidsförslag.
-    */
-
     const {
         data:ownProposals,
         error
@@ -3497,10 +3514,6 @@ async function removePersonData(
     );
 
 
-    /*
-       Ta bort personens röster.
-    */
-
     const {
         error:voteError
     } =
@@ -3520,10 +3533,6 @@ async function removePersonData(
         throw voteError;
     }
 
-
-    /*
-       Ta bort personen.
-    */
 
     const {
         error:signupError
@@ -3548,11 +3557,6 @@ async function removePersonData(
         throw signupError;
     }
 
-
-    /*
-       Ta bort personens tidsförslag
-       om ingen längre använder dem.
-    */
 
     for (
         const proposalId
